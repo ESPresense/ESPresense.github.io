@@ -1,0 +1,65 @@
+---
+layout: page
+title: Install
+permalink: /install
+---
+
+  <div class="entry">
+    <h2 id="prerequisites">Prerequisites</h2>
+<p>You’re going to need the following items:</p>
+<ul>
+  <li><a href="./hardware">ESP32</a></li>
+  <li><a href="./beacons">Tracking Beacons</a></li>
+</ul>
+
+<h2 id="browser-based-usb-install">Browser based USB install</h2>
+
+<p>Just press the install button below with your device connected via usb</p>
+
+<script type="module" src="https://unpkg.com/esp-web-tools@3.6.0/dist/web/install-button.js?module"></script>
+
+<select>
+  <optgroup label="Generic ESP32">
+    <option value="{{ site.download }}/esp32.json">
+      ESP32
+    </option>
+    <option value="{{ site.download }}/esp32-noupdate.json">
+      ESP32 - No Auto Updating
+    </option>
+    <option value="{{ site.download }}/esp32-verbose.json">
+      ESP32 - Verbose Logging
+    </option>
+  </optgroup>
+  <optgroup label="M5Stack Specific">
+    <option value="{{ site.download }}/m5stickc.json">
+      M5StickC - 80x160 Screen
+    </option>
+    <option value="{{ site.download }}/m5stickc-plus.json">
+      M5StickC-Plus - 135x240 Screen
+    </option>
+    <option value="{{ site.download }}/m5atom-matrix.json">
+      M5Atom-Matrix - Led Matrix
+    </option>
+  </optgroup>
+</select>
+
+<esp-web-install-button manifest="{{ site.download }}/esp32.json"></esp-web-install-button>
+<script>
+  const selectEl = document.querySelector("select");
+  const installEl = document.querySelector("esp-web-install-button");
+  installEl.manifest = selectEl.value;
+  selectEl.addEventListener("change", () => {
+    installEl.manifest = selectEl.value;
+  });
+</script>
+
+<p>If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:</p>
+
+<ul>
+  <li>CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a></li>
+  <li>CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a></li>
+</ul>
+
+<h2 id="home-assistant-configuration">Home Assistant Configuration</h2>
+<p>See the page on <a href="./home_assistant">configuring Home Assistant</a>.</p>
+
