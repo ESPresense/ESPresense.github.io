@@ -11,7 +11,7 @@ description: ESP32 based indoor positioning system
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/cover.png
 
-download: https://espresence-release-proxy.terastar.workers.dev/releases/latest/download
+download: /static
 #
 # Flags below are optional
 #
