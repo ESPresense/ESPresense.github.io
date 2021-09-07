@@ -5,7 +5,7 @@ permalink: /beacons
 ---
 
 * [Tiles](https://amzn.to/3h77T5f)
-* [Phones](apps)
+* [Phones](/beacons/apps)
 * BTLE Beacons - Anything that follows the iBeacon or Eddystone standards
 * MiFlora plant sensor
 * MiBand 2 Fitness tracker
