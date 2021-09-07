@@ -4,7 +4,7 @@ title: Android/iOS App based beacons
 permalink: /beacons/apps
 ---
 
-<img src="./images/beacon_scope_android.jpg" style="float:right;margin:24px;width:200px">
+<img src="/images/beacon_scope_android.jpg" style="float:right;margin:24px;width:200px">
 
 It is possible to track your Android phone by installing a simple beacon broadcasting app. I have the best results from the [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) app. You may also want to try [Beacon Simulator](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator), although I've experienced some issues with it.
 
