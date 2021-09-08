@@ -44,6 +44,9 @@ permalink: /install
 </select>
 
 <esp-web-install-button manifest="{{ site.download }}/esp32.json"></esp-web-install-button>
+<br>
+<input type="checkbox" id="erase" name="erase" onchange="toggleErase()">
+<label for="erase"> Clean install (allows you to change settings)</label><br><br>
 <script>
   const selectEl = document.querySelector("select");
   const installEl = document.querySelector("esp-web-install-button");
@@ -51,6 +54,14 @@ permalink: /install
   selectEl.addEventListener("change", () => {
     installEl.manifest = selectEl.value;
   });
+
+  function toggleErase() {
+  if (document.getElementById('erase').checked) {
+    installEl.setAttribute('erase-first','');
+  } else {
+    installEl.removeAttribute('erase-first');
+  }
+}
 </script>
 
 <p>If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:</p>
