@@ -8,7 +8,8 @@ permalink: /beacons
 * [Phones](/beacons/apps)
 * BTLE Beacons - Anything that follows the iBeacon or Eddystone standards
 * MiFlora plant sensor
-* MiBand 2 Fitness tracker
+* MiBand 2 & 5 Fitness tracker
+* Amazfit Bip S
 * [Puck-JS](https://www.espruino.com/Puck.js), if programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2 "An example project to broadcast iBeacon packets")
 
 ## Device ID
