@@ -6,9 +6,21 @@ permalink: /beacons/apps
 
 <img src="/images/beacon_scope_android.jpg" style="float:right;margin:24px;width:200px">
 
-It is possible to track your Android phone by installing a simple beacon broadcasting app. I have the best results from the [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) app. You may also want to try [Beacon Simulator](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator), although I've experienced some issues with it.
+It is possible to track your Android phone by installing a simple beacon broadcasting app.
 
-### Setup
+| App Name         | Tested          | Links                                                                                                                                                                                                       | Notes | 
+| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| Beacon Scope     | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner)                                                                                                                | Standalone App      |
+| Content Cell     | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)                                                                                                                         | Standalone App       |
+| HA Companion App | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant      |
+ 
+
+*Note: This is not an exhaustive list, if you have any futher recommendations or experience with these or any other beacon broadcasting apps and want to contribute please open an issue.*
+ 
+I have the best results from the [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) app. You may also want to try [Beacon Simulator](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator), although I've experienced some issues with it. Home Assistant recently released the ability to broadcast beacons via their [Home Assistant Companion App](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android), this method hasn't been tested throughly but is another option you can try.
+
+
+### Beacon Scope - Setup
 
 You can use any iBeacon UUID in the app. Whatever you choose, ensure that it matches exactly with your entry in the Home Assistant configuration, including both the `major` and `minor` version numbers. An example phone configuration could be:
 
