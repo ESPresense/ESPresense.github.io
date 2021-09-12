@@ -12,7 +12,7 @@ It can be a challenge to troubleshoot problems with tracking a beacon, as the pr
 2. ESP32 collects the broadcast (green arrow)
 3. ESP32 verifies connection to WiFi (orange arrow)
 4. ESP32 verifies connection to MQTT (yellow arrow)
-5. MQTT publishes data to `room_presence` topic (purple arrow)
+5. MQTT publishes data to `espresense` topic (purple arrow)
 6. Home Assistant parses information and reports configured sensorsiot
 
 ## Logging
