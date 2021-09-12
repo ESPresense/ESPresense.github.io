@@ -18,8 +18,8 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 
 ## Prerequisites
 You're going to need the following items:
-* [ESP32](./hardware)
-* [Tracking Hardware](./beacons)
+* [Base Stations](./hardware)
+* [Tracking beacons](./beacons)
 
 ## Installation
 Check out the [installation page](install)

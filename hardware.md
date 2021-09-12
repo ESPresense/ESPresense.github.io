@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Supported Hardware
+title: Base Stations
 permalink: /hardware
 ---
 
