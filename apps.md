@@ -56,7 +56,7 @@ With the release of advanced battery management, Android now has a habit of kill
 
 ### Troubleshooting
 
-See the [troubleshooting page](/troubleshooting) for some strategies to help debug problems.
+If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](/troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
 
 ### Add to the list
 

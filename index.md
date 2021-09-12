@@ -33,7 +33,7 @@ Check out the [installation page](install)
 
 ## Troubleshooting
 
-If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
+If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](/troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
 
 ## Release Notes
 
