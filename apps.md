@@ -4,7 +4,10 @@ title: Android/iOS App based beacons
 permalink: /beacons/apps
 ---
 
-<img src="/images/beacon_scope_android.jpg" style="float:right;margin:24px;width:200px">
+### Why an App?
+
+Both Android and iPhone use a strategy of [Bluetooth MAC address randomization](https://source.android.com/devices/tech/connect/wifi-mac-randomization) to prevent tracking. While this may not be a perfect solution, it means that the publicly-available bluetooth MAC address of your phone won't be consistent to devices with which it has not bee paired. As we're using Bluetooth Low Energy to scan, we don't want to pair the device. Thus, the need for an app to allow us to track.
+
 
 It is possible to track your Android phone by installing a simple beacon broadcasting app.
 
@@ -12,10 +15,11 @@ It is possible to track your Android phone by installing a simple beacon broadca
 |:-----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
 | Beacon Scope     | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner)                                                                                                                | Standalone App |
 | Content Cell     | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)                                                                                                                         | Standalone App |
-| HA Companion App | Limited Testing | [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant |
+| HA Companion App | Limited Testing | [Appstore](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) / [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant |
 
 *Note: This is not an exhaustive list, if you have any futher recommendations or experience with these or any other beacon broadcasting apps and want to contribute please open an issue.*
 
+<img src="/images/beacon_scope_android.jpg" style="float:right;margin:24px;width:200px">
 I have the best results from the [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) app. You may also want to try [Beacon Simulator](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator), although I've experienced some issues with it. Home Assistant recently released the ability to broadcast beacons via their [Home Assistant Companion App](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android), this method hasn't been tested throughly but is another option you can try.
 
 
@@ -40,9 +44,6 @@ and the corresponding Home Assistant configuration would be:
   away_timeout: 15
 ```
 
-### Why an App?
-
-Both Android and iPhone use a strategy of [Bluetooth MAC address randomization](https://source.android.com/devices/tech/connect/wifi-mac-randomization) to prevent tracking. While this may not be a perfect solution, it means that the publicly-available bluetooth MAC address of your phone won't be consistent to devices with which it has not bee paired. As we're using Bluetooth Low Energy to scan, we don't want to pair the device. Thus, the need for an app to allow us to track.
 
 ### Known Issues
 

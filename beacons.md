@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tracking Hardware
+title: Beacons
 permalink: /beacons
 ---
 
