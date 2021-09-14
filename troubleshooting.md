@@ -19,21 +19,21 @@ It can be a challenge to troubleshoot problems with tracking a beacon, as the pr
 
 There are various logs that can help identify the step in the information flow that is the broken link in the chain. If you're submitting an issue, be sure to include the logs that show the problematic behaviour
 
-### Broadcasting
-
-To view the advertisements coming from your beacon, you can use an App on a BLE-enabled device. I recommend using [NRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp) for Android to view all advertised devices in your area. Once you've found the device you're interested in, you can use [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) to connect to and view information about your beacon, which can help in determining the correct setup.
-
-![NRF Scan](./images/nrf_connect_scan.jpg)
-![Beacon Scope Scan](./images/beacon_scope_scan.jpg)
-![Beacon Scope Info](./images/beacon_scope_device_info.jpg)
-
-If you do not see your device advertising, then you know that the problem lies in your beacon device itself, rather than with this project.
-
-### ESP32 WiFi
+### ESP32 via Serial
 
 Your ESP32 will attempt to connect to the wireless network you specified in your configuration file. While disconnected, the on-board status LED (if available) should be lit, in addition to the power LED (which is always on when the ESP32 is powered up).
 
-You can connect to your ESP32 over a USB cable and open a serial monitor (there is one built into PlatformIO, or you can use another serial monitor such as the Arduino IDE or putty on Windows). Reset the device (using the on-board reset button), and watch the messages that are logged. You should see a message indicating that it connected to your WiFi, and the IP address it has been assigned.
+You can connect to your ESP32 over a USB cable and open a serial monitor.
+
+There are quite a few ways to get a terminal:
+
+* [Web Terminal](/terminal) **EASIEST**
+* [PlatformIO](https://diyprojects.io/install-ide-platformio-extension-visual-studio-code-vscode-windows-32-bit-linux/)
+* [Arduino IDE](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-serial-monitor)
+* [Putty on Windows](https://www.techwalla.com/articles/how-to-use-putty-for-a-serial-connection#:~:text=PuTTY%20is%20an%20open%20source,similar%20servers%20for%20remote%20administration.&text=PuTTY%20also%20enables%20you%20to,device%20and%20displaying%20the%20reply.)
+* [minicom on OS X](https://pbxbook.com/other/mac-tty.html)
+
+Reset the device (using the on-board reset button), and watch the messages that are logged. You should see a message indicating that it connected to your WiFi, and the IP address it has been assigned.
 
 ```terminal
 Connecting to WiFi SSID MyNetwork.....192.168.128.132
@@ -78,6 +78,18 @@ If you do not see any information being published to either the status or teleme
 ```terminal
 New client connected from 192.168.1.104 as esp32_d (c1, k60, u'my_mqtt_username').
 ```
+
+### Debug BTLE Advertisements
+
+To view the advertisements coming from your beacon, you can use an App on a BLE-enabled device. One is [NRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp) for Android to view all advertised devices in your area. Once you've found the device you're interested in, you can use [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) to connect to and view information about your beacon, which can help in determining the correct setup.
+
+![NRF Scan](./images/nrf_connect_scan.jpg)
+![Beacon Scope Scan](./images/beacon_scope_scan.jpg)
+![Beacon Scope Info](./images/beacon_scope_device_info.jpg)
+
+If you do not see your device advertising, then you know that the problem lies in your beacon device itself, rather than with this project.
+
+On MacOS X you can use [Bluetility](https://github.com/jnross/Bluetility)
 
 ### Home Assistant
 
