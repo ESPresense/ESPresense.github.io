@@ -6,10 +6,11 @@ permalink: /install
 
 ## Prerequisites
 
-You’re going to need the following items:
+You're going to need the following items:
 
-* [Base Station](./hardware)
-* [Tracking Beacons](./beacons)
+* [Base Stations](./hardware)
+* [Tracking beacons](./beacons)
+* [MQTT Server](https://mosquitto.org/)
 
 ## Steps
 
