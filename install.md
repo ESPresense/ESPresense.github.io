@@ -44,7 +44,7 @@ If the serial port is not showing up, your computer might be missing the drivers
 
 After the flash completed successfully, you should see the SSID you're supposed to connect to in the next step on one of the last lines in the Console window:
 
-
+<img src="/images/esphome-flasher_mac.jpg" style="float:right;left-margin:20px;width:400px">
 
 ### 2. Wifi/MQTT setup on base station
 
