@@ -4,6 +4,10 @@ title: Install
 permalink: /install
 ---
 
+## Getting Started
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7bfW_6130To" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Prerequisites
 
 You're going to need the following items:
@@ -29,9 +33,11 @@ If the serial port is not showing up, your computer might be missing the drivers
 * CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a>
 * CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a>
 
-<img src="/images/captive_portal.png" style="float:right;left-margin:20px;width:400px">
-
 #### 1.2 Manual installation
+
+<div class="clearfix">
+
+<img src="/images/esphome-flasher_mac.jpg" class="clearfix" style="float:right;margin-left:20px;width:400px">
 
 - Download the <a href="https://github.com/ESPresense/ESPresense/releases">latest released firmware</a> for your ESP device
 - Download one of the following tools to write the firmware to your ESP device:
@@ -41,12 +47,19 @@ If the serial port is not showing up, your computer might be missing the drivers
 - Select the appropiate serial port (should be automatically detected)
 - Click "View Logs"
 - Start flashing via the "Flash ESP" button
+<br class="clearfix">
 
 After the flash completed successfully, you should see the SSID you're supposed to connect to in the next step on one of the last lines in the Console window:
 
-<img src="/images/esphome-flasher_mac.jpg" style="float:right;left-margin:20px;width:400px">
+
+
+</div>
 
 ### 2. Wifi/MQTT setup on base station
+
+<div class="clearfix">
+
+<img src="/images/captive_portal.png" style="float:right;margin-left:20px;width:400px">
 
 The ESP32 will launch a captive browser (under it's own SSID) on first normal boot after flashing that will allow you to configure:
 
@@ -55,7 +68,7 @@ The ESP32 will launch a captive browser (under it's own SSID) on first normal bo
 * Room name
 * Discovery distance
 
-<br style="clear:both;">
+</div>
 
 ### 3. Configure Home Assistant
 
