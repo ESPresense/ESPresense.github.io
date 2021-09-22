@@ -35,7 +35,7 @@ If the serial port is not showing up, your computer might be missing the drivers
 
 #### 1.2 Manual installation
 
-<div class="clearfix">
+<div class="clearfix"  markdown=1>
 
 <img src="/images/esphome-flasher_mac.jpg" class="clearfix" style="float:right;margin-left:20px;width:400px">
 
@@ -47,17 +47,14 @@ If the serial port is not showing up, your computer might be missing the drivers
 - Select the appropiate serial port (should be automatically detected)
 - Click "View Logs"
 - Start flashing via the "Flash ESP" button
-<br class="clearfix">
 
 After the flash completed successfully, you should see the SSID you're supposed to connect to in the next step on one of the last lines in the Console window:
-
-
 
 </div>
 
 ### 2. Wifi/MQTT setup on base station
 
-<div class="clearfix">
+<div class="clearfix" markdown=1>
 
 <img src="/images/captive_portal.png" style="float:right;margin-left:20px;width:400px">
 
