@@ -1,5 +1,5 @@
 {
-  "name": "ESPresense (noupdate flavor)",
+  "name": "ESPresense (macchina-a0 flavor)",
   "builds": [{
     "chipFamily": "ESP32",
     "improv": false,
@@ -16,7 +16,7 @@
         "offset": 57344
       },
       {
-        "path": "../releases/latest/download/esp32-noupdate.bin",
+        "path": "../releases/latest/download/macchina-a0.bin",
         "offset": 65536
       }
     ]

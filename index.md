@@ -15,7 +15,7 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 * Filters rssi via a 3 value median filter with a Kalman filter on top
 * Fully multithreaded, uses constant BLE scanning
 * Additional [AppDaemon app](https://github.com/ESPresense/ad-espresense-ips) will post process mqtt topics into ips topic (x,y,z) and (latt,long,elevation)
-* Firmware bins released w/ auto-updating (use the -noupdate.bin if you don't want this)
+* Firmware bins released w/ auto-updating (with a preference if you don't want this)
 * WiFi captive portal for setting up
 * Browser based webserial install
 
