@@ -10,14 +10,14 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 
 ## Differences from ESP32-room-assistant
 
+* SUPER Easy Browser based installation
+* Captive portal for easy WiFi setup
+* Home Assistant MQTT Discovery for easy HA configuration
+* Auto-updates by downloading github released bin (with a preference if you don't want this)
 * Uses a fingerprint instead of mac addresses so we can track randomized mac devices (like Apple Watches and iOS devices)
-* Fully supports using Tiles as trackers
 * Filters rssi via a 3 value median filter with a Kalman filter on top
-* Fully multithreaded, uses constant BLE scanning
+* Fully multithreaded, uses constant BLE scanning, doesn't disable wdt (more reliable)
 * Additional [AppDaemon app](https://github.com/ESPresense/ad-espresense-ips) that attempts to solve indoor position (x,y,z) with multiple ESPresense stations using multilateralization.
-* Firmware bins released w/ auto-updating (with a preference if you don't want this)
-* WiFi captive portal for setting up
-* Browser based webserial install
 
 ## Getting Started
 
