@@ -15,7 +15,7 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 * Home Assistant MQTT Discovery for easy HA configuration
 * Auto-updates by downloading github released bin (with a preference if you don't want this)
 * Uses a fingerprint instead of mac addresses so we can track randomized mac devices (like Apple Watches and iOS devices)
-* Filters rssi via a 3 value median filter with a Kalman filter on top
+* Filters measured distance with botah a median prefilter and a Kalman filter (reduces jitter for more accuracy)
 * Fully multithreaded, uses constant BLE scanning, doesn't disable wdt (more reliable)
 * Additional [AppDaemon app](https://github.com/ESPresense/ad-espresense-ips) that attempts to solve indoor position (x,y,z) with multiple ESPresense stations using multilateralization.
 
