@@ -4,11 +4,11 @@ title: Home
 permalink: /
 ---
 
-An ESP32 based presence detection node for use with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/) for localized device presence detection. This is a Fork/rewrite of [ESP32-room-assistant](https://jptrsn.github.io/ESP32-mqtt-room).
+An ESP32 based presence detection node for use with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/) for localized device presence detection. This is a Fork/rewrite of [ESP32-mqtt-room](https://jptrsn.github.io/ESP32-mqtt-room).
 
 ![Beacon Flow](./images/beacon_flow.jpg)
 
-## Differences from ESP32-room-assistant
+## Differences from ESP32-mqtt-room
 
 * SUPER Easy Browser based installation
 * Captive portal for easy WiFi setup
@@ -45,7 +45,8 @@ View the [changelog here](https://github.com/ESPresense/ESPresense/blob/master/C
 
 ## Credits
 
-This depends heavily on the hard work done by a number of people.
+This depends heavily on the hard work done by a number of people:
+
 * **ESP32-room-assistant** [(GitHub)](https://jptrsn.github.io/ESP32-mqtt-room/index.html#credits).  All credit for the intial codebase goes to him!
 * **Web Serial Terminal** [(Github)](https://github.com/rafaelaroca/web-serial-terminal) - Very nice terminal using web serial
 * **pcbreflux** [(GitHub)](https://github.com/pcbreflux) [(YouTube)](https://www.youtube.com/channel/UCvsMfEoIu_ZdBIgQVcY_AZA) - this code takes heavy inspiration from [ESP32_BLE_beaconscan](https://github.com/pcbreflux/espressif/tree/master/esp32/arduino/sketchbook/ESP32_BLE_beaconscan)
@@ -54,5 +55,3 @@ This depends heavily on the hard work done by a number of people.
 * **Benoit Blanchon** [(GitHub)](https://github.com/bblanchon) [(YouTube)](https://www.youtube.com/channel/UC8HZRqN4wfytHfRGMLUQWkQ) - provided the [Arduino JSON library](https://arduinojson.org/)
 * **Me No Dev** [(GitHub)](https://github.com/me-no-dev) - provided the [Async TCP library](https://github.com/me-no-dev/AsyncTCP)
 * **Kyle Gordon** [(GitHub)](https://github.com/kylegordon) - wrote the necessary code for PlatformIO support
-
-
