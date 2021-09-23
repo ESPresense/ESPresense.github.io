@@ -14,6 +14,11 @@ Try any of the following ESP32 based devices to flash:
 * [Huzzah32](https://amzn.to/3n5M1uQ)
 * [ESP32 development board](https://amzn.to/38ECmmy)
 
+USB A to C Cables:
+
+* [16ft 2 pack](https://amzn.to/3zzTTXW)
+* [1ft 6 pack](https://amzn.to/3kyD8Is)
+
 ### Add to the list
 
 If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can [open an issue](https://github.com/ESPresense/ESPresense/issues/new) or just submit a pull request to update the [documentation](https://github.com/ESPresense/ESPresense.github.io) right in the repository!
