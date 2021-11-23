@@ -6,7 +6,7 @@ permalink: /hardware
 
 Try any of the following ESP32 based devices to flash:
 
-* [ATOM Lite ESP32 Development Kit](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit)
+* ATOM Lite [direct](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit) or [digikey](https://www.digikey.com/en/products/detail/m5stack-technology-co-ltd/C008/12088545)
 * [M5Stamp Pico](https://shop.m5stack.com/collections/m5-controllers/products/m5stamp-pico-diy-kit)
 * [M5Stick-C (plus or original)](https://amzn.to/3kQadi0)
 * [D1 Mini ESP32](https://amzn.to/3tlkK8D)
