@@ -12,6 +12,7 @@ Try any of the following ESP32 based devices to flash:
 * [D1 Mini ESP32](https://amzn.to/3tlkK8D)
 * [Huzzah32](https://amzn.to/3n5M1uQ)
 * [ESP32 development board](https://amzn.to/38ECmmy)
+* [LOLIN32 ESP32](https://www.aliexpress.com/item/1005001847767933.html)
 
 USB A to C cables:
 
