@@ -9,11 +9,11 @@ permalink: /beacons
 | Name                | Tested  | Links                                      | Notes                                                                |
 |:--------------------|:-------:|:-------------------------------------------|:---------------------------------------------------------------------|
 |Android Phones       | Yes     |                                            | [Must install an app](/beacons/apps)
-|iPhones              | Yes *    |                                            | [Must use exposure or continuity fingerprints](/beacons/apps)
-|Apple Watches        | Yes *    |                                            | [Must use exposure or continuity fingerprints](/beacons/apps)
+|iPhones              | Yes *   |                                            | [Must use exposure or continuity fingerprints](/beacons/apps)
+|Apple Watches        | Yes *   |                                            | [Must use exposure or continuity fingerprints](/beacons/apps)
 |Tiles                | Yes     | [amazon](https://amzn.to/3h77T5f)          | These work great, but update slower
 |Blue Charm Beacons   | Yes     | [amazon](https://amzn.to/2YGdA3w)          | Configure as iBeacon or eddystone, don't enable both at the same time
-|MiBand               | 2 & 5   | [amazon](https://amzn.to/3E8AJMh)          |
+|MiBand               | 2,5,6   | [amazon](https://amzn.to/3E8AJMh)          |
 |Amazfit Bip S        | Yes     | [amazon](https://amzn.to/3C4DyMK)          |
 |Puck-JS              | Yes     | [espruino](https://www.espruino.com/Puck.js) | If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
 |Generic BTLE Beacons | Yes     |                                            | Anything that follows the iBeacon or Eddystone standards
