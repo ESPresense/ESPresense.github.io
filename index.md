@@ -23,6 +23,10 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7bfW_6130To" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+OR
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p7C2QvmsM8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Prerequisites
 
 You're going to need the following items:
