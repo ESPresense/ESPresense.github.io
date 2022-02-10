@@ -10,6 +10,14 @@
       ESP32 - Verbose Logging
     </option>
   </optgroup>
+  <optgroup label="Generic ESP32 w/ Sensors">
+    <option value="{{ site.download }}/esp32-sensors.json">
+      ESP32
+    </option>
+    <option value="{{ site.download }}/esp32-verbose-sensors.json">
+      ESP32 - Verbose Logging
+    </option>
+  </optgroup>
   <optgroup label="M5Stack Specific">
     <option value="{{ site.download }}/m5stickc.json">
       M5StickC - 80x160 Screen
@@ -18,6 +26,17 @@
       M5StickC-Plus - 135x240 Screen
     </option>
     <option value="{{ site.download }}/m5atom-matrix.json">
+      M5Atom-Matrix - Led Matrix
+    </option>
+  </optgroup>
+  <optgroup label="M5Stack w/ Sensors">
+    <option value="{{ site.download }}/m5stickc-sensors.json">
+      M5StickC - 80x160 Screen
+    </option>
+    <option value="{{ site.download }}/m5stickc-plus-sensors.json">
+      M5StickC-Plus - 135x240 Screen
+    </option>
+    <option value="{{ site.download }}/m5atom-matrix-sensors.json">
       M5Atom-Matrix - Led Matrix
     </option>
   </optgroup>
@@ -31,12 +50,17 @@
       Huzzah32
     </option>
   </optgroup>
+  <optgroup label="Adafruit w/ Sensors">
+    <option value="{{ site.download }}/adafruit-huzzah32-sensors.json">
+      Huzzah32
+    </option>
+  </optgroup>
 </select>
 
 <esp-web-install-button manifest="{{ site.download }}/esp32.json"></esp-web-install-button>
 <br>
 <input type="checkbox" id="erase" name="erase" onchange="toggleErase()">
-<label for="erase"> Clean install (allows you to change settings)</label><br><br>
+<label for="erase"> Clean install (clears all user settings)</label><br><br>
 <script>
   const selectEl = document.querySelector("select");
   const installEl = document.querySelector("esp-web-install-button");
