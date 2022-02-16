@@ -1,9 +1,10 @@
 {
   "name": "ESPresense (m5atom-matrix-sensors flavor)",
+  "new_install_prompt_erase": true,
+
   "builds": [{
     "chipFamily": "ESP32",
     "improv": false,
-    "new_install_prompt_erase": true,
     "parts": [{
         "path": "bootloader_esp32.bin",
         "offset": 4096

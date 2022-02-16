@@ -56,11 +56,7 @@
     </option>
   </optgroup>
 </select>
-
 <esp-web-install-button manifest="{{ site.download }}/esp32.json"></esp-web-install-button>
-<br>
-<input type="checkbox" id="erase" name="erase" onchange="toggleErase()">
-<label for="erase"> Clean install (clears all user settings)</label><br><br>
 <script>
   const selectEl = document.querySelector("select");
   const installEl = document.querySelector("esp-web-install-button");
@@ -68,13 +64,6 @@
   selectEl.addEventListener("change", () => {
     installEl.manifest = selectEl.value;
   });
-
-  function toggleErase() {
-  if (document.getElementById('erase').checked) {
-    installEl.setAttribute('erase-first','');
-  } else {
-    installEl.removeAttribute('erase-first');
-  }
 }
 </script>
 </div>
