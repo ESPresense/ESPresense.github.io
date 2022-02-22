@@ -1,7 +1,7 @@
 <div markdown=0>
 <script type="module" src="https://unpkg.com/esp-web-tools@7.1.0/dist/web/install-button.js?module"></script>
 
-<select>
+<select id="flavor">
   <optgroup label="Generic ESP32">
     <option value="{{ site.download }}/esp32.json">
       ESP32
@@ -58,11 +58,12 @@
 </select>
 <esp-web-install-button manifest="{{ site.download }}/esp32.json"></esp-web-install-button>
 <script>
-  const selectEl = document.querySelector("select");
+  const selectEl = document.querySelector("select#flavor");
   const installEl = document.querySelector("esp-web-install-button");
   installEl.manifest = selectEl.value;
   selectEl.addEventListener("change", () => {
     installEl.manifest = selectEl.value;
+    console.log(installEl.manifest);
   });
 </script>
 </div>
