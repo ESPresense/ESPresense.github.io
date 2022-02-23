@@ -102,3 +102,12 @@ mosquitto_sub -h <mqtt server IP address> -u <my mqtt user> -P <my mqtt password
 ### Query
 
 The newest version allows you to selectively decide which ids you want queried to improve the id.  You can now put "apple:1005:9-12" in the query box and it'll ask the phone for it's model and turn it into "apple:13-3".  BUT if apple:1005:9-12 is working for you reliably it's better just to use that and keep query empty.  The ESP32 has to stop listening while sending out the queries which hurts the reliability of receiving advertisements from devices.
+
+## Info on fingerprinting Apple devices
+
+- https://github.com/furiousMAC/continuity
+- https://i.blackhat.com/eu-19/Thursday/eu-19-Yen-Trust-In-Apples-Secret-Garden-Exploring-Reversing-Apples-Continuity-Protocol-3.pdf
+- https://petsymposium.org/2020/files/papers/issue1/popets-2020-0003.pdf
+- https://arxiv.org/pdf/1703.02874.pdf
+- https://samteplov.com/uploads/shmoocon20/slides.pdf
+
