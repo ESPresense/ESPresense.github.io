@@ -15,6 +15,7 @@ permalink: /beacons
 |Blue Charm Beacons   | Yes     | [amazon](https://amzn.to/2YGdA3w)          | Configure as iBeacon or eddystone, don't enable both at the same time
 |MiBand               | 2,5,6   | [amazon](https://amzn.to/3E8AJMh)          |
 |Amazfit Bip S        | Yes     | [amazon](https://amzn.to/3C4DyMK)          |
+|Amazfit Band 5       | Yes     | [amazon](https://amzn.com/gp/product/B08DKWSVZG)| When using the "[Zepp](https://play.google.com/store/apps/details?id=com.huami.watch.hmwatchmanager)" app, the setting "Discoverable" needs to be turned on. The fingerprint starts with "mifit:".
 |Puck-JS              | Yes     | [espruino](https://www.espruino.com/Puck.js) | If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
 |Generic BTLE Beacons | Yes     |                                            | Anything that follows the iBeacon or Eddystone standards
 |MiFlora plant sensor | Yes *   |                                            | Location only |
