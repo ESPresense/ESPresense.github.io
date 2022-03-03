@@ -19,11 +19,11 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 * Fully multithreaded, uses constant BLE scanning, doesn't disable wdt (more reliable)
 * Additional [AppDaemon app](https://github.com/ESPresense/ad-espresense-ips) that attempts to solve indoor position (x,y,z) with multiple ESPresense stations using multilateralization.
 
-## Getting Started
+## Tutorials
+
+* [ESPresense: Easy Room Detection for Home Assistant](https://blog.briancmoses.com/2022/03/espresense-easy-room-detection-for-home-assistant.html)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7bfW_6130To" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-OR
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p7C2QvmsM8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
