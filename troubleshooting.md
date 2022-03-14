@@ -103,6 +103,10 @@ mosquitto_sub -h <mqtt server IP address> -u <my mqtt user> -P <my mqtt password
 
 The newest version allows you to selectively decide which ids you want queried to improve the id.  You can now put "apple:1005:9-12" in the query box and it'll ask the phone for it's model and turn it into "apple:13-3".  BUT if apple:1005:9-12 is working for you reliably it's better just to use that and keep query empty.  The ESP32 has to stop listening while sending out the queries which hurts the reliability of receiving advertisements from devices.
 
+### Reboot loops
+
+If mqtt stays disconnected after many tries the device will reboot.  If Wifi is disconnected it will reboot as well, and go into the Wifi Portal.  The Wifi Portal will stay up for 30 seconds and then reboot and it'll try it all over again
+
 ## Info on fingerprinting Apple devices
 
 - https://github.com/furiousMAC/continuity
