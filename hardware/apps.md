@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Tracking Randomized MAC Devices
+title: Beacon Apps
 permalink: /beacons/apps
+parent: "Hardware"
 ---
 
 ### Why an App?
@@ -50,14 +51,6 @@ and the corresponding Home Assistant configuration would be:
   away_timeout: 15
 ```
 
-### Known Issues
-
-With the release of advanced battery management, Android now has a habit of killing background processes. This means that you may not be able to track your phone consistently. I have yet to find a solution for this problem - if you know of one, please open an issue.
-
-### Troubleshooting
-
-If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](/troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
-
 ### Add to the list
 
-If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can [open an issue](https://github.com/ESPresense/ESPresense/issues/new) or just submit a pull request to update the [documentation](https://github.com/ESPresense/ESPresense.github.io) right in the repository!
+If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can click the edit this page in the footer.

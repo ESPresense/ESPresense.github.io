@@ -1,25 +1,16 @@
 ---
 layout: page
-title: Troubleshooting
-permalink: /troubleshooting
+title: Logs
+permalink: /troubleshooting/logs
+parent: "Troubleshooting"
+nav_order: 5
 ---
 
-It can be a challenge to troubleshoot problems with tracking a beacon, as the problem can exist in different places in the "information pipeline." The flow of information can be visualized in the following way:
-
-![Beacon Flow](./images/beacon_flow.jpg)
-
-1. Beacon broadcasts an advertisement packet.
-2. ESP32 collects the broadcast (green arrow)
-3. ESP32 verifies connection to WiFi (orange arrow)
-4. ESP32 verifies connection to MQTT (yellow arrow)
-5. MQTT publishes data to `espresense` topic (purple arrow)
-6. Home Assistant parses information and reports configured sensorsiot
-
-## Logging
+# Logs
 
 There are various logs that can help identify the step in the information flow that is the broken link in the chain. If you're submitting an issue, be sure to include the logs that show the problematic behaviour
 
-### ESP32 via Serial
+## ESP32 via Serial
 
 Your ESP32 will attempt to connect to the wireless network you specified in your configuration file. While disconnected, the on-board status LED (if available) should be lit, in addition to the power LED (which is always on when the ESP32 is powered up).
 
@@ -54,7 +45,7 @@ Connecting to MQTT mqtt.mynetwork.org 1883
 
 If your device won't connect to your wireless network, copy and paste any logs you see into your issue.
 
-### ESP32 MQTT
+## ESP32 via MQTT
 
 To report devices, the ESP32 must be connected to your MQTT server. It will attempt to connect once it has established a connection to your wireless network. Once connected, the device will publish a status message ("available") to the `espresense/rooms/<room>/status` topic. It also publishes your configuration information to the `espresense/rooms/<room>/telemetry` topic which consists of:
 
@@ -79,19 +70,7 @@ If you do not see any information being published to either the status or teleme
 New client connected from 192.168.1.104 as esp32_d (c1, k60, u'my_mqtt_username').
 ```
 
-### Debug BTLE Advertisements
-
-To view the advertisements coming from your beacon, you can use an App on a BLE-enabled device. One is [NRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp) for Android to view all advertised devices in your area. Once you've found the device you're interested in, you can use [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) to connect to and view information about your beacon, which can help in determining the correct setup.
-
-![NRF Scan](./images/nrf_connect_scan.jpg)
-![Beacon Scope Scan](./images/beacon_scope_scan.jpg)
-![Beacon Scope Info](./images/beacon_scope_device_info.jpg)
-
-If you do not see your device advertising, then you know that the problem lies in your beacon device itself, rather than with this project.
-
-On MacOS X you can use [Bluetility](https://github.com/jnross/Bluetility)
-
-### Home Assistant
+### MQTT via terminal
 
 To view what devices are being reported on the MQTT topic, you can use a tool such as [mosquitto_sub](https://mosquitto.org/man/mosquitto_sub-1.html) to connect to and view what is being reported. This will provide you with the data format you'll need to follow when writing the configuration:
 
@@ -99,19 +78,14 @@ To view what devices are being reported on the MQTT topic, you can use a tool su
 mosquitto_sub -h <mqtt server IP address> -u <my mqtt user> -P <my mqtt password> -i presence-information -v -t "room_presence/#" | ts
 ```
 
-### Query
+## BTLE Advertisements
 
-The newest version allows you to selectively decide which ids you want queried to improve the id.  You can now put "apple:1005:9-12" in the query box and it'll ask the phone for it's model and turn it into "apple:13-3".  BUT if apple:1005:9-12 is working for you reliably it's better just to use that and keep query empty.  The ESP32 has to stop listening while sending out the queries which hurts the reliability of receiving advertisements from devices.
+To view the advertisements coming from your beacon, you can use an App on a BLE-enabled device. One is [NRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp) for Android to view all advertised devices in your area. Once you've found the device you're interested in, you can use [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) to connect to and view information about your beacon, which can help in determining the correct setup.
 
-### Reboot loops
+![NRF Scan](/images/nrf_connect_scan.jpg)
+![Beacon Scope Scan](/images/beacon_scope_scan.jpg)
+![Beacon Scope Info](/images/beacon_scope_device_info.jpg)
 
-If mqtt stays disconnected after many tries the device will reboot.  If Wifi is disconnected it will reboot as well, and go into the Wifi Portal.  The Wifi Portal will stay up for 30 seconds and then reboot and it'll try it all over again
+If you do not see your device advertising, then you know that the problem lies in your beacon device itself, rather than with this project.
 
-## Info on fingerprinting Apple devices
-
-- https://github.com/furiousMAC/continuity
-- https://i.blackhat.com/eu-19/Thursday/eu-19-Yen-Trust-In-Apples-Secret-Garden-Exploring-Reversing-Apples-Continuity-Protocol-3.pdf
-- https://petsymposium.org/2020/files/papers/issue1/popets-2020-0003.pdf
-- https://arxiv.org/pdf/1703.02874.pdf
-- https://samteplov.com/uploads/shmoocon20/slides.pdf
-
+On MacOS X you can use [Bluetility](https://github.com/jnross/Bluetility)

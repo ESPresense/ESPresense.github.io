@@ -2,25 +2,16 @@
 layout: page
 title: Home
 permalink: /
+nav_order: 0
 ---
+
+# Home
 
 An ESP32 based presence detection node for use with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/) for localized device presence detection. This is a Fork/rewrite of [ESP32-mqtt-room](https://jptrsn.github.io/ESP32-mqtt-room).
 
-![Beacon Flow](./images/beacon_flow.jpg)
-
-## Tutorials
-
-* [ESPresense: Easy Room Detection for Home Assistant](https://blog.briancmoses.com/2022/03/espresense-easy-room-detection-for-home-assistant.html)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7bfW_6130To" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p7C2QvmsM8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Prerequisites
 
-You're going to need the following items:
-
-* [Base Stations](./hardware)
+* [Base Stations](./base-stations)
 * [Tracking beacons](./beacons)
 * [MQTT Server](https://mosquitto.org/)
 
@@ -32,26 +23,6 @@ Check out the [installation page](install)
 
 If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](/troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
 
-## Release Notes
-
-View the [changelog here](https://github.com/ESPresense/ESPresense/blob/master/CHANGELOG.md).
-
 ## Credits
 
-This depends heavily on the hard work done by a number of people:
-
-* **ESP32-room-assistant** [(GitHub)](https://jptrsn.github.io/ESP32-mqtt-room/index.html#credits).  All credit for the intial codebase goes to him!
-* **Web Serial Terminal** [(Github)](https://github.com/rafaelaroca/web-serial-terminal) - Very nice terminal using web serial
-* **Marvin Roger** [(GitHub)](https://github.com/marvinroger) - provided the [Async MQTT library](http://marvinroger.viewdocs.io/async-mqtt-client/)
-* **Benoit Blanchon** [(GitHub)](https://github.com/bblanchon) [(YouTube)](https://www.youtube.com/channel/UC8HZRqN4wfytHfRGMLUQWkQ) - provided the [Arduino JSON library](https://arduinojson.org/)
-
-## Differences from ESP32-mqtt-room
-
-* SUPER Easy Browser based installation
-* Captive portal for easy WiFi setup
-* Home Assistant MQTT Discovery for easy HA configuration
-* Auto-updates by downloading github released bin (with a preference if you don't want this)
-* Uses a fingerprint instead of mac addresses so we can track randomized mac devices (like Apple Watches and iOS devices)
-* Filters measured distance with botah a median prefilter and a Kalman filter (reduces jitter for more accuracy)
-* Fully multithreaded, uses constant BLE scanning, doesn't disable wdt (more reliable)
-* Additional [AppDaemon app](https://github.com/ESPresense/ad-espresense-ips) that attempts to solve indoor position (x,y,z) with multiple ESPresense stations using multilateralization.
+This depends heavily on the hard work done by a [number of people](/credits)
