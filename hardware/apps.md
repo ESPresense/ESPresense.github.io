@@ -11,7 +11,7 @@ Both Android and iPhone use a strategy of Bluetooth MAC address randomization fo
 
 ## iOS / Watch OS Continuity Fingerprints
 
-Apples devices emit various [btle continuity](https://github.com/furiousMAC/continuity) messages. The most useful one is is the nearby info. The first byte is 0x10, the next byte is the length. I've found different devices often have a slightly different lengths, and some devices have a different txPower. The fingerprint `apple:100?:*-*` is often the one seen. Watches are usually obvious with a lower lengths and low txPower.  Unfortunately if your household has many iPhones, eventually the nearby info will start to collide and lead to duplicate fingerprints.
+Apples devices emit various [btle continuity](https://github.com/furiousMAC/continuity) messages. The most useful one is is the nearby info. The first byte is 0x10, the next byte is the length. I've found different devices often have a slightly different lengths, and some devices have a different txPower. The fingerprint `apple:100?:*-*` is often the one seen. Watches are usually obvious with a lower lengths and low txPower. Unfortunately if your household has many iPhones, eventually the nearby info will start to collide and lead to duplicate fingerprints.
 
 ## COVID Exposure Tracking
 

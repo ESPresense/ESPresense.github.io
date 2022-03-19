@@ -40,4 +40,4 @@ If the serial port is not showing up, your computer might be missing the drivers
 
 ## After flashing
 
-After the flash completed successfully, you should see the SSID you're supposed to connect to in the next step on one of the last lines in the Console window.  Once you've connected to the configuration portal see [here](/configuration/portal) to configure it.
+After the flash completed successfully, you should see the SSID you're supposed to connect to in the next step on one of the last lines in the Console window. Once you've connected to the configuration portal see [here](/configuration/portal) to configure it.
