@@ -18,3 +18,4 @@ parent: "Troubleshooting"
 ### Indoor positioning
 
 - <https://www.sciencedirect.com/topics/engineering/received-signal-strength>
+- <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6864824/>
