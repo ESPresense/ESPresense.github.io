@@ -23,6 +23,14 @@ nav_order: 2
 
 `* = with caveats`
 
+## Known to not work:
+
+| Name                | Notes                                                                |
+|:--------------------|:---------------------------------------------------------------------|
+|FitBits              | Only works well when not connected to app
+|Xiamo Watch          | Only works well when not connected to app
+|Apple AirTags        | Doesn't work
+
 ### Add to the list
 
 If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can click the edit this page in the footer.
