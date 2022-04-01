@@ -6,31 +6,31 @@ parent: Hardware
 nav_order: 2
 ---
 
-## Known working trackable beacons:
+## Known working trackable beacons
 
-| Name                 | Tested  | Links                                       | Notes                                                                |
-|:---------------------|:-------:|:--------------------------------------------|:---------------------------------------------------------------------|
-| Android Phones       | Yes     |                                             | [Must install an app](/beacons/apps)
-| iPhones              | Yes *   |                                             | [continuity fingerprints,exposure or room-assistant app](/beacons/apps)
-| Apple Watches        | Yes *   |                                             | [Must use continuity fingerprints](/beacons/apps)
-| Tiles                | Yes     | [amazon](https://amzn.to/3h77T5f)           | These work great, but update slower
-| Blue Charm Beacons   | Yes     | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
-| MiBand               | 2,5,6 * | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
-| Amazfit Bip S        | Yes     | [amazon](https://amzn.to/3C4DyMK)           |
-| Puck-JS              | Yes     | [espruino](https://www.espruino.com/Puck.js)| If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
-| Generic BTLE Beacons | Yes     |                                             | Anything that follows the iBeacon or Eddystone standards
-| MiFlora plant sensor | Yes *   |                                             | Location only
-| Samsung smart tags   | Beta    |                                             | Needs more testing to know if id will be stable long term
+| Name                 | Supported | Links                                       | Notes                                                                |
+|:---------------------|:---------:|:--------------------------------------------|:---------------------------------------------------------------------|
+| Android Phones       | Yes       |                                             | [Must install an app](/beacons/apps)
+| iPhones              | Yes *     |                                             | [continuity fingerprints,exposure or room-assistant app](/beacons/apps)
+| Apple Watches        | Yes *     |                                             | [Must use continuity fingerprints](/beacons/apps)
+| Tiles                | Yes       | [amazon](https://amzn.to/3h77T5f)           | These work great, but update slower
+| Blue Charm Beacons   | Yes       | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
+| MiBand               | 2,5,6 *   | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
+| Amazfit Bip S        | Yes       | [amazon](https://amzn.to/3C4DyMK)           |
+| Puck-JS              | Yes       | [espruino](https://www.espruino.com/Puck.js)| If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
+| Generic BTLE Beacons | Yes       |                                             | Anything that follows the iBeacon or Eddystone standards
+| MiFlora plant sensor | Yes *     |                                             | Location only
+| Samsung smart tags   | Beta      |                                             | Needs more testing to know if id will be stable long term
 
 `* = with caveats`
 
-## Known to not work:
+## Known to not work
 
 | Name                | Notes                                                                |
 |:--------------------|:---------------------------------------------------------------------|
-|FitBits              | Only works well when not connected to app
-|Xiamo Watch          | Only works well when not connected to app
-|Apple AirTags        | Doesn't work
+| FitBits             | Only works well when not connected to app
+| Xiaomi Watch        | Only works well when not connected to app
+| Apple AirTags       | Doesn't work, privacy is similar to exp tokens
 
 ### Add to the list
 
