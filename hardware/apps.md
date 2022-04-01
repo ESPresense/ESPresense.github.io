@@ -7,22 +7,29 @@ parent: "Hardware"
 
 ### Why an App?
 
-Both Android and iPhone use a strategy of Bluetooth MAC address randomization for privacy. While this may not be a perfect solution, it means that the publicly-available bluetooth MAC address of your phone won't be consistent to devices with which it has not been paired. As we're using Bluetooth Low Energy to scan, we don't want to pair the device. Thus, the need for an app to allow us to track, except for the 2 options below.
+Both Android and iPhone use a strategy of Bluetooth LE MAC address randomization for privacy. While this may not be a perfect solution, it means that the publicly-available bluetooth MAC address of your phone won't be consistent. Thus, the need for an app to allow us to find the phone.
 
 ## iOS / Watch OS Continuity Fingerprints
 
 Apples devices emit various [btle continuity](https://github.com/furiousMAC/continuity) messages. The most useful one is is the nearby info. The first byte is 0x10, the next byte is the length. I've found different devices often have a slightly different lengths, and some devices have a different txPower. The fingerprint `apple:100?:*-*` is often the one seen. Watches are usually obvious with a lower lengths and low txPower. Unfortunately if your household has many iPhones, eventually the nearby info will start to collide and lead to duplicate fingerprints.
 
-## Android beacon broadcasting apps
+# iOS apps
 
-| App Name         | Tested          | Links                                                                                                                                                                                                       | Notes |
+| App Name         | Supported       | Links                                                                                                                                                                                                       | Notes |
 |:-----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
-| HA Companion App | Yes/Recommended | [Appstore](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) / [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant, Only Android Does Beacon Broadcasting |
+| HA Companion App | No              | [Appstore](https://apps.apple.com/us/app/home-assistant/id1099568401) | Only Android Does Beacon Broadcasting
+| Room Assistant   | Yes *           | [Appstore](https://apps.apple.com/us/app/room-assistant/id1538642237) | Works, but deselect Auto-Toggle Visibility, also is more reliable if query is enabled |
+
+## Android apps
+
+| App Name         | Supported       | Links                                                                                                                                                                                                       | Notes |
+|:-----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
+| HA Companion App | Yes/Recommended | [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant |
 | Beacon Scope     | Yes             | [Playstore](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner)                                                                                                                 | Standalone App |
 | Beacon Simulator | Yes             | [Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)                                                                                                                         | Standalone App |
 ## COVID Exposure Tracking
 
-If none of the above is helping you uniquely identity your phone you can install a COVID Exposure tracker app on just the phone you want to track. Those beacons will be shown as `exp:20`. Unfortunetly we cannot use them to unqiuely identify your device **if it is enabled on multiple devices**. BUT, we could use the number of unique `exp:20` teks to count the number of people that are in a room. A future AppDaemon app I'd like to build would count them up so you could do automations based on the number of people in a room.
+If none of the above is helping you uniquely identity your phone you can install a COVID Exposure tracker app on just the phone you want to track. Those beacons will be shown as `exp:20`. Unfortunetly we cannot use them to unqiuely identify your device **if it is enabled on multiple devices**. BUT, we can use the number of unique `exp:20` ids to count the number of people that are in a room.  Use the (count functions)[/configuration/settings#counting] to do this.
 
 ### Add to the list
 
