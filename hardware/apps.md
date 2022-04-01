@@ -29,7 +29,7 @@ Apples devices emit various [btle continuity](https://github.com/furiousMAC/cont
 | Beacon Simulator | Yes             | [Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)                                                                                                                         | Standalone App |
 ## COVID Exposure Tracking
 
-If none of the above is helping you uniquely identity your phone you can install a COVID Exposure tracker app on just the phone you want to track. Those beacons will be shown as `exp:20`. Unfortunetly we cannot use them to unqiuely identify your device **if it is enabled on multiple devices**. BUT, we can use the number of unique `exp:20` ids to count the number of people that are in a room.  Use the (count functions)[/configuration/settings#counting] to do this.
+If none of the above is helping you uniquely identity your phone you can install a COVID Exposure tracker app on just the phone you want to track. Those beacons will be shown as `exp:20`. Unfortunetly we cannot use them to unqiuely identify your device **if it is enabled on multiple devices**. BUT, we can use the number of unique `exp:20` ids to count the number of people that are in a room.  Use the [count settings](/configuration/settings#counting) to do this.
 
 ### Add to the list
 
