@@ -20,7 +20,7 @@ nav_order: 2
 |Puck-JS              | Yes     | [espruino](https://www.espruino.com/Puck.js) | If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
 |Generic BTLE Beacons | Yes     |                                            | Anything that follows the iBeacon or Eddystone standards
 |MiFlora plant sensor | Yes *   |                                            | Location only |
-
+|Samsung smart tags   | Beta    |                                            |
 `* = with caveats`
 
 ## Known to not work:
