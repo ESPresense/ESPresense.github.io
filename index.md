@@ -15,6 +15,15 @@ An ESP32 based presence detection node for use with the [Home Assistant](https:/
 * [Tracking beacons](./beacons)
 * [MQTT Server](https://mosquitto.org/)
 
+## Optional Sensors
+
+* PIR Motion
+* Radar Motion
+* Temperature (DHT11, DHT22)
+* Ambient Light (BH1750, TSL2561)
+* Weather Sensor (BME280)
+* Weight Sensor (HX711)
+
 ## Installation
 
 Check out the [installation page](install)
