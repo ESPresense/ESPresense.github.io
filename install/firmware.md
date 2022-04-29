@@ -10,6 +10,12 @@ nav_order: 2
 
 You can either proceed with the automatic firmware installation via your webbrowser below or refer to the manual installation instructions.
 
+By default PIR and Radar Motion sensors are included in the firmware, however w/ Sensors includes additional support for the following sensors:
+* Temperature 🌡️ (DHT11, DHT22)
+* Ambient Light 🔆 (BH1750, TSL2561)
+* Weather Sensor ☁️ (BME280)
+* Weight Sensor ⚖️ (HX711)
+
 ## Automatic installation via Browser
 
 Just press the install button below with your device connected via usb:
