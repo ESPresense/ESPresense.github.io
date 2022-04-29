@@ -19,7 +19,7 @@ The ESP32 will launch a captive browser (under it's own SSID) on first normal bo
 
 ## MQTT
 
-* Server / Port - non encrypted mqtt server
+* Server / Port - non encrypted mqtt server (SSL is *NOT* supported)
 * Username / Password - optional, passwords are kinda pointless when your using them plaintext
 * Send to:
   * Discovery topic - enables home assistant mqtt topic (/homeassistant))
