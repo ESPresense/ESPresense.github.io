@@ -121,7 +121,8 @@ You can update the configuration for any of the above topics by publishing to th
 ```mosquitto_pub -h homeassistant.local -u <username> -P <password> -i presensce-information -t "espresense/rooms/kitchen/auto_update/set" -m "ON" -d```
 
 You can use a bash script to update settings for your whole fleet
-```myArray=("kitchen" "family_room" "study" "media_room" "living_room" "master_bedroom" "master_bathroom")
+```bash
+myArray=("kitchen" "family_room" "study" "media_room" "living_room" "master_bedroom" "master_bathroom")
 
 for str in ${myArray[@]}; do
   echo $str
@@ -129,4 +130,5 @@ for str in ${myArray[@]}; do
     -i presensce-information -t "espresense/rooms/$str/include/set" -m "apple:bbbyyyy iBeacon:44445555" -d
   mosquitto_pub -h homeassistant.local -u <username> -P <password> \
     -i presensce-information -t "espresense/rooms/$str/restart/set" -m "PRESS" -d
-done```
+done
+```
