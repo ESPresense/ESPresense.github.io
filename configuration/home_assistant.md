@@ -103,7 +103,8 @@ If you end up deploying a fleet of ESP32s in your home, it can quickly become pa
 
 You can use tools like MQTT explorer or if you are using mosquitto (default for HA), the mosquitto_sub and mosquitto_pub tools to view and manage the settings.
 
-```mosquitto_sub -h homeassistant.local -u <username> -P <password> -i presensce-information -v -t "espresense/rooms/kitchen/#"
+```bash
+mosquitto_sub -h homeassistant.local -u <username> -P <password> -i presensce-information -v -t "espresense/rooms/kitchen/#"
 espresense/rooms/study/status online
 espresense/rooms/study/max_distance 10.00
 espresense/rooms/study/absorption 3.50
@@ -118,7 +119,9 @@ espresense/rooms/study/arduino_ota OFF
 ```
 
 You can update the configuration for any of the above topics by publishing to the /set endpoint for each topic like so:
-```mosquitto_pub -h homeassistant.local -u <username> -P <password> -i presensce-information -t "espresense/rooms/kitchen/auto_update/set" -m "ON" -d```
+```bash
+mosquitto_pub -h homeassistant.local -u <username> -P <password> -i presensce-information -t "espresense/rooms/kitchen/auto_update/set" -m "ON" -d
+```
 
 You can use a bash script to update settings for your whole fleet
 ```bash
