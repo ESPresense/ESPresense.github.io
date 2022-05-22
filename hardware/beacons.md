@@ -33,7 +33,7 @@ nav_order: 2
 | Xiaomi Watch        | Only works well when not connected to app
 | Apple AirTags       | Doesn't work, privacy is similar to exp tokens
 | HUAWEI Band 6       | Only works when not connected to a phone
-| Huawei Watch GT2    | Only works when not connected to a phone
+| HUAWEI Watch GT2    | Only works when not connected to a phone
 
 ### Add to the list
 
