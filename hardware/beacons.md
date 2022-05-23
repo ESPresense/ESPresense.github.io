@@ -31,7 +31,8 @@ nav_order: 2
 |:--------------------|:---------------------------------------------------------------------|
 | FitBits             | Only works well when not connected to app
 | Xiaomi Watch        | Only works well when not connected to app
-| Apple AirTags       | Doesn't work, privacy is similar to exp tokens
+| Apple AirTags       | Doesn't work, too much privacy/hashing built in
+| Samsung SmartTags   | Doesn't work, too much privacy/hashing built in
 | HUAWEI Band 6       | Only works when not connected to a phone
 | HUAWEI Watch GT2    | Only works when not connected to a phone
 
