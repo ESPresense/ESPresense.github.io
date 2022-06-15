@@ -17,10 +17,6 @@ Just press the Connect button below with your device connected via usb:
 
 {% include firmware.html %}
 
-If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:
-
-* CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a>
-* CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a>
 
 ## Manual installation
 
@@ -36,6 +32,11 @@ If the serial port is not showing up, your computer might be missing the drivers
 * Select the appropiate serial port (should be automatically detected)
 * Click "View Logs"
 * Start flashing via the "Flash ESP" button
+
+If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:
+
+* CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a>
+* CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a>
 
 </div>
 
