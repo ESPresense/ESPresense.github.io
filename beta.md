@@ -2,8 +2,6 @@
 layout: page
 title: Beta
 permalink: /beta
-parent: "Install"
-nav_order: 2
 nav_exclude: true
 ---
 
@@ -16,7 +14,6 @@ You can either proceed with the automatic firmware installation via your webbrow
 Just press the Connect button below with your device connected via usb:
 
 {% include firmware.html %}
-
 
 ## Manual installation
 
