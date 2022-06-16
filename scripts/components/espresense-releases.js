@@ -26,7 +26,7 @@ var t;const i=globalThis.trustedTypes,s$1=i?i.createPolicy("lit-html",{createHTM
 
 class InstallButton extends HTMLElement {
     static preload() {
-        import('./connect-c0648e15.js').then(function (n) { return n.c; });
+        import('./connect-ac525732.js').then(function (n) { return n.c; });
     }
     connectedCallback() {
         if (this.renderRoot) {
@@ -45,7 +45,7 @@ class InstallButton extends HTMLElement {
         const slot = document.createElement("slot");
         slot.addEventListener("click", async (ev) => {
             ev.preventDefault();
-            const mod = await import('./connect-c0648e15.js').then(function (n) { return n.c; });
+            const mod = await import('./connect-ac525732.js').then(function (n) { return n.c; });
             mod.connect(this);
         });
         slot.name = "activate";
@@ -142,17 +142,16 @@ class EspresenseReleases extends s {
     }
     get manifest() {
         const params = new URLSearchParams({
-            version: this.version,
             flavor: this.flavor,
         });
-        return this.href + "?" + params.toString();
+        return this.href + this.version + ".json?" + params.toString();
     }
     firstUpdated() {
         fetch("https://api.github.com/repos/ESPresense/ESPresense/releases")
             .then((r) => r.json())
             .then((r) => {
             this.response = r.filter((item) => item.assets.length > 5).reduce((p, c) => (p[c.prerelease ? "Beta" : "Release"] ? p[c.prerelease ? "Beta" : "Release"].push(c) : p[c.prerelease ? "Beta" : "Release"] = [c], p), new Map());
-            this.version = this.response["Release"][0].name;
+            this.version = this.response["Release"][0].tag_name;
         });
     }
     flavorChanged(e) {
@@ -167,11 +166,9 @@ class EspresenseReleases extends s {
         const { response } = this;
         return $ `
       <label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option></select>
-      <label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => $ ` <optgroup label="${key}">${response[key].map((i) => $ ` <option value=${i.name}>${i.name}</option> `)}</optgroup>`)}</select>
+      <label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => $ ` <optgroup label="${key}">${response[key].map((i) => $ ` <option value=${i.tag_name}>${i.name}</option> `)}</optgroup>`)}</select>
       <esp-web-install-button manifest=${this.manifest}></esp-web-install-button>
-      <div class="powered">
-      <span>Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></span>
-      </div>
+      <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>
     `;
     }
 }
