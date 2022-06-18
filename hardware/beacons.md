@@ -22,7 +22,7 @@ nav_order: 2
 | Generic BTLE Beacons | Yes       |                                             | Anything that follows the iBeacon or Eddystone standards
 | MiFlora plant sensor | Yes *     |                                             | Location only
 | Fi Smart Dog Collar  | Yes *     | [Fi](https://tryfi.com)                     | Smart Base needs to be powered off or Collars will not beacon
-| Samsung smart tags   | Beta      |                                             | Needs more testing to know if id will be stable long term
+| Whoop strap 3.0      | Yes *     |                                             | id format: name:whoop-xxxxxxx
 
 `* = with caveats`
 

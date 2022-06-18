@@ -1,11 +1,9 @@
 ---
-layout: default
+layout: page
 title: Install
-nav_order: 2
-has_children: true
 permalink: /install
+has_children: true
+nav_order: 1
 ---
 
 # Install
-
-{: .fs-6 .fw-300 }
