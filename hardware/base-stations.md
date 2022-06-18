@@ -17,8 +17,7 @@ The firmware is currently only compatible with just the plain ESP32. We do not c
 | D1 Mini ESP32  | [amz/us](https://amzn.to/3tlkK8D) | *Make sure you get the ESP32 NOT the ESP8266* |
 | Huzzah32       | [amz/us](https://amzn.to/3n5M1uQ)
 | ESP32 dev board| [amz/us](https://amzn.to/3xCAw1F) [amz/uk](https://amzn.to/3QyiBlp)
-| LOLIN32 ESP32  | [ali](https://www.aliexpress.com/item/1005001847767933.html)
-
+| LOLIN32 ESP32  | [ali](https://www.aliexpress.com/item/2251832622236364.html)
 ### USB A to C cables
 
 * [16ft 2 pack](https://amzn.to/3zzTTXW)
