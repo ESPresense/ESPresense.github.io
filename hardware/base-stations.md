@@ -11,12 +11,12 @@ The firmware is currently only compatible with just the plain ESP32. We do not c
 ### ESP32
 | Name           | Stores         |
 |:---------------|:--------------:|
-| ATOM Lite      | [direct](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit) or [digikey](https://www.digikey.com/en/products/detail/m5stack-technology-co-ltd/C008/12088545)
-| M5Stamp Pico   | [direct](https://shop.m5stack.com/collections/m5-controllers/products/m5stamp-pico-diy-kit)
-| M5Stick-C (plus or original) | [amz/us](https://amzn.to/3kQadi0)
+| ATOM Lite      | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit) [digi](https://www.digikey.com/en/products/detail/m5stack-technology-co-ltd/C008/12088545)
+| M5Stamp Pico   | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/m5stamp-pico-diy-kit)
+| M5Stick-C Plus | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/m5stickc-plus-esp32-pico-mini-iot-development-kit) [amz/us](https://amzn.to/3kQadi0) [amz/us](https://amzn.to/39CrQAm)
 | D1 Mini ESP32  | [amz/us](https://amzn.to/3tlkK8D)
 | Huzzah32       | [amz/us](https://amzn.to/3n5M1uQ)
-| ESP32 dev board| [amz/us](https://amzn.to/38ECmmy)
+| ESP32 dev board| [amz/us](https://amzn.to/3xCAw1F)
 | LOLIN32 ESP32  | [ali](https://www.aliexpress.com/item/1005001847767933.html)
 
 ### USB A to C cables
