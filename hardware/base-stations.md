@@ -9,6 +9,7 @@ nav_order: 1
 The firmware is currently only compatible with just the plain ESP32. We do not currently support single core S2 or S3 or C3 variants!
 
 ### ESP32
+
 | Name           | Stores         | Notes |
 |:---------------|:--------------:|-------|      
 | ATOM Lite      | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit) [digi](https://www.digikey.com/en/products/detail/m5stack-technology-co-ltd/C008/12088545)
@@ -18,6 +19,7 @@ The firmware is currently only compatible with just the plain ESP32. We do not c
 | Huzzah32       | [amz/us](https://amzn.to/3n5M1uQ)
 | ESP32 dev board| [amz/us](https://amzn.to/3xCAw1F) [amz/uk](https://amzn.to/3QyiBlp)
 | LOLIN32 ESP32  | [ali](https://www.aliexpress.com/item/2251832622236364.html)
+
 ### USB A to C cables
 
 * [16ft 2 pack](https://amzn.to/3zzTTXW)
