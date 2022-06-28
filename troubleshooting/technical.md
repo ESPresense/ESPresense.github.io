@@ -14,6 +14,7 @@ parent: "Troubleshooting"
 - <https://petsymposium.org/2020/files/papers/issue1/popets-2020-0003.pdf>
 - <https://arxiv.org/pdf/1703.02874.pdf>
 - <https://samteplov.com/uploads/shmoocon20/slides.pdf>
+- <https://hal.inria.fr/hal-02359914/document>
 
 ### Indoor positioning
 
