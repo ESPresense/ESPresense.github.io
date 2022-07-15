@@ -16,6 +16,11 @@ parent: "Troubleshooting"
 - <https://samteplov.com/uploads/shmoocon20/slides.pdf>
 - <https://hal.inria.fr/hal-02359914/document>
 
+### Ble Randomized Addresses / IRK
+
+- <https://novelbits.io/bluetooth-address-privacy-ble/>
+- <https://eprint.iacr.org/2021/1597.pdf>
+
 ### Indoor positioning
 
 - <https://www.sciencedirect.com/topics/engineering/received-signal-strength>
