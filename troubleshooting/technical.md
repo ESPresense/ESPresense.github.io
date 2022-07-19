@@ -21,7 +21,8 @@ parent: "Troubleshooting"
 - <https://novelbits.io/bluetooth-address-privacy-ble/>
 - <https://eprint.iacr.org/2021/1597.pdf>
 - <https://github.com/fryefryefrye/Decoding-Random-Bluetooth-Address>
- 
+- <https://www.usenix.org/system/files/sec21-stute.pdf>
+
 ### Indoor positioning
 
 - <https://www.sciencedirect.com/topics/engineering/received-signal-strength>
