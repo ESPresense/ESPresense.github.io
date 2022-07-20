@@ -34,3 +34,7 @@ parent: "Troubleshooting"
 
 - <https://support.apple.com/en-us/HT211234>
 - <https://developer.apple.com/accessories/Accessory-Design-Guidelines.pdf>
+
+### Bluetooth
+
+- <https://www.bluetooth.com/blog/a-new-way-to-debug-iosbluetooth-applications/>
