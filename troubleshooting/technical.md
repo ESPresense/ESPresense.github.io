@@ -15,6 +15,7 @@ parent: "Troubleshooting"
 - <https://arxiv.org/pdf/1703.02874.pdf>
 - <https://samteplov.com/uploads/shmoocon20/slides.pdf>
 - <https://hal.inria.fr/hal-02359914/document>
+- <https://tel.archives-ouvertes.fr/tel-02974989v2/document>
 
 ### Ble Randomized Addresses / IRK
 
