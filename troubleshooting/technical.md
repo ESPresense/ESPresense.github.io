@@ -5,7 +5,7 @@ permalink: /troubleshooting/technical
 parent: "Troubleshooting"
 ---
 
-# Techical
+# Technical
 
 ### Info on fingerprinting Apple devices
 
@@ -22,8 +22,14 @@ parent: "Troubleshooting"
 - <https://eprint.iacr.org/2021/1597.pdf>
 - <https://github.com/fryefryefrye/Decoding-Random-Bluetooth-Address>
 - <https://www.usenix.org/system/files/sec21-stute.pdf>
+- <https://arxiv.org/pdf/2009.11776.pdf>
 
 ### Indoor positioning
 
 - <https://www.sciencedirect.com/topics/engineering/received-signal-strength>
 - <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6864824/>
+
+### CarKey
+
+- <https://support.apple.com/en-us/HT211234>
+- <https://developer.apple.com/accessories/Accessory-Design-Guidelines.pdf>
