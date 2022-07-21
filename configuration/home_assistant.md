@@ -59,11 +59,17 @@ Each beacon that should be monitored in Home Assistant needs to be added to the 
 sensor:
 # One entry for each beacon you want to track
   - platform: mqtt_room
-    device_id: "apple:1007:11-12"
-    name: 'Darrell Watch'
-    state_topic: 'espresense/rooms'
-    timeout: 60
-    away_timeout: 120 # number of seconds after which the enitity will get status not_home
+    device_id: "iTrack:xxxxxxxxxxxx"
+    name: 'ESP Keys'
+    state_topic: 'espresense/devices/iTrack:xxxxxxxxxxxx'
+    timeout: 10
+    away_timeout: 120
+  - platform: mqtt_room
+    device_id: "iBeacon:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-3-58241"
+    name: 'ESP Chipolo'
+    state_topic: 'espresense/devices/iBeacon:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-3-58241'
+    timeout: 10
+    away_timeout: 120
 ```
 
 ### screenshots
@@ -86,15 +92,37 @@ Normally not needed, but in case [MQTT auto discovery](https://www.home-assistan
 Note: this does not add the entities that are normally added automatically: set max distance, active scan, query.
 
 ```yaml
-binary_sensor:
-# One entry per sensor node
-  - platform: mqtt
-    name: Dining Mqtt Room
-    state_topic: espresense/rooms/dining/status # use the MQTT topic for the room
-    json_attributes_topic: espresense/rooms/living/telemetry
-    payload_on: online
-    payload_off: offline
-    device_class: connectivity
+mqtt:
+  binary_sensor:
+  # One entry per sensor node
+    - unique_id: 'kitchen'
+      name: 'Kitchen'
+      state_topic: espresense/rooms/kitchen/status
+      json_attributes_topic: espresense/rooms/kitchen/telemetry
+      payload_on: online
+      payload_off: offline
+      device_class: connectivity
+    - unique_id: 'living_room'
+      name: 'Living Room'
+      state_topic: espresense/rooms/living_room/status
+      json_attributes_topic: espresense/rooms/living_room/telemetry
+      payload_on: online
+      payload_off: offline
+      device_class: connectivity
+    - unique_id: 'kid_room'
+      name: 'Kid Room'
+      state_topic: espresense/rooms/kid_room/status
+      json_attributes_topic: espresense/rooms/kid_room/telemetry
+      payload_on: online
+      payload_off: offline
+      device_class: connectivity
+    - unique_id: 'master_bedroom'
+      name: 'Master Bedroom'
+      state_topic: espresense/rooms/master_bedroom/status
+      json_attributes_topic: espresense/rooms/master_bedroom/telemetry
+      payload_on: online
+      payload_off: offline
+      device_class: connectivity
 ```
 
 ### Configuration via MQTT topics
