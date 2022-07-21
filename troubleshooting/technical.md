@@ -19,6 +19,7 @@ parent: "Troubleshooting"
 - <https://samteplov.com/uploads/shmoocon20/slides.pdf>
 - <https://hal.inria.fr/hal-02359914/document>
 - <https://tel.archives-ouvertes.fr/tel-02974989v2/document>
+- <https://github.com/robotastic/ble-ancs>
 
 ### Ble Randomized Addresses / IRK
 
