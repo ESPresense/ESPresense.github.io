@@ -57,7 +57,7 @@ Each beacon that should be monitored in Home Assistant needs to be added to the 
 
 ```yaml
 sensor:
-  # ESPresense Room Sensors
+# One entry for each beacon you want to track
   - platform: mqtt_room
     device_id: "iTrack:xxxxxxxxxxxx"
     name: 'ESP Keys'
@@ -94,6 +94,7 @@ Note: this does not add the entities that are normally added automatically: set 
 ```yaml
 mqtt:
   binary_sensor:
+  # One entry per sensor node
     - unique_id: 'kitchen'
       name: 'Kitchen'
       state_topic: espresense/rooms/kitchen/status
