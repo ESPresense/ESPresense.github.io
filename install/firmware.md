@@ -10,26 +10,15 @@ nav_order: 2
 
 You can either proceed with the automatic firmware installation via your webbrowser below or refer to the manual installation instructions.
 
-By default PIR and Radar Motion sensors are included in the firmware, however w/ Sensors includes additional support for the following sensors:
-* Temperature 🌡️ (DHT11, DHT22)
-* Ambient Light 🔆 (BH1750, TSL2561)
-* Weather Sensor ☁️ (BME280)
-* Weight Sensor ⚖️ (HX711)
-
 ## Automatic installation via Browser
 
-Just press the install button below with your device connected via usb:
+Just press the Connect button below with your device connected via usb:
 
-{% include install.html %}
-
-If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:
-
-* CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a>
-* CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a>
+{% include firmware.html %}
 
 ## Manual installation
 
-<div class="clearfix"  markdown=1>
+<div class="clearfix" markdown=1>
 
 <img src="/images/esphome-flasher_mac.jpg" class="clearfix" style="float:right;margin-left:20px;width:400px">
 
@@ -41,6 +30,11 @@ If the serial port is not showing up, your computer might be missing the drivers
 * Select the appropiate serial port (should be automatically detected)
 * Click "View Logs"
 * Start flashing via the "Flash ESP" button
+
+If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip used in your ESP device. These drivers work for most ESP devices:
+
+* CP2102 (square chip): <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">driver</a>
+* CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers">driver</a>
 
 </div>
 
