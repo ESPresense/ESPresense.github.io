@@ -23,6 +23,8 @@ nav_order: 2
 | MiFlora plant sensor | Yes *     |                                             | Location only
 | Fi Smart Dog Collar  | Yes *     | [Fi](https://tryfi.com)                     | Smart Base needs to be powered off or Collars will not beacon
 | Whoop strap 3.0      | Yes *     |                                             | id format: name:whoop-xxxxxxx
+| Xiaomi Mi Band 4     | Yes       |                                             | id format: known:xxxxxxxxxxxx
+| Amazfit GTR 2e       | Yes       |                                             | id format: known:xxxxxxxxxxxx
 
 `* = with caveats`
 
