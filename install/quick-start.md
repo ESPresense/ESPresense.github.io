@@ -20,6 +20,10 @@ Instead of reading our documentation check out these great videos/links to get y
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sVNF_N-Z3QI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+For German viewers:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PAIuZ1TgPWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 OR, If you prefer to read, these are great write-ups:
 
 [ESPresense: Easy Room Detection for Home Assistant](https://blog.briancmoses.com/2022/03/espresense-easy-room-detection-for-home-assistant.html)
