@@ -8,7 +8,7 @@ nav_order: 2
 
 # Firmware
 
-You can either proceed with the automatic firmware installation via your webbrowser below or refer to the manual installation instructions.
+You can either proceed with the automatic firmware installation via your web browser below or refer to the manual installation instructions.
 
 ## Automatic installation via Browser
 
