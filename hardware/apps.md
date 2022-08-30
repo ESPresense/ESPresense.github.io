@@ -11,7 +11,7 @@ Both Android and iPhone use a strategy of Bluetooth LE MAC address randomization
 
 ## iOS / Watch OS IRK retrieval
 
-From Espresense version 3.0.0b6 the use of the IRK (identity resolving key) is possible to uniquely identify multiple Apple devices in the same household! See the [Apple device beacons](/beacons/apple) page for more information.
+From Espresense version 3.0 the use of the IRK (identity resolving key) is possible to uniquely identify multiple Apple devices in the same household! See the [Apple device beacons](/beacons/apple) page for more information.
 
 ## iOS / Watch OS Continuity Fingerprints
 
