@@ -6,7 +6,8 @@ parent: "Hardware"
 nav_order: 1
 ---
 
-The firmware is currently only compatible with just the plain ESP32. We do not currently support single core S2 or S3 or C3 variants!
+The firmware is currently compatible with the ESP32 dual core (most common config) OR the C3 (beta).  4MB of flash is required (most common config)
+We do not currently support single core S2 or S3 variants.  Make sure you do *NOT* buy a ESP8266, those do not have bluetooth at all.
 
 ### ESP32
 
@@ -25,6 +26,3 @@ The firmware is currently only compatible with just the plain ESP32. We do not c
 * [16ft 2 pack](https://amzn.to/3zzTTXW)
 * [1ft 6 pack](https://amzn.to/3kyD8Is)
 
-### Add to the list
-
-If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can click the edit this page in the footer.
