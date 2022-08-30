@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Settings
+title: ESPresense
 permalink: /configuration/settings
 parent: "Configuration"
-nav_order: 3
+nav_order: 1
 ---
 
-# Settings
+# ESPresense Settings
 
 The ESP32 will launch a captive browser (under it's own SSID) on first normal boot after flashing that will allow you to configure:
 
