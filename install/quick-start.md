@@ -28,4 +28,4 @@ OR, If you prefer to read, these are great write-ups:
 
 [ESPresense: Easy Room Detection for Home Assistant](https://blog.briancmoses.com/2022/03/espresense-easy-room-detection-for-home-assistant.html)
 
-<https://www.linkedin.com/pulse/room-level-ble-based-presence-detection-esp32s-espresense-dima-tokar>
+[Room-level BLE-based presence detection with ESP32s, ESPresense, MQTT, and Home Assistant](https://www.linkedin.com/pulse/room-level-ble-based-presence-detection-esp32s-espresense-dima-tokar)
