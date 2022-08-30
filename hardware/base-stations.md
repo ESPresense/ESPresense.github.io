@@ -6,7 +6,7 @@ parent: "Hardware"
 nav_order: 1
 ---
 
-The firmware is currently compatible with the ESP32 dual core (most common config) OR the C3 (beta).  4MB of flash is required (most common config)
+The firmware is currently compatible with the ESP32 dual core (most common config) OR the ESP32C3 (beta).  4MB of flash is required (most common config)
 We do not currently support single core S2 or S3 variants.  Make sure you do *NOT* buy a ESP8266, those do not have bluetooth at all.
 
 ### ESP32
