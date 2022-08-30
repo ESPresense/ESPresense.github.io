@@ -9,7 +9,7 @@ Apples devices emit various [btle continuity](https://github.com/furiousMAC/cont
 
 To work around this you can get the remote IRK (identity resolving key) from your iOS (iPhone) or Watch OS (Apple Watch) device and add this to the `Known BLE identity resolving keys` section of the Espresense configuration.
 
-> **Note: Espresense version 3.0.0b6 or higher is needed!**
+> **Note: Espresense version 3.0 or higher is required!**
 
 ## iOS (manual setup)
 
