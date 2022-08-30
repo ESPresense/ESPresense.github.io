@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Apple device beacons
+title: Apple devices
 permalink: /beacons/apple
 parent: Hardware
 ---
