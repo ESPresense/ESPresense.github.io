@@ -11,8 +11,8 @@ nav_order: 2
 | Name                 | Supported | Links                                       | Notes                                                                |
 |:---------------------|:---------:|:--------------------------------------------|:---------------------------------------------------------------------|
 | Android Phones       | Yes       |                                             | [Must install an app](/beacons/apps)
-| iPhones              | Yes *     |                                             | [continuity fingerprints,exposure or room-assistant app](/beacons/apps)
-| Apple Watches        | Yes *     |                                             | [Must use continuity fingerprints](/beacons/apps)
+| iPhones              | Yes *     |                                             | [IRK](/beacons/apple)
+| Apple Watches        | Yes *     |                                             | [IRK](/beacons/apple)
 | Tiles                | Yes       | [amazon](https://amzn.to/3h77T5f)           | These work great, but update slower
 | Blue Charm Beacons   | Yes       | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
 | MiBand               | 2,5,6 *   | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
