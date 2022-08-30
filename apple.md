@@ -54,8 +54,8 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
 > Tip: to easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **Info** and look under **Bluetooth** for the MAC address. If you open a GUID in the Apple Keychain you see this address under **Account** -> `Public: XX:XX:XX:XX:XX:XX`
 
-9. [Decode](https://base64.guru/converter/decode/hex) the *base64 encoded* key to **HEX**.
-10. The last step is to **reverse** the HEX key, for example: `4A4F4550` will be `50454F4A` (note that you reverse the *bytes*!)
+9. [Decode](https://cryptii.com/pipes/base64-to-hex) the *base64 encoded* key to **HEX**.
+10. The last step is to **reverse** the HEX key, for example: `4A4F4550` will be `50454F4A` (note that you reverse the *bytes*!) )
 
 Now you can add the 32-bit key to the `Known BLE identity resolving keys` section of the ESPresense configuration and to your HASS configuration with the following syntax: `irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
