@@ -42,3 +42,7 @@ parent: "Troubleshooting"
 ### Bluetooth
 
 - <https://www.bluetooth.com/blog/a-new-way-to-debug-iosbluetooth-applications/>
+
+### AoA
+
+- <https://www.ti.com/lit/an/tida029/tida029.pdf?ts=1662038008859&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCC2642R>
