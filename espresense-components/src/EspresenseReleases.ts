@@ -26,9 +26,8 @@ export class EspresenseReleases extends LitElement {
   }
 
   static styles = css`
-    :host select {
-      padding-left: 12px !important;
-      font-family: Verdana, Helvetica, sans-serif;
+    :host {
+      font-family: sans-serif;
     }
 
     :host label {
@@ -43,14 +42,25 @@ export class EspresenseReleases extends LitElement {
     }
 
     :host {
-      display: inline-block;
-      padding: 10px 15px 10px 15px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
       border: none;
       border-radius: 2pt;
       box-shadow: 0 0 0 1pt rgb(238, 235, 238);
       outline: none;
       transition: .1s;
       background-color: rgb(245, 246, 250);
+    }
+
+    :host div {
+      padding: 5px 10px;
+      display: flex;
+    }
+
+    :host div.but {
+      margin: 0 auto;
+      display: flex;
     }
   `;
 
@@ -63,10 +73,11 @@ export class EspresenseReleases extends LitElement {
   }
 
   firstUpdated() {
-    fetch("https://api.github.com/repos/ESPresense/ESPresense/releases")
+    fetch("https://api.github.com/repos/ESPresense/ESPresense/releases", { credentials: "same-origin" })
       .then((r) => r.json())
       .then((r) => {
         this.response = r.filter((item) => item.assets.length > 5).reduce((p, c) => (p[c.prerelease ? "Beta" : "Release"] ? p[c.prerelease ? "Beta" : "Release"].push(c) : p[c.prerelease ? "Beta" : "Release"] = [c], p), new Map());
+        console.log(this.response);
         this.version = this.response["Release"][0].tag_name;
       });
   }
@@ -84,9 +95,9 @@ export class EspresenseReleases extends LitElement {
   render() {
     const { response } = this;
     return html`
-      <label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option></select>
-      <label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => html` <optgroup label="${key}">${response[key].map((i) => html` <option value=${i.tag_name}>${i.name}</option> `)}</optgroup>`)}</select>
-      <esp-web-install-button manifest=${this.manifest}></esp-web-install-button>
+      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option></select></div>
+      <div><label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => html` <optgroup label="${key}">${response[key].map((i) => html` <option value=${i.tag_name} ?selected=${i.tag_name == this.version}>${i.name}</option> `)}</optgroup>`)}</select></div>
+      <div class="but"><esp-web-install-button manifest=${this.manifest}></esp-web-install-button></div>
       <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>
     `;
   }

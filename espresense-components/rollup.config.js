@@ -2,7 +2,16 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
 import { terser } from "rollup-plugin-terser";
 
-const config = {
+const config = [{
+  input: "dist/espresense-artifacts.js",
+  output: {
+    dir: "../scripts/components/",
+    format: "module",
+  },
+  external: ["https://www.improv-wifi.com/sdk-js/launch-button.js"],
+  preserveEntrySignatures: false,
+  plugins: [nodeResolve(), json()],
+},{
   input: "dist/espresense-releases.js",
   output: {
     dir: "../scripts/components/",
@@ -11,7 +20,7 @@ const config = {
   external: ["https://www.improv-wifi.com/sdk-js/launch-button.js"],
   preserveEntrySignatures: false,
   plugins: [nodeResolve(), json()],
-};
+}];
 
 if (process.env.NODE_ENV === "production") {
   config.plugins.push(

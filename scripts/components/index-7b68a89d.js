@@ -1,5 +1,5 @@
-import { d as dialogStyles, _ as __decorate, e } from './connect-da4154a4.js';
-import { i, s, y, w } from './espresense-artifacts.js';
+import { d as dialogStyles, _ as __decorate, e } from './connect-6dc9d04e.js';
+import { i, s, y, w } from './espresense-releases.js';
 
 const cloudDownload = w `
   <svg

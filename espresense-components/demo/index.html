@@ -9,7 +9,8 @@
   </style>
 </head>
 <body>
-  <div id="demo"></div>
+  <div id="demo1"></div>
+  <div id="demo2"></div>
 
   <script type="module">
     import { html, render } from 'lit';
@@ -22,8 +23,23 @@
           some light-dom
         </espresense-releases>
       `,
-      document.querySelector('#demo')
+      document.querySelector('#demo1')
     );
   </script>
+
+<script type="module">
+  import { html, render } from 'lit';
+  import '../dist/espresense-artifacts.js';
+
+  const title = 'Hello World!';
+  render(
+    html`
+      <espresense-artifacts href="https://espresense.com/artifacts/">
+        some light-dom
+      </espresense-artifacts>
+    `,
+    document.querySelector('#demo2')
+  );
+</script>
 </body>
 </html>

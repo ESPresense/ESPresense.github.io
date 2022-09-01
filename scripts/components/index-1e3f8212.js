@@ -1,7 +1,7 @@
-import { d as dialogStyles, _ as __decorate, n } from './connect-ac525732.js';
-import { r, s, $, y } from './espresense-releases.js';
+import { d as dialogStyles, _ as __decorate, e } from './connect-768272df.js';
+import { i, s, y, w } from './espresense-artifacts.js';
 
-const cloudDownload = y `
+const cloudDownload = w `
   <svg
     version="1.1"
     id="Capa_1"
@@ -23,7 +23,7 @@ const cloudDownload = y `
 `;
 let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
     render() {
-        return $ `
+        return y `
       <ewt-dialog
         open
         heading="No port selected"
@@ -98,7 +98,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
           </li>
         </ol>
         ${this.doTryAgain
-            ? $ `
+            ? y `
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
@@ -113,7 +113,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
                 label="Cancel"
               ></ewt-button>
             `
-            : $ `
+            : y `
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
@@ -129,7 +129,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
 };
 EwtNoPortPickedDialog.styles = [
     dialogStyles,
-    r `
+    i `
       li + li,
       li > ul {
         margin-top: 8px;
@@ -142,7 +142,7 @@ EwtNoPortPickedDialog.styles = [
     `,
 ];
 EwtNoPortPickedDialog = __decorate([
-    n("ewt-no-port-picked-dialog")
+    e("ewt-no-port-picked-dialog")
 ], EwtNoPortPickedDialog);
 
 const openNoPortPickedDialog = async (doTryAgain) => {
