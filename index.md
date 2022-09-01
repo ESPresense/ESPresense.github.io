@@ -9,7 +9,7 @@ nav_order: 0
 
 An ESP32 based presence detection node for use with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/) for localized device presence detection. This is a fork/rewrite of [ESP32-mqtt-room](https://jptrsn.github.io/ESP32-mqtt-room).
 
-* ESP32 base stations are cheaper and easier to use then Rasberry Pis
+* ESP32 base stations are cheaper and easier to use than Rasberry Pis
 * Extensive fingerprint based ids instead of mac addresses so we can track or count things others can't
 * IRK based enrollment of Apple devices to passively uniquely locate even with private random addresses
 * Home Assistant MQTT Discovery for easy HA configuration
