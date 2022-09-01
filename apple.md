@@ -17,7 +17,7 @@ To work around this you can get the remote IRK (identity resolving key) from you
 
 To automatically get the IRK for your iOS device you can pair it with an ESPresense instance and the key will be visible in the `espresense/settings` topic. You can either manually add it to your configuration or let HASS configure it for you.
 
-1. Go in your browser to the ESPresense devices page: `http://espresense-office/devices`
+1. Go in your browser to the ESPresense devices page: `http://espresense-office/ui`
 2. **Fill in** a name for your device in the **name field** and **click** the **Enroll** button.
 3. **On your iPhone** to to **Settings** -> **Bluetooth** and you'll see a new **ESPresense** device.
 4. **Pair** the device and the key becomes visible in the MQTT topic `espresense/settings`
