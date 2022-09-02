@@ -33,6 +33,7 @@ parent: "Troubleshooting"
 
 - <https://www.sciencedirect.com/topics/engineering/received-signal-strength>
 - <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6864824/>
+- <https://ieeexplore.ieee.org/document/4809947?arnumber=4809947>
 
 ### CarKey
 
