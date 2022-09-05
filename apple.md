@@ -13,6 +13,7 @@ To work around this you can get the remote IRK (identity resolving key) from you
 
 > **Note: ESPresense version 3.0 or higher is required!**
 
+
 ## iOS (manual setup)
 
 To automatically get the IRK for your iOS device you can pair it with an ESPresense instance and the key will be visible in the `espresense/settings` topic. You can either manually add it to your configuration or let HASS configure it for you.
@@ -23,10 +24,8 @@ To automatically get the IRK for your iOS device you can pair it with an ESPrese
 4. **Pair** the device and the key becomes visible in the MQTT topic `espresense/settings`
 
 > Tip: use MQTT explorer to view the RAW messages.
+> **Note: With the automatic procedure you DON'T need to add the 32-bit key to the `Known BLE identity resolving keys`. It's automatically done via mqtt!**
 
-Now you can add the 32-bit key to the `Known BLE identity resolving keys` section of the ESPresense configuration and to your HASS configuration with the following syntax: `irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-
-![ble-irk](../images/known_ble_irk.png)
 
 ## Watch OS
 
