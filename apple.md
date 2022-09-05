@@ -57,6 +57,7 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
 9. Paste the IRK in the form below and click 'Decode' to convert this into an IRK. Under the hood, this is convert the Base64 data to a hex string and then reversing the order of the bytes.
 
+<center>
 <div>
   <script>
   function base64ToHex(str) {
@@ -72,16 +73,17 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
     const input = document.getElementById('base64_input');
     const output = document.getElementById('base64_output');
     const data = input.value;
-    output.innerText = base64ToHex(input).reverse().join('');
+    output.innerText = base64ToHex(data).reverse().join('');
   }
   </script>
-  <input type="text" id="base64_input">
-  <button type="button" onclick="decode">Convert</button>
+  <input type="text" id="base64_input" size="32">
+  <button type="button" onclick="decode()">Convert</button>
   <br><br>
   <b>Output</b>
-  <div id="base64_output">
+  <div id="base64_output" style="font-family: monospace;"><span style="color: gray">Enter base64 above...</span></div>
 </div>
- 
+</center>
+
 11. Add the output (which should be 32 characters) to the 'Known BLE identity resolving keys' section of the ESPresence configuration.
     
 ![ble-irk](../images/known_ble_irk.png)
