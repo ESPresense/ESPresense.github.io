@@ -32,6 +32,8 @@ Now you can add the 32-bit key to the `Known BLE identity resolving keys` sectio
 
 An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You have to extract the IRK from iCloud with the Apple Keychain application on MacOS.
 
+> Tip: To ensure you have the right IRK, you need to know your Apple Watch's GUID. To easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **Info** and look under **Bluetooth** for the MAC address. 
+
 1. **On MacOS**, make sure you are **logged in** with the **iCloud ID** with which the Apple Watch is configured.
 2. **Start** the **Keychain access** application.
 3. In the left **sidebar** click on **iCloud**
@@ -40,8 +42,9 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
     ![keychain-icloud](../images/keychain_icloud.png)
 
-1. **Open** the correct **GUID** and **click** on **Show password**
-2. **Type** your MacOS password **twice** and **copy** the **XML contents** to a text editor.
+1. **Open** each **GUID** to find the one associated with your apple watch. You should see your watches GUID as part of the **Account** field in the format: `Public: XX:XX:XX:XX:XX:XX`
+3. **Click** on **Show password**
+4. **Type** your MacOS password **twice** and **copy** the **XML contents** to a text editor.
 
     ![keychain-password](../images/keychain_password.png)
 
@@ -52,11 +55,36 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
     <data>aGktZnJvbS1qb2Vw</data>
     ```
 
-> Tip: to easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **Info** and look under **Bluetooth** for the MAC address. If you open a GUID in the Apple Keychain you see this address under **Account** -> `Public: XX:XX:XX:XX:XX:XX`
+9. Paste the IRK in the form below and click 'Decode' to convert this into an IRK. Under the hood, this is convert the Base64 data to a hex string and then reversing the order of the bytes.
 
-9. [Decode](https://cryptii.com/pipes/base64-to-hex) the *base64 encoded* key to **HEX**.
-10. The last step is to **reverse** the HEX key, for example: `4A4F4550` will be `50454F4A` (note that you reverse the *bytes*!) )
+<div>
+  <script>
+  function base64ToHex(str) {
+    for (var i = 0, bin = atob(str.replace(/[ \r\n]+$/, "")), hex = []; i < bin.length; ++i) {
+        let tmp = bin.charCodeAt(i).toString(16);
+        if (tmp.length === 1) tmp = "0" + tmp;
+        hex[hex.length] = tmp;
+    }
+    return hex;
+  }
 
-Now you can add the 32-bit key to the `Known BLE identity resolving keys` section of the ESPresense configuration and to your HASS configuration with the following syntax: `irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-
+  function decode(e) {
+    const input = document.getElementById('base64_input');
+    const output = document.getElementById('base64_output');
+    const data = input.value;
+    output.innerText = base64ToHex(input).reverse().join('');
+  }
+  </script>
+  <input type="text" id="base64_input">
+  <button type="button" onclick="decode">Convert</button>
+  <br><br>
+  <b>Output</b>
+  <div id="base64_output">
+</div>
+ 
+11. Add the output (which should be 32 characters) to the 'Known BLE identity resolving keys' section of the ESPresence configuration.
+    
 ![ble-irk](../images/known_ble_irk.png)
+    
+12. Add the same string to your HASS configuration with 'irk:' added in front e.g. "irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
