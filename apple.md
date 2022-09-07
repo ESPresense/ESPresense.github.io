@@ -52,11 +52,11 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
     <center>
     <div>
       <script>
-      // Regex to validate base64 strings
+      /* Regex to validate base64 strings */
       var b64_regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
-      // Attempt to decode this as if it was an XML document straight from keychain.
-      // Return null if this cannot be done.
+      /* Attempt to decode this as if it was an XML document straight from keychain.
+         Return null if this cannot be done. */
       function tryDecodeXML(str) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(str,"text/xml");
