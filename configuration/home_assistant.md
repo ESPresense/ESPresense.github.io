@@ -62,13 +62,13 @@ sensor:
   - platform: mqtt_room
     device_id: "iTrack:xxxxxxxxxxxx"
     name: 'ESP Keys'
-    state_topic: 'espresense/devices/iTrack:xxxxxxxxxxxx'
+    state_topic: 'espresense/rooms'
     timeout: 10
     away_timeout: 120
   - platform: mqtt_room
     device_id: "iBeacon:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-3-58241"
     name: 'ESP Chipolo'
-    state_topic: 'espresense/devices/iBeacon:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-3-58241'
+    state_topic: 'espresense/rooms'
     timeout: 10
     away_timeout: 120
 ```
