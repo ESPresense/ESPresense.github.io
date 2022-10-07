@@ -35,7 +35,7 @@ The `Close` message will show which devices are under half a meter away. Once yo
 
 #### monitor MQTT topics
 
-Alternatively, you can monitor the MQTT topics using e.g. [MQTT Explorer](http://mqtt-explorer.com/).
+Alternatively, you can monitor the MQTT topics using e.g. [MQTT Explorer](http://mqtt-explorer.com/) or the monitoring built into the Home Assistant MQTT integration (Configure -> Listen to topic -> espresense/# -> Start listening will give you all taffic from all nodes).
 Connect to the Home Assistant MQTT broker (same configuration as used for the ESPresence sensor setup).
 This groups + shows the `rooms` and `devices`.
 
@@ -72,6 +72,7 @@ sensor:
     timeout: 10
     away_timeout: 120
 ```
+If you have enrolled a device with a specific name that becomes the device_id to track.
 
 ### screenshots
 
