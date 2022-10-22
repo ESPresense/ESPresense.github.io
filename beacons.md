@@ -19,11 +19,13 @@ has_children: true
 | Blue Charm Beacons   | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
 | Puck-JS              | [espruino](https://www.espruino.com/Puck.js)| If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
+| musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2) | Must be connected once with the associated app.
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
+
 
 ## Works with caveats
 
@@ -35,6 +37,7 @@ has_children: true
 | HUAWEI Band 6        | Only works when not connected to a phone
 | HUAWEI Watch GT2     | Only works when not connected to a phone
 | Fi Smart Dog Collar  | Smart Base needs to be powered off or Collars will not beacon
+| Gigaset G-Tag        | Only works when not connected to a phone
 
 ## Known to not work
 
