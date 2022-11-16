@@ -78,6 +78,18 @@ To view what devices are being reported on the MQTT topic, you can use a tool su
 mosquitto_sub -h <mqtt server IP address> -u <my mqtt user> -P <my mqtt password> -i presence-information -v -t "room_presence/#" | ts
 ```
 
+For example, if using Docker: mosquitto-eclipse comes with mosquitto_sub, so enter a shell:
+
+```terminal
+docker exec -it <mosquitto-container-name> /bin/sh
+```
+
+and since this is a local connection, mosquitto_sub defaults will connect locally and allow viewing of all espresense information, which can then be piped through grep to extract device ids.
+
+```terminal
+mosquitto_sub -v -t "espresense/#" | grep id
+```
+
 ## BTLE Advertisements
 
 To view the advertisements coming from your beacon, you can use an App on a BLE-enabled device. One is [NRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp) for Android to view all advertised devices in your area. Once you've found the device you're interested in, you can use [Beacon Scope](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner) to connect to and view information about your beacon, which can help in determining the correct setup.
