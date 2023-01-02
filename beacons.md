@@ -25,6 +25,7 @@ has_children: true
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
+| Amazfit Band         | [amazon](link here)           | Make sure discoverable is turned on
 
 
 ## Works with caveats
