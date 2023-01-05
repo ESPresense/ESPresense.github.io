@@ -26,7 +26,7 @@ var t;const i=window,s$1=i.trustedTypes,e=s$1?s$1.createPolicy("lit-html",{creat
 
 class InstallButton extends HTMLElement {
     static preload() {
-        import('./connect-768272df.js').then(function (n) { return n.c; });
+        import('./connect-ed5b2537.js').then(function (n) { return n.c; });
     }
     connectedCallback() {
         if (this.renderRoot) {
@@ -45,7 +45,7 @@ class InstallButton extends HTMLElement {
         const slot = document.createElement("slot");
         slot.addEventListener("click", async (ev) => {
             ev.preventDefault();
-            const mod = await import('./connect-768272df.js').then(function (n) { return n.c; });
+            const mod = await import('./connect-ed5b2537.js').then(function (n) { return n.c; });
             mod.connect(this);
         });
         slot.name = "activate";
@@ -167,7 +167,7 @@ class EspresenseArtifacts extends s {
     render() {
         const { response } = this;
         return y `
-      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option></select></div>
+      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
       <div><label for="version">Artifact:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => y ` <optgroup label="${key}">${response[key].map((i) => y ` <option value=${i.id}>${i.head_sha.substring(0, 7)}: ${i.head_commit.message.split("\n")[0]}</option> `)}</optgroup>`)}</select></div>
       <div class="but"><esp-web-install-button manifest=${this.manifest}></esp-web-install-button></div>
       <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>

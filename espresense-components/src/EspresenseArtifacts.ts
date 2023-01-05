@@ -97,7 +97,7 @@ export class EspresenseArtifacts extends LitElement {
   render() {
     const { response } = this;
     return html`
-      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option></select></div>
+      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
       <div><label for="version">Artifact:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => html` <optgroup label="${key}">${response[key].map((i) => html` <option value=${i.id}>${i.head_sha.substring(0,7)}: ${i.head_commit.message.split("\n")[0]}</option> `)}</optgroup>`)}</select></div>
       <div class="but"><esp-web-install-button manifest=${this.manifest}></esp-web-install-button></div>
       <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>

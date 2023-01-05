@@ -21145,7 +21145,7 @@ const connect = async (button) => {
     }
     catch (err) {
         if (err.name === "NotFoundError") {
-            import('./index-7b68a89d.js').then((mod) => mod.openNoPortPickedDialog(() => connect(button)));
+            import('./index-4cf9acf7.js').then((mod) => mod.openNoPortPickedDialog(() => connect(button)));
             return;
         }
         alert(`Error: ${err.message}`);
