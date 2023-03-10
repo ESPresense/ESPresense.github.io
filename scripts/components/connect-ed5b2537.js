@@ -1309,7 +1309,7 @@ function tsDecorator(prototype, name, descriptor) {
  * @category Decorator
  * @ExportDecoratedItems
  */
-function ariaProperty(protoOrDescriptor, name, 
+function ariaProperty(protoOrDescriptor, name,
 // tslint:disable-next-line:no-any any is required as a return type from decorators
 descriptor) {
     if (name !== undefined) {
@@ -2193,9 +2193,9 @@ class LineBreakTransformer {
         // Append new chunks to existing chunks.
         this.chunks += chunk;
         // For each line breaks in chunks, send the parsed lines out.
-        const lines = this.chunks.split("\r\n");
+        const lines = this.chunks.split("\n");
         this.chunks = lines.pop();
-        lines.forEach((line) => controller.enqueue(line + "\r\n"));
+        lines.forEach((line) => controller.enqueue(line + "\n"));
     }
     flush(controller) {
         // When the stream is closed, flush any remaining chunks out.
@@ -2310,8 +2310,8 @@ class EwtConsole extends HTMLElement {
         const command = input.value;
         const encoder = new TextEncoder();
         const writer = this.port.writable.getWriter();
-        await writer.write(encoder.encode(command + "\r\n"));
-        this._console.addLine(`> ${command}\r\n`);
+        await writer.write(encoder.encode(command + "\n"));
+        this._console.addLine(`> ${command}\n`);
         input.value = "";
         input.focus();
         try {
@@ -4132,7 +4132,7 @@ function supportsPassiveOption(globalObj) {
  * Specifies an observer callback that is run when the decorated property
  * changes. The observer receives the current and old value as arguments.
  */
-const observer = (observer) => 
+const observer = (observer) =>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (proto, propName) => {
     // if we haven't wrapped `updated` in this class, do so
@@ -20203,7 +20203,7 @@ const textDownload = (text, filename = "") => {
     setTimeout(() => URL.revokeObjectURL(url), 0);
 };
 
-const fireEvent = (eventTarget, type, 
+const fireEvent = (eventTarget, type,
 // @ts-ignore
 detail, options) => {
     options = options || {};
