@@ -49,9 +49,9 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
 5. Paste the contents in the form below and click 'Decode' to convert this into an IRK. Under the hood, this is extracting Base64 data and converting it to a hex string and then reversing the order of the bytes.
 
-    <center>
-    <div>
-      <script>
+<center>
+  <div>
+    <script>
       /* Regex to validate base64 strings */
       var b64_regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
@@ -59,13 +59,12 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
          Return null if this cannot be done. */
       function tryDecodeXML(str) {
         var parser = new DOMParser();
-        var doc = parser.parseFromString(str,"text/xml");
-        var dataElement = doc.getElementsByTagName('data');
-        if (!dataElement || dataElement.length < 1) {
-            return null;
+        var doc = parser.parseFromString(str, "text/xml");
+        var res = doc.evaluate('//key[text()="Remote IRK"]//following-sibling::data/text()', doc, null, XPathResult.STRING_TYPE, null);
+        if (res && res.stringValue) {
+          return tryDecodeBase64(res.stringValue.trim());
         }
-        var b64 = dataElement[0].innerHTML.trim();
-        return tryDecodeBase64(b64);
+        return null;
       }
 
       function isBase64(str) {
@@ -74,13 +73,13 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
       function tryDecodeBase64(str) {
         if (!isBase64(str)) {
-            return null;
+          return null;
         }
 
         for (var i = 0, bin = atob(str.replace(/[ \r\n]+$/, "")), hex = []; i < bin.length; ++i) {
-            var tmp = bin.charCodeAt(i).toString(16);
-            if (tmp.length === 1) tmp = "0" + tmp;
-            hex[hex.length] = tmp;
+          var tmp = bin.charCodeAt(i).toString(16);
+          if (tmp.length === 1) tmp = "0" + tmp;
+          hex[hex.length] = tmp;
         }
         return hex;
       }
@@ -92,22 +91,23 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
 
         var decoded = tryDecodeXML(data) || tryDecodeBase64(data);
         if (!decoded) {
-            output.innerText = "Please paste the XML from iCloud or a Base64 encoded string";
-            output.style = 'color: red;';
-            return;
+          output.innerText = "Please paste the XML from iCloud or a Base64 encoded string";
+          output.style = 'color: red;';
+          return;
         }
-        
+
         output.innerText = decoded.reverse().join('');
       }
-      </script>
-      <textarea type="text" id="base64_input" cols="32" rows="12"></textarea><br><br>
-      <button type="button" onclick="decode()">Convert</button>
-      <br><br>
-      <b>Output</b>
-      <div id="base64_output" style="font-family: monospace;"><span style="color: gray">Enter base64 above...</span></div>
-      <br><br>
-    </div>
-    </center>
+
+    </script>
+    <textarea type="text" id="base64_input" cols="32" rows="12"></textarea><br><br>
+    <button type="button" onclick="decode()">Convert</button>
+    <br><br>
+    <b>Output</b>
+    <div id="base64_output" style="font-family: monospace;"><span style="color: gray">Enter base64 above...</span></div>
+    <br><br>
+  </div>
+</center>
 
 6. Add the output (which should be 32 characters) to the 'Known BLE identity resolving keys' section of the ESPresence configuration.
     
