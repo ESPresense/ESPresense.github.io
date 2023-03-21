@@ -1,5 +1,5 @@
-import { d as dialogStyles, _ as __decorate, e } from './connect-89a09fbb.js';
-import { i, s, y, w } from './espresense-releases.js';
+import { x as dialogStyles, _ as __decorate, k as e } from './styles-d2f7494f.js';
+import { i, s, y, w } from './espresense-artifacts.js';
 
 const cloudDownload = w `
   <svg
@@ -54,7 +54,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
               <li>
                 CP2102 drivers:
                 <a
-                  href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
+                  href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers"
                   target="_blank"
                   rel="noopener"
                   >Windows & Mac</a

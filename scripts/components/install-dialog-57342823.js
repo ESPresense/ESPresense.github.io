@@ -1,1596 +1,11 @@
-import { i as i$4, s as s$1, y, x, b, w } from './espresense-releases.js';
-
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    if (typeof b !== "function" && b !== null)
-        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-
-function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
+import { l as l$1, o as o$1, _ as __decorate, e as e$1, B as BaseElement, t, i, a as ariaProperty, b as e$2, c as e$3, R as RippleHandlers, d as o$2, f as l$2, g as __extends, h as __assign, M as MDCFoundation, j as observer, k as e$4, m as e$5, n as i$2, p as t$1, q as __values, r as addHasRemoveClass, s as isNodeElement, u as doesElementContainFocus, v as deepActiveElementPath, w as i$3, x as dialogStyles } from './styles-d2f7494f.js';
+import { y, i as i$1, s as s$1, x, b, w } from './espresense-artifacts.js';
 
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */
-const e$6=e=>n=>"function"==typeof n?((e,n)=>(customElements.define(e,n),n))(e,n):((e,n)=>{const{kind:t,elements:s}=n;return {kind:t,elements:s,finisher(n){customElements.define(e,n);}}})(e,n);
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-const i$3=(i,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,finisher(n){n.createProperty(e.key,i);}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:e.key,initializer(){"function"==typeof e.initializer&&(this[e.key]=e.initializer.call(this));},finisher(n){n.createProperty(e.key,i);}};function e$5(e){return (n,t)=>void 0!==t?((i,e,n)=>{e.constructor.createProperty(n,i);})(e,n,t):i$3(e,n)}
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */function t$1(t){return e$5({...t,state:!0})}
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-const o$2=({finisher:e,descriptor:t})=>(o,n)=>{var r;if(void 0===n){const n=null!==(r=o.originalKey)&&void 0!==r?r:o.key,i=null!=t?{kind:"method",placement:"prototype",key:n,descriptor:t(o.key)}:{...o,key:n};return null!=e&&(i.finisher=function(t){e(t,n);}),i}{const r=o.constructor;void 0!==t&&Object.defineProperty(o,n,t(n)),null==e||e(r,n);}};
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */function e$4(e){return o$2({finisher:(r,t)=>{Object.assign(r.prototype[t],e);}})}
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */function i$2(i,n){return o$2({descriptor:o=>{const t={get(){var o,n;return null!==(n=null===(o=this.renderRoot)||void 0===o?void 0:o.querySelector(i))&&void 0!==n?n:null},enumerable:!0,configurable:!0};if(n){const n="symbol"==typeof o?Symbol():"__"+o;t.get=function(){var o,t;return void 0===this[n]&&(this[n]=null!==(t=null===(o=this.renderRoot)||void 0===o?void 0:o.querySelector(i))&&void 0!==t?t:null),this[n]};}return t}})}
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-function e$3(e){return o$2({descriptor:r=>({async get(){var r;return await this.updateComplete,null===(r=this.renderRoot)||void 0===r?void 0:r.querySelector(e)},enumerable:!0,configurable:!0})})}
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */var n;const e$2=null!=(null===(n=window.HTMLSlotElement)||void 0===n?void 0:n.prototype.assignedElements)?(o,n)=>o.assignedElements(n):(o,n)=>o.assignedNodes(n).filter((o=>o.nodeType===Node.ELEMENT_NODE));function l$2(n){const{slot:l,selector:t}=null!=n?n:{};return o$2({descriptor:o=>({get(){var o;const r="slot"+(l?`[name=${l}]`:":not([name])"),i=null===(o=this.renderRoot)||void 0===o?void 0:o.querySelector(r),s=null!=i?e$2(i,n):[];return t?s.filter((o=>o.matches(t))):s},enumerable:!0,configurable:!0})})}
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */function o$1(o,n,r){let l,s=o;return "object"==typeof o?(s=o.slot,l=o):l={flatten:n},r?l$2({slot:s,flatten:n,selector:r}):o$2({descriptor:e=>({get(){var e,t;const o="slot"+(s?`[name=${s}]`:":not([name])"),n=null===(e=this.renderRoot)||void 0===e?void 0:e.querySelector(o);return null!==(t=null==n?void 0:n.assignedNodes(l))&&void 0!==t?t:[]},enumerable:!0,configurable:!0})})}
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-LIcense-Identifier: Apache-2.0
- */
-const styles$e = i$4 `:host{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}`;
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/** @soyCompatible */
-let Icon = class Icon extends s$1 {
-    /** @soyTemplate */
-    render() {
-        return y `<span><slot></slot></span>`;
-    }
-};
-Icon.styles = [styles$e];
-Icon = __decorate([
-    e$6('mwc-icon')
-], Icon);
-
-/**
- * @license
- * Copyright 2018 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-/**
- * @fileoverview A "ponyfill" is a polyfill that doesn't modify the global prototype chain.
- * This makes ponyfills safer than traditional polyfills, especially for libraries like MDC.
- */
-function closest(element, selector) {
-    if (element.closest) {
-        return element.closest(selector);
-    }
-    var el = element;
-    while (el) {
-        if (matches(el, selector)) {
-            return el;
-        }
-        el = el.parentElement;
-    }
-    return null;
-}
-function matches(element, selector) {
-    var nativeMatches = element.matches
-        || element.webkitMatchesSelector
-        || element.msMatchesSelector;
-    return nativeMatches.call(element, selector);
-}
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-// Style preference for leading underscores.
-// tslint:disable:strip-private-property-underscore
-/**
- * Determines whether a node is an element.
- *
- * @param node Node to check
- */
-const isNodeElement = (node) => {
-    return node.nodeType === Node.ELEMENT_NODE;
-};
-function addHasRemoveClass(element) {
-    return {
-        addClass: (className) => {
-            element.classList.add(className);
-        },
-        removeClass: (className) => {
-            element.classList.remove(className);
-        },
-        hasClass: (className) => element.classList.contains(className),
-    };
-}
-const fn = () => { };
-const optionsBlock = {
-    get passive() {
-        return false;
-    }
-};
-document.addEventListener('x', fn, optionsBlock);
-document.removeEventListener('x', fn);
-const deepActiveElementPath = (doc = window.document) => {
-    let activeElement = doc.activeElement;
-    const path = [];
-    if (!activeElement) {
-        return path;
-    }
-    while (activeElement) {
-        path.push(activeElement);
-        if (activeElement.shadowRoot) {
-            activeElement = activeElement.shadowRoot.activeElement;
-        }
-        else {
-            break;
-        }
-    }
-    return path;
-};
-const doesElementContainFocus = (element) => {
-    const activePath = deepActiveElementPath();
-    if (!activePath.length) {
-        return false;
-    }
-    const deepActiveElement = activePath[activePath.length - 1];
-    const focusEv = new Event('check-if-focused', { bubbles: true, composed: true });
-    let composedPath = [];
-    const listener = (ev) => {
-        composedPath = ev.composedPath();
-    };
-    document.body.addEventListener('check-if-focused', listener);
-    deepActiveElement.dispatchEvent(focusEv);
-    document.body.removeEventListener('check-if-focused', listener);
-    return composedPath.indexOf(element) !== -1;
-};
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/** @soyCompatible */
-class BaseElement extends s$1 {
-    click() {
-        if (this.mdcRoot) {
-            this.mdcRoot.focus();
-            this.mdcRoot.click();
-            return;
-        }
-        super.click();
-    }
-    /**
-     * Create and attach the MDC Foundation to the instance
-     */
-    createFoundation() {
-        if (this.mdcFoundation !== undefined) {
-            this.mdcFoundation.destroy();
-        }
-        if (this.mdcFoundationClass) {
-            this.mdcFoundation = new this.mdcFoundationClass(this.createAdapter());
-            this.mdcFoundation.init();
-        }
-    }
-    firstUpdated() {
-        this.createFoundation();
-    }
-}
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-var MDCFoundation = /** @class */ (function () {
-    function MDCFoundation(adapter) {
-        if (adapter === void 0) { adapter = {}; }
-        this.adapter = adapter;
-    }
-    Object.defineProperty(MDCFoundation, "cssClasses", {
-        get: function () {
-            // Classes extending MDCFoundation should implement this method to return an object which exports every
-            // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
-            return {};
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCFoundation, "strings", {
-        get: function () {
-            // Classes extending MDCFoundation should implement this method to return an object which exports all
-            // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
-            return {};
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCFoundation, "numbers", {
-        get: function () {
-            // Classes extending MDCFoundation should implement this method to return an object which exports all
-            // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
-            return {};
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCFoundation, "defaultAdapter", {
-        get: function () {
-            // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
-            // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
-            // validation.
-            return {};
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MDCFoundation.prototype.init = function () {
-        // Subclasses should override this method to perform initialization routines (registering events, etc.)
-    };
-    MDCFoundation.prototype.destroy = function () {
-        // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
-    };
-    return MDCFoundation;
-}());
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-var cssClasses$a = {
-    // Ripple is a special case where the "root" component is really a "mixin" of sorts,
-    // given that it's an 'upgrade' to an existing component. That being said it is the root
-    // CSS class that all other CSS classes derive from.
-    BG_FOCUSED: 'mdc-ripple-upgraded--background-focused',
-    FG_ACTIVATION: 'mdc-ripple-upgraded--foreground-activation',
-    FG_DEACTIVATION: 'mdc-ripple-upgraded--foreground-deactivation',
-    ROOT: 'mdc-ripple-upgraded',
-    UNBOUNDED: 'mdc-ripple-upgraded--unbounded',
-};
-var strings$9 = {
-    VAR_FG_SCALE: '--mdc-ripple-fg-scale',
-    VAR_FG_SIZE: '--mdc-ripple-fg-size',
-    VAR_FG_TRANSLATE_END: '--mdc-ripple-fg-translate-end',
-    VAR_FG_TRANSLATE_START: '--mdc-ripple-fg-translate-start',
-    VAR_LEFT: '--mdc-ripple-left',
-    VAR_TOP: '--mdc-ripple-top',
-};
-var numbers$7 = {
-    DEACTIVATION_TIMEOUT_MS: 225,
-    FG_DEACTIVATION_MS: 150,
-    INITIAL_ORIGIN_SCALE: 0.6,
-    PADDING: 10,
-    TAP_DELAY_MS: 300, // Delay between touch and simulated mouse events on touch devices
-};
-
-/**
- * Stores result from supportsCssVariables to avoid redundant processing to
- * detect CSS custom variable support.
- */
-function getNormalizedEventCoords(evt, pageOffset, clientRect) {
-    if (!evt) {
-        return { x: 0, y: 0 };
-    }
-    var x = pageOffset.x, y = pageOffset.y;
-    var documentX = x + clientRect.left;
-    var documentY = y + clientRect.top;
-    var normalizedX;
-    var normalizedY;
-    // Determine touch point relative to the ripple container.
-    if (evt.type === 'touchstart') {
-        var touchEvent = evt;
-        normalizedX = touchEvent.changedTouches[0].pageX - documentX;
-        normalizedY = touchEvent.changedTouches[0].pageY - documentY;
-    }
-    else {
-        var mouseEvent = evt;
-        normalizedX = mouseEvent.pageX - documentX;
-        normalizedY = mouseEvent.pageY - documentY;
-    }
-    return { x: normalizedX, y: normalizedY };
-}
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-// Activation events registered on the root element of each instance for activation
-var ACTIVATION_EVENT_TYPES = [
-    'touchstart', 'pointerdown', 'mousedown', 'keydown',
-];
-// Deactivation events registered on documentElement when a pointer-related down event occurs
-var POINTER_DEACTIVATION_EVENT_TYPES = [
-    'touchend', 'pointerup', 'mouseup', 'contextmenu',
-];
-// simultaneous nested activations
-var activatedTargets = [];
-var MDCRippleFoundation = /** @class */ (function (_super) {
-    __extends(MDCRippleFoundation, _super);
-    function MDCRippleFoundation(adapter) {
-        var _this = _super.call(this, __assign(__assign({}, MDCRippleFoundation.defaultAdapter), adapter)) || this;
-        _this.activationAnimationHasEnded = false;
-        _this.activationTimer = 0;
-        _this.fgDeactivationRemovalTimer = 0;
-        _this.fgScale = '0';
-        _this.frame = { width: 0, height: 0 };
-        _this.initialSize = 0;
-        _this.layoutFrame = 0;
-        _this.maxRadius = 0;
-        _this.unboundedCoords = { left: 0, top: 0 };
-        _this.activationState = _this.defaultActivationState();
-        _this.activationTimerCallback = function () {
-            _this.activationAnimationHasEnded = true;
-            _this.runDeactivationUXLogicIfReady();
-        };
-        _this.activateHandler = function (e) {
-            _this.activateImpl(e);
-        };
-        _this.deactivateHandler = function () {
-            _this.deactivateImpl();
-        };
-        _this.focusHandler = function () {
-            _this.handleFocus();
-        };
-        _this.blurHandler = function () {
-            _this.handleBlur();
-        };
-        _this.resizeHandler = function () {
-            _this.layout();
-        };
-        return _this;
-    }
-    Object.defineProperty(MDCRippleFoundation, "cssClasses", {
-        get: function () {
-            return cssClasses$a;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCRippleFoundation, "strings", {
-        get: function () {
-            return strings$9;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCRippleFoundation, "numbers", {
-        get: function () {
-            return numbers$7;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCRippleFoundation, "defaultAdapter", {
-        get: function () {
-            return {
-                addClass: function () { return undefined; },
-                browserSupportsCssVars: function () { return true; },
-                computeBoundingRect: function () {
-                    return ({ top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0 });
-                },
-                containsEventTarget: function () { return true; },
-                deregisterDocumentInteractionHandler: function () { return undefined; },
-                deregisterInteractionHandler: function () { return undefined; },
-                deregisterResizeHandler: function () { return undefined; },
-                getWindowPageOffset: function () { return ({ x: 0, y: 0 }); },
-                isSurfaceActive: function () { return true; },
-                isSurfaceDisabled: function () { return true; },
-                isUnbounded: function () { return true; },
-                registerDocumentInteractionHandler: function () { return undefined; },
-                registerInteractionHandler: function () { return undefined; },
-                registerResizeHandler: function () { return undefined; },
-                removeClass: function () { return undefined; },
-                updateCssVariable: function () { return undefined; },
-            };
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MDCRippleFoundation.prototype.init = function () {
-        var _this = this;
-        var supportsPressRipple = this.supportsPressRipple();
-        this.registerRootHandlers(supportsPressRipple);
-        if (supportsPressRipple) {
-            var _a = MDCRippleFoundation.cssClasses, ROOT_1 = _a.ROOT, UNBOUNDED_1 = _a.UNBOUNDED;
-            requestAnimationFrame(function () {
-                _this.adapter.addClass(ROOT_1);
-                if (_this.adapter.isUnbounded()) {
-                    _this.adapter.addClass(UNBOUNDED_1);
-                    // Unbounded ripples need layout logic applied immediately to set coordinates for both shade and ripple
-                    _this.layoutInternal();
-                }
-            });
-        }
-    };
-    MDCRippleFoundation.prototype.destroy = function () {
-        var _this = this;
-        if (this.supportsPressRipple()) {
-            if (this.activationTimer) {
-                clearTimeout(this.activationTimer);
-                this.activationTimer = 0;
-                this.adapter.removeClass(MDCRippleFoundation.cssClasses.FG_ACTIVATION);
-            }
-            if (this.fgDeactivationRemovalTimer) {
-                clearTimeout(this.fgDeactivationRemovalTimer);
-                this.fgDeactivationRemovalTimer = 0;
-                this.adapter.removeClass(MDCRippleFoundation.cssClasses.FG_DEACTIVATION);
-            }
-            var _a = MDCRippleFoundation.cssClasses, ROOT_2 = _a.ROOT, UNBOUNDED_2 = _a.UNBOUNDED;
-            requestAnimationFrame(function () {
-                _this.adapter.removeClass(ROOT_2);
-                _this.adapter.removeClass(UNBOUNDED_2);
-                _this.removeCssVars();
-            });
-        }
-        this.deregisterRootHandlers();
-        this.deregisterDeactivationHandlers();
-    };
-    /**
-     * @param evt Optional event containing position information.
-     */
-    MDCRippleFoundation.prototype.activate = function (evt) {
-        this.activateImpl(evt);
-    };
-    MDCRippleFoundation.prototype.deactivate = function () {
-        this.deactivateImpl();
-    };
-    MDCRippleFoundation.prototype.layout = function () {
-        var _this = this;
-        if (this.layoutFrame) {
-            cancelAnimationFrame(this.layoutFrame);
-        }
-        this.layoutFrame = requestAnimationFrame(function () {
-            _this.layoutInternal();
-            _this.layoutFrame = 0;
-        });
-    };
-    MDCRippleFoundation.prototype.setUnbounded = function (unbounded) {
-        var UNBOUNDED = MDCRippleFoundation.cssClasses.UNBOUNDED;
-        if (unbounded) {
-            this.adapter.addClass(UNBOUNDED);
-        }
-        else {
-            this.adapter.removeClass(UNBOUNDED);
-        }
-    };
-    MDCRippleFoundation.prototype.handleFocus = function () {
-        var _this = this;
-        requestAnimationFrame(function () { return _this.adapter.addClass(MDCRippleFoundation.cssClasses.BG_FOCUSED); });
-    };
-    MDCRippleFoundation.prototype.handleBlur = function () {
-        var _this = this;
-        requestAnimationFrame(function () { return _this.adapter.removeClass(MDCRippleFoundation.cssClasses.BG_FOCUSED); });
-    };
-    /**
-     * We compute this property so that we are not querying information about the client
-     * until the point in time where the foundation requests it. This prevents scenarios where
-     * client-side feature-detection may happen too early, such as when components are rendered on the server
-     * and then initialized at mount time on the client.
-     */
-    MDCRippleFoundation.prototype.supportsPressRipple = function () {
-        return this.adapter.browserSupportsCssVars();
-    };
-    MDCRippleFoundation.prototype.defaultActivationState = function () {
-        return {
-            activationEvent: undefined,
-            hasDeactivationUXRun: false,
-            isActivated: false,
-            isProgrammatic: false,
-            wasActivatedByPointer: false,
-            wasElementMadeActive: false,
-        };
-    };
-    /**
-     * supportsPressRipple Passed from init to save a redundant function call
-     */
-    MDCRippleFoundation.prototype.registerRootHandlers = function (supportsPressRipple) {
-        var e_1, _a;
-        if (supportsPressRipple) {
-            try {
-                for (var ACTIVATION_EVENT_TYPES_1 = __values(ACTIVATION_EVENT_TYPES), ACTIVATION_EVENT_TYPES_1_1 = ACTIVATION_EVENT_TYPES_1.next(); !ACTIVATION_EVENT_TYPES_1_1.done; ACTIVATION_EVENT_TYPES_1_1 = ACTIVATION_EVENT_TYPES_1.next()) {
-                    var evtType = ACTIVATION_EVENT_TYPES_1_1.value;
-                    this.adapter.registerInteractionHandler(evtType, this.activateHandler);
-                }
-            }
-            catch (e_1_1) { e_1 = { error: e_1_1 }; }
-            finally {
-                try {
-                    if (ACTIVATION_EVENT_TYPES_1_1 && !ACTIVATION_EVENT_TYPES_1_1.done && (_a = ACTIVATION_EVENT_TYPES_1.return)) _a.call(ACTIVATION_EVENT_TYPES_1);
-                }
-                finally { if (e_1) throw e_1.error; }
-            }
-            if (this.adapter.isUnbounded()) {
-                this.adapter.registerResizeHandler(this.resizeHandler);
-            }
-        }
-        this.adapter.registerInteractionHandler('focus', this.focusHandler);
-        this.adapter.registerInteractionHandler('blur', this.blurHandler);
-    };
-    MDCRippleFoundation.prototype.registerDeactivationHandlers = function (evt) {
-        var e_2, _a;
-        if (evt.type === 'keydown') {
-            this.adapter.registerInteractionHandler('keyup', this.deactivateHandler);
-        }
-        else {
-            try {
-                for (var POINTER_DEACTIVATION_EVENT_TYPES_1 = __values(POINTER_DEACTIVATION_EVENT_TYPES), POINTER_DEACTIVATION_EVENT_TYPES_1_1 = POINTER_DEACTIVATION_EVENT_TYPES_1.next(); !POINTER_DEACTIVATION_EVENT_TYPES_1_1.done; POINTER_DEACTIVATION_EVENT_TYPES_1_1 = POINTER_DEACTIVATION_EVENT_TYPES_1.next()) {
-                    var evtType = POINTER_DEACTIVATION_EVENT_TYPES_1_1.value;
-                    this.adapter.registerDocumentInteractionHandler(evtType, this.deactivateHandler);
-                }
-            }
-            catch (e_2_1) { e_2 = { error: e_2_1 }; }
-            finally {
-                try {
-                    if (POINTER_DEACTIVATION_EVENT_TYPES_1_1 && !POINTER_DEACTIVATION_EVENT_TYPES_1_1.done && (_a = POINTER_DEACTIVATION_EVENT_TYPES_1.return)) _a.call(POINTER_DEACTIVATION_EVENT_TYPES_1);
-                }
-                finally { if (e_2) throw e_2.error; }
-            }
-        }
-    };
-    MDCRippleFoundation.prototype.deregisterRootHandlers = function () {
-        var e_3, _a;
-        try {
-            for (var ACTIVATION_EVENT_TYPES_2 = __values(ACTIVATION_EVENT_TYPES), ACTIVATION_EVENT_TYPES_2_1 = ACTIVATION_EVENT_TYPES_2.next(); !ACTIVATION_EVENT_TYPES_2_1.done; ACTIVATION_EVENT_TYPES_2_1 = ACTIVATION_EVENT_TYPES_2.next()) {
-                var evtType = ACTIVATION_EVENT_TYPES_2_1.value;
-                this.adapter.deregisterInteractionHandler(evtType, this.activateHandler);
-            }
-        }
-        catch (e_3_1) { e_3 = { error: e_3_1 }; }
-        finally {
-            try {
-                if (ACTIVATION_EVENT_TYPES_2_1 && !ACTIVATION_EVENT_TYPES_2_1.done && (_a = ACTIVATION_EVENT_TYPES_2.return)) _a.call(ACTIVATION_EVENT_TYPES_2);
-            }
-            finally { if (e_3) throw e_3.error; }
-        }
-        this.adapter.deregisterInteractionHandler('focus', this.focusHandler);
-        this.adapter.deregisterInteractionHandler('blur', this.blurHandler);
-        if (this.adapter.isUnbounded()) {
-            this.adapter.deregisterResizeHandler(this.resizeHandler);
-        }
-    };
-    MDCRippleFoundation.prototype.deregisterDeactivationHandlers = function () {
-        var e_4, _a;
-        this.adapter.deregisterInteractionHandler('keyup', this.deactivateHandler);
-        try {
-            for (var POINTER_DEACTIVATION_EVENT_TYPES_2 = __values(POINTER_DEACTIVATION_EVENT_TYPES), POINTER_DEACTIVATION_EVENT_TYPES_2_1 = POINTER_DEACTIVATION_EVENT_TYPES_2.next(); !POINTER_DEACTIVATION_EVENT_TYPES_2_1.done; POINTER_DEACTIVATION_EVENT_TYPES_2_1 = POINTER_DEACTIVATION_EVENT_TYPES_2.next()) {
-                var evtType = POINTER_DEACTIVATION_EVENT_TYPES_2_1.value;
-                this.adapter.deregisterDocumentInteractionHandler(evtType, this.deactivateHandler);
-            }
-        }
-        catch (e_4_1) { e_4 = { error: e_4_1 }; }
-        finally {
-            try {
-                if (POINTER_DEACTIVATION_EVENT_TYPES_2_1 && !POINTER_DEACTIVATION_EVENT_TYPES_2_1.done && (_a = POINTER_DEACTIVATION_EVENT_TYPES_2.return)) _a.call(POINTER_DEACTIVATION_EVENT_TYPES_2);
-            }
-            finally { if (e_4) throw e_4.error; }
-        }
-    };
-    MDCRippleFoundation.prototype.removeCssVars = function () {
-        var _this = this;
-        var rippleStrings = MDCRippleFoundation.strings;
-        var keys = Object.keys(rippleStrings);
-        keys.forEach(function (key) {
-            if (key.indexOf('VAR_') === 0) {
-                _this.adapter.updateCssVariable(rippleStrings[key], null);
-            }
-        });
-    };
-    MDCRippleFoundation.prototype.activateImpl = function (evt) {
-        var _this = this;
-        if (this.adapter.isSurfaceDisabled()) {
-            return;
-        }
-        var activationState = this.activationState;
-        if (activationState.isActivated) {
-            return;
-        }
-        // Avoid reacting to follow-on events fired by touch device after an already-processed user interaction
-        var previousActivationEvent = this.previousActivationEvent;
-        var isSameInteraction = previousActivationEvent && evt !== undefined && previousActivationEvent.type !== evt.type;
-        if (isSameInteraction) {
-            return;
-        }
-        activationState.isActivated = true;
-        activationState.isProgrammatic = evt === undefined;
-        activationState.activationEvent = evt;
-        activationState.wasActivatedByPointer = activationState.isProgrammatic ? false : evt !== undefined && (evt.type === 'mousedown' || evt.type === 'touchstart' || evt.type === 'pointerdown');
-        var hasActivatedChild = evt !== undefined &&
-            activatedTargets.length > 0 &&
-            activatedTargets.some(function (target) { return _this.adapter.containsEventTarget(target); });
-        if (hasActivatedChild) {
-            // Immediately reset activation state, while preserving logic that prevents touch follow-on events
-            this.resetActivationState();
-            return;
-        }
-        if (evt !== undefined) {
-            activatedTargets.push(evt.target);
-            this.registerDeactivationHandlers(evt);
-        }
-        activationState.wasElementMadeActive = this.checkElementMadeActive(evt);
-        if (activationState.wasElementMadeActive) {
-            this.animateActivation();
-        }
-        requestAnimationFrame(function () {
-            // Reset array on next frame after the current event has had a chance to bubble to prevent ancestor ripples
-            activatedTargets = [];
-            if (!activationState.wasElementMadeActive
-                && evt !== undefined
-                && (evt.key === ' ' || evt.keyCode === 32)) {
-                // If space was pressed, try again within an rAF call to detect :active, because different UAs report
-                // active states inconsistently when they're called within event handling code:
-                // - https://bugs.chromium.org/p/chromium/issues/detail?id=635971
-                // - https://bugzilla.mozilla.org/show_bug.cgi?id=1293741
-                // We try first outside rAF to support Edge, which does not exhibit this problem, but will crash if a CSS
-                // variable is set within a rAF callback for a submit button interaction (#2241).
-                activationState.wasElementMadeActive = _this.checkElementMadeActive(evt);
-                if (activationState.wasElementMadeActive) {
-                    _this.animateActivation();
-                }
-            }
-            if (!activationState.wasElementMadeActive) {
-                // Reset activation state immediately if element was not made active.
-                _this.activationState = _this.defaultActivationState();
-            }
-        });
-    };
-    MDCRippleFoundation.prototype.checkElementMadeActive = function (evt) {
-        return (evt !== undefined && evt.type === 'keydown') ?
-            this.adapter.isSurfaceActive() :
-            true;
-    };
-    MDCRippleFoundation.prototype.animateActivation = function () {
-        var _this = this;
-        var _a = MDCRippleFoundation.strings, VAR_FG_TRANSLATE_START = _a.VAR_FG_TRANSLATE_START, VAR_FG_TRANSLATE_END = _a.VAR_FG_TRANSLATE_END;
-        var _b = MDCRippleFoundation.cssClasses, FG_DEACTIVATION = _b.FG_DEACTIVATION, FG_ACTIVATION = _b.FG_ACTIVATION;
-        var DEACTIVATION_TIMEOUT_MS = MDCRippleFoundation.numbers.DEACTIVATION_TIMEOUT_MS;
-        this.layoutInternal();
-        var translateStart = '';
-        var translateEnd = '';
-        if (!this.adapter.isUnbounded()) {
-            var _c = this.getFgTranslationCoordinates(), startPoint = _c.startPoint, endPoint = _c.endPoint;
-            translateStart = startPoint.x + "px, " + startPoint.y + "px";
-            translateEnd = endPoint.x + "px, " + endPoint.y + "px";
-        }
-        this.adapter.updateCssVariable(VAR_FG_TRANSLATE_START, translateStart);
-        this.adapter.updateCssVariable(VAR_FG_TRANSLATE_END, translateEnd);
-        // Cancel any ongoing activation/deactivation animations
-        clearTimeout(this.activationTimer);
-        clearTimeout(this.fgDeactivationRemovalTimer);
-        this.rmBoundedActivationClasses();
-        this.adapter.removeClass(FG_DEACTIVATION);
-        // Force layout in order to re-trigger the animation.
-        this.adapter.computeBoundingRect();
-        this.adapter.addClass(FG_ACTIVATION);
-        this.activationTimer = setTimeout(function () {
-            _this.activationTimerCallback();
-        }, DEACTIVATION_TIMEOUT_MS);
-    };
-    MDCRippleFoundation.prototype.getFgTranslationCoordinates = function () {
-        var _a = this.activationState, activationEvent = _a.activationEvent, wasActivatedByPointer = _a.wasActivatedByPointer;
-        var startPoint;
-        if (wasActivatedByPointer) {
-            startPoint = getNormalizedEventCoords(activationEvent, this.adapter.getWindowPageOffset(), this.adapter.computeBoundingRect());
-        }
-        else {
-            startPoint = {
-                x: this.frame.width / 2,
-                y: this.frame.height / 2,
-            };
-        }
-        // Center the element around the start point.
-        startPoint = {
-            x: startPoint.x - (this.initialSize / 2),
-            y: startPoint.y - (this.initialSize / 2),
-        };
-        var endPoint = {
-            x: (this.frame.width / 2) - (this.initialSize / 2),
-            y: (this.frame.height / 2) - (this.initialSize / 2),
-        };
-        return { startPoint: startPoint, endPoint: endPoint };
-    };
-    MDCRippleFoundation.prototype.runDeactivationUXLogicIfReady = function () {
-        var _this = this;
-        // This method is called both when a pointing device is released, and when the activation animation ends.
-        // The deactivation animation should only run after both of those occur.
-        var FG_DEACTIVATION = MDCRippleFoundation.cssClasses.FG_DEACTIVATION;
-        var _a = this.activationState, hasDeactivationUXRun = _a.hasDeactivationUXRun, isActivated = _a.isActivated;
-        var activationHasEnded = hasDeactivationUXRun || !isActivated;
-        if (activationHasEnded && this.activationAnimationHasEnded) {
-            this.rmBoundedActivationClasses();
-            this.adapter.addClass(FG_DEACTIVATION);
-            this.fgDeactivationRemovalTimer = setTimeout(function () {
-                _this.adapter.removeClass(FG_DEACTIVATION);
-            }, numbers$7.FG_DEACTIVATION_MS);
-        }
-    };
-    MDCRippleFoundation.prototype.rmBoundedActivationClasses = function () {
-        var FG_ACTIVATION = MDCRippleFoundation.cssClasses.FG_ACTIVATION;
-        this.adapter.removeClass(FG_ACTIVATION);
-        this.activationAnimationHasEnded = false;
-        this.adapter.computeBoundingRect();
-    };
-    MDCRippleFoundation.prototype.resetActivationState = function () {
-        var _this = this;
-        this.previousActivationEvent = this.activationState.activationEvent;
-        this.activationState = this.defaultActivationState();
-        // Touch devices may fire additional events for the same interaction within a short time.
-        // Store the previous event until it's safe to assume that subsequent events are for new interactions.
-        setTimeout(function () { return _this.previousActivationEvent = undefined; }, MDCRippleFoundation.numbers.TAP_DELAY_MS);
-    };
-    MDCRippleFoundation.prototype.deactivateImpl = function () {
-        var _this = this;
-        var activationState = this.activationState;
-        // This can happen in scenarios such as when you have a keyup event that blurs the element.
-        if (!activationState.isActivated) {
-            return;
-        }
-        var state = __assign({}, activationState);
-        if (activationState.isProgrammatic) {
-            requestAnimationFrame(function () {
-                _this.animateDeactivation(state);
-            });
-            this.resetActivationState();
-        }
-        else {
-            this.deregisterDeactivationHandlers();
-            requestAnimationFrame(function () {
-                _this.activationState.hasDeactivationUXRun = true;
-                _this.animateDeactivation(state);
-                _this.resetActivationState();
-            });
-        }
-    };
-    MDCRippleFoundation.prototype.animateDeactivation = function (_a) {
-        var wasActivatedByPointer = _a.wasActivatedByPointer, wasElementMadeActive = _a.wasElementMadeActive;
-        if (wasActivatedByPointer || wasElementMadeActive) {
-            this.runDeactivationUXLogicIfReady();
-        }
-    };
-    MDCRippleFoundation.prototype.layoutInternal = function () {
-        var _this = this;
-        this.frame = this.adapter.computeBoundingRect();
-        var maxDim = Math.max(this.frame.height, this.frame.width);
-        // Surface diameter is treated differently for unbounded vs. bounded ripples.
-        // Unbounded ripple diameter is calculated smaller since the surface is expected to already be padded appropriately
-        // to extend the hitbox, and the ripple is expected to meet the edges of the padded hitbox (which is typically
-        // square). Bounded ripples, on the other hand, are fully expected to expand beyond the surface's longest diameter
-        // (calculated based on the diagonal plus a constant padding), and are clipped at the surface's border via
-        // `overflow: hidden`.
-        var getBoundedRadius = function () {
-            var hypotenuse = Math.sqrt(Math.pow(_this.frame.width, 2) + Math.pow(_this.frame.height, 2));
-            return hypotenuse + MDCRippleFoundation.numbers.PADDING;
-        };
-        this.maxRadius = this.adapter.isUnbounded() ? maxDim : getBoundedRadius();
-        // Ripple is sized as a fraction of the largest dimension of the surface, then scales up using a CSS scale transform
-        var initialSize = Math.floor(maxDim * MDCRippleFoundation.numbers.INITIAL_ORIGIN_SCALE);
-        // Unbounded ripple size should always be even number to equally center align.
-        if (this.adapter.isUnbounded() && initialSize % 2 !== 0) {
-            this.initialSize = initialSize - 1;
-        }
-        else {
-            this.initialSize = initialSize;
-        }
-        this.fgScale = "" + this.maxRadius / this.initialSize;
-        this.updateLayoutCssVars();
-    };
-    MDCRippleFoundation.prototype.updateLayoutCssVars = function () {
-        var _a = MDCRippleFoundation.strings, VAR_FG_SIZE = _a.VAR_FG_SIZE, VAR_LEFT = _a.VAR_LEFT, VAR_TOP = _a.VAR_TOP, VAR_FG_SCALE = _a.VAR_FG_SCALE;
-        this.adapter.updateCssVariable(VAR_FG_SIZE, this.initialSize + "px");
-        this.adapter.updateCssVariable(VAR_FG_SCALE, this.fgScale);
-        if (this.adapter.isUnbounded()) {
-            this.unboundedCoords = {
-                left: Math.round((this.frame.width / 2) - (this.initialSize / 2)),
-                top: Math.round((this.frame.height / 2) - (this.initialSize / 2)),
-            };
-            this.adapter.updateCssVariable(VAR_LEFT, this.unboundedCoords.left + "px");
-            this.adapter.updateCssVariable(VAR_TOP, this.unboundedCoords.top + "px");
-        }
-    };
-    return MDCRippleFoundation;
-}(MDCFoundation));
-// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
-var MDCRippleFoundation$1 = MDCRippleFoundation;
-
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-const t={ATTRIBUTE:1,CHILD:2,PROPERTY:3,BOOLEAN_ATTRIBUTE:4,EVENT:5,ELEMENT:6},e$1=t=>(...e)=>({_$litDirective$:t,values:e});class i$1{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,e,i){this._$Ct=t,this._$AM=e,this._$Ci=i;}_$AS(t,e){return this.update(t,e)}update(t,e){return this.render(...e)}}
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const o=e$1(class extends i$1{constructor(t$1){var i;if(super(t$1),t$1.type!==t.ATTRIBUTE||"class"!==t$1.name||(null===(i=t$1.strings)||void 0===i?void 0:i.length)>2)throw Error("`classMap()` can only be used in the `class` attribute and must be the only part in the attribute.")}render(t){return " "+Object.keys(t).filter((i=>t[i])).join(" ")+" "}update(i,[s]){var r,o;if(void 0===this.nt){this.nt=new Set,void 0!==i.strings&&(this.st=new Set(i.strings.join(" ").split(/\s/).filter((t=>""!==t))));for(const t in s)s[t]&&!(null===(r=this.st)||void 0===r?void 0:r.has(t))&&this.nt.add(t);return this.render(s)}const e=i.element.classList;this.nt.forEach((t=>{t in s||(e.remove(t),this.nt.delete(t));}));for(const t in s){const i=!!s[t];i===this.nt.has(t)||(null===(o=this.st)||void 0===o?void 0:o.has(t))||(i?(e.add(t),this.nt.add(t)):(e.remove(t),this.nt.delete(t)));}return x}});
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const i=e$1(class extends i$1{constructor(t$1){var e;if(super(t$1),t$1.type!==t.ATTRIBUTE||"style"!==t$1.name||(null===(e=t$1.strings)||void 0===e?void 0:e.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce(((e,r)=>{const s=t[r];return null==s?e:e+`${r=r.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${s};`}),"")}update(e,[r]){const{style:s}=e.element;if(void 0===this.vt){this.vt=new Set;for(const t in r)this.vt.add(t);return this.render(r)}this.vt.forEach((t=>{null==r[t]&&(this.vt.delete(t),t.includes("-")?s.removeProperty(t):s[t]="");}));for(const t in r){const e=r[t];null!=e&&(this.vt.add(t),t.includes("-")?s.setProperty(t,e):s[t]=e);}return x}});
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/** @soyCompatible */
-class RippleBase extends BaseElement {
-    constructor() {
-        super(...arguments);
-        this.primary = false;
-        this.accent = false;
-        this.unbounded = false;
-        this.disabled = false;
-        this.activated = false;
-        this.selected = false;
-        this.internalUseStateLayerCustomProperties = false;
-        this.hovering = false;
-        this.bgFocused = false;
-        this.fgActivation = false;
-        this.fgDeactivation = false;
-        this.fgScale = '';
-        this.fgSize = '';
-        this.translateStart = '';
-        this.translateEnd = '';
-        this.leftPos = '';
-        this.topPos = '';
-        this.mdcFoundationClass = MDCRippleFoundation$1;
-    }
-    get isActive() {
-        return matches(this.parentElement || this, ':active');
-    }
-    createAdapter() {
-        return {
-            browserSupportsCssVars: () => true,
-            isUnbounded: () => this.unbounded,
-            isSurfaceActive: () => this.isActive,
-            isSurfaceDisabled: () => this.disabled,
-            addClass: (className) => {
-                switch (className) {
-                    case 'mdc-ripple-upgraded--background-focused':
-                        this.bgFocused = true;
-                        break;
-                    case 'mdc-ripple-upgraded--foreground-activation':
-                        this.fgActivation = true;
-                        break;
-                    case 'mdc-ripple-upgraded--foreground-deactivation':
-                        this.fgDeactivation = true;
-                        break;
-                }
-            },
-            removeClass: (className) => {
-                switch (className) {
-                    case 'mdc-ripple-upgraded--background-focused':
-                        this.bgFocused = false;
-                        break;
-                    case 'mdc-ripple-upgraded--foreground-activation':
-                        this.fgActivation = false;
-                        break;
-                    case 'mdc-ripple-upgraded--foreground-deactivation':
-                        this.fgDeactivation = false;
-                        break;
-                }
-            },
-            containsEventTarget: () => true,
-            registerInteractionHandler: () => undefined,
-            deregisterInteractionHandler: () => undefined,
-            registerDocumentInteractionHandler: () => undefined,
-            deregisterDocumentInteractionHandler: () => undefined,
-            registerResizeHandler: () => undefined,
-            deregisterResizeHandler: () => undefined,
-            updateCssVariable: (varName, value) => {
-                switch (varName) {
-                    case '--mdc-ripple-fg-scale':
-                        this.fgScale = value;
-                        break;
-                    case '--mdc-ripple-fg-size':
-                        this.fgSize = value;
-                        break;
-                    case '--mdc-ripple-fg-translate-end':
-                        this.translateEnd = value;
-                        break;
-                    case '--mdc-ripple-fg-translate-start':
-                        this.translateStart = value;
-                        break;
-                    case '--mdc-ripple-left':
-                        this.leftPos = value;
-                        break;
-                    case '--mdc-ripple-top':
-                        this.topPos = value;
-                        break;
-                }
-            },
-            computeBoundingRect: () => (this.parentElement || this).getBoundingClientRect(),
-            getWindowPageOffset: () => ({ x: window.pageXOffset, y: window.pageYOffset }),
-        };
-    }
-    startPress(ev) {
-        this.waitForFoundation(() => {
-            this.mdcFoundation.activate(ev);
-        });
-    }
-    endPress() {
-        this.waitForFoundation(() => {
-            this.mdcFoundation.deactivate();
-        });
-    }
-    startFocus() {
-        this.waitForFoundation(() => {
-            this.mdcFoundation.handleFocus();
-        });
-    }
-    endFocus() {
-        this.waitForFoundation(() => {
-            this.mdcFoundation.handleBlur();
-        });
-    }
-    startHover() {
-        this.hovering = true;
-    }
-    endHover() {
-        this.hovering = false;
-    }
-    /**
-     * Wait for the MDCFoundation to be created by `firstUpdated`
-     */
-    waitForFoundation(fn) {
-        if (this.mdcFoundation) {
-            fn();
-        }
-        else {
-            this.updateComplete.then(fn);
-        }
-    }
-    update(changedProperties) {
-        if (changedProperties.has('disabled')) {
-            // stop hovering when ripple is disabled to prevent a stuck "hover" state
-            // When re-enabled, the outer component will get a `mouseenter` event on
-            // the first movement, which will call `startHover()`
-            if (this.disabled) {
-                this.endHover();
-            }
-        }
-        super.update(changedProperties);
-    }
-    /** @soyTemplate */
-    render() {
-        const shouldActivateInPrimary = this.activated && (this.primary || !this.accent);
-        const shouldSelectInPrimary = this.selected && (this.primary || !this.accent);
-        /** @classMap */
-        const classes = {
-            'mdc-ripple-surface--accent': this.accent,
-            'mdc-ripple-surface--primary--activated': shouldActivateInPrimary,
-            'mdc-ripple-surface--accent--activated': this.accent && this.activated,
-            'mdc-ripple-surface--primary--selected': shouldSelectInPrimary,
-            'mdc-ripple-surface--accent--selected': this.accent && this.selected,
-            'mdc-ripple-surface--disabled': this.disabled,
-            'mdc-ripple-surface--hover': this.hovering,
-            'mdc-ripple-surface--primary': this.primary,
-            'mdc-ripple-surface--selected': this.selected,
-            'mdc-ripple-upgraded--background-focused': this.bgFocused,
-            'mdc-ripple-upgraded--foreground-activation': this.fgActivation,
-            'mdc-ripple-upgraded--foreground-deactivation': this.fgDeactivation,
-            'mdc-ripple-upgraded--unbounded': this.unbounded,
-            'mdc-ripple-surface--internal-use-state-layer-custom-properties': this.internalUseStateLayerCustomProperties,
-        };
-        return y `
-        <div class="mdc-ripple-surface mdc-ripple-upgraded ${o(classes)}"
-          style="${i({
-            '--mdc-ripple-fg-scale': this.fgScale,
-            '--mdc-ripple-fg-size': this.fgSize,
-            '--mdc-ripple-fg-translate-end': this.translateEnd,
-            '--mdc-ripple-fg-translate-start': this.translateStart,
-            '--mdc-ripple-left': this.leftPos,
-            '--mdc-ripple-top': this.topPos,
-        })}"></div>`;
-    }
-}
-__decorate([
-    i$2('.mdc-ripple-surface')
-], RippleBase.prototype, "mdcRoot", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "primary", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "accent", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "unbounded", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "disabled", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "activated", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "selected", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], RippleBase.prototype, "internalUseStateLayerCustomProperties", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "hovering", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "bgFocused", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "fgActivation", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "fgDeactivation", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "fgScale", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "fgSize", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "translateStart", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "translateEnd", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "leftPos", void 0);
-__decorate([
-    t$1()
-], RippleBase.prototype, "topPos", void 0);
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-LIcense-Identifier: Apache-2.0
- */
-const styles$d = i$4 `.mdc-ripple-surface{--mdc-ripple-fg-size: 0;--mdc-ripple-left: 0;--mdc-ripple-top: 0;--mdc-ripple-fg-scale: 1;--mdc-ripple-fg-translate-end: 0;--mdc-ripple-fg-translate-start: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity;position:relative;outline:none;overflow:hidden}.mdc-ripple-surface::before,.mdc-ripple-surface::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-ripple-surface::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1;z-index:var(--mdc-ripple-z-index, 1)}.mdc-ripple-surface::after{z-index:0;z-index:var(--mdc-ripple-z-index, 0)}.mdc-ripple-surface.mdc-ripple-upgraded::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-ripple-surface.mdc-ripple-upgraded::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-ripple-surface.mdc-ripple-upgraded--unbounded::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-ripple-surface.mdc-ripple-upgraded--foreground-activation::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-ripple-surface.mdc-ripple-upgraded--foreground-deactivation::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-ripple-surface::before,.mdc-ripple-surface::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-ripple-surface.mdc-ripple-upgraded::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-ripple-surface[data-mdc-ripple-is-unbounded],.mdc-ripple-upgraded--unbounded{overflow:visible}.mdc-ripple-surface[data-mdc-ripple-is-unbounded]::before,.mdc-ripple-surface[data-mdc-ripple-is-unbounded]::after,.mdc-ripple-upgraded--unbounded::before,.mdc-ripple-upgraded--unbounded::after{top:calc(50% - 50%);left:calc(50% - 50%);width:100%;height:100%}.mdc-ripple-surface[data-mdc-ripple-is-unbounded].mdc-ripple-upgraded::before,.mdc-ripple-surface[data-mdc-ripple-is-unbounded].mdc-ripple-upgraded::after,.mdc-ripple-upgraded--unbounded.mdc-ripple-upgraded::before,.mdc-ripple-upgraded--unbounded.mdc-ripple-upgraded::after{top:var(--mdc-ripple-top, calc(50% - 50%));left:var(--mdc-ripple-left, calc(50% - 50%));width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-ripple-surface[data-mdc-ripple-is-unbounded].mdc-ripple-upgraded::after,.mdc-ripple-upgraded--unbounded.mdc-ripple-upgraded::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-ripple-surface::before,.mdc-ripple-surface::after{background-color:#000;background-color:var(--mdc-ripple-color, #000)}.mdc-ripple-surface:hover::before,.mdc-ripple-surface.mdc-ripple-surface--hover::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-ripple-surface.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-ripple-surface:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-ripple-surface.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}:host{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;display:block}:host .mdc-ripple-surface{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;will-change:unset}.mdc-ripple-surface--primary::before,.mdc-ripple-surface--primary::after{background-color:#6200ee;background-color:var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee))}.mdc-ripple-surface--primary:hover::before,.mdc-ripple-surface--primary.mdc-ripple-surface--hover::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-ripple-surface--primary.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--primary:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-ripple-surface--primary:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--primary:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-ripple-surface--primary.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-ripple-surface--primary--activated::before{opacity:0.12;opacity:var(--mdc-ripple-activated-opacity, 0.12)}.mdc-ripple-surface--primary--activated::before,.mdc-ripple-surface--primary--activated::after{background-color:#6200ee;background-color:var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee))}.mdc-ripple-surface--primary--activated:hover::before,.mdc-ripple-surface--primary--activated.mdc-ripple-surface--hover::before{opacity:0.16;opacity:var(--mdc-ripple-hover-opacity, 0.16)}.mdc-ripple-surface--primary--activated.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--primary--activated:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.24;opacity:var(--mdc-ripple-focus-opacity, 0.24)}.mdc-ripple-surface--primary--activated:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--primary--activated:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.24;opacity:var(--mdc-ripple-press-opacity, 0.24)}.mdc-ripple-surface--primary--activated.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.24)}.mdc-ripple-surface--primary--selected::before{opacity:0.08;opacity:var(--mdc-ripple-selected-opacity, 0.08)}.mdc-ripple-surface--primary--selected::before,.mdc-ripple-surface--primary--selected::after{background-color:#6200ee;background-color:var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee))}.mdc-ripple-surface--primary--selected:hover::before,.mdc-ripple-surface--primary--selected.mdc-ripple-surface--hover::before{opacity:0.12;opacity:var(--mdc-ripple-hover-opacity, 0.12)}.mdc-ripple-surface--primary--selected.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--primary--selected:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.2;opacity:var(--mdc-ripple-focus-opacity, 0.2)}.mdc-ripple-surface--primary--selected:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--primary--selected:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.2;opacity:var(--mdc-ripple-press-opacity, 0.2)}.mdc-ripple-surface--primary--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.2)}.mdc-ripple-surface--accent::before,.mdc-ripple-surface--accent::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-ripple-surface--accent:hover::before,.mdc-ripple-surface--accent.mdc-ripple-surface--hover::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-ripple-surface--accent.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--accent:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-ripple-surface--accent:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--accent:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-ripple-surface--accent.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-ripple-surface--accent--activated::before{opacity:0.12;opacity:var(--mdc-ripple-activated-opacity, 0.12)}.mdc-ripple-surface--accent--activated::before,.mdc-ripple-surface--accent--activated::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-ripple-surface--accent--activated:hover::before,.mdc-ripple-surface--accent--activated.mdc-ripple-surface--hover::before{opacity:0.16;opacity:var(--mdc-ripple-hover-opacity, 0.16)}.mdc-ripple-surface--accent--activated.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--accent--activated:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.24;opacity:var(--mdc-ripple-focus-opacity, 0.24)}.mdc-ripple-surface--accent--activated:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--accent--activated:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.24;opacity:var(--mdc-ripple-press-opacity, 0.24)}.mdc-ripple-surface--accent--activated.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.24)}.mdc-ripple-surface--accent--selected::before{opacity:0.08;opacity:var(--mdc-ripple-selected-opacity, 0.08)}.mdc-ripple-surface--accent--selected::before,.mdc-ripple-surface--accent--selected::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-ripple-surface--accent--selected:hover::before,.mdc-ripple-surface--accent--selected.mdc-ripple-surface--hover::before{opacity:0.12;opacity:var(--mdc-ripple-hover-opacity, 0.12)}.mdc-ripple-surface--accent--selected.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--accent--selected:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.2;opacity:var(--mdc-ripple-focus-opacity, 0.2)}.mdc-ripple-surface--accent--selected:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--accent--selected:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.2;opacity:var(--mdc-ripple-press-opacity, 0.2)}.mdc-ripple-surface--accent--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.2)}.mdc-ripple-surface--disabled{opacity:0}.mdc-ripple-surface--internal-use-state-layer-custom-properties::before,.mdc-ripple-surface--internal-use-state-layer-custom-properties::after{background-color:#000;background-color:var(--mdc-ripple-hover-state-layer-color, #000)}.mdc-ripple-surface--internal-use-state-layer-custom-properties:hover::before,.mdc-ripple-surface--internal-use-state-layer-custom-properties.mdc-ripple-surface--hover::before{opacity:0.04;opacity:var(--mdc-ripple-hover-state-layer-opacity, 0.04)}.mdc-ripple-surface--internal-use-state-layer-custom-properties.mdc-ripple-upgraded--background-focused::before,.mdc-ripple-surface--internal-use-state-layer-custom-properties:not(.mdc-ripple-upgraded):focus::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-state-layer-opacity, 0.12)}.mdc-ripple-surface--internal-use-state-layer-custom-properties:not(.mdc-ripple-upgraded)::after{transition:opacity 150ms linear}.mdc-ripple-surface--internal-use-state-layer-custom-properties:not(.mdc-ripple-upgraded):active::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-pressed-state-layer-opacity, 0.12)}.mdc-ripple-surface--internal-use-state-layer-custom-properties.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-pressed-state-layer-opacity, 0.12)}`;
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/** @soyCompatible */
-let Ripple = class Ripple extends RippleBase {
-};
-Ripple.styles = [styles$d];
-Ripple = __decorate([
-    e$6('mwc-ripple')
-], Ripple);
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/**
- * TypeScript version of the decorator
- * @see https://www.typescriptlang.org/docs/handbook/decorators.html#property-decorators
- */
-function tsDecorator(prototype, name, descriptor) {
-    const constructor = prototype.constructor;
-    if (!descriptor) {
-        /**
-         * lit uses internal properties with two leading underscores to
-         * provide storage for accessors
-         */
-        const litInternalPropertyKey = `__${name}`;
-        descriptor =
-            constructor.getPropertyDescriptor(name, litInternalPropertyKey);
-        if (!descriptor) {
-            throw new Error('@ariaProperty must be used after a @property decorator');
-        }
-    }
-    // descriptor must exist at this point, reassign so typescript understands
-    const propDescriptor = descriptor;
-    let attribute = '';
-    if (!propDescriptor.set) {
-        throw new Error(`@ariaProperty requires a setter for ${name}`);
-    }
-    // TODO(b/202853219): Remove this check when internal tooling is
-    // compatible
-    // tslint:disable-next-line:no-any bail if applied to internal generated class
-    if (prototype.dispatchWizEvent) {
-        return descriptor;
-    }
-    const wrappedDescriptor = {
-        configurable: true,
-        enumerable: true,
-        set(value) {
-            if (attribute === '') {
-                const options = constructor.getPropertyOptions(name);
-                // if attribute is not a string, use `name` instead
-                attribute =
-                    typeof options.attribute === 'string' ? options.attribute : name;
-            }
-            if (this.hasAttribute(attribute)) {
-                this.removeAttribute(attribute);
-            }
-            propDescriptor.set.call(this, value);
-        }
-    };
-    if (propDescriptor.get) {
-        wrappedDescriptor.get = function () {
-            return propDescriptor.get.call(this);
-        };
-    }
-    return wrappedDescriptor;
-}
-/**
- * A property decorator proxies an aria attribute to an internal node
- *
- * This decorator is only intended for use with ARIA attributes, such as `role`
- * and `aria-label` due to screenreader needs.
- *
- * Upon first render, `@ariaProperty` will remove the attribute from the host
- * element to prevent screenreaders from reading the host instead of the
- * internal node.
- *
- * This decorator should only be used for non-Symbol public fields decorated
- * with `@property`, or on a setter with an optional getter.
- *
- * @example
- * ```ts
- * class MyElement {
- *   @ariaProperty
- *   @property({ type: String, attribute: 'aria-label' })
- *   ariaLabel!: string;
- * }
- * ```
- * @category Decorator
- * @ExportDecoratedItems
- */
-function ariaProperty(protoOrDescriptor, name,
-// tslint:disable-next-line:no-any any is required as a return type from decorators
-descriptor) {
-    if (name !== undefined) {
-        return tsDecorator(protoOrDescriptor, name, descriptor);
-    }
-    else {
-        throw new Error('@ariaProperty only supports TypeScript Decorators');
-    }
-}
-
-/**
- * @license
- * Copyright 2020 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/**
- * Class that encapsulates the events handlers for `mwc-ripple`
- *
- *
- * Example:
- * ```
- * class XFoo extends LitElement {
- *   async getRipple() {
- *     this.renderRipple = true;
- *     await this.updateComplete;
- *     return this.renderRoot.querySelector('mwc-ripple');
- *   }
- *   rippleHandlers = new RippleHandlers(() => this.getRipple());
- *
- *   render() {
- *     return html`
- *       <div @mousedown=${this.rippleHandlers.startPress}></div>
- *       ${this.renderRipple ? html`<mwc-ripple></mwc-ripple>` : ''}
- *     `;
- *   }
- * }
- * ```
- */
-class RippleHandlers {
-    constructor(
-    /** Function that returns a `mwc-ripple` */
-    rippleFn) {
-        this.startPress = (ev) => {
-            rippleFn().then((r) => {
-                r && r.startPress(ev);
-            });
-        };
-        this.endPress = () => {
-            rippleFn().then((r) => {
-                r && r.endPress();
-            });
-        };
-        this.startFocus = () => {
-            rippleFn().then((r) => {
-                r && r.startFocus();
-            });
-        };
-        this.endFocus = () => {
-            rippleFn().then((r) => {
-                r && r.endFocus();
-            });
-        };
-        this.startHover = () => {
-            rippleFn().then((r) => {
-                r && r.startHover();
-            });
-        };
-        this.endHover = () => {
-            rippleFn().then((r) => {
-                r && r.endHover();
-            });
-        };
-    }
-}
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const l$1=l=>null!=l?l:b;
-
-/**
- * @license
- * Copyright 2019 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/** @soyCompatible */
-class ButtonBase extends s$1 {
-    constructor() {
-        super(...arguments);
-        this.raised = false;
-        this.unelevated = false;
-        this.outlined = false;
-        this.dense = false;
-        this.disabled = false;
-        this.trailingIcon = false;
-        this.fullwidth = false;
-        this.icon = '';
-        this.label = '';
-        this.expandContent = false;
-        this.shouldRenderRipple = false;
-        this.rippleHandlers = new RippleHandlers(() => {
-            this.shouldRenderRipple = true;
-            return this.ripple;
-        });
-    }
-    /** @soyTemplate */
-    renderOverlay() {
-        return y ``;
-    }
-    /** @soyTemplate */
-    renderRipple() {
-        const filled = this.raised || this.unelevated;
-        return this.shouldRenderRipple ?
-            y `<mwc-ripple class="ripple" .primary="${!filled}" .disabled="${this.disabled}"></mwc-ripple>` :
-            '';
-    }
-    focus() {
-        const buttonElement = this.buttonElement;
-        if (buttonElement) {
-            this.rippleHandlers.startFocus();
-            buttonElement.focus();
-        }
-    }
-    blur() {
-        const buttonElement = this.buttonElement;
-        if (buttonElement) {
-            this.rippleHandlers.endFocus();
-            buttonElement.blur();
-        }
-    }
-    /** @soyTemplate */
-    getRenderClasses() {
-        return {
-            'mdc-button--raised': this.raised,
-            'mdc-button--unelevated': this.unelevated,
-            'mdc-button--outlined': this.outlined,
-            'mdc-button--dense': this.dense,
-        };
-    }
-    /**
-     * @soyTemplate
-     * @soyAttributes buttonAttributes: #button
-     * @soyClasses buttonClasses: #button
-     */
-    render() {
-        return y `
-      <button
-          id="button"
-          class="mdc-button ${o(this.getRenderClasses())}"
-          ?disabled="${this.disabled}"
-          aria-label="${this.label || this.icon}"
-          aria-haspopup="${l$1(this.ariaHasPopup)}"
-          @focus="${this.handleRippleFocus}"
-          @blur="${this.handleRippleBlur}"
-          @mousedown="${this.handleRippleActivate}"
-          @mouseenter="${this.handleRippleMouseEnter}"
-          @mouseleave="${this.handleRippleMouseLeave}"
-          @touchstart="${this.handleRippleActivate}"
-          @touchend="${this.handleRippleDeactivate}"
-          @touchcancel="${this.handleRippleDeactivate}">
-        ${this.renderOverlay()}
-        ${this.renderRipple()}
-        <span class="leading-icon">
-          <slot name="icon">
-            ${this.icon && !this.trailingIcon ? this.renderIcon() : ''}
-          </slot>
-        </span>
-        <span class="mdc-button__label">${this.label}</span>
-        <span class="slot-container ${o({
-            flex: this.expandContent
-        })}">
-          <slot></slot>
-        </span>
-        <span class="trailing-icon">
-          <slot name="trailingIcon">
-            ${this.icon && this.trailingIcon ? this.renderIcon() : ''}
-          </slot>
-        </span>
-      </button>`;
-    }
-    /** @soyTemplate */
-    renderIcon() {
-        return y `
-    <mwc-icon class="mdc-button__icon">
-      ${this.icon}
-    </mwc-icon>`;
-    }
-    handleRippleActivate(evt) {
-        const onUp = () => {
-            window.removeEventListener('mouseup', onUp);
-            this.handleRippleDeactivate();
-        };
-        window.addEventListener('mouseup', onUp);
-        this.rippleHandlers.startPress(evt);
-    }
-    handleRippleDeactivate() {
-        this.rippleHandlers.endPress();
-    }
-    handleRippleMouseEnter() {
-        this.rippleHandlers.startHover();
-    }
-    handleRippleMouseLeave() {
-        this.rippleHandlers.endHover();
-    }
-    handleRippleFocus() {
-        this.rippleHandlers.startFocus();
-    }
-    handleRippleBlur() {
-        this.rippleHandlers.endFocus();
-    }
-}
-ButtonBase.shadowRootOptions = { mode: 'open', delegatesFocus: true };
-__decorate([
-    ariaProperty,
-    e$5({ type: String, attribute: 'aria-haspopup' })
-], ButtonBase.prototype, "ariaHasPopup", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true })
-], ButtonBase.prototype, "raised", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true })
-], ButtonBase.prototype, "unelevated", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true })
-], ButtonBase.prototype, "outlined", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], ButtonBase.prototype, "dense", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true })
-], ButtonBase.prototype, "disabled", void 0);
-__decorate([
-    e$5({ type: Boolean, attribute: 'trailingicon' })
-], ButtonBase.prototype, "trailingIcon", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true })
-], ButtonBase.prototype, "fullwidth", void 0);
-__decorate([
-    e$5({ type: String })
-], ButtonBase.prototype, "icon", void 0);
-__decorate([
-    e$5({ type: String })
-], ButtonBase.prototype, "label", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], ButtonBase.prototype, "expandContent", void 0);
-__decorate([
-    i$2('#button')
-], ButtonBase.prototype, "buttonElement", void 0);
-__decorate([
-    e$3('mwc-ripple')
-], ButtonBase.prototype, "ripple", void 0);
-__decorate([
-    t$1()
-], ButtonBase.prototype, "shouldRenderRipple", void 0);
-__decorate([
-    e$4({ passive: true })
-], ButtonBase.prototype, "handleRippleActivate", null);
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-LIcense-Identifier: Apache-2.0
- */
-const styles$c = i$4 `.mdc-button{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-button-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-button-font-size, 0.875rem);line-height:2.25rem;line-height:var(--mdc-typography-button-line-height, 2.25rem);font-weight:500;font-weight:var(--mdc-typography-button-font-weight, 500);letter-spacing:0.0892857143em;letter-spacing:var(--mdc-typography-button-letter-spacing, 0.0892857143em);text-decoration:none;text-decoration:var(--mdc-typography-button-text-decoration, none);text-transform:uppercase;text-transform:var(--mdc-typography-button-text-transform, uppercase)}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:0;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);background-color:#fff;background-color:var(--mdc-elevation-overlay-color, #fff)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:transparent}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{display:none}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{pointer-events:none;border:2px solid transparent;border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc( 100% + 4px );width:calc( 100% + 4px );display:block}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring::after,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring::after{content:"";border:2px solid transparent;border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring::after,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring::after{border-color:CanvasText}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:transparent}.mdc-button{height:36px;border-radius:4px;border-radius:var(--mdc-shape-small, 4px)}.mdc-button:not(:disabled){color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}.mdc-button:disabled{color:rgba(0, 0, 0, 0.38)}.mdc-button .mdc-button__icon{font-size:1.125rem;width:1.125rem;height:1.125rem}.mdc-button .mdc-button__ripple{border-radius:4px;border-radius:var(--mdc-shape-small, 4px)}.mdc-button--raised,.mdc-button--unelevated{height:36px;border-radius:4px;border-radius:var(--mdc-shape-small, 4px)}.mdc-button--raised:not(:disabled),.mdc-button--unelevated:not(:disabled){background-color:#6200ee;background-color:var(--mdc-theme-primary, #6200ee)}.mdc-button--raised:disabled,.mdc-button--unelevated:disabled{background-color:rgba(0, 0, 0, 0.12)}.mdc-button--raised:not(:disabled),.mdc-button--unelevated:not(:disabled){color:#fff;color:var(--mdc-theme-on-primary, #fff)}.mdc-button--raised:disabled,.mdc-button--unelevated:disabled{color:rgba(0, 0, 0, 0.38)}.mdc-button--raised .mdc-button__icon,.mdc-button--unelevated .mdc-button__icon{font-size:1.125rem;width:1.125rem;height:1.125rem}.mdc-button--raised .mdc-button__ripple,.mdc-button--unelevated .mdc-button__ripple{border-radius:4px;border-radius:var(--mdc-shape-small, 4px)}.mdc-button--outlined{height:36px;border-radius:4px;border-radius:var(--mdc-shape-small, 4px);padding:0 15px 0 15px;border-width:1px}.mdc-button--outlined:not(:disabled){color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}.mdc-button--outlined:disabled{color:rgba(0, 0, 0, 0.38)}.mdc-button--outlined .mdc-button__icon{font-size:1.125rem;width:1.125rem;height:1.125rem}.mdc-button--outlined .mdc-button__ripple{border-radius:4px;border-radius:var(--mdc-shape-small, 4px)}.mdc-button--outlined:not(:disabled){border-color:rgba(0, 0, 0, 0.12)}.mdc-button--outlined:disabled{border-color:rgba(0, 0, 0, 0.12)}.mdc-button--outlined.mdc-button--icon-trailing{padding:0 11px 0 15px}.mdc-button--outlined.mdc-button--icon-leading{padding:0 15px 0 11px}.mdc-button--outlined .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:1px}.mdc-button--outlined .mdc-button__touch{left:calc(-1 * 1px);width:calc(100% + 2 * 1px)}.mdc-button--raised{box-shadow:0px 3px 1px -2px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 1px 5px 0px rgba(0,0,0,.12);transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--raised:hover,.mdc-button--raised:focus{box-shadow:0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0,0,0,.12)}.mdc-button--raised:active{box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0,0,0,.12)}.mdc-button--raised:disabled{box-shadow:0px 0px 0px 0px rgba(0, 0, 0, 0.2),0px 0px 0px 0px rgba(0, 0, 0, 0.14),0px 0px 0px 0px rgba(0,0,0,.12)}:host{display:inline-flex;outline:none;-webkit-tap-highlight-color:transparent;vertical-align:top}:host([fullwidth]){width:100%}:host([raised]),:host([unelevated]){--mdc-ripple-color:#fff;--mdc-ripple-focus-opacity:0.24;--mdc-ripple-hover-opacity:0.08;--mdc-ripple-press-opacity:0.24}.trailing-icon ::slotted(*),.trailing-icon .mdc-button__icon,.leading-icon ::slotted(*),.leading-icon .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}[dir=rtl] .trailing-icon ::slotted(*),[dir=rtl] .trailing-icon .mdc-button__icon,[dir=rtl] .leading-icon ::slotted(*),[dir=rtl] .leading-icon .mdc-button__icon,.trailing-icon ::slotted(*[dir=rtl]),.trailing-icon .mdc-button__icon[dir=rtl],.leading-icon ::slotted(*[dir=rtl]),.leading-icon .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.trailing-icon ::slotted(*),.trailing-icon .mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .trailing-icon ::slotted(*),[dir=rtl] .trailing-icon .mdc-button__icon,.trailing-icon ::slotted(*[dir=rtl]),.trailing-icon .mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}.slot-container{display:inline-flex;align-items:center;justify-content:center}.slot-container.flex{flex:auto}.mdc-button{flex:auto;overflow:hidden;padding-left:8px;padding-left:var(--mdc-button-horizontal-padding, 8px);padding-right:8px;padding-right:var(--mdc-button-horizontal-padding, 8px)}.mdc-button--raised{box-shadow:0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);box-shadow:var(--mdc-button-raised-box-shadow, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12))}.mdc-button--raised:focus{box-shadow:0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);box-shadow:var(--mdc-button-raised-box-shadow-focus, var(--mdc-button-raised-box-shadow-hover, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)))}.mdc-button--raised:hover{box-shadow:0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);box-shadow:var(--mdc-button-raised-box-shadow-hover, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12))}.mdc-button--raised:active{box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);box-shadow:var(--mdc-button-raised-box-shadow-active, 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12))}.mdc-button--raised:disabled{box-shadow:0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);box-shadow:var(--mdc-button-raised-box-shadow-disabled, 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12))}.mdc-button--raised,.mdc-button--unelevated{padding-left:16px;padding-left:var(--mdc-button-horizontal-padding, 16px);padding-right:16px;padding-right:var(--mdc-button-horizontal-padding, 16px)}.mdc-button--outlined{border-width:1px;border-width:var(--mdc-button-outline-width, 1px);padding-left:calc(16px - 1px);padding-left:calc(var(--mdc-button-horizontal-padding, 16px) - var(--mdc-button-outline-width, 1px));padding-right:calc(16px - 1px);padding-right:calc(var(--mdc-button-horizontal-padding, 16px) - var(--mdc-button-outline-width, 1px))}.mdc-button--outlined:not(:disabled){border-color:rgba(0, 0, 0, 0.12);border-color:var(--mdc-button-outline-color, rgba(0, 0, 0, 0.12))}.mdc-button--outlined .ripple{top:calc(-1 * 1px);top:calc(-1 * var(--mdc-button-outline-width, 1px));left:calc(-1 * 1px);left:calc(-1 * var(--mdc-button-outline-width, 1px));right:initial;right:initial;border-width:1px;border-width:var(--mdc-button-outline-width, 1px);border-style:solid;border-color:transparent}[dir=rtl] .mdc-button--outlined .ripple,.mdc-button--outlined .ripple[dir=rtl]{left:initial;left:initial;right:calc(-1 * 1px);right:calc(-1 * var(--mdc-button-outline-width, 1px))}.mdc-button--dense{height:28px;margin-top:0;margin-bottom:0}.mdc-button--dense .mdc-button__touch{height:100%}:host([disabled]){pointer-events:none}:host([disabled]) .mdc-button{color:rgba(0, 0, 0, 0.38);color:var(--mdc-button-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-button--raised,:host([disabled]) .mdc-button--unelevated{background-color:rgba(0, 0, 0, 0.12);background-color:var(--mdc-button-disabled-fill-color, rgba(0, 0, 0, 0.12))}:host([disabled]) .mdc-button--outlined{border-color:rgba(0, 0, 0, 0.12);border-color:var(--mdc-button-disabled-outline-color, rgba(0, 0, 0, 0.12))}`;
-
-class EwtButton extends ButtonBase {
-}
-EwtButton.styles = [
-    styles$c,
-    i$4 `
-      .mdc-button {
-        min-width: initial;
-      }
-      :host([text-left]) .mdc-button__label {
-        text-align: left;
-      }
-    `,
-];
-customElements.define("ewt-button", EwtButton);
+ */function o(o,n,r){let l,s=o;return "object"==typeof o?(s=o.slot,l=o):l={flatten:n},r?l$1({slot:s,flatten:n,selector:r}):o$1({descriptor:e=>({get(){var e,t;const o="slot"+(s?`[name=${s}]`:":not([name])"),n=null===(e=this.renderRoot)||void 0===e?void 0:e.querySelector(o);return null!==(t=null==n?void 0:n.assignedNodes(l))&&void 0!==t?t:[]},enumerable:!0,configurable:!0})})}
 
 /**
  * @license
@@ -1664,7 +79,7 @@ class FormElement extends BaseElement {
 }
 FormElement.shadowRootOptions = { mode: 'open', delegatesFocus: true };
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], FormElement.prototype, "disabled", void 0);
 
 /**
@@ -1767,14 +182,14 @@ class CheckboxBase extends FormElement {
         /* eslint-enable eqeqeq */
         const ariaChecked = this.indeterminate ? 'mixed' : undefined;
         return y `
-      <div class="mdc-checkbox mdc-checkbox--upgraded ${o(classes)}">
+      <div class="mdc-checkbox mdc-checkbox--upgraded ${o$2(classes)}">
         <input type="checkbox"
               class="mdc-checkbox__native-control"
-              name="${l$1(this.name)}"
-              aria-checked="${l$1(ariaChecked)}"
-              aria-label="${l$1(this.ariaLabel)}"
-              aria-labelledby="${l$1(this.ariaLabelledBy)}"
-              aria-describedby="${l$1(this.ariaDescribedBy)}"
+              name="${l$2(this.name)}"
+              aria-checked="${l$2(ariaChecked)}"
+              aria-label="${l$2(this.ariaLabel)}"
+              aria-labelledby="${l$2(this.ariaLabelledBy)}"
+              aria-describedby="${l$2(this.ariaDescribedBy)}"
               data-indeterminate="${this.indeterminate ? 'true' : 'false'}"
               ?disabled="${this.disabled}"
               .indeterminate="${this.indeterminate}"
@@ -1854,55 +269,55 @@ class CheckboxBase extends FormElement {
     }
 }
 __decorate([
-    i$2('.mdc-checkbox')
+    i('.mdc-checkbox')
 ], CheckboxBase.prototype, "mdcRoot", void 0);
 __decorate([
-    i$2('input')
+    i('input')
 ], CheckboxBase.prototype, "formElement", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], CheckboxBase.prototype, "checked", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], CheckboxBase.prototype, "indeterminate", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], CheckboxBase.prototype, "disabled", void 0);
 __decorate([
-    e$5({ type: String, reflect: true })
+    e$1({ type: String, reflect: true })
 ], CheckboxBase.prototype, "name", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], CheckboxBase.prototype, "value", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-label' })
+    e$1({ type: String, attribute: 'aria-label' })
 ], CheckboxBase.prototype, "ariaLabel", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-labelledby' })
+    e$1({ type: String, attribute: 'aria-labelledby' })
 ], CheckboxBase.prototype, "ariaLabelledBy", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-describedby' })
+    e$1({ type: String, attribute: 'aria-describedby' })
 ], CheckboxBase.prototype, "ariaDescribedBy", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], CheckboxBase.prototype, "reducedTouchTarget", void 0);
 __decorate([
-    t$1()
+    t()
 ], CheckboxBase.prototype, "animationClass", void 0);
 __decorate([
-    t$1()
+    t()
 ], CheckboxBase.prototype, "shouldRenderRipple", void 0);
 __decorate([
-    t$1()
+    t()
 ], CheckboxBase.prototype, "focused", void 0);
 __decorate([
-    e$3('mwc-ripple')
+    e$2('mwc-ripple')
 ], CheckboxBase.prototype, "ripple", void 0);
 __decorate([
-    e$4({ passive: true })
+    e$3({ passive: true })
 ], CheckboxBase.prototype, "handleRippleTouchStart", null);
 
 /**
@@ -1910,11 +325,11 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$b = i$4 `.mdc-checkbox{padding:calc((40px - 18px) / 2);padding:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2);margin:calc((40px - 40px) / 2);margin:calc((var(--mdc-checkbox-touch-target-size, 40px) - 40px) / 2)}.mdc-checkbox .mdc-checkbox__ripple::before,.mdc-checkbox .mdc-checkbox__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, #000)}.mdc-checkbox:hover .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-ripple-surface--hover .mdc-checkbox__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__ripple::before,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-checkbox:not(.mdc-ripple-upgraded) .mdc-checkbox__ripple::after{transition:opacity 150ms linear}.mdc-checkbox:not(.mdc-ripple-upgraded):active .mdc-checkbox__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-checkbox.mdc-checkbox--selected:hover .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-surface--hover .mdc-checkbox__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded--background-focused .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):focus .mdc-checkbox__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded) .mdc-checkbox__ripple::after{transition:opacity 150ms linear}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):active .mdc-checkbox__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-checkbox .mdc-checkbox__background{top:calc((40px - 18px) / 2);top:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2);left:calc((40px - 18px) / 2);left:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2)}.mdc-checkbox .mdc-checkbox__native-control{top:calc((40px - 40px) / 2);top:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);right:calc((40px - 40px) / 2);right:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);left:calc((40px - 40px) / 2);left:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);width:40px;width:var(--mdc-checkbox-touch-target-size, 40px);height:40px;height:var(--mdc-checkbox-touch-target-size, 40px)}.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}@keyframes mdc-checkbox-fade-in-background-8A000000FF01878600000000FF018786{0%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}50%{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}}@keyframes mdc-checkbox-fade-out-background-8A000000FF01878600000000FF018786{0%,80%{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}100%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}}.mdc-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-in-background-8A000000FF01878600000000FF018786}.mdc-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-out-background-8A000000FF01878600000000FF018786}.mdc-checkbox .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.38);border-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38));background-color:transparent}.mdc-checkbox .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background{border-color:transparent;background-color:rgba(0, 0, 0, 0.38);background-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38))}.mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-ink-color, #fff)}.mdc-touch-target-wrapper{display:inline}@keyframes mdc-checkbox-unchecked-checked-checkmark-path{0%,50%{stroke-dashoffset:29.7833385}50%{animation-timing-function:cubic-bezier(0, 0, 0.2, 1)}100%{stroke-dashoffset:0}}@keyframes mdc-checkbox-unchecked-indeterminate-mixedmark{0%,68.2%{transform:scaleX(0)}68.2%{animation-timing-function:cubic-bezier(0, 0, 0, 1)}100%{transform:scaleX(1)}}@keyframes mdc-checkbox-checked-unchecked-checkmark-path{from{animation-timing-function:cubic-bezier(0.4, 0, 1, 1);opacity:1;stroke-dashoffset:0}to{opacity:0;stroke-dashoffset:-29.7833385}}@keyframes mdc-checkbox-checked-indeterminate-checkmark{from{animation-timing-function:cubic-bezier(0, 0, 0.2, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(45deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-checked-checkmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(45deg);opacity:0}to{transform:rotate(360deg);opacity:1}}@keyframes mdc-checkbox-checked-indeterminate-mixedmark{from{animation-timing-function:mdc-animation-deceleration-curve-timing-function;transform:rotate(-45deg);opacity:0}to{transform:rotate(0deg);opacity:1}}@keyframes mdc-checkbox-indeterminate-checked-mixedmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(315deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-unchecked-mixedmark{0%{animation-timing-function:linear;transform:scaleX(1);opacity:1}32.8%,100%{transform:scaleX(0);opacity:0}}.mdc-checkbox{display:inline-block;position:relative;flex:0 0 18px;box-sizing:content-box;width:18px;height:18px;line-height:0;white-space:nowrap;cursor:pointer;vertical-align:bottom}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring{pointer-events:none;border:2px solid transparent;border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%}@media screen and (forced-colors: active){.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring{border-color:CanvasText}}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring::after,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring::after{content:"";border:2px solid transparent;border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring::after,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring::after{border-color:CanvasText}}@media all and (-ms-high-contrast: none){.mdc-checkbox .mdc-checkbox__focus-ring{display:none}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-checkbox__mixedmark{margin:0 1px}}.mdc-checkbox--disabled{cursor:default;pointer-events:none}.mdc-checkbox__background{display:inline-flex;position:absolute;align-items:center;justify-content:center;box-sizing:border-box;width:18px;height:18px;border:2px solid currentColor;border-radius:2px;background-color:transparent;pointer-events:none;will-change:background-color,border-color;transition:background-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),border-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__checkmark{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;opacity:0;transition:opacity 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--upgraded .mdc-checkbox__checkmark{opacity:1}.mdc-checkbox__checkmark-path{transition:stroke-dashoffset 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1);stroke:currentColor;stroke-width:3.12px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-checkbox__mixedmark{width:100%;height:0;transform:scaleX(0) rotate(0deg);border-width:1px;border-style:solid;opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__background,.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__background,.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__background,.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__background{animation-duration:180ms;animation-timing-function:linear}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;transition:none}.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__checkmark{animation:mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__checkmark{animation:mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;transition:none}.mdc-checkbox__native-control:checked~.mdc-checkbox__background,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background{transition:border-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1),background-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark-path{stroke-dashoffset:0}.mdc-checkbox__native-control{position:absolute;margin:0;padding:0;opacity:0;cursor:inherit}.mdc-checkbox__native-control:disabled{cursor:default;pointer-events:none}.mdc-checkbox--touch{margin:calc((48px - 40px) / 2);margin:calc((var(--mdc-checkbox-state-layer-size, 48px) - var(--mdc-checkbox-state-layer-size, 40px)) / 2)}.mdc-checkbox--touch .mdc-checkbox__native-control{top:calc((40px - 48px) / 2);top:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);right:calc((40px - 48px) / 2);right:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);left:calc((40px - 48px) / 2);left:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);width:48px;width:var(--mdc-checkbox-state-layer-size, 48px);height:48px;height:var(--mdc-checkbox-state-layer-size, 48px)}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark{transition:opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);opacity:1}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(-45deg)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark{transform:rotate(45deg);opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__mixedmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(0deg);opacity:1}.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__checkmark,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__checkmark-path,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__mixedmark{transition:none}:host{outline:none;display:inline-flex;-webkit-tap-highlight-color:transparent}:host([checked]),:host([indeterminate]){--mdc-ripple-color:var(--mdc-theme-secondary, #018786)}.mdc-checkbox .mdc-checkbox__background::before{content:none}`;
+const styles$a = i$1 `.mdc-checkbox{padding:calc((40px - 18px) / 2);padding:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2);margin:calc((40px - 40px) / 2);margin:calc((var(--mdc-checkbox-touch-target-size, 40px) - 40px) / 2)}.mdc-checkbox .mdc-checkbox__ripple::before,.mdc-checkbox .mdc-checkbox__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, #000)}.mdc-checkbox:hover .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-ripple-surface--hover .mdc-checkbox__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__ripple::before,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-checkbox:not(.mdc-ripple-upgraded) .mdc-checkbox__ripple::after{transition:opacity 150ms linear}.mdc-checkbox:not(.mdc-ripple-upgraded):active .mdc-checkbox__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-checkbox.mdc-checkbox--selected:hover .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-surface--hover .mdc-checkbox__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded--background-focused .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):focus .mdc-checkbox__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded) .mdc-checkbox__ripple::after{transition:opacity 150ms linear}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):active .mdc-checkbox__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-ripple-color, var(--mdc-theme-secondary, #018786))}.mdc-checkbox .mdc-checkbox__background{top:calc((40px - 18px) / 2);top:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2);left:calc((40px - 18px) / 2);left:calc((var(--mdc-checkbox-ripple-size, 40px) - 18px) / 2)}.mdc-checkbox .mdc-checkbox__native-control{top:calc((40px - 40px) / 2);top:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);right:calc((40px - 40px) / 2);right:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);left:calc((40px - 40px) / 2);left:calc((40px - var(--mdc-checkbox-touch-target-size, 40px)) / 2);width:40px;width:var(--mdc-checkbox-touch-target-size, 40px);height:40px;height:var(--mdc-checkbox-touch-target-size, 40px)}.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}@keyframes mdc-checkbox-fade-in-background-8A000000FF01878600000000FF018786{0%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}50%{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}}@keyframes mdc-checkbox-fade-out-background-8A000000FF01878600000000FF018786{0%,80%{border-color:#018786;border-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--mdc-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}100%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}}.mdc-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-in-background-8A000000FF01878600000000FF018786}.mdc-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-out-background-8A000000FF01878600000000FF018786}.mdc-checkbox .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.38);border-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38));background-color:transparent}.mdc-checkbox .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background{border-color:transparent;background-color:rgba(0, 0, 0, 0.38);background-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38))}.mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-ink-color, #fff)}.mdc-checkbox .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-ink-color, #fff)}.mdc-touch-target-wrapper{display:inline}@keyframes mdc-checkbox-unchecked-checked-checkmark-path{0%,50%{stroke-dashoffset:29.7833385}50%{animation-timing-function:cubic-bezier(0, 0, 0.2, 1)}100%{stroke-dashoffset:0}}@keyframes mdc-checkbox-unchecked-indeterminate-mixedmark{0%,68.2%{transform:scaleX(0)}68.2%{animation-timing-function:cubic-bezier(0, 0, 0, 1)}100%{transform:scaleX(1)}}@keyframes mdc-checkbox-checked-unchecked-checkmark-path{from{animation-timing-function:cubic-bezier(0.4, 0, 1, 1);opacity:1;stroke-dashoffset:0}to{opacity:0;stroke-dashoffset:-29.7833385}}@keyframes mdc-checkbox-checked-indeterminate-checkmark{from{animation-timing-function:cubic-bezier(0, 0, 0.2, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(45deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-checked-checkmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(45deg);opacity:0}to{transform:rotate(360deg);opacity:1}}@keyframes mdc-checkbox-checked-indeterminate-mixedmark{from{animation-timing-function:mdc-animation-deceleration-curve-timing-function;transform:rotate(-45deg);opacity:0}to{transform:rotate(0deg);opacity:1}}@keyframes mdc-checkbox-indeterminate-checked-mixedmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(315deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-unchecked-mixedmark{0%{animation-timing-function:linear;transform:scaleX(1);opacity:1}32.8%,100%{transform:scaleX(0);opacity:0}}.mdc-checkbox{display:inline-block;position:relative;flex:0 0 18px;box-sizing:content-box;width:18px;height:18px;line-height:0;white-space:nowrap;cursor:pointer;vertical-align:bottom}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring{pointer-events:none;border:2px solid transparent;border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%}@media screen and (forced-colors: active){.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring{border-color:CanvasText}}.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring::after,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring::after{content:"";border:2px solid transparent;border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-checkbox.mdc-ripple-upgraded--background-focused .mdc-checkbox__focus-ring::after,.mdc-checkbox:not(.mdc-ripple-upgraded):focus .mdc-checkbox__focus-ring::after{border-color:CanvasText}}@media all and (-ms-high-contrast: none){.mdc-checkbox .mdc-checkbox__focus-ring{display:none}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-checkbox__mixedmark{margin:0 1px}}.mdc-checkbox--disabled{cursor:default;pointer-events:none}.mdc-checkbox__background{display:inline-flex;position:absolute;align-items:center;justify-content:center;box-sizing:border-box;width:18px;height:18px;border:2px solid currentColor;border-radius:2px;background-color:transparent;pointer-events:none;will-change:background-color,border-color;transition:background-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),border-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__checkmark{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;opacity:0;transition:opacity 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--upgraded .mdc-checkbox__checkmark{opacity:1}.mdc-checkbox__checkmark-path{transition:stroke-dashoffset 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1);stroke:currentColor;stroke-width:3.12px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-checkbox__mixedmark{width:100%;height:0;transform:scaleX(0) rotate(0deg);border-width:1px;border-style:solid;opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__background,.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__background,.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__background,.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__background{animation-duration:180ms;animation-timing-function:linear}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;transition:none}.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__checkmark{animation:mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__checkmark{animation:mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;transition:none}.mdc-checkbox__native-control:checked~.mdc-checkbox__background,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background{transition:border-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1),background-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark-path{stroke-dashoffset:0}.mdc-checkbox__native-control{position:absolute;margin:0;padding:0;opacity:0;cursor:inherit}.mdc-checkbox__native-control:disabled{cursor:default;pointer-events:none}.mdc-checkbox--touch{margin:calc((48px - 40px) / 2);margin:calc((var(--mdc-checkbox-state-layer-size, 48px) - var(--mdc-checkbox-state-layer-size, 40px)) / 2)}.mdc-checkbox--touch .mdc-checkbox__native-control{top:calc((40px - 48px) / 2);top:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);right:calc((40px - 48px) / 2);right:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);left:calc((40px - 48px) / 2);left:calc((var(--mdc-checkbox-state-layer-size, 40px) - var(--mdc-checkbox-state-layer-size, 48px)) / 2);width:48px;width:var(--mdc-checkbox-state-layer-size, 48px);height:48px;height:var(--mdc-checkbox-state-layer-size, 48px)}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark{transition:opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);opacity:1}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(-45deg)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark{transform:rotate(45deg);opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__mixedmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(0deg);opacity:1}.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__background,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__checkmark,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__checkmark-path,.mdc-checkbox.mdc-checkbox--upgraded .mdc-checkbox__mixedmark{transition:none}:host{outline:none;display:inline-flex;-webkit-tap-highlight-color:transparent}:host([checked]),:host([indeterminate]){--mdc-ripple-color:var(--mdc-theme-secondary, #018786)}.mdc-checkbox .mdc-checkbox__background::before{content:none}`;
 
 class EwtCheckbox extends CheckboxBase {
 }
-EwtCheckbox.styles = [styles$b];
+EwtCheckbox.styles = [styles$a];
 customElements.define("ewt-checkbox", EwtCheckbox);
 
 class ColoredConsole {
@@ -2083,10 +498,11 @@ class ColoredConsole {
                 }
             }
         }
+        const atBottom = this.targetElement.scrollTop >
+            this.targetElement.scrollHeight - this.targetElement.offsetHeight - 50;
         addSpan(line.substring(i));
-        if (this.targetElement.scrollTop + 56 >=
-            this.targetElement.scrollHeight - this.targetElement.offsetHeight) {
-            // at bottom
+        // Keep scroll at bottom
+        if (atBottom) {
             this.targetElement.scrollTop = this.targetElement.scrollHeight;
         }
     }
@@ -2183,7 +599,7 @@ const coloredConsoleStyles = `
   }
 `;
 
-const sleep$2 = (time) => new Promise((resolve) => setTimeout(resolve, time));
+const sleep$1 = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 class LineBreakTransformer {
     constructor() {
@@ -2193,9 +609,9 @@ class LineBreakTransformer {
         // Append new chunks to existing chunks.
         this.chunks += chunk;
         // For each line breaks in chunks, send the parsed lines out.
-        const lines = this.chunks.split("\n");
+        const lines = this.chunks.split("\r\n");
         this.chunks = lines.pop();
-        lines.forEach((line) => controller.enqueue(line + "\n"));
+        lines.forEach((line) => controller.enqueue(line + "\r\n"));
     }
     flush(controller) {
         // When the stream is closed, flush any remaining chunks out.
@@ -2301,7 +717,7 @@ class EwtConsole extends HTMLElement {
             this._console.addLine(`Terminal disconnected: ${e}`);
         }
         finally {
-            await sleep$2(100);
+            await sleep$1(100);
             this.logger.debug("Finished console read loop");
         }
     }
@@ -2310,8 +726,8 @@ class EwtConsole extends HTMLElement {
         const command = input.value;
         const encoder = new TextEncoder();
         const writer = this.port.writable.getWriter();
-        await writer.write(encoder.encode(command + "\n"));
-        this._console.addLine(`> ${command}\n`);
+        await writer.write(encoder.encode(command + "\r\n"));
+        this._console.addLine(`> ${command}\r\n`);
         input.value = "";
         input.focus();
         try {
@@ -2341,2220 +757,6 @@ class EwtConsole extends HTMLElement {
     }
 }
 customElements.define("ewt-console", EwtConsole);
-
-/**
- * @license
- * Copyright 2016 Google Inc. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-(() => {
-    var _a, _b, _c;
-    /* Symbols for private properties */
-    const _blockingElements = Symbol();
-    const _alreadyInertElements = Symbol();
-    const _topElParents = Symbol();
-    const _siblingsToRestore = Symbol();
-    const _parentMO = Symbol();
-    /* Symbols for private static methods */
-    const _topChanged = Symbol();
-    const _swapInertedSibling = Symbol();
-    const _inertSiblings = Symbol();
-    const _restoreInertedSiblings = Symbol();
-    const _getParents = Symbol();
-    const _getDistributedChildren = Symbol();
-    const _isInertable = Symbol();
-    const _handleMutations = Symbol();
-    class BlockingElementsImpl {
-        constructor() {
-            /**
-             * The blocking elements.
-             */
-            this[_a] = [];
-            /**
-             * Used to keep track of the parents of the top element, from the element
-             * itself up to body. When top changes, the old top might have been removed
-             * from the document, so we need to memoize the inerted parents' siblings
-             * in order to restore their inerteness when top changes.
-             */
-            this[_b] = [];
-            /**
-             * Elements that are already inert before the first blocking element is
-             * pushed.
-             */
-            this[_c] = new Set();
-        }
-        destructor() {
-            // Restore original inertness.
-            this[_restoreInertedSiblings](this[_topElParents]);
-            // Note we don't want to make these properties nullable on the class,
-            // since then we'd need non-null casts in many places. Calling a method on
-            // a BlockingElements instance after calling destructor will result in an
-            // exception.
-            const nullable = this;
-            nullable[_blockingElements] = null;
-            nullable[_topElParents] = null;
-            nullable[_alreadyInertElements] = null;
-        }
-        get top() {
-            const elems = this[_blockingElements];
-            return elems[elems.length - 1] || null;
-        }
-        push(element) {
-            if (!element || element === this.top) {
-                return;
-            }
-            // Remove it from the stack, we'll bring it to the top.
-            this.remove(element);
-            this[_topChanged](element);
-            this[_blockingElements].push(element);
-        }
-        remove(element) {
-            const i = this[_blockingElements].indexOf(element);
-            if (i === -1) {
-                return false;
-            }
-            this[_blockingElements].splice(i, 1);
-            // Top changed only if the removed element was the top element.
-            if (i === this[_blockingElements].length) {
-                this[_topChanged](this.top);
-            }
-            return true;
-        }
-        pop() {
-            const top = this.top;
-            top && this.remove(top);
-            return top;
-        }
-        has(element) {
-            return this[_blockingElements].indexOf(element) !== -1;
-        }
-        /**
-         * Sets `inert` to all document elements except the new top element, its
-         * parents, and its distributed content.
-         */
-        [(_a = _blockingElements, _b = _topElParents, _c = _alreadyInertElements, _topChanged)](newTop) {
-            const toKeepInert = this[_alreadyInertElements];
-            const oldParents = this[_topElParents];
-            // No new top, reset old top if any.
-            if (!newTop) {
-                this[_restoreInertedSiblings](oldParents);
-                toKeepInert.clear();
-                this[_topElParents] = [];
-                return;
-            }
-            const newParents = this[_getParents](newTop);
-            // New top is not contained in the main document!
-            if (newParents[newParents.length - 1].parentNode !== document.body) {
-                throw Error('Non-connected element cannot be a blocking element');
-            }
-            // Cast here because we know we'll call _inertSiblings on newParents
-            // below.
-            this[_topElParents] = newParents;
-            const toSkip = this[_getDistributedChildren](newTop);
-            // No previous top element.
-            if (!oldParents.length) {
-                this[_inertSiblings](newParents, toSkip, toKeepInert);
-                return;
-            }
-            let i = oldParents.length - 1;
-            let j = newParents.length - 1;
-            // Find common parent. Index 0 is the element itself (so stop before it).
-            while (i > 0 && j > 0 && oldParents[i] === newParents[j]) {
-                i--;
-                j--;
-            }
-            // If up the parents tree there are 2 elements that are siblings, swap
-            // the inerted sibling.
-            if (oldParents[i] !== newParents[j]) {
-                this[_swapInertedSibling](oldParents[i], newParents[j]);
-            }
-            // Restore old parents siblings inertness.
-            i > 0 && this[_restoreInertedSiblings](oldParents.slice(0, i));
-            // Make new parents siblings inert.
-            j > 0 && this[_inertSiblings](newParents.slice(0, j), toSkip, null);
-        }
-        /**
-         * Swaps inertness between two sibling elements.
-         * Sets the property `inert` over the attribute since the inert spec
-         * doesn't specify if it should be reflected.
-         * https://html.spec.whatwg.org/multipage/interaction.html#inert
-         */
-        [_swapInertedSibling](oldInert, newInert) {
-            const siblingsToRestore = oldInert[_siblingsToRestore];
-            // oldInert is not contained in siblings to restore, so we have to check
-            // if it's inertable and if already inert.
-            if (this[_isInertable](oldInert) && !oldInert.inert) {
-                oldInert.inert = true;
-                siblingsToRestore.add(oldInert);
-            }
-            // If newInert was already between the siblings to restore, it means it is
-            // inertable and must be restored.
-            if (siblingsToRestore.has(newInert)) {
-                newInert.inert = false;
-                siblingsToRestore.delete(newInert);
-            }
-            newInert[_parentMO] = oldInert[_parentMO];
-            newInert[_siblingsToRestore] = siblingsToRestore;
-            oldInert[_parentMO] = undefined;
-            oldInert[_siblingsToRestore] = undefined;
-        }
-        /**
-         * Restores original inertness to the siblings of the elements.
-         * Sets the property `inert` over the attribute since the inert spec
-         * doesn't specify if it should be reflected.
-         * https://html.spec.whatwg.org/multipage/interaction.html#inert
-         */
-        [_restoreInertedSiblings](elements) {
-            for (const element of elements) {
-                const mo = element[_parentMO];
-                mo.disconnect();
-                element[_parentMO] = undefined;
-                const siblings = element[_siblingsToRestore];
-                for (const sibling of siblings) {
-                    sibling.inert = false;
-                }
-                element[_siblingsToRestore] = undefined;
-            }
-        }
-        /**
-         * Inerts the siblings of the elements except the elements to skip. Stores
-         * the inerted siblings into the element's symbol `_siblingsToRestore`.
-         * Pass `toKeepInert` to collect the already inert elements.
-         * Sets the property `inert` over the attribute since the inert spec
-         * doesn't specify if it should be reflected.
-         * https://html.spec.whatwg.org/multipage/interaction.html#inert
-         */
-        [_inertSiblings](elements, toSkip, toKeepInert) {
-            for (const element of elements) {
-                // Assume element is not a Document, so it must have a parentNode.
-                const parent = element.parentNode;
-                const children = parent.children;
-                const inertedSiblings = new Set();
-                for (let j = 0; j < children.length; j++) {
-                    const sibling = children[j];
-                    // Skip the input element, if not inertable or to be skipped.
-                    if (sibling === element || !this[_isInertable](sibling) ||
-                        (toSkip && toSkip.has(sibling))) {
-                        continue;
-                    }
-                    // Should be collected since already inerted.
-                    if (toKeepInert && sibling.inert) {
-                        toKeepInert.add(sibling);
-                    }
-                    else {
-                        sibling.inert = true;
-                        inertedSiblings.add(sibling);
-                    }
-                }
-                // Store the siblings that were inerted.
-                element[_siblingsToRestore] = inertedSiblings;
-                // Observe only immediate children mutations on the parent.
-                const mo = new MutationObserver(this[_handleMutations].bind(this));
-                element[_parentMO] = mo;
-                let parentToObserve = parent;
-                // If we're using the ShadyDOM polyfill, then our parent could be a
-                // shady root, which is an object that acts like a ShadowRoot, but isn't
-                // actually a node in the real DOM. Observe the real DOM parent instead.
-                const maybeShadyRoot = parentToObserve;
-                if (maybeShadyRoot.__shady && maybeShadyRoot.host) {
-                    parentToObserve = maybeShadyRoot.host;
-                }
-                mo.observe(parentToObserve, {
-                    childList: true,
-                });
-            }
-        }
-        /**
-         * Handles newly added/removed nodes by toggling their inertness.
-         * It also checks if the current top Blocking Element has been removed,
-         * notifying and removing it.
-         */
-        [_handleMutations](mutations) {
-            const parents = this[_topElParents];
-            const toKeepInert = this[_alreadyInertElements];
-            for (const mutation of mutations) {
-                // If the target is a shadowRoot, get its host as we skip shadowRoots when
-                // computing _topElParents.
-                const target = mutation.target.host || mutation.target;
-                const idx = target === document.body ?
-                    parents.length :
-                    parents.indexOf(target);
-                const inertedChild = parents[idx - 1];
-                const inertedSiblings = inertedChild[_siblingsToRestore];
-                // To restore.
-                for (let i = 0; i < mutation.removedNodes.length; i++) {
-                    const sibling = mutation.removedNodes[i];
-                    if (sibling === inertedChild) {
-                        console.info('Detected removal of the top Blocking Element.');
-                        this.pop();
-                        return;
-                    }
-                    if (inertedSiblings.has(sibling)) {
-                        sibling.inert = false;
-                        inertedSiblings.delete(sibling);
-                    }
-                }
-                // To inert.
-                for (let i = 0; i < mutation.addedNodes.length; i++) {
-                    const sibling = mutation.addedNodes[i];
-                    if (!this[_isInertable](sibling)) {
-                        continue;
-                    }
-                    if (toKeepInert && sibling.inert) {
-                        toKeepInert.add(sibling);
-                    }
-                    else {
-                        sibling.inert = true;
-                        inertedSiblings.add(sibling);
-                    }
-                }
-            }
-        }
-        /**
-         * Returns if the element is inertable.
-         */
-        [_isInertable](element) {
-            return false === /^(style|template|script)$/.test(element.localName);
-        }
-        /**
-         * Returns the list of newParents of an element, starting from element
-         * (included) up to `document.body` (excluded).
-         */
-        [_getParents](element) {
-            const parents = [];
-            let current = element;
-            // Stop to body.
-            while (current && current !== document.body) {
-                // Skip shadow roots.
-                if (current.nodeType === Node.ELEMENT_NODE) {
-                    parents.push(current);
-                }
-                // ShadowDom v1
-                if (current.assignedSlot) {
-                    // Collect slots from deepest slot to top.
-                    while (current = current.assignedSlot) {
-                        parents.push(current);
-                    }
-                    // Continue the search on the top slot.
-                    current = parents.pop();
-                    continue;
-                }
-                current = current.parentNode ||
-                    current.host;
-            }
-            return parents;
-        }
-        /**
-         * Returns the distributed children of the element's shadow root.
-         * Returns null if the element doesn't have a shadow root.
-         */
-        [_getDistributedChildren](element) {
-            const shadowRoot = element.shadowRoot;
-            if (!shadowRoot) {
-                return null;
-            }
-            const result = new Set();
-            let i;
-            let j;
-            let nodes;
-            const slots = shadowRoot.querySelectorAll('slot');
-            if (slots.length && slots[0].assignedNodes) {
-                for (i = 0; i < slots.length; i++) {
-                    nodes = slots[i].assignedNodes({
-                        flatten: true,
-                    });
-                    for (j = 0; j < nodes.length; j++) {
-                        if (nodes[j].nodeType === Node.ELEMENT_NODE) {
-                            result.add(nodes[j]);
-                        }
-                    }
-                }
-                // No need to search for <content>.
-            }
-            return result;
-        }
-    }
-    document.$blockingElements =
-        new BlockingElementsImpl();
-})();
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * This work is licensed under the W3C Software and Document License
- * (http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
- */
-
-(function () {
-  // Return early if we're not running inside of the browser.
-  if (typeof window === 'undefined') {
-    return;
-  }
-
-  // Convenience function for converting NodeLists.
-  /** @type {typeof Array.prototype.slice} */
-  var slice = Array.prototype.slice;
-
-  /**
-   * IE has a non-standard name for "matches".
-   * @type {typeof Element.prototype.matches}
-   */
-  var matches = Element.prototype.matches || Element.prototype.msMatchesSelector;
-
-  /** @type {string} */
-  var _focusableElementsString = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'details', 'summary', 'iframe', 'object', 'embed', '[contenteditable]'].join(',');
-
-  /**
-   * `InertRoot` manages a single inert subtree, i.e. a DOM subtree whose root element has an `inert`
-   * attribute.
-   *
-   * Its main functions are:
-   *
-   * - to create and maintain a set of managed `InertNode`s, including when mutations occur in the
-   *   subtree. The `makeSubtreeUnfocusable()` method handles collecting `InertNode`s via registering
-   *   each focusable node in the subtree with the singleton `InertManager` which manages all known
-   *   focusable nodes within inert subtrees. `InertManager` ensures that a single `InertNode`
-   *   instance exists for each focusable node which has at least one inert root as an ancestor.
-   *
-   * - to notify all managed `InertNode`s when this subtree stops being inert (i.e. when the `inert`
-   *   attribute is removed from the root node). This is handled in the destructor, which calls the
-   *   `deregister` method on `InertManager` for each managed inert node.
-   */
-
-  var InertRoot = function () {
-    /**
-     * @param {!HTMLElement} rootElement The HTMLElement at the root of the inert subtree.
-     * @param {!InertManager} inertManager The global singleton InertManager object.
-     */
-    function InertRoot(rootElement, inertManager) {
-      _classCallCheck(this, InertRoot);
-
-      /** @type {!InertManager} */
-      this._inertManager = inertManager;
-
-      /** @type {!HTMLElement} */
-      this._rootElement = rootElement;
-
-      /**
-       * @type {!Set<!InertNode>}
-       * All managed focusable nodes in this InertRoot's subtree.
-       */
-      this._managedNodes = new Set();
-
-      // Make the subtree hidden from assistive technology
-      if (this._rootElement.hasAttribute('aria-hidden')) {
-        /** @type {?string} */
-        this._savedAriaHidden = this._rootElement.getAttribute('aria-hidden');
-      } else {
-        this._savedAriaHidden = null;
-      }
-      this._rootElement.setAttribute('aria-hidden', 'true');
-
-      // Make all focusable elements in the subtree unfocusable and add them to _managedNodes
-      this._makeSubtreeUnfocusable(this._rootElement);
-
-      // Watch for:
-      // - any additions in the subtree: make them unfocusable too
-      // - any removals from the subtree: remove them from this inert root's managed nodes
-      // - attribute changes: if `tabindex` is added, or removed from an intrinsically focusable
-      //   element, make that node a managed node.
-      this._observer = new MutationObserver(this._onMutation.bind(this));
-      this._observer.observe(this._rootElement, { attributes: true, childList: true, subtree: true });
-    }
-
-    /**
-     * Call this whenever this object is about to become obsolete.  This unwinds all of the state
-     * stored in this object and updates the state of all of the managed nodes.
-     */
-
-
-    _createClass(InertRoot, [{
-      key: 'destructor',
-      value: function destructor() {
-        this._observer.disconnect();
-
-        if (this._rootElement) {
-          if (this._savedAriaHidden !== null) {
-            this._rootElement.setAttribute('aria-hidden', this._savedAriaHidden);
-          } else {
-            this._rootElement.removeAttribute('aria-hidden');
-          }
-        }
-
-        this._managedNodes.forEach(function (inertNode) {
-          this._unmanageNode(inertNode.node);
-        }, this);
-
-        // Note we cast the nulls to the ANY type here because:
-        // 1) We want the class properties to be declared as non-null, or else we
-        //    need even more casts throughout this code. All bets are off if an
-        //    instance has been destroyed and a method is called.
-        // 2) We don't want to cast "this", because we want type-aware optimizations
-        //    to know which properties we're setting.
-        this._observer = /** @type {?} */null;
-        this._rootElement = /** @type {?} */null;
-        this._managedNodes = /** @type {?} */null;
-        this._inertManager = /** @type {?} */null;
-      }
-
-      /**
-       * @return {!Set<!InertNode>} A copy of this InertRoot's managed nodes set.
-       */
-
-    }, {
-      key: '_makeSubtreeUnfocusable',
-
-
-      /**
-       * @param {!Node} startNode
-       */
-      value: function _makeSubtreeUnfocusable(startNode) {
-        var _this2 = this;
-
-        composedTreeWalk(startNode, function (node) {
-          return _this2._visitNode(node);
-        });
-
-        var activeElement = document.activeElement;
-
-        if (!document.body.contains(startNode)) {
-          // startNode may be in shadow DOM, so find its nearest shadowRoot to get the activeElement.
-          var node = startNode;
-          /** @type {!ShadowRoot|undefined} */
-          var root = undefined;
-          while (node) {
-            if (node.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
-              root = /** @type {!ShadowRoot} */node;
-              break;
-            }
-            node = node.parentNode;
-          }
-          if (root) {
-            activeElement = root.activeElement;
-          }
-        }
-        if (startNode.contains(activeElement)) {
-          activeElement.blur();
-          // In IE11, if an element is already focused, and then set to tabindex=-1
-          // calling blur() will not actually move the focus.
-          // To work around this we call focus() on the body instead.
-          if (activeElement === document.activeElement) {
-            document.body.focus();
-          }
-        }
-      }
-
-      /**
-       * @param {!Node} node
-       */
-
-    }, {
-      key: '_visitNode',
-      value: function _visitNode(node) {
-        if (node.nodeType !== Node.ELEMENT_NODE) {
-          return;
-        }
-        var element = /** @type {!HTMLElement} */node;
-
-        // If a descendant inert root becomes un-inert, its descendants will still be inert because of
-        // this inert root, so all of its managed nodes need to be adopted by this InertRoot.
-        if (element !== this._rootElement && element.hasAttribute('inert')) {
-          this._adoptInertRoot(element);
-        }
-
-        if (matches.call(element, _focusableElementsString) || element.hasAttribute('tabindex')) {
-          this._manageNode(element);
-        }
-      }
-
-      /**
-       * Register the given node with this InertRoot and with InertManager.
-       * @param {!Node} node
-       */
-
-    }, {
-      key: '_manageNode',
-      value: function _manageNode(node) {
-        var inertNode = this._inertManager.register(node, this);
-        this._managedNodes.add(inertNode);
-      }
-
-      /**
-       * Unregister the given node with this InertRoot and with InertManager.
-       * @param {!Node} node
-       */
-
-    }, {
-      key: '_unmanageNode',
-      value: function _unmanageNode(node) {
-        var inertNode = this._inertManager.deregister(node, this);
-        if (inertNode) {
-          this._managedNodes['delete'](inertNode);
-        }
-      }
-
-      /**
-       * Unregister the entire subtree starting at `startNode`.
-       * @param {!Node} startNode
-       */
-
-    }, {
-      key: '_unmanageSubtree',
-      value: function _unmanageSubtree(startNode) {
-        var _this3 = this;
-
-        composedTreeWalk(startNode, function (node) {
-          return _this3._unmanageNode(node);
-        });
-      }
-
-      /**
-       * If a descendant node is found with an `inert` attribute, adopt its managed nodes.
-       * @param {!HTMLElement} node
-       */
-
-    }, {
-      key: '_adoptInertRoot',
-      value: function _adoptInertRoot(node) {
-        var inertSubroot = this._inertManager.getInertRoot(node);
-
-        // During initialisation this inert root may not have been registered yet,
-        // so register it now if need be.
-        if (!inertSubroot) {
-          this._inertManager.setInert(node, true);
-          inertSubroot = this._inertManager.getInertRoot(node);
-        }
-
-        inertSubroot.managedNodes.forEach(function (savedInertNode) {
-          this._manageNode(savedInertNode.node);
-        }, this);
-      }
-
-      /**
-       * Callback used when mutation observer detects subtree additions, removals, or attribute changes.
-       * @param {!Array<!MutationRecord>} records
-       * @param {!MutationObserver} self
-       */
-
-    }, {
-      key: '_onMutation',
-      value: function _onMutation(records, self) {
-        records.forEach(function (record) {
-          var target = /** @type {!HTMLElement} */record.target;
-          if (record.type === 'childList') {
-            // Manage added nodes
-            slice.call(record.addedNodes).forEach(function (node) {
-              this._makeSubtreeUnfocusable(node);
-            }, this);
-
-            // Un-manage removed nodes
-            slice.call(record.removedNodes).forEach(function (node) {
-              this._unmanageSubtree(node);
-            }, this);
-          } else if (record.type === 'attributes') {
-            if (record.attributeName === 'tabindex') {
-              // Re-initialise inert node if tabindex changes
-              this._manageNode(target);
-            } else if (target !== this._rootElement && record.attributeName === 'inert' && target.hasAttribute('inert')) {
-              // If a new inert root is added, adopt its managed nodes and make sure it knows about the
-              // already managed nodes from this inert subroot.
-              this._adoptInertRoot(target);
-              var inertSubroot = this._inertManager.getInertRoot(target);
-              this._managedNodes.forEach(function (managedNode) {
-                if (target.contains(managedNode.node)) {
-                  inertSubroot._manageNode(managedNode.node);
-                }
-              });
-            }
-          }
-        }, this);
-      }
-    }, {
-      key: 'managedNodes',
-      get: function get() {
-        return new Set(this._managedNodes);
-      }
-
-      /** @return {boolean} */
-
-    }, {
-      key: 'hasSavedAriaHidden',
-      get: function get() {
-        return this._savedAriaHidden !== null;
-      }
-
-      /** @param {?string} ariaHidden */
-
-    }, {
-      key: 'savedAriaHidden',
-      set: function set(ariaHidden) {
-        this._savedAriaHidden = ariaHidden;
-      }
-
-      /** @return {?string} */
-      ,
-      get: function get() {
-        return this._savedAriaHidden;
-      }
-    }]);
-
-    return InertRoot;
-  }();
-
-  /**
-   * `InertNode` initialises and manages a single inert node.
-   * A node is inert if it is a descendant of one or more inert root elements.
-   *
-   * On construction, `InertNode` saves the existing `tabindex` value for the node, if any, and
-   * either removes the `tabindex` attribute or sets it to `-1`, depending on whether the element
-   * is intrinsically focusable or not.
-   *
-   * `InertNode` maintains a set of `InertRoot`s which are descendants of this `InertNode`. When an
-   * `InertRoot` is destroyed, and calls `InertManager.deregister()`, the `InertManager` notifies the
-   * `InertNode` via `removeInertRoot()`, which in turn destroys the `InertNode` if no `InertRoot`s
-   * remain in the set. On destruction, `InertNode` reinstates the stored `tabindex` if one exists,
-   * or removes the `tabindex` attribute if the element is intrinsically focusable.
-   */
-
-
-  var InertNode = function () {
-    /**
-     * @param {!Node} node A focusable element to be made inert.
-     * @param {!InertRoot} inertRoot The inert root element associated with this inert node.
-     */
-    function InertNode(node, inertRoot) {
-      _classCallCheck(this, InertNode);
-
-      /** @type {!Node} */
-      this._node = node;
-
-      /** @type {boolean} */
-      this._overrodeFocusMethod = false;
-
-      /**
-       * @type {!Set<!InertRoot>} The set of descendant inert roots.
-       *    If and only if this set becomes empty, this node is no longer inert.
-       */
-      this._inertRoots = new Set([inertRoot]);
-
-      /** @type {?number} */
-      this._savedTabIndex = null;
-
-      /** @type {boolean} */
-      this._destroyed = false;
-
-      // Save any prior tabindex info and make this node untabbable
-      this.ensureUntabbable();
-    }
-
-    /**
-     * Call this whenever this object is about to become obsolete.
-     * This makes the managed node focusable again and deletes all of the previously stored state.
-     */
-
-
-    _createClass(InertNode, [{
-      key: 'destructor',
-      value: function destructor() {
-        this._throwIfDestroyed();
-
-        if (this._node && this._node.nodeType === Node.ELEMENT_NODE) {
-          var element = /** @type {!HTMLElement} */this._node;
-          if (this._savedTabIndex !== null) {
-            element.setAttribute('tabindex', this._savedTabIndex);
-          } else {
-            element.removeAttribute('tabindex');
-          }
-
-          // Use `delete` to restore native focus method.
-          if (this._overrodeFocusMethod) {
-            delete element.focus;
-          }
-        }
-
-        // See note in InertRoot.destructor for why we cast these nulls to ANY.
-        this._node = /** @type {?} */null;
-        this._inertRoots = /** @type {?} */null;
-        this._destroyed = true;
-      }
-
-      /**
-       * @type {boolean} Whether this object is obsolete because the managed node is no longer inert.
-       * If the object has been destroyed, any attempt to access it will cause an exception.
-       */
-
-    }, {
-      key: '_throwIfDestroyed',
-
-
-      /**
-       * Throw if user tries to access destroyed InertNode.
-       */
-      value: function _throwIfDestroyed() {
-        if (this.destroyed) {
-          throw new Error('Trying to access destroyed InertNode');
-        }
-      }
-
-      /** @return {boolean} */
-
-    }, {
-      key: 'ensureUntabbable',
-
-
-      /** Save the existing tabindex value and make the node untabbable and unfocusable */
-      value: function ensureUntabbable() {
-        if (this.node.nodeType !== Node.ELEMENT_NODE) {
-          return;
-        }
-        var element = /** @type {!HTMLElement} */this.node;
-        if (matches.call(element, _focusableElementsString)) {
-          if ( /** @type {!HTMLElement} */element.tabIndex === -1 && this.hasSavedTabIndex) {
-            return;
-          }
-
-          if (element.hasAttribute('tabindex')) {
-            this._savedTabIndex = /** @type {!HTMLElement} */element.tabIndex;
-          }
-          element.setAttribute('tabindex', '-1');
-          if (element.nodeType === Node.ELEMENT_NODE) {
-            element.focus = function () {};
-            this._overrodeFocusMethod = true;
-          }
-        } else if (element.hasAttribute('tabindex')) {
-          this._savedTabIndex = /** @type {!HTMLElement} */element.tabIndex;
-          element.removeAttribute('tabindex');
-        }
-      }
-
-      /**
-       * Add another inert root to this inert node's set of managing inert roots.
-       * @param {!InertRoot} inertRoot
-       */
-
-    }, {
-      key: 'addInertRoot',
-      value: function addInertRoot(inertRoot) {
-        this._throwIfDestroyed();
-        this._inertRoots.add(inertRoot);
-      }
-
-      /**
-       * Remove the given inert root from this inert node's set of managing inert roots.
-       * If the set of managing inert roots becomes empty, this node is no longer inert,
-       * so the object should be destroyed.
-       * @param {!InertRoot} inertRoot
-       */
-
-    }, {
-      key: 'removeInertRoot',
-      value: function removeInertRoot(inertRoot) {
-        this._throwIfDestroyed();
-        this._inertRoots['delete'](inertRoot);
-        if (this._inertRoots.size === 0) {
-          this.destructor();
-        }
-      }
-    }, {
-      key: 'destroyed',
-      get: function get() {
-        return (/** @type {!InertNode} */this._destroyed
-        );
-      }
-    }, {
-      key: 'hasSavedTabIndex',
-      get: function get() {
-        return this._savedTabIndex !== null;
-      }
-
-      /** @return {!Node} */
-
-    }, {
-      key: 'node',
-      get: function get() {
-        this._throwIfDestroyed();
-        return this._node;
-      }
-
-      /** @param {?number} tabIndex */
-
-    }, {
-      key: 'savedTabIndex',
-      set: function set(tabIndex) {
-        this._throwIfDestroyed();
-        this._savedTabIndex = tabIndex;
-      }
-
-      /** @return {?number} */
-      ,
-      get: function get() {
-        this._throwIfDestroyed();
-        return this._savedTabIndex;
-      }
-    }]);
-
-    return InertNode;
-  }();
-
-  /**
-   * InertManager is a per-document singleton object which manages all inert roots and nodes.
-   *
-   * When an element becomes an inert root by having an `inert` attribute set and/or its `inert`
-   * property set to `true`, the `setInert` method creates an `InertRoot` object for the element.
-   * The `InertRoot` in turn registers itself as managing all of the element's focusable descendant
-   * nodes via the `register()` method. The `InertManager` ensures that a single `InertNode` instance
-   * is created for each such node, via the `_managedNodes` map.
-   */
-
-
-  var InertManager = function () {
-    /**
-     * @param {!Document} document
-     */
-    function InertManager(document) {
-      _classCallCheck(this, InertManager);
-
-      if (!document) {
-        throw new Error('Missing required argument; InertManager needs to wrap a document.');
-      }
-
-      /** @type {!Document} */
-      this._document = document;
-
-      /**
-       * All managed nodes known to this InertManager. In a map to allow looking up by Node.
-       * @type {!Map<!Node, !InertNode>}
-       */
-      this._managedNodes = new Map();
-
-      /**
-       * All inert roots known to this InertManager. In a map to allow looking up by Node.
-       * @type {!Map<!Node, !InertRoot>}
-       */
-      this._inertRoots = new Map();
-
-      /**
-       * Observer for mutations on `document.body`.
-       * @type {!MutationObserver}
-       */
-      this._observer = new MutationObserver(this._watchForInert.bind(this));
-
-      // Add inert style.
-      addInertStyle(document.head || document.body || document.documentElement);
-
-      // Wait for document to be loaded.
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', this._onDocumentLoaded.bind(this));
-      } else {
-        this._onDocumentLoaded();
-      }
-    }
-
-    /**
-     * Set whether the given element should be an inert root or not.
-     * @param {!HTMLElement} root
-     * @param {boolean} inert
-     */
-
-
-    _createClass(InertManager, [{
-      key: 'setInert',
-      value: function setInert(root, inert) {
-        if (inert) {
-          if (this._inertRoots.has(root)) {
-            // element is already inert
-            return;
-          }
-
-          var inertRoot = new InertRoot(root, this);
-          root.setAttribute('inert', '');
-          this._inertRoots.set(root, inertRoot);
-          // If not contained in the document, it must be in a shadowRoot.
-          // Ensure inert styles are added there.
-          if (!this._document.body.contains(root)) {
-            var parent = root.parentNode;
-            while (parent) {
-              if (parent.nodeType === 11) {
-                addInertStyle(parent);
-              }
-              parent = parent.parentNode;
-            }
-          }
-        } else {
-          if (!this._inertRoots.has(root)) {
-            // element is already non-inert
-            return;
-          }
-
-          var _inertRoot = this._inertRoots.get(root);
-          _inertRoot.destructor();
-          this._inertRoots['delete'](root);
-          root.removeAttribute('inert');
-        }
-      }
-
-      /**
-       * Get the InertRoot object corresponding to the given inert root element, if any.
-       * @param {!Node} element
-       * @return {!InertRoot|undefined}
-       */
-
-    }, {
-      key: 'getInertRoot',
-      value: function getInertRoot(element) {
-        return this._inertRoots.get(element);
-      }
-
-      /**
-       * Register the given InertRoot as managing the given node.
-       * In the case where the node has a previously existing inert root, this inert root will
-       * be added to its set of inert roots.
-       * @param {!Node} node
-       * @param {!InertRoot} inertRoot
-       * @return {!InertNode} inertNode
-       */
-
-    }, {
-      key: 'register',
-      value: function register(node, inertRoot) {
-        var inertNode = this._managedNodes.get(node);
-        if (inertNode !== undefined) {
-          // node was already in an inert subtree
-          inertNode.addInertRoot(inertRoot);
-        } else {
-          inertNode = new InertNode(node, inertRoot);
-        }
-
-        this._managedNodes.set(node, inertNode);
-
-        return inertNode;
-      }
-
-      /**
-       * De-register the given InertRoot as managing the given inert node.
-       * Removes the inert root from the InertNode's set of managing inert roots, and remove the inert
-       * node from the InertManager's set of managed nodes if it is destroyed.
-       * If the node is not currently managed, this is essentially a no-op.
-       * @param {!Node} node
-       * @param {!InertRoot} inertRoot
-       * @return {?InertNode} The potentially destroyed InertNode associated with this node, if any.
-       */
-
-    }, {
-      key: 'deregister',
-      value: function deregister(node, inertRoot) {
-        var inertNode = this._managedNodes.get(node);
-        if (!inertNode) {
-          return null;
-        }
-
-        inertNode.removeInertRoot(inertRoot);
-        if (inertNode.destroyed) {
-          this._managedNodes['delete'](node);
-        }
-
-        return inertNode;
-      }
-
-      /**
-       * Callback used when document has finished loading.
-       */
-
-    }, {
-      key: '_onDocumentLoaded',
-      value: function _onDocumentLoaded() {
-        // Find all inert roots in document and make them actually inert.
-        var inertElements = slice.call(this._document.querySelectorAll('[inert]'));
-        inertElements.forEach(function (inertElement) {
-          this.setInert(inertElement, true);
-        }, this);
-
-        // Comment this out to use programmatic API only.
-        this._observer.observe(this._document.body || this._document.documentElement, { attributes: true, subtree: true, childList: true });
-      }
-
-      /**
-       * Callback used when mutation observer detects attribute changes.
-       * @param {!Array<!MutationRecord>} records
-       * @param {!MutationObserver} self
-       */
-
-    }, {
-      key: '_watchForInert',
-      value: function _watchForInert(records, self) {
-        var _this = this;
-        records.forEach(function (record) {
-          switch (record.type) {
-            case 'childList':
-              slice.call(record.addedNodes).forEach(function (node) {
-                if (node.nodeType !== Node.ELEMENT_NODE) {
-                  return;
-                }
-                var inertElements = slice.call(node.querySelectorAll('[inert]'));
-                if (matches.call(node, '[inert]')) {
-                  inertElements.unshift(node);
-                }
-                inertElements.forEach(function (inertElement) {
-                  this.setInert(inertElement, true);
-                }, _this);
-              }, _this);
-              break;
-            case 'attributes':
-              if (record.attributeName !== 'inert') {
-                return;
-              }
-              var target = /** @type {!HTMLElement} */record.target;
-              var inert = target.hasAttribute('inert');
-              _this.setInert(target, inert);
-              break;
-          }
-        }, this);
-      }
-    }]);
-
-    return InertManager;
-  }();
-
-  /**
-   * Recursively walk the composed tree from |node|.
-   * @param {!Node} node
-   * @param {(function (!HTMLElement))=} callback Callback to be called for each element traversed,
-   *     before descending into child nodes.
-   * @param {?ShadowRoot=} shadowRootAncestor The nearest ShadowRoot ancestor, if any.
-   */
-
-
-  function composedTreeWalk(node, callback, shadowRootAncestor) {
-    if (node.nodeType == Node.ELEMENT_NODE) {
-      var element = /** @type {!HTMLElement} */node;
-      if (callback) {
-        callback(element);
-      }
-
-      // Descend into node:
-      // If it has a ShadowRoot, ignore all child elements - these will be picked
-      // up by the <content> or <shadow> elements. Descend straight into the
-      // ShadowRoot.
-      var shadowRoot = /** @type {!HTMLElement} */element.shadowRoot;
-      if (shadowRoot) {
-        composedTreeWalk(shadowRoot, callback);
-        return;
-      }
-
-      // If it is a <content> element, descend into distributed elements - these
-      // are elements from outside the shadow root which are rendered inside the
-      // shadow DOM.
-      if (element.localName == 'content') {
-        var content = /** @type {!HTMLContentElement} */element;
-        // Verifies if ShadowDom v0 is supported.
-        var distributedNodes = content.getDistributedNodes ? content.getDistributedNodes() : [];
-        for (var i = 0; i < distributedNodes.length; i++) {
-          composedTreeWalk(distributedNodes[i], callback);
-        }
-        return;
-      }
-
-      // If it is a <slot> element, descend into assigned nodes - these
-      // are elements from outside the shadow root which are rendered inside the
-      // shadow DOM.
-      if (element.localName == 'slot') {
-        var slot = /** @type {!HTMLSlotElement} */element;
-        // Verify if ShadowDom v1 is supported.
-        var _distributedNodes = slot.assignedNodes ? slot.assignedNodes({ flatten: true }) : [];
-        for (var _i = 0; _i < _distributedNodes.length; _i++) {
-          composedTreeWalk(_distributedNodes[_i], callback);
-        }
-        return;
-      }
-    }
-
-    // If it is neither the parent of a ShadowRoot, a <content> element, a <slot>
-    // element, nor a <shadow> element recurse normally.
-    var child = node.firstChild;
-    while (child != null) {
-      composedTreeWalk(child, callback);
-      child = child.nextSibling;
-    }
-  }
-
-  /**
-   * Adds a style element to the node containing the inert specific styles
-   * @param {!Node} node
-   */
-  function addInertStyle(node) {
-    if (node.querySelector('style#inert-style, link#inert-style')) {
-      return;
-    }
-    var style = document.createElement('style');
-    style.setAttribute('id', 'inert-style');
-    style.textContent = '\n' + '[inert] {\n' + '  pointer-events: none;\n' + '  cursor: default;\n' + '}\n' + '\n' + '[inert], [inert] * {\n' + '  -webkit-user-select: none;\n' + '  -moz-user-select: none;\n' + '  -ms-user-select: none;\n' + '  user-select: none;\n' + '}\n';
-    node.appendChild(style);
-  }
-
-  if (!HTMLElement.prototype.hasOwnProperty('inert')) {
-    /** @type {!InertManager} */
-    var inertManager = new InertManager(document);
-
-    Object.defineProperty(HTMLElement.prototype, 'inert', {
-      enumerable: true,
-      /** @this {!HTMLElement} */
-      get: function get() {
-        return this.hasAttribute('inert');
-      },
-      /** @this {!HTMLElement} */
-      set: function set(inert) {
-        inertManager.setInert(this, inert);
-      }
-    });
-  }
-})();
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-var cssClasses$9 = {
-    CLOSING: 'mdc-dialog--closing',
-    OPEN: 'mdc-dialog--open',
-    OPENING: 'mdc-dialog--opening',
-    SCROLLABLE: 'mdc-dialog--scrollable',
-    SCROLL_LOCK: 'mdc-dialog-scroll-lock',
-    STACKED: 'mdc-dialog--stacked',
-    FULLSCREEN: 'mdc-dialog--fullscreen',
-    // Class for showing a scroll divider on full-screen dialog header element.
-    // Should only be displayed on scrollable content, when the dialog content is
-    // scrolled "underneath" the header.
-    SCROLL_DIVIDER_HEADER: 'mdc-dialog-scroll-divider-header',
-    // Class for showing a scroll divider on a full-screen dialog footer element.
-    // Should only be displayed on scrolalble content, when the dialog content is
-    // obscured "underneath" the footer.
-    SCROLL_DIVIDER_FOOTER: 'mdc-dialog-scroll-divider-footer',
-    // The "surface scrim" is a scrim covering only the surface of a dialog. This
-    // is used in situations where a confirmation dialog is shown over an already
-    // opened full-screen dialog. On larger screen-sizes, the full-screen dialog
-    // is sized as a modal and so in these situations we display a "surface scrim"
-    // to prevent a "double scrim" (where the scrim from the secondary
-    // confirmation dialog would overlap with the scrim from the full-screen
-    // dialog).
-    SURFACE_SCRIM_SHOWN: 'mdc-dialog__surface-scrim--shown',
-    // "Showing" animating class for the surface-scrim.
-    SURFACE_SCRIM_SHOWING: 'mdc-dialog__surface-scrim--showing',
-    // "Hiding" animating class for the surface-scrim.
-    SURFACE_SCRIM_HIDING: 'mdc-dialog__surface-scrim--hiding',
-    // Class to hide a dialog's scrim (used in conjunction with a surface-scrim).
-    // Note that we only hide the original scrim rather than removing it entirely
-    // to prevent interactions with the content behind this scrim, and to capture
-    // scrim clicks.
-    SCRIM_HIDDEN: 'mdc-dialog__scrim--hidden',
-};
-var strings$8 = {
-    ACTION_ATTRIBUTE: 'data-mdc-dialog-action',
-    BUTTON_DEFAULT_ATTRIBUTE: 'data-mdc-dialog-button-default',
-    BUTTON_SELECTOR: '.mdc-dialog__button',
-    CLOSED_EVENT: 'MDCDialog:closed',
-    CLOSE_ACTION: 'close',
-    CLOSING_EVENT: 'MDCDialog:closing',
-    CONTAINER_SELECTOR: '.mdc-dialog__container',
-    CONTENT_SELECTOR: '.mdc-dialog__content',
-    DESTROY_ACTION: 'destroy',
-    INITIAL_FOCUS_ATTRIBUTE: 'data-mdc-dialog-initial-focus',
-    OPENED_EVENT: 'MDCDialog:opened',
-    OPENING_EVENT: 'MDCDialog:opening',
-    SCRIM_SELECTOR: '.mdc-dialog__scrim',
-    SUPPRESS_DEFAULT_PRESS_SELECTOR: [
-        'textarea',
-        '.mdc-menu .mdc-list-item',
-        '.mdc-menu .mdc-deprecated-list-item',
-    ].join(', '),
-    SURFACE_SELECTOR: '.mdc-dialog__surface',
-};
-var numbers$6 = {
-    DIALOG_ANIMATION_CLOSE_TIME_MS: 75,
-    DIALOG_ANIMATION_OPEN_TIME_MS: 150,
-};
-
-/**
- * @license
- * Copyright 2020 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-/**
- * AnimationFrame provides a user-friendly abstraction around requesting
- * and canceling animation frames.
- */
-var AnimationFrame = /** @class */ (function () {
-    function AnimationFrame() {
-        this.rafIDs = new Map();
-    }
-    /**
-     * Requests an animation frame. Cancels any existing frame with the same key.
-     * @param {string} key The key for this callback.
-     * @param {FrameRequestCallback} callback The callback to be executed.
-     */
-    AnimationFrame.prototype.request = function (key, callback) {
-        var _this = this;
-        this.cancel(key);
-        var frameID = requestAnimationFrame(function (frame) {
-            _this.rafIDs.delete(key);
-            // Callback must come *after* the key is deleted so that nested calls to
-            // request with the same key are not deleted.
-            callback(frame);
-        });
-        this.rafIDs.set(key, frameID);
-    };
-    /**
-     * Cancels a queued callback with the given key.
-     * @param {string} key The key for this callback.
-     */
-    AnimationFrame.prototype.cancel = function (key) {
-        var rafID = this.rafIDs.get(key);
-        if (rafID) {
-            cancelAnimationFrame(rafID);
-            this.rafIDs.delete(key);
-        }
-    };
-    /**
-     * Cancels all queued callback.
-     */
-    AnimationFrame.prototype.cancelAll = function () {
-        var _this = this;
-        // Need to use forEach because it's the only iteration method supported
-        // by IE11. Suppress the underscore because we don't need it.
-        // tslint:disable-next-line:enforce-name-casing
-        this.rafIDs.forEach(function (_, key) {
-            _this.cancel(key);
-        });
-    };
-    /**
-     * Returns the queue of unexecuted callback keys.
-     */
-    AnimationFrame.prototype.getQueue = function () {
-        var queue = [];
-        // Need to use forEach because it's the only iteration method supported
-        // by IE11. Suppress the underscore because we don't need it.
-        // tslint:disable-next-line:enforce-name-casing
-        this.rafIDs.forEach(function (_, key) {
-            queue.push(key);
-        });
-        return queue;
-    };
-    return AnimationFrame;
-}());
-
-/**
- * @license
- * Copyright 2017 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-var AnimationKeys;
-(function (AnimationKeys) {
-    AnimationKeys["POLL_SCROLL_POS"] = "poll_scroll_position";
-    AnimationKeys["POLL_LAYOUT_CHANGE"] = "poll_layout_change";
-})(AnimationKeys || (AnimationKeys = {}));
-var MDCDialogFoundation = /** @class */ (function (_super) {
-    __extends(MDCDialogFoundation, _super);
-    function MDCDialogFoundation(adapter) {
-        var _this = _super.call(this, __assign(__assign({}, MDCDialogFoundation.defaultAdapter), adapter)) || this;
-        _this.dialogOpen = false;
-        _this.isFullscreen = false;
-        _this.animationFrame = 0;
-        _this.animationTimer = 0;
-        _this.escapeKeyAction = strings$8.CLOSE_ACTION;
-        _this.scrimClickAction = strings$8.CLOSE_ACTION;
-        _this.autoStackButtons = true;
-        _this.areButtonsStacked = false;
-        _this.suppressDefaultPressSelector = strings$8.SUPPRESS_DEFAULT_PRESS_SELECTOR;
-        _this.animFrame = new AnimationFrame();
-        _this.contentScrollHandler = function () {
-            _this.handleScrollEvent();
-        };
-        _this.windowResizeHandler = function () {
-            _this.layout();
-        };
-        _this.windowOrientationChangeHandler = function () {
-            _this.layout();
-        };
-        return _this;
-    }
-    Object.defineProperty(MDCDialogFoundation, "cssClasses", {
-        get: function () {
-            return cssClasses$9;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCDialogFoundation, "strings", {
-        get: function () {
-            return strings$8;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCDialogFoundation, "numbers", {
-        get: function () {
-            return numbers$6;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(MDCDialogFoundation, "defaultAdapter", {
-        get: function () {
-            return {
-                addBodyClass: function () { return undefined; },
-                addClass: function () { return undefined; },
-                areButtonsStacked: function () { return false; },
-                clickDefaultButton: function () { return undefined; },
-                eventTargetMatches: function () { return false; },
-                getActionFromEvent: function () { return ''; },
-                getInitialFocusEl: function () { return null; },
-                hasClass: function () { return false; },
-                isContentScrollable: function () { return false; },
-                notifyClosed: function () { return undefined; },
-                notifyClosing: function () { return undefined; },
-                notifyOpened: function () { return undefined; },
-                notifyOpening: function () { return undefined; },
-                releaseFocus: function () { return undefined; },
-                removeBodyClass: function () { return undefined; },
-                removeClass: function () { return undefined; },
-                reverseButtons: function () { return undefined; },
-                trapFocus: function () { return undefined; },
-                registerContentEventHandler: function () { return undefined; },
-                deregisterContentEventHandler: function () { return undefined; },
-                isScrollableContentAtTop: function () { return false; },
-                isScrollableContentAtBottom: function () { return false; },
-                registerWindowEventHandler: function () { return undefined; },
-                deregisterWindowEventHandler: function () { return undefined; },
-            };
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MDCDialogFoundation.prototype.init = function () {
-        if (this.adapter.hasClass(cssClasses$9.STACKED)) {
-            this.setAutoStackButtons(false);
-        }
-        this.isFullscreen = this.adapter.hasClass(cssClasses$9.FULLSCREEN);
-    };
-    MDCDialogFoundation.prototype.destroy = function () {
-        if (this.animationTimer) {
-            clearTimeout(this.animationTimer);
-            this.handleAnimationTimerEnd();
-        }
-        if (this.isFullscreen) {
-            this.adapter.deregisterContentEventHandler('scroll', this.contentScrollHandler);
-        }
-        this.animFrame.cancelAll();
-        this.adapter.deregisterWindowEventHandler('resize', this.windowResizeHandler);
-        this.adapter.deregisterWindowEventHandler('orientationchange', this.windowOrientationChangeHandler);
-    };
-    MDCDialogFoundation.prototype.open = function (dialogOptions) {
-        var _this = this;
-        this.dialogOpen = true;
-        this.adapter.notifyOpening();
-        this.adapter.addClass(cssClasses$9.OPENING);
-        if (this.isFullscreen) {
-            // A scroll event listener is registered even if the dialog is not
-            // scrollable on open, since the window resize event, or orientation
-            // change may make the dialog scrollable after it is opened.
-            this.adapter.registerContentEventHandler('scroll', this.contentScrollHandler);
-        }
-        if (dialogOptions && dialogOptions.isAboveFullscreenDialog) {
-            this.adapter.addClass(cssClasses$9.SCRIM_HIDDEN);
-        }
-        this.adapter.registerWindowEventHandler('resize', this.windowResizeHandler);
-        this.adapter.registerWindowEventHandler('orientationchange', this.windowOrientationChangeHandler);
-        // Wait a frame once display is no longer "none", to establish basis for
-        // animation
-        this.runNextAnimationFrame(function () {
-            _this.adapter.addClass(cssClasses$9.OPEN);
-            _this.adapter.addBodyClass(cssClasses$9.SCROLL_LOCK);
-            _this.layout();
-            _this.animationTimer = setTimeout(function () {
-                _this.handleAnimationTimerEnd();
-                _this.adapter.trapFocus(_this.adapter.getInitialFocusEl());
-                _this.adapter.notifyOpened();
-            }, numbers$6.DIALOG_ANIMATION_OPEN_TIME_MS);
-        });
-    };
-    MDCDialogFoundation.prototype.close = function (action) {
-        var _this = this;
-        if (action === void 0) { action = ''; }
-        if (!this.dialogOpen) {
-            // Avoid redundant close calls (and events), e.g. from keydown on elements
-            // that inherently emit click
-            return;
-        }
-        this.dialogOpen = false;
-        this.adapter.notifyClosing(action);
-        this.adapter.addClass(cssClasses$9.CLOSING);
-        this.adapter.removeClass(cssClasses$9.OPEN);
-        this.adapter.removeBodyClass(cssClasses$9.SCROLL_LOCK);
-        if (this.isFullscreen) {
-            this.adapter.deregisterContentEventHandler('scroll', this.contentScrollHandler);
-        }
-        this.adapter.deregisterWindowEventHandler('resize', this.windowResizeHandler);
-        this.adapter.deregisterWindowEventHandler('orientationchange', this.windowOrientationChangeHandler);
-        cancelAnimationFrame(this.animationFrame);
-        this.animationFrame = 0;
-        clearTimeout(this.animationTimer);
-        this.animationTimer = setTimeout(function () {
-            _this.adapter.releaseFocus();
-            _this.handleAnimationTimerEnd();
-            _this.adapter.notifyClosed(action);
-        }, numbers$6.DIALOG_ANIMATION_CLOSE_TIME_MS);
-    };
-    /**
-     * Used only in instances of showing a secondary dialog over a full-screen
-     * dialog. Shows the "surface scrim" displayed over the full-screen dialog.
-     */
-    MDCDialogFoundation.prototype.showSurfaceScrim = function () {
-        var _this = this;
-        this.adapter.addClass(cssClasses$9.SURFACE_SCRIM_SHOWING);
-        this.runNextAnimationFrame(function () {
-            _this.adapter.addClass(cssClasses$9.SURFACE_SCRIM_SHOWN);
-        });
-    };
-    /**
-     * Used only in instances of showing a secondary dialog over a full-screen
-     * dialog. Hides the "surface scrim" displayed over the full-screen dialog.
-     */
-    MDCDialogFoundation.prototype.hideSurfaceScrim = function () {
-        this.adapter.removeClass(cssClasses$9.SURFACE_SCRIM_SHOWN);
-        this.adapter.addClass(cssClasses$9.SURFACE_SCRIM_HIDING);
-    };
-    /**
-     * Handles `transitionend` event triggered when surface scrim animation is
-     * finished.
-     */
-    MDCDialogFoundation.prototype.handleSurfaceScrimTransitionEnd = function () {
-        this.adapter.removeClass(cssClasses$9.SURFACE_SCRIM_HIDING);
-        this.adapter.removeClass(cssClasses$9.SURFACE_SCRIM_SHOWING);
-    };
-    MDCDialogFoundation.prototype.isOpen = function () {
-        return this.dialogOpen;
-    };
-    MDCDialogFoundation.prototype.getEscapeKeyAction = function () {
-        return this.escapeKeyAction;
-    };
-    MDCDialogFoundation.prototype.setEscapeKeyAction = function (action) {
-        this.escapeKeyAction = action;
-    };
-    MDCDialogFoundation.prototype.getScrimClickAction = function () {
-        return this.scrimClickAction;
-    };
-    MDCDialogFoundation.prototype.setScrimClickAction = function (action) {
-        this.scrimClickAction = action;
-    };
-    MDCDialogFoundation.prototype.getAutoStackButtons = function () {
-        return this.autoStackButtons;
-    };
-    MDCDialogFoundation.prototype.setAutoStackButtons = function (autoStack) {
-        this.autoStackButtons = autoStack;
-    };
-    MDCDialogFoundation.prototype.getSuppressDefaultPressSelector = function () {
-        return this.suppressDefaultPressSelector;
-    };
-    MDCDialogFoundation.prototype.setSuppressDefaultPressSelector = function (selector) {
-        this.suppressDefaultPressSelector = selector;
-    };
-    MDCDialogFoundation.prototype.layout = function () {
-        var _this = this;
-        this.animFrame.request(AnimationKeys.POLL_LAYOUT_CHANGE, function () {
-            _this.layoutInternal();
-        });
-    };
-    /** Handles click on the dialog root element. */
-    MDCDialogFoundation.prototype.handleClick = function (evt) {
-        var isScrim = this.adapter.eventTargetMatches(evt.target, strings$8.SCRIM_SELECTOR);
-        // Check for scrim click first since it doesn't require querying ancestors.
-        if (isScrim && this.scrimClickAction !== '') {
-            this.close(this.scrimClickAction);
-        }
-        else {
-            var action = this.adapter.getActionFromEvent(evt);
-            if (action) {
-                this.close(action);
-            }
-        }
-    };
-    /** Handles keydown on the dialog root element. */
-    MDCDialogFoundation.prototype.handleKeydown = function (evt) {
-        var isEnter = evt.key === 'Enter' || evt.keyCode === 13;
-        if (!isEnter) {
-            return;
-        }
-        var action = this.adapter.getActionFromEvent(evt);
-        if (action) {
-            // Action button callback is handled in `handleClick`,
-            // since space/enter keydowns on buttons trigger click events.
-            return;
-        }
-        // `composedPath` is used here, when available, to account for use cases
-        // where a target meant to suppress the default press behaviour
-        // may exist in a shadow root.
-        // For example, a textarea inside a web component:
-        // <mwc-dialog>
-        //   <horizontal-layout>
-        //     #shadow-root (open)
-        //       <mwc-textarea>
-        //         #shadow-root (open)
-        //           <textarea></textarea>
-        //       </mwc-textarea>
-        //   </horizontal-layout>
-        // </mwc-dialog>
-        var target = evt.composedPath ? evt.composedPath()[0] : evt.target;
-        var isDefault = this.suppressDefaultPressSelector ?
-            !this.adapter.eventTargetMatches(target, this.suppressDefaultPressSelector) :
-            true;
-        if (isEnter && isDefault) {
-            this.adapter.clickDefaultButton();
-        }
-    };
-    /** Handles keydown on the document. */
-    MDCDialogFoundation.prototype.handleDocumentKeydown = function (evt) {
-        var isEscape = evt.key === 'Escape' || evt.keyCode === 27;
-        if (isEscape && this.escapeKeyAction !== '') {
-            this.close(this.escapeKeyAction);
-        }
-    };
-    /**
-     * Handles scroll event on the dialog's content element -- showing a scroll
-     * divider on the header or footer based on the scroll position. This handler
-     * should only be registered on full-screen dialogs with scrollable content.
-     */
-    MDCDialogFoundation.prototype.handleScrollEvent = function () {
-        var _this = this;
-        // Since scroll events can fire at a high rate, we throttle these events by
-        // using requestAnimationFrame.
-        this.animFrame.request(AnimationKeys.POLL_SCROLL_POS, function () {
-            _this.toggleScrollDividerHeader();
-            _this.toggleScrollDividerFooter();
-        });
-    };
-    MDCDialogFoundation.prototype.layoutInternal = function () {
-        if (this.autoStackButtons) {
-            this.detectStackedButtons();
-        }
-        this.toggleScrollableClasses();
-    };
-    MDCDialogFoundation.prototype.handleAnimationTimerEnd = function () {
-        this.animationTimer = 0;
-        this.adapter.removeClass(cssClasses$9.OPENING);
-        this.adapter.removeClass(cssClasses$9.CLOSING);
-    };
-    /**
-     * Runs the given logic on the next animation frame, using setTimeout to
-     * factor in Firefox reflow behavior.
-     */
-    MDCDialogFoundation.prototype.runNextAnimationFrame = function (callback) {
-        var _this = this;
-        cancelAnimationFrame(this.animationFrame);
-        this.animationFrame = requestAnimationFrame(function () {
-            _this.animationFrame = 0;
-            clearTimeout(_this.animationTimer);
-            _this.animationTimer = setTimeout(callback, 0);
-        });
-    };
-    MDCDialogFoundation.prototype.detectStackedButtons = function () {
-        // Remove the class first to let us measure the buttons' natural positions.
-        this.adapter.removeClass(cssClasses$9.STACKED);
-        var areButtonsStacked = this.adapter.areButtonsStacked();
-        if (areButtonsStacked) {
-            this.adapter.addClass(cssClasses$9.STACKED);
-        }
-        if (areButtonsStacked !== this.areButtonsStacked) {
-            this.adapter.reverseButtons();
-            this.areButtonsStacked = areButtonsStacked;
-        }
-    };
-    MDCDialogFoundation.prototype.toggleScrollableClasses = function () {
-        // Remove the class first to let us measure the natural height of the
-        // content.
-        this.adapter.removeClass(cssClasses$9.SCROLLABLE);
-        if (this.adapter.isContentScrollable()) {
-            this.adapter.addClass(cssClasses$9.SCROLLABLE);
-            if (this.isFullscreen) {
-                // If dialog is full-screen and scrollable, check if a scroll divider
-                // should be shown.
-                this.toggleScrollDividerHeader();
-                this.toggleScrollDividerFooter();
-            }
-        }
-    };
-    MDCDialogFoundation.prototype.toggleScrollDividerHeader = function () {
-        if (!this.adapter.isScrollableContentAtTop()) {
-            this.adapter.addClass(cssClasses$9.SCROLL_DIVIDER_HEADER);
-        }
-        else if (this.adapter.hasClass(cssClasses$9.SCROLL_DIVIDER_HEADER)) {
-            this.adapter.removeClass(cssClasses$9.SCROLL_DIVIDER_HEADER);
-        }
-    };
-    MDCDialogFoundation.prototype.toggleScrollDividerFooter = function () {
-        if (!this.adapter.isScrollableContentAtBottom()) {
-            this.adapter.addClass(cssClasses$9.SCROLL_DIVIDER_FOOTER);
-        }
-        else if (this.adapter.hasClass(cssClasses$9.SCROLL_DIVIDER_FOOTER)) {
-            this.adapter.removeClass(cssClasses$9.SCROLL_DIVIDER_FOOTER);
-        }
-    };
-    return MDCDialogFoundation;
-}(MDCFoundation));
-// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
-var MDCDialogFoundation$1 = MDCDialogFoundation;
-
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-/**
- * Determine whether the current browser supports passive event listeners, and
- * if so, use them.
- */
-function applyPassive(globalObj) {
-    if (globalObj === void 0) { globalObj = window; }
-    return supportsPassiveOption(globalObj) ?
-        { passive: true } :
-        false;
-}
-function supportsPassiveOption(globalObj) {
-    if (globalObj === void 0) { globalObj = window; }
-    // See
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    var passiveSupported = false;
-    try {
-        var options = {
-            // This function will be called when the browser
-            // attempts to access the passive property.
-            get passive() {
-                passiveSupported = true;
-                return false;
-            }
-        };
-        var handler = function () { };
-        globalObj.document.addEventListener('test', handler, options);
-        globalObj.document.removeEventListener('test', handler, options);
-    }
-    catch (err) {
-        passiveSupported = false;
-    }
-    return passiveSupported;
-}
-
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-/**
- * Specifies an observer callback that is run when the decorated property
- * changes. The observer receives the current and old value as arguments.
- */
-const observer = (observer) =>
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(proto, propName) => {
-    // if we haven't wrapped `updated` in this class, do so
-    if (!proto.constructor
-        ._observers) {
-        proto.constructor._observers = new Map();
-        const userUpdated = proto.updated;
-        proto.updated = function (changedProperties) {
-            userUpdated.call(this, changedProperties);
-            changedProperties.forEach((v, k) => {
-                const observers = this.constructor
-                    ._observers;
-                const observer = observers.get(k);
-                if (observer !== undefined) {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    observer.call(this, this[k], v);
-                }
-            });
-        };
-        // clone any existing observers (superclasses)
-        // eslint-disable-next-line no-prototype-builtins
-    }
-    else if (!proto.constructor.hasOwnProperty('_observers')) {
-        const observers = proto.constructor._observers;
-        proto.constructor._observers = new Map();
-        observers.forEach(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (v, k) => proto.constructor._observers.set(k, v));
-    }
-    // set this method
-    proto.constructor._observers.set(propName, observer);
-};
-
-/**
- * @license
- * Copyright 2019 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-const blockingElements = document.$blockingElements;
-class DialogBase extends BaseElement {
-    constructor() {
-        super(...arguments);
-        this.hideActions = false;
-        this.stacked = false;
-        this.heading = '';
-        this.scrimClickAction = 'close';
-        this.escapeKeyAction = 'close';
-        this.open = false;
-        this.defaultAction = 'close';
-        this.actionAttribute = 'dialogAction';
-        this.initialFocusAttribute = 'dialogInitialFocus';
-        this.initialSupressDefaultPressSelector = '';
-        this.mdcFoundationClass = MDCDialogFoundation$1;
-        this.boundHandleClick = null;
-        this.boundHandleKeydown = null;
-        this.boundHandleDocumentKeydown = null;
-    }
-    set suppressDefaultPressSelector(selector) {
-        if (this.mdcFoundation) {
-            this.mdcFoundation.setSuppressDefaultPressSelector(selector);
-        }
-        else {
-            this.initialSupressDefaultPressSelector = selector;
-        }
-    }
-    /**
-     * @export
-     */
-    get suppressDefaultPressSelector() {
-        return this.mdcFoundation ?
-            this.mdcFoundation.getSuppressDefaultPressSelector() :
-            this.initialSupressDefaultPressSelector;
-    }
-    get primaryButton() {
-        let assignedNodes = this.primarySlot.assignedNodes();
-        assignedNodes = assignedNodes.filter((node) => node instanceof HTMLElement);
-        const button = assignedNodes[0];
-        return button ? button : null;
-    }
-    emitNotification(name, action) {
-        const init = { detail: action ? { action } : {} };
-        const ev = new CustomEvent(name, init);
-        this.dispatchEvent(ev);
-    }
-    getInitialFocusEl() {
-        const initFocusSelector = `[${this.initialFocusAttribute}]`;
-        // only search light DOM. This typically handles all the cases
-        const lightDomQs = this.querySelector(initFocusSelector);
-        if (lightDomQs) {
-            return lightDomQs;
-        }
-        // if not in light dom, search each flattened distributed node.
-        const primarySlot = this.primarySlot;
-        const primaryNodes = primarySlot.assignedNodes({ flatten: true });
-        const primaryFocusElement = this.searchNodeTreesForAttribute(primaryNodes, this.initialFocusAttribute);
-        if (primaryFocusElement) {
-            return primaryFocusElement;
-        }
-        const secondarySlot = this.secondarySlot;
-        const secondaryNodes = secondarySlot.assignedNodes({ flatten: true });
-        const secondaryFocusElement = this.searchNodeTreesForAttribute(secondaryNodes, this.initialFocusAttribute);
-        if (secondaryFocusElement) {
-            return secondaryFocusElement;
-        }
-        const contentSlot = this.contentSlot;
-        const contentNodes = contentSlot.assignedNodes({ flatten: true });
-        const initFocusElement = this.searchNodeTreesForAttribute(contentNodes, this.initialFocusAttribute);
-        return initFocusElement;
-    }
-    searchNodeTreesForAttribute(nodes, attribute) {
-        for (const node of nodes) {
-            if (!(node instanceof HTMLElement)) {
-                continue;
-            }
-            if (node.hasAttribute(attribute)) {
-                return node;
-            }
-            else {
-                const selection = node.querySelector(`[${attribute}]`);
-                if (selection) {
-                    return selection;
-                }
-            }
-        }
-        return null;
-    }
-    createAdapter() {
-        return Object.assign(Object.assign({}, addHasRemoveClass(this.mdcRoot)), { addBodyClass: () => document.body.style.overflow = 'hidden', removeBodyClass: () => document.body.style.overflow = '', areButtonsStacked: () => this.stacked, clickDefaultButton: () => {
-                const primary = this.primaryButton;
-                if (primary) {
-                    primary.click();
-                }
-            }, eventTargetMatches: (target, selector) => target ? matches(target, selector) : false, getActionFromEvent: (e) => {
-                if (!e.target) {
-                    return '';
-                }
-                const element = closest(e.target, `[${this.actionAttribute}]`);
-                const action = element && element.getAttribute(this.actionAttribute);
-                return action;
-            }, getInitialFocusEl: () => {
-                return this.getInitialFocusEl();
-            }, isContentScrollable: () => {
-                const el = this.contentElement;
-                return el ? el.scrollHeight > el.offsetHeight : false;
-            }, notifyClosed: (action) => this.emitNotification('closed', action), notifyClosing: (action) => {
-                if (!this.closingDueToDisconnect) {
-                    // Don't set our open state to closed just because we were
-                    // disconnected. That way if we get reconnected, we'll know to
-                    // re-open.
-                    this.open = false;
-                }
-                this.emitNotification('closing', action);
-            }, notifyOpened: () => this.emitNotification('opened'), notifyOpening: () => {
-                this.open = true;
-                this.emitNotification('opening');
-            }, reverseButtons: () => { }, releaseFocus: () => {
-                blockingElements.remove(this);
-            }, trapFocus: (el) => {
-                if (!this.isConnected) {
-                    // this is the case where it is opened and closed and then removed
-                    // from DOM before the animation has completed. Blocking Elements will
-                    // throw if this is the case
-                    return;
-                }
-                blockingElements.push(this);
-                if (el) {
-                    el.focus();
-                }
-            }, registerContentEventHandler: (evtType, handler) => {
-                const el = this.contentElement;
-                el.addEventListener(evtType, handler);
-            }, deregisterContentEventHandler: (evtType, handler) => {
-                const el = this.contentElement;
-                el.removeEventListener(evtType, handler);
-            }, isScrollableContentAtTop: () => {
-                const el = this.contentElement;
-                return el ? el.scrollTop === 0 : false;
-            }, isScrollableContentAtBottom: () => {
-                const el = this.contentElement;
-                return el ?
-                    Math.ceil(el.scrollHeight - el.scrollTop) === el.clientHeight :
-                    false;
-            }, registerWindowEventHandler: (evtType, handler) => {
-                window.addEventListener(evtType, handler, applyPassive());
-            }, deregisterWindowEventHandler: (evtType, handler) => {
-                window.removeEventListener(evtType, handler, applyPassive());
-            } });
-    }
-    render() {
-        const classes = {
-            [cssClasses$9.STACKED]: this.stacked,
-        };
-        let heading = y ``;
-        if (this.heading) {
-            heading = this.renderHeading();
-        }
-        const actionsClasses = {
-            'mdc-dialog__actions': !this.hideActions,
-        };
-        return y `
-    <div class="mdc-dialog ${o(classes)}"
-        role="alertdialog"
-        aria-modal="true"
-        aria-labelledby="title"
-        aria-describedby="content">
-      <div class="mdc-dialog__container">
-        <div class="mdc-dialog__surface">
-          ${heading}
-          <div id="content" class="mdc-dialog__content">
-            <slot id="contentSlot"></slot>
-          </div>
-          <footer
-              id="actions"
-              class="${o(actionsClasses)}">
-            <span>
-              <slot name="secondaryAction"></slot>
-            </span>
-            <span>
-             <slot name="primaryAction"></slot>
-            </span>
-          </footer>
-        </div>
-      </div>
-      <div class="mdc-dialog__scrim"></div>
-    </div>`;
-    }
-    renderHeading() {
-        return y `
-      <h2 id="title" class="mdc-dialog__title">${this.heading}</h2>`;
-    }
-    firstUpdated() {
-        super.firstUpdated();
-        this.mdcFoundation.setAutoStackButtons(true);
-        if (this.initialSupressDefaultPressSelector) {
-            this.suppressDefaultPressSelector =
-                this.initialSupressDefaultPressSelector;
-        }
-        else {
-            this.suppressDefaultPressSelector = [
-                this.suppressDefaultPressSelector, 'mwc-textarea',
-                'mwc-menu mwc-list-item', 'mwc-select mwc-list-item'
-            ].join(', ');
-        }
-        this.boundHandleClick = this.mdcFoundation.handleClick.bind(this.mdcFoundation);
-        this.boundHandleKeydown = this.mdcFoundation.handleKeydown.bind(this.mdcFoundation);
-        this.boundHandleDocumentKeydown =
-            this.mdcFoundation.handleDocumentKeydown.bind(this.mdcFoundation);
-    }
-    connectedCallback() {
-        super.connectedCallback();
-        if (this.open && this.mdcFoundation && !this.mdcFoundation.isOpen()) {
-            // We probably got disconnected while we were still open. Re-open,
-            // matching the behavior of native <dialog>.
-            this.setEventListeners();
-            this.mdcFoundation.open();
-        }
-    }
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        if (this.open && this.mdcFoundation) {
-            // If this dialog is opened and then disconnected, we want to close
-            // the foundation, so that 1) any pending timers are cancelled
-            // (in particular for trapFocus), and 2) if we reconnect, we can open
-            // the foundation again to retrigger animations and focus.
-            this.removeEventListeners();
-            this.closingDueToDisconnect = true;
-            this.mdcFoundation.close(this.currentAction || this.defaultAction);
-            this.closingDueToDisconnect = false;
-            this.currentAction = undefined;
-            // When we close normally, the releaseFocus callback handles removing
-            // ourselves from the blocking elements stack. However, that callback
-            // happens on a delay, and when we are closing due to a disconnect we
-            // need to remove ourselves before the blocking element polyfill's
-            // mutation observer notices and logs a warning, since it's not valid to
-            // be in the blocking elements stack while disconnected.
-            blockingElements.remove(this);
-        }
-    }
-    forceLayout() {
-        this.mdcFoundation.layout();
-    }
-    focus() {
-        const initialFocusEl = this.getInitialFocusEl();
-        initialFocusEl && initialFocusEl.focus();
-    }
-    blur() {
-        if (!this.shadowRoot) {
-            return;
-        }
-        const activeEl = this.shadowRoot.activeElement;
-        if (activeEl) {
-            if (activeEl instanceof HTMLElement) {
-                activeEl.blur();
-            }
-        }
-        else {
-            const root = this.getRootNode();
-            const activeEl = root instanceof Document ? root.activeElement : null;
-            if (activeEl instanceof HTMLElement) {
-                activeEl.blur();
-            }
-        }
-    }
-    setEventListeners() {
-        if (this.boundHandleClick) {
-            this.mdcRoot.addEventListener('click', this.boundHandleClick);
-        }
-        if (this.boundHandleKeydown) {
-            this.mdcRoot.addEventListener('keydown', this.boundHandleKeydown, applyPassive());
-        }
-        if (this.boundHandleDocumentKeydown) {
-            document.addEventListener('keydown', this.boundHandleDocumentKeydown, applyPassive());
-        }
-    }
-    removeEventListeners() {
-        if (this.boundHandleClick) {
-            this.mdcRoot.removeEventListener('click', this.boundHandleClick);
-        }
-        if (this.boundHandleKeydown) {
-            this.mdcRoot.removeEventListener('keydown', this.boundHandleKeydown);
-        }
-        if (this.boundHandleDocumentKeydown) {
-            document.removeEventListener('keydown', this.boundHandleDocumentKeydown);
-        }
-    }
-    close() {
-        this.open = false;
-    }
-    show() {
-        this.open = true;
-    }
-}
-__decorate([
-    i$2('.mdc-dialog')
-], DialogBase.prototype, "mdcRoot", void 0);
-__decorate([
-    i$2('slot[name="primaryAction"]')
-], DialogBase.prototype, "primarySlot", void 0);
-__decorate([
-    i$2('slot[name="secondaryAction"]')
-], DialogBase.prototype, "secondarySlot", void 0);
-__decorate([
-    i$2('#contentSlot')
-], DialogBase.prototype, "contentSlot", void 0);
-__decorate([
-    i$2('.mdc-dialog__content')
-], DialogBase.prototype, "contentElement", void 0);
-__decorate([
-    i$2('.mdc-container')
-], DialogBase.prototype, "conatinerElement", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], DialogBase.prototype, "hideActions", void 0);
-__decorate([
-    e$5({ type: Boolean }),
-    observer(function () {
-        this.forceLayout();
-    })
-], DialogBase.prototype, "stacked", void 0);
-__decorate([
-    e$5({ type: String })
-], DialogBase.prototype, "heading", void 0);
-__decorate([
-    e$5({ type: String }),
-    observer(function (newAction) {
-        this.mdcFoundation.setScrimClickAction(newAction);
-    })
-], DialogBase.prototype, "scrimClickAction", void 0);
-__decorate([
-    e$5({ type: String }),
-    observer(function (newAction) {
-        this.mdcFoundation.setEscapeKeyAction(newAction);
-    })
-], DialogBase.prototype, "escapeKeyAction", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true }),
-    observer(function (isOpen) {
-        // Check isConnected because we could have been disconnected before first
-        // update. If we're now closed, then we shouldn't start the MDC foundation
-        // opening animation. If we're now closed, then we've already closed the
-        // foundation in disconnectedCallback.
-        if (this.mdcFoundation && this.isConnected) {
-            if (isOpen) {
-                this.setEventListeners();
-                this.mdcFoundation.open();
-            }
-            else {
-                this.removeEventListeners();
-                this.mdcFoundation.close(this.currentAction || this.defaultAction);
-                this.currentAction = undefined;
-            }
-        }
-    })
-], DialogBase.prototype, "open", void 0);
-__decorate([
-    e$5()
-], DialogBase.prototype, "defaultAction", void 0);
-__decorate([
-    e$5()
-], DialogBase.prototype, "actionAttribute", void 0);
-__decorate([
-    e$5()
-], DialogBase.prototype, "initialFocusAttribute", void 0);
-
-/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-LIcense-Identifier: Apache-2.0
- */
-const styles$a = i$4 `.mdc-dialog .mdc-dialog__surface{background-color:#fff;background-color:var(--mdc-theme-surface, #fff)}.mdc-dialog .mdc-dialog__scrim{background-color:rgba(0,0,0,.32)}.mdc-dialog .mdc-dialog__surface-scrim{background-color:rgba(0,0,0,.32)}.mdc-dialog .mdc-dialog__title{color:rgba(0,0,0,.87)}.mdc-dialog .mdc-dialog__content{color:rgba(0,0,0,.6)}.mdc-dialog .mdc-dialog__close{color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-dialog .mdc-dialog__close .mdc-icon-button__ripple::before,.mdc-dialog .mdc-dialog__close .mdc-icon-button__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, var(--mdc-theme-on-surface, #000))}.mdc-dialog .mdc-dialog__close:hover .mdc-icon-button__ripple::before,.mdc-dialog .mdc-dialog__close.mdc-ripple-surface--hover .mdc-icon-button__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-dialog .mdc-dialog__close.mdc-ripple-upgraded--background-focused .mdc-icon-button__ripple::before,.mdc-dialog .mdc-dialog__close:not(.mdc-ripple-upgraded):focus .mdc-icon-button__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-dialog .mdc-dialog__close:not(.mdc-ripple-upgraded) .mdc-icon-button__ripple::after{transition:opacity 150ms linear}.mdc-dialog .mdc-dialog__close:not(.mdc-ripple-upgraded):active .mdc-icon-button__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-dialog .mdc-dialog__close.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-dialog.mdc-dialog--scrollable .mdc-dialog__title,.mdc-dialog.mdc-dialog--scrollable .mdc-dialog__actions,.mdc-dialog.mdc-dialog--scrollable.mdc-dialog-scroll-divider-footer .mdc-dialog__actions{border-color:rgba(0,0,0,.12)}.mdc-dialog.mdc-dialog--scrollable .mdc-dialog__title{border-bottom:1px solid rgba(0,0,0,.12);margin-bottom:0}.mdc-dialog.mdc-dialog-scroll-divider-header.mdc-dialog--fullscreen .mdc-dialog__header{box-shadow:0px 3px 1px -2px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 1px 5px 0px rgba(0,0,0,.12)}.mdc-dialog .mdc-dialog__surface{border-radius:4px;border-radius:var(--mdc-shape-medium, 4px)}.mdc-dialog__surface{box-shadow:0px 11px 15px -7px rgba(0, 0, 0, 0.2),0px 24px 38px 3px rgba(0, 0, 0, 0.14),0px 9px 46px 8px rgba(0,0,0,.12)}.mdc-dialog__title{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-headline6-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1.25rem;font-size:var(--mdc-typography-headline6-font-size, 1.25rem);line-height:2rem;line-height:var(--mdc-typography-headline6-line-height, 2rem);font-weight:500;font-weight:var(--mdc-typography-headline6-font-weight, 500);letter-spacing:0.0125em;letter-spacing:var(--mdc-typography-headline6-letter-spacing, 0.0125em);text-decoration:inherit;text-decoration:var(--mdc-typography-headline6-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-headline6-text-transform, inherit)}.mdc-dialog__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-body1-font-size, 1rem);line-height:1.5rem;line-height:var(--mdc-typography-body1-line-height, 1.5rem);font-weight:400;font-weight:var(--mdc-typography-body1-font-weight, 400);letter-spacing:0.03125em;letter-spacing:var(--mdc-typography-body1-letter-spacing, 0.03125em);text-decoration:inherit;text-decoration:var(--mdc-typography-body1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body1-text-transform, inherit)}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:0;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);background-color:#fff;background-color:var(--mdc-elevation-overlay-color, #fff)}.mdc-dialog,.mdc-dialog__scrim{position:fixed;top:0;left:0;align-items:center;justify-content:center;box-sizing:border-box;width:100%;height:100%}.mdc-dialog{display:none;z-index:7;z-index:var(--mdc-dialog-z-index, 7)}.mdc-dialog .mdc-dialog__content{padding:20px 24px 20px 24px}.mdc-dialog .mdc-dialog__surface{min-width:280px}@media(max-width: 592px){.mdc-dialog .mdc-dialog__surface{max-width:calc(100vw - 32px)}}@media(min-width: 592px){.mdc-dialog .mdc-dialog__surface{max-width:560px}}.mdc-dialog .mdc-dialog__surface{max-height:calc(100% - 32px)}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{max-width:none}@media(max-width: 960px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{max-height:560px;width:560px}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__close{right:-12px}}@media(max-width: 720px)and (max-width: 672px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{width:calc(100vw - 112px)}}@media(max-width: 720px)and (min-width: 672px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{width:560px}}@media(max-width: 720px)and (max-height: 720px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{max-height:calc(100vh - 160px)}}@media(max-width: 720px)and (min-height: 720px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{max-height:560px}}@media(max-width: 720px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__close{right:-12px}}@media(max-width: 720px)and (max-height: 400px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{height:100%;max-height:100vh;max-width:100vw;width:100vw;border-radius:0}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__close{order:-1;left:-12px}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__header{padding:0 16px 9px;justify-content:flex-start}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__title{margin-left:calc(16px - 2 * 12px)}}@media(max-width: 600px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{height:100%;max-height:100vh;max-width:100vw;width:100vw;border-radius:0}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__close{order:-1;left:-12px}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__header{padding:0 16px 9px;justify-content:flex-start}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__title{margin-left:calc(16px - 2 * 12px)}}@media(min-width: 960px){.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface{width:calc(100vw - 400px)}.mdc-dialog.mdc-dialog--fullscreen .mdc-dialog__surface .mdc-dialog__close{right:-12px}}.mdc-dialog.mdc-dialog__scrim--hidden .mdc-dialog__scrim{opacity:0}.mdc-dialog__scrim{opacity:0;z-index:-1}.mdc-dialog__container{display:flex;flex-direction:row;align-items:center;justify-content:space-around;box-sizing:border-box;height:100%;transform:scale(0.8);opacity:0;pointer-events:none}.mdc-dialog__surface{position:relative;display:flex;flex-direction:column;flex-grow:0;flex-shrink:0;box-sizing:border-box;max-width:100%;max-height:100%;pointer-events:auto;overflow-y:auto}.mdc-dialog__surface .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}[dir=rtl] .mdc-dialog__surface,.mdc-dialog__surface[dir=rtl]{text-align:right}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-dialog__surface{outline:2px solid windowText}}.mdc-dialog__surface::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:2px solid transparent;border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-dialog__surface::before{border-color:CanvasText}}@media screen and (-ms-high-contrast: active),screen and (-ms-high-contrast: none){.mdc-dialog__surface::before{content:none}}.mdc-dialog__title{display:block;margin-top:0;position:relative;flex-shrink:0;box-sizing:border-box;margin:0 0 1px;padding:0 24px 9px}.mdc-dialog__title::before{display:inline-block;width:0;height:40px;content:"";vertical-align:0}[dir=rtl] .mdc-dialog__title,.mdc-dialog__title[dir=rtl]{text-align:right}.mdc-dialog--scrollable .mdc-dialog__title{margin-bottom:1px;padding-bottom:15px}.mdc-dialog--fullscreen .mdc-dialog__header{align-items:baseline;border-bottom:1px solid transparent;display:inline-flex;justify-content:space-between;padding:0 24px 9px;z-index:1}@media screen and (forced-colors: active){.mdc-dialog--fullscreen .mdc-dialog__header{border-bottom-color:CanvasText}}.mdc-dialog--fullscreen .mdc-dialog__header .mdc-dialog__close{right:-12px}.mdc-dialog--fullscreen .mdc-dialog__title{margin-bottom:0;padding:0;border-bottom:0}.mdc-dialog--fullscreen.mdc-dialog--scrollable .mdc-dialog__title{border-bottom:0;margin-bottom:0}.mdc-dialog--fullscreen .mdc-dialog__close{top:5px}.mdc-dialog--fullscreen.mdc-dialog--scrollable .mdc-dialog__actions{border-top:1px solid transparent}@media screen and (forced-colors: active){.mdc-dialog--fullscreen.mdc-dialog--scrollable .mdc-dialog__actions{border-top-color:CanvasText}}.mdc-dialog__content{flex-grow:1;box-sizing:border-box;margin:0;overflow:auto}.mdc-dialog__content>:first-child{margin-top:0}.mdc-dialog__content>:last-child{margin-bottom:0}.mdc-dialog__title+.mdc-dialog__content,.mdc-dialog__header+.mdc-dialog__content{padding-top:0}.mdc-dialog--scrollable .mdc-dialog__title+.mdc-dialog__content{padding-top:8px;padding-bottom:8px}.mdc-dialog__content .mdc-deprecated-list:first-child:last-child{padding:6px 0 0}.mdc-dialog--scrollable .mdc-dialog__content .mdc-deprecated-list:first-child:last-child{padding:0}.mdc-dialog__actions{display:flex;position:relative;flex-shrink:0;flex-wrap:wrap;align-items:center;justify-content:flex-end;box-sizing:border-box;min-height:52px;margin:0;padding:8px;border-top:1px solid transparent}@media screen and (forced-colors: active){.mdc-dialog__actions{border-top-color:CanvasText}}.mdc-dialog--stacked .mdc-dialog__actions{flex-direction:column;align-items:flex-end}.mdc-dialog__button{margin-left:8px;margin-right:0;max-width:100%;text-align:right}[dir=rtl] .mdc-dialog__button,.mdc-dialog__button[dir=rtl]{margin-left:0;margin-right:8px}.mdc-dialog__button:first-child{margin-left:0;margin-right:0}[dir=rtl] .mdc-dialog__button:first-child,.mdc-dialog__button:first-child[dir=rtl]{margin-left:0;margin-right:0}[dir=rtl] .mdc-dialog__button,.mdc-dialog__button[dir=rtl]{text-align:left}.mdc-dialog--stacked .mdc-dialog__button:not(:first-child){margin-top:12px}.mdc-dialog--open,.mdc-dialog--opening,.mdc-dialog--closing{display:flex}.mdc-dialog--opening .mdc-dialog__scrim{transition:opacity 150ms linear}.mdc-dialog--opening .mdc-dialog__container{transition:opacity 75ms linear,transform 150ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-dialog--closing .mdc-dialog__scrim,.mdc-dialog--closing .mdc-dialog__container{transition:opacity 75ms linear}.mdc-dialog--closing .mdc-dialog__container{transform:none}.mdc-dialog--open .mdc-dialog__scrim{opacity:1}.mdc-dialog--open .mdc-dialog__container{transform:none;opacity:1}.mdc-dialog--open.mdc-dialog__surface-scrim--shown .mdc-dialog__surface-scrim{opacity:1;z-index:1}.mdc-dialog--open.mdc-dialog__surface-scrim--hiding .mdc-dialog__surface-scrim{transition:opacity 75ms linear}.mdc-dialog--open.mdc-dialog__surface-scrim--showing .mdc-dialog__surface-scrim{transition:opacity 150ms linear}.mdc-dialog__surface-scrim{display:none;opacity:0;position:absolute;width:100%;height:100%}.mdc-dialog__surface-scrim--shown .mdc-dialog__surface-scrim,.mdc-dialog__surface-scrim--showing .mdc-dialog__surface-scrim,.mdc-dialog__surface-scrim--hiding .mdc-dialog__surface-scrim{display:block}.mdc-dialog-scroll-lock{overflow:hidden}.mdc-dialog--no-content-padding .mdc-dialog__content{padding:0}.mdc-dialog--sheet .mdc-dialog__close{right:12px;top:9px;position:absolute;z-index:1}#actions:not(.mdc-dialog__actions){display:none}.mdc-dialog__surface{box-shadow:var(--mdc-dialog-box-shadow, 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12))}@media(min-width: 560px){.mdc-dialog .mdc-dialog__surface{max-width:560px;max-width:var(--mdc-dialog-max-width, 560px)}}.mdc-dialog .mdc-dialog__scrim{background-color:rgba(0, 0, 0, 0.32);background-color:var(--mdc-dialog-scrim-color, rgba(0, 0, 0, 0.32))}.mdc-dialog .mdc-dialog__title{color:rgba(0, 0, 0, 0.87);color:var(--mdc-dialog-heading-ink-color, rgba(0, 0, 0, 0.87))}.mdc-dialog .mdc-dialog__content{color:rgba(0, 0, 0, 0.6);color:var(--mdc-dialog-content-ink-color, rgba(0, 0, 0, 0.6))}.mdc-dialog.mdc-dialog--scrollable .mdc-dialog__title,.mdc-dialog.mdc-dialog--scrollable .mdc-dialog__actions{border-color:rgba(0, 0, 0, 0.12);border-color:var(--mdc-dialog-scroll-divider-color, rgba(0, 0, 0, 0.12))}.mdc-dialog .mdc-dialog__surface{min-width:280px;min-width:var(--mdc-dialog-min-width, 280px)}.mdc-dialog .mdc-dialog__surface{max-height:var(--mdc-dialog-max-height, calc(100% - 32px))}#actions ::slotted(*){margin-left:8px;margin-right:0;max-width:100%;text-align:right}[dir=rtl] #actions ::slotted(*),#actions ::slotted(*[dir=rtl]){margin-left:0;margin-right:8px}[dir=rtl] #actions ::slotted(*),#actions ::slotted(*[dir=rtl]){text-align:left}.mdc-dialog--stacked #actions{flex-direction:column-reverse}.mdc-dialog--stacked #actions *:not(:last-child) ::slotted(*){flex-basis:.000000001px;margin-top:12px}`;
-
-class EwtDialog extends DialogBase {
-}
-EwtDialog.styles = [
-    styles$a,
-    i$4 `
-      .mdc-dialog__title {
-        padding-right: 52px;
-      }
-    `,
-];
-customElements.define("ewt-dialog", EwtDialog);
 
 /**
  * @license
@@ -4713,7 +915,7 @@ class FormfieldBase extends BaseElement {
             'mdc-form-field--nowrap': this.nowrap
         };
         return y `
-      <div class="mdc-form-field ${o(classes)}">
+      <div class="mdc-form-field ${o$2(classes)}">
         <slot></slot>
         <label class="mdc-label"
                @click="${this._labelClick}">${this.label}</label>
@@ -4731,29 +933,29 @@ class FormfieldBase extends BaseElement {
     }
 }
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], FormfieldBase.prototype, "alignEnd", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], FormfieldBase.prototype, "spaceBetween", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], FormfieldBase.prototype, "nowrap", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(async function (label) {
         var _a;
         (_a = this.input) === null || _a === void 0 ? void 0 : _a.setAttribute('aria-label', label);
     })
 ], FormfieldBase.prototype, "label", void 0);
 __decorate([
-    i$2('.mdc-form-field')
+    i('.mdc-form-field')
 ], FormfieldBase.prototype, "mdcRoot", void 0);
 __decorate([
-    o$1('', true, '*')
+    o('', true, '*')
 ], FormfieldBase.prototype, "slottedInputs", void 0);
 __decorate([
-    i$2('label')
+    i('label')
 ], FormfieldBase.prototype, "labelEl", void 0);
 
 /**
@@ -4761,7 +963,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$9 = i$4 `.mdc-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}:host{display:inline-flex}.mdc-form-field{width:100%}::slotted(*){-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}::slotted(mwc-switch){margin-right:10px}[dir=rtl] ::slotted(mwc-switch),::slotted(mwc-switch[dir=rtl]){margin-left:10px}`;
+const styles$9 = i$1 `.mdc-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}:host{display:inline-flex}.mdc-form-field{width:100%}::slotted(*){-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}::slotted(mwc-switch){margin-right:10px}[dir=rtl] ::slotted(mwc-switch),::slotted(mwc-switch[dir=rtl]){margin-left:10px}`;
 
 class EwtFormfield extends FormfieldBase {
 }
@@ -4813,7 +1015,7 @@ class IconButtonBase extends s$1 {
         return y `<button
         class="mdc-icon-button mdc-icon-button--display-flex"
         aria-label="${this.ariaLabel || this.icon}"
-        aria-haspopup="${l$1(this.ariaHasPopup)}"
+        aria-haspopup="${l$2(this.ariaHasPopup)}"
         ?disabled="${this.disabled}"
         @focus="${this.handleRippleFocus}"
         @blur="${this.handleRippleBlur}"
@@ -4858,33 +1060,33 @@ class IconButtonBase extends s$1 {
     }
 }
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], IconButtonBase.prototype, "disabled", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], IconButtonBase.prototype, "icon", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-label' })
+    e$1({ type: String, attribute: 'aria-label' })
 ], IconButtonBase.prototype, "ariaLabel", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-haspopup' })
+    e$1({ type: String, attribute: 'aria-haspopup' })
 ], IconButtonBase.prototype, "ariaHasPopup", void 0);
 __decorate([
-    i$2('button')
+    i('button')
 ], IconButtonBase.prototype, "buttonElement", void 0);
 __decorate([
-    e$3('mwc-ripple')
+    e$2('mwc-ripple')
 ], IconButtonBase.prototype, "ripple", void 0);
 __decorate([
-    t$1()
+    t()
 ], IconButtonBase.prototype, "shouldRenderRipple", void 0);
 __decorate([
-    e$4({ passive: true })
+    e$3({ passive: true })
 ], IconButtonBase.prototype, "handleRippleMouseDown", null);
 __decorate([
-    e$4({ passive: true })
+    e$3({ passive: true })
 ], IconButtonBase.prototype, "handleRippleTouchStart", null);
 
 /**
@@ -4892,7 +1094,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$8 = i$4 `.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}.mdc-icon-button{font-size:24px;width:48px;height:48px;padding:12px}.mdc-icon-button .mdc-icon-button__focus-ring{display:none}.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block;max-height:48px;max-width:48px}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{pointer-events:none;border:2px solid transparent;border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring::after,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring::after{content:"";border:2px solid transparent;border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring::after,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button.mdc-icon-button--reduced-size .mdc-icon-button__ripple{width:40px;height:40px;margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-icon-button.mdc-icon-button--reduced-size.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button.mdc-icon-button--reduced-size:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{max-height:40px;max-width:40px}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38))}.mdc-icon-button svg,.mdc-icon-button img{width:24px;height:24px}.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:transparent;fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:transparent;fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}:host{display:inline-block;outline:none}:host([disabled]){pointer-events:none}.mdc-icon-button i,.mdc-icon-button svg,.mdc-icon-button img,.mdc-icon-button ::slotted(*){display:block}:host{--mdc-ripple-color: currentcolor;-webkit-tap-highlight-color:transparent}:host,.mdc-icon-button{vertical-align:top}.mdc-icon-button{width:var(--mdc-icon-button-size, 48px);height:var(--mdc-icon-button-size, 48px);padding:calc( (var(--mdc-icon-button-size, 48px) - var(--mdc-icon-size, 24px)) / 2 )}.mdc-icon-button i,.mdc-icon-button svg,.mdc-icon-button img,.mdc-icon-button ::slotted(*){display:block;width:var(--mdc-icon-size, 24px);height:var(--mdc-icon-size, 24px)}`;
+const styles$8 = i$1 `.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}.mdc-icon-button{font-size:24px;width:48px;height:48px;padding:12px}.mdc-icon-button .mdc-icon-button__focus-ring{display:none}.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block;max-height:48px;max-width:48px}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{pointer-events:none;border:2px solid transparent;border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring::after,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring::after{content:"";border:2px solid transparent;border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}}@media screen and (forced-colors: active)and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring::after,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button.mdc-icon-button--reduced-size .mdc-icon-button__ripple{width:40px;height:40px;margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-icon-button.mdc-icon-button--reduced-size.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button.mdc-icon-button--reduced-size:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{max-height:40px;max-width:40px}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38))}.mdc-icon-button svg,.mdc-icon-button img{width:24px;height:24px}.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:transparent;fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:transparent;fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}:host{display:inline-block;outline:none}:host([disabled]){pointer-events:none}.mdc-icon-button i,.mdc-icon-button svg,.mdc-icon-button img,.mdc-icon-button ::slotted(*){display:block}:host{--mdc-ripple-color: currentcolor;-webkit-tap-highlight-color:transparent}:host,.mdc-icon-button{vertical-align:top}.mdc-icon-button{width:var(--mdc-icon-button-size, 48px);height:var(--mdc-icon-button-size, 48px);padding:calc( (var(--mdc-icon-button-size, 48px) - var(--mdc-icon-size, 24px)) / 2 )}.mdc-icon-button i,.mdc-icon-button svg,.mdc-icon-button img,.mdc-icon-button ::slotted(*){display:block;width:var(--mdc-icon-size, 24px);height:var(--mdc-icon-size, 24px)}`;
 
 class EwtIconButton extends IconButtonBase {
 }
@@ -5055,7 +1257,7 @@ class NotchedOutlineBase extends BaseElement {
     }
     render() {
         this.openOrClose(this.open, this.width);
-        const classes = o({
+        const classes = o$2({
             'mdc-notched-outline--notched': this.open,
         });
         return y `
@@ -5069,16 +1271,16 @@ class NotchedOutlineBase extends BaseElement {
     }
 }
 __decorate([
-    i$2('.mdc-notched-outline')
+    i('.mdc-notched-outline')
 ], NotchedOutlineBase.prototype, "mdcRoot", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], NotchedOutlineBase.prototype, "width", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], NotchedOutlineBase.prototype, "open", void 0);
 __decorate([
-    i$2('.mdc-notched-outline__notch')
+    i('.mdc-notched-outline__notch')
 ], NotchedOutlineBase.prototype, "notchElement", void 0);
 
 /**
@@ -5086,7 +1288,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$7 = i$4 `.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}:host{display:block;position:absolute;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] :host,:host([dir=rtl]){text-align:right}::slotted(.mdc-floating-label){display:inline-block;position:relative;top:17px;bottom:auto;max-width:100%}::slotted(.mdc-floating-label--float-above){text-overflow:clip}.mdc-notched-outline--upgraded ::slotted(.mdc-floating-label--float-above){max-width:calc(100% / 0.75)}.mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-notched-outline .mdc-notched-outline__leading,.mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{border-color:var(--mdc-notched-outline-border-color, var(--mdc-theme-primary, #6200ee));border-width:1px;border-width:var(--mdc-notched-outline-stroke-width, 1px)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0;padding-top:var(--mdc-notched-outline-notch-offset, 0)}`;
+const styles$7 = i$1 `.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}:host{display:block;position:absolute;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] :host,:host([dir=rtl]){text-align:right}::slotted(.mdc-floating-label){display:inline-block;position:relative;top:17px;bottom:auto;max-width:100%}::slotted(.mdc-floating-label--float-above){text-overflow:clip}.mdc-notched-outline--upgraded ::slotted(.mdc-floating-label--float-above){max-width:calc(100% / 0.75)}.mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-notched-outline .mdc-notched-outline__leading,.mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{border-color:var(--mdc-notched-outline-border-color, var(--mdc-theme-primary, #6200ee));border-width:1px;border-width:var(--mdc-notched-outline-stroke-width, 1px)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0;padding-top:var(--mdc-notched-outline-notch-offset, 0)}`;
 
 /**
  * @license
@@ -5097,7 +1299,7 @@ let NotchedOutline = class NotchedOutline extends NotchedOutlineBase {
 };
 NotchedOutline.styles = [styles$7];
 NotchedOutline = __decorate([
-    e$6('mwc-notched-outline')
+    e$4('mwc-notched-outline')
 ], NotchedOutline);
 
 /**
@@ -5262,15 +1464,15 @@ const createAdapter$1 = (labelElement) => {
         },
     };
 };
-class FloatingLabelDirective extends i$1 {
+class FloatingLabelDirective extends i$2 {
     constructor(partInfo) {
         super(partInfo);
         this.foundation = null;
         this.previousPart = null;
         switch (partInfo.type) {
             // Only allow Attribute and Part bindings
-            case t.ATTRIBUTE:
-            case t.PROPERTY:
+            case t$1.ATTRIBUTE:
+            case t$1.PROPERTY:
                 break;
             default:
                 throw new Error('FloatingLabel directive only support attribute and property parts');
@@ -5298,7 +1500,7 @@ class FloatingLabelDirective extends i$1 {
         return this.foundation;
     }
 }
-const floatingLabel = e$1(FloatingLabelDirective);
+const floatingLabel = e$5(FloatingLabelDirective);
 
 /**
  * @license
@@ -5433,14 +1635,14 @@ const createAdapter = (lineElement) => {
         },
     };
 };
-class LineRippleDirective extends i$1 {
+class LineRippleDirective extends i$2 {
     constructor(partInfo) {
         super(partInfo);
         this.previousPart = null;
         this.foundation = null;
         switch (partInfo.type) {
-            case t.ATTRIBUTE:
-            case t.PROPERTY:
+            case t$1.ATTRIBUTE:
+            case t$1.PROPERTY:
                 return;
             default:
                 throw new Error('LineRipple only support attribute and property parts.');
@@ -5468,7 +1670,7 @@ class LineRippleDirective extends i$1 {
         return this.foundation;
     }
 }
-const lineRipple = e$1(LineRippleDirective);
+const lineRipple = e$5(LineRippleDirective);
 
 /**
  * @license
@@ -6139,7 +2341,7 @@ var MDCTextFieldFoundation$1 = MDCTextFieldFoundation;
  * @license
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const l=e$1(class extends i$1{constructor(r){if(super(r),r.type!==t.PROPERTY&&r.type!==t.ATTRIBUTE&&r.type!==t.BOOLEAN_ATTRIBUTE)throw Error("The `live` directive is not allowed on child or event bindings");if(!e(r))throw Error("`live` bindings can only contain a single expression")}render(r){return r}update(i,[t$1]){if(t$1===x||t$1===b)return t$1;const o=i.element,l=i.name;if(i.type===t.PROPERTY){if(t$1===o[l])return x}else if(i.type===t.BOOLEAN_ATTRIBUTE){if(!!t$1===o.hasAttribute(l))return x}else if(i.type===t.ATTRIBUTE&&o.getAttribute(l)===t$1+"")return x;return s(i),t$1}});
+ */const l=e$5(class extends i$2{constructor(r){if(super(r),r.type!==t$1.PROPERTY&&r.type!==t$1.ATTRIBUTE&&r.type!==t$1.BOOLEAN_ATTRIBUTE)throw Error("The `live` directive is not allowed on child or event bindings");if(!e(r))throw Error("`live` bindings can only contain a single expression")}render(r){return r}update(i,[t]){if(t===x||t===b)return t;const o=i.element,l=i.name;if(i.type===t$1.PROPERTY){if(t===o[l])return x}else if(i.type===t$1.BOOLEAN_ATTRIBUTE){if(!!t===o.hasAttribute(l))return x}else if(i.type===t$1.ATTRIBUTE&&o.getAttribute(l)===t+"")return x;return s(i),t}});
 
 /**
  * @license
@@ -6274,7 +2476,7 @@ class TextFieldBase extends FormElement {
             'mdc-text-field--end-aligned': this.endAligned,
         };
         return y `
-      <label class="mdc-text-field ${o(classes)}">
+      <label class="mdc-text-field ${o$2(classes)}">
         ${this.renderRipple()}
         ${this.outlined ? this.renderOutline() : this.renderLabel()}
         ${this.renderLeadingIcon()}
@@ -6337,7 +2539,7 @@ class TextFieldBase extends FormElement {
             'mdc-text-field__icon--leading': !isTrailingIcon,
             'mdc-text-field__icon--trailing': isTrailingIcon
         };
-        return y `<i class="material-icons mdc-text-field__icon ${o(classes)}">${icon}</i>`;
+        return y `<i class="material-icons mdc-text-field__icon ${o$2(classes)}">${icon}</i>`;
     }
     /** @soyTemplate */
     renderPrefix() {
@@ -6354,7 +2556,7 @@ class TextFieldBase extends FormElement {
             'mdc-text-field__affix--prefix': !isSuffix,
             'mdc-text-field__affix--suffix': isSuffix
         };
-        return y `<span class="mdc-text-field__affix ${o(classes)}">
+        return y `<span class="mdc-text-field__affix ${o$2(classes)}">
         ${content}</span>`;
     }
     /** @soyTemplate */
@@ -6375,9 +2577,9 @@ class TextFieldBase extends FormElement {
         // TODO: lit-analyzer labels min/max as (number|string) instead of string
         return y `
       <input
-          aria-labelledby=${l$1(ariaLabelledbyOrUndef)}
-          aria-controls="${l$1(ariaControlsOrUndef)}"
-          aria-describedby="${l$1(ariaDescribedbyOrUndef)}"
+          aria-labelledby=${l$2(ariaLabelledbyOrUndef)}
+          aria-controls="${l$2(ariaControlsOrUndef)}"
+          aria-describedby="${l$2(ariaDescribedbyOrUndef)}"
           class="mdc-text-field__input"
           type="${this.type}"
           .value="${l(this.value)}"
@@ -6385,16 +2587,16 @@ class TextFieldBase extends FormElement {
           placeholder="${this.placeholder}"
           ?required="${this.required}"
           ?readonly="${this.readOnly}"
-          minlength="${l$1(minOrUndef)}"
-          maxlength="${l$1(maxOrUndef)}"
-          pattern="${l$1(this.pattern ? this.pattern : undefined)}"
-          min="${l$1(this.min === '' ? undefined : this.min)}"
-          max="${l$1(this.max === '' ? undefined : this.max)}"
-          step="${l$1(this.step === null ? undefined : this.step)}"
-          size="${l$1(this.size === null ? undefined : this.size)}"
-          name="${l$1(this.name === '' ? undefined : this.name)}"
-          inputmode="${l$1(this.inputMode)}"
-          autocapitalize="${l$1(autocapitalizeOrUndef)}"
+          minlength="${l$2(minOrUndef)}"
+          maxlength="${l$2(maxOrUndef)}"
+          pattern="${l$2(this.pattern ? this.pattern : undefined)}"
+          min="${l$2(this.min === '' ? undefined : this.min)}"
+          max="${l$2(this.max === '' ? undefined : this.max)}"
+          step="${l$2(this.step === null ? undefined : this.step)}"
+          size="${l$2(this.size === null ? undefined : this.size)}"
+          name="${l$2(this.name === '' ? undefined : this.name)}"
+          inputmode="${l$2(this.inputMode)}"
+          autocapitalize="${l$2(autocapitalizeOrUndef)}"
           @input="${this.handleInputChange}"
           @focus="${this.onInputFocus}"
           @blur="${this.onInputBlur}">`;
@@ -6422,8 +2624,8 @@ class TextFieldBase extends FormElement {
         return !shouldRenderHelperText ? '' : y `
       <div class="mdc-text-field-helper-line">
         <div id="helper-text"
-             aria-hidden="${l$1(ariaHiddenOrUndef)}"
-             class="mdc-text-field-helper-text ${o(classes)}"
+             aria-hidden="${l$2(ariaHiddenOrUndef)}"
+             class="mdc-text-field-helper-text ${o$2(classes)}"
              >${helperText}</div>
         ${this.renderCharCounter(shouldRenderCharCounter)}
       </div>`;
@@ -6613,34 +2815,34 @@ class TextFieldBase extends FormElement {
     }
 }
 __decorate([
-    i$2('.mdc-text-field')
+    i('.mdc-text-field')
 ], TextFieldBase.prototype, "mdcRoot", void 0);
 __decorate([
-    i$2('input')
+    i('input')
 ], TextFieldBase.prototype, "formElement", void 0);
 __decorate([
-    i$2('.mdc-floating-label')
+    i('.mdc-floating-label')
 ], TextFieldBase.prototype, "labelElement", void 0);
 __decorate([
-    i$2('.mdc-line-ripple')
+    i('.mdc-line-ripple')
 ], TextFieldBase.prototype, "lineRippleElement", void 0);
 __decorate([
-    i$2('mwc-notched-outline')
+    i('mwc-notched-outline')
 ], TextFieldBase.prototype, "outlineElement", void 0);
 __decorate([
-    i$2('.mdc-notched-outline__notch')
+    i('.mdc-notched-outline__notch')
 ], TextFieldBase.prototype, "notchElement", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "value", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "type", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "placeholder", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (_newVal, oldVal) {
         if (oldVal !== undefined && this.label !== oldVal) {
             this.layout();
@@ -6648,25 +2850,25 @@ __decorate([
     })
 ], TextFieldBase.prototype, "label", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "icon", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "iconTrailing", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], TextFieldBase.prototype, "disabled", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "required", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], TextFieldBase.prototype, "minLength", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], TextFieldBase.prototype, "maxLength", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true }),
+    e$1({ type: Boolean, reflect: true }),
     observer(function (_newVal, oldVal) {
         if (oldVal !== undefined && this.outlined !== oldVal) {
             this.layout();
@@ -6674,73 +2876,73 @@ __decorate([
     })
 ], TextFieldBase.prototype, "outlined", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "helper", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "validateOnInitialRender", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "validationMessage", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "autoValidate", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "pattern", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "min", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "max", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "step", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], TextFieldBase.prototype, "size", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "helperPersistent", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "charCounter", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "endAligned", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "prefix", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "suffix", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "name", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "inputMode", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], TextFieldBase.prototype, "readOnly", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], TextFieldBase.prototype, "autocapitalize", void 0);
 __decorate([
-    t$1()
+    t()
 ], TextFieldBase.prototype, "outlineOpen", void 0);
 __decorate([
-    t$1()
+    t()
 ], TextFieldBase.prototype, "outlineWidth", void 0);
 __decorate([
-    t$1()
+    t()
 ], TextFieldBase.prototype, "isUiValid", void 0);
 __decorate([
-    t$1()
+    t()
 ], TextFieldBase.prototype, "focused", void 0);
 __decorate([
-    e$4({ passive: true })
+    e$3({ passive: true })
 ], TextFieldBase.prototype, "handleInputChange", null);
 
 /**
@@ -6748,14 +2950,14 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$6 = i$4 `.mdc-floating-label{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);position:absolute;left:0;-webkit-transform-origin:left top;transform-origin:left top;line-height:1.15rem;text-align:left;text-overflow:ellipsis;white-space:nowrap;cursor:text;overflow:hidden;will-change:transform;transition:transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1)}[dir=rtl] .mdc-floating-label,.mdc-floating-label[dir=rtl]{right:0;left:auto;-webkit-transform-origin:right top;transform-origin:right top;text-align:right}.mdc-floating-label--float-above{cursor:auto}.mdc-floating-label--required::after{margin-left:1px;margin-right:0px;content:"*"}[dir=rtl] .mdc-floating-label--required::after,.mdc-floating-label--required[dir=rtl]::after{margin-left:0;margin-right:1px}.mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-standard 250ms 1}@keyframes mdc-floating-label-shake-float-above-standard{0%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-106%) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}}.mdc-line-ripple::before,.mdc-line-ripple::after{position:absolute;bottom:0;left:0;width:100%;border-bottom-style:solid;content:""}.mdc-line-ripple::before{border-bottom-width:1px}.mdc-line-ripple::before{z-index:1}.mdc-line-ripple::after{transform:scaleX(0);border-bottom-width:2px;opacity:0;z-index:2}.mdc-line-ripple::after{transition:transform 180ms cubic-bezier(0.4, 0, 0.2, 1),opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-line-ripple--active::after{transform:scaleX(1);opacity:1}.mdc-line-ripple--deactivating::after{opacity:0}.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}.mdc-text-field--filled{--mdc-ripple-fg-size: 0;--mdc-ripple-left: 0;--mdc-ripple-top: 0;--mdc-ripple-fg-scale: 1;--mdc-ripple-fg-translate-end: 0;--mdc-ripple-fg-translate-start: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-text-field--filled .mdc-text-field__ripple::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1;z-index:var(--mdc-ripple-z-index, 1)}.mdc-text-field--filled .mdc-text-field__ripple::after{z-index:0;z-index:var(--mdc-ripple-z-index, 0)}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-text-field--filled.mdc-ripple-upgraded--unbounded .mdc-text-field__ripple::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-text-field--filled.mdc-ripple-upgraded--foreground-activation .mdc-text-field__ripple::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-text-field--filled.mdc-ripple-upgraded--foreground-deactivation .mdc-text-field__ripple::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-text-field__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-text-field{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:0;border-bottom-left-radius:0;display:inline-flex;align-items:baseline;padding:0 16px;position:relative;box-sizing:border-box;overflow:hidden;will-change:opacity,transform,color}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{color:rgba(0, 0, 0, 0.87)}@media all{.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder{color:rgba(0, 0, 0, 0.54)}}@media all{.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input:-ms-input-placeholder{color:rgba(0, 0, 0, 0.54)}}.mdc-text-field .mdc-text-field__input{caret-color:#6200ee;caret-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field:not(.mdc-text-field--disabled)+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field-character-counter,.mdc-text-field:not(.mdc-text-field--disabled)+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--leading{color:rgba(0, 0, 0, 0.54)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing{color:rgba(0, 0, 0, 0.54)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--prefix{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--suffix{color:rgba(0, 0, 0, 0.6)}.mdc-text-field .mdc-floating-label{top:50%;transform:translateY(-50%);pointer-events:none}.mdc-text-field__input{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);height:28px;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1);width:100%;min-width:0;border:none;border-radius:0;background:none;appearance:none;padding:0}.mdc-text-field__input::-ms-clear{display:none}.mdc-text-field__input::-webkit-calendar-picker-indicator{display:none}.mdc-text-field__input:focus{outline:none}.mdc-text-field__input:invalid{box-shadow:none}@media all{.mdc-text-field__input::placeholder{transition:opacity 67ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0}}@media all{.mdc-text-field__input:-ms-input-placeholder{transition:opacity 67ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0}}@media all{.mdc-text-field--no-label .mdc-text-field__input::placeholder,.mdc-text-field--focused .mdc-text-field__input::placeholder{transition-delay:40ms;transition-duration:110ms;opacity:1}}@media all{.mdc-text-field--no-label .mdc-text-field__input:-ms-input-placeholder,.mdc-text-field--focused .mdc-text-field__input:-ms-input-placeholder{transition-delay:40ms;transition-duration:110ms;opacity:1}}.mdc-text-field__affix{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);height:28px;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0;white-space:nowrap}.mdc-text-field--label-floating .mdc-text-field__affix,.mdc-text-field--no-label .mdc-text-field__affix{opacity:1}@supports(-webkit-hyphens: none){.mdc-text-field--outlined .mdc-text-field__affix{align-items:center;align-self:center;display:inline-flex;height:100%}}.mdc-text-field__affix--prefix{padding-left:0;padding-right:2px}[dir=rtl] .mdc-text-field__affix--prefix,.mdc-text-field__affix--prefix[dir=rtl]{padding-left:2px;padding-right:0}.mdc-text-field--end-aligned .mdc-text-field__affix--prefix{padding-left:0;padding-right:12px}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__affix--prefix,.mdc-text-field--end-aligned .mdc-text-field__affix--prefix[dir=rtl]{padding-left:12px;padding-right:0}.mdc-text-field__affix--suffix{padding-left:12px;padding-right:0}[dir=rtl] .mdc-text-field__affix--suffix,.mdc-text-field__affix--suffix[dir=rtl]{padding-left:0;padding-right:12px}.mdc-text-field--end-aligned .mdc-text-field__affix--suffix{padding-left:2px;padding-right:0}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__affix--suffix,.mdc-text-field--end-aligned .mdc-text-field__affix--suffix[dir=rtl]{padding-left:0;padding-right:2px}.mdc-text-field--filled{height:56px}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{background-color:rgba(0, 0, 0, 0.87);background-color:var(--mdc-ripple-color, rgba(0, 0, 0, 0.87))}.mdc-text-field--filled:hover .mdc-text-field__ripple::before,.mdc-text-field--filled.mdc-ripple-surface--hover .mdc-text-field__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-text-field--filled.mdc-ripple-upgraded--background-focused .mdc-text-field__ripple::before,.mdc-text-field--filled:not(.mdc-ripple-upgraded):focus .mdc-text-field__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-text-field--filled::before{display:inline-block;width:0;height:40px;content:"";vertical-align:0}.mdc-text-field--filled:not(.mdc-text-field--disabled){background-color:whitesmoke}.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42)}.mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87)}.mdc-text-field--filled .mdc-line-ripple::after{border-bottom-color:#6200ee;border-bottom-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field--filled .mdc-floating-label{left:16px;right:initial}[dir=rtl] .mdc-text-field--filled .mdc-floating-label,.mdc-text-field--filled .mdc-floating-label[dir=rtl]{left:initial;right:16px}.mdc-text-field--filled .mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{height:100%}.mdc-text-field--filled.mdc-text-field--no-label .mdc-floating-label{display:none}.mdc-text-field--filled.mdc-text-field--no-label::before{display:none}@supports(-webkit-hyphens: none){.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__affix{align-items:center;align-self:center;display:inline-flex;height:100%}}.mdc-text-field--outlined{height:56px;overflow:visible}.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined{0%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}}.mdc-text-field--outlined .mdc-text-field__input{height:100%}.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.38)}.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.87)}.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing{border-color:#6200ee;border-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}@supports(top: max(0%)){.mdc-text-field--outlined{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined{padding-right:max(16px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined+.mdc-text-field-helper-line{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined+.mdc-text-field-helper-line{padding-right:max(16px, var(--mdc-shape-small, 4px))}}.mdc-text-field--outlined.mdc-text-field--with-leading-icon{padding-left:0}@supports(top: max(0%)){.mdc-text-field--outlined.mdc-text-field--with-leading-icon{padding-right:max(16px, var(--mdc-shape-small, 4px))}}[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-leading-icon,.mdc-text-field--outlined.mdc-text-field--with-leading-icon[dir=rtl]{padding-right:0}@supports(top: max(0%)){[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-leading-icon,.mdc-text-field--outlined.mdc-text-field--with-leading-icon[dir=rtl]{padding-left:max(16px, var(--mdc-shape-small, 4px))}}.mdc-text-field--outlined.mdc-text-field--with-trailing-icon{padding-right:0}@supports(top: max(0%)){.mdc-text-field--outlined.mdc-text-field--with-trailing-icon{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-trailing-icon,.mdc-text-field--outlined.mdc-text-field--with-trailing-icon[dir=rtl]{padding-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-trailing-icon,.mdc-text-field--outlined.mdc-text-field--with-trailing-icon[dir=rtl]{padding-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}.mdc-text-field--outlined.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:0;padding-right:0}.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:1px}.mdc-text-field--outlined .mdc-text-field__ripple::before,.mdc-text-field--outlined .mdc-text-field__ripple::after{background-color:transparent;background-color:var(--mdc-ripple-color, transparent)}.mdc-text-field--outlined .mdc-floating-label{left:4px;right:initial}[dir=rtl] .mdc-text-field--outlined .mdc-floating-label,.mdc-text-field--outlined .mdc-floating-label[dir=rtl]{left:initial;right:4px}.mdc-text-field--outlined .mdc-text-field__input{display:flex;border:none !important;background-color:transparent}.mdc-text-field--outlined .mdc-notched-outline{z-index:1}.mdc-text-field--textarea{flex-direction:column;align-items:center;width:auto;height:auto;padding:0;transition:none}.mdc-text-field--textarea .mdc-floating-label{top:19px}.mdc-text-field--textarea .mdc-floating-label:not(.mdc-floating-label--float-above){transform:none}.mdc-text-field--textarea .mdc-text-field__input{flex-grow:1;height:auto;min-height:1.5rem;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;resize:none;padding:0 16px;line-height:1.5rem}.mdc-text-field--textarea.mdc-text-field--filled::before{display:none}.mdc-text-field--textarea.mdc-text-field--filled .mdc-floating-label--float-above{transform:translateY(-10.25px) scale(0.75)}.mdc-text-field--textarea.mdc-text-field--filled .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-textarea-filled 250ms 1}@keyframes mdc-floating-label-shake-float-above-textarea-filled{0%{transform:translateX(calc(0 - 0%)) translateY(-10.25px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-10.25px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-10.25px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-10.25px) scale(0.75)}}.mdc-text-field--textarea.mdc-text-field--filled .mdc-text-field__input{margin-top:23px;margin-bottom:9px}.mdc-text-field--textarea.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{margin-top:16px;margin-bottom:16px}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-27.25px) scale(1)}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--textarea.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-24.75px) scale(0.75)}.mdc-text-field--textarea.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-textarea-outlined 250ms 1}@keyframes mdc-floating-label-shake-float-above-textarea-outlined{0%{transform:translateX(calc(0 - 0%)) translateY(-24.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-24.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-24.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-24.75px) scale(0.75)}}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-text-field__input{margin-top:16px;margin-bottom:16px}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label{top:18px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field__input{margin-bottom:2px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter{align-self:flex-end;padding:0 16px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter::after{display:inline-block;width:0;height:16px;content:"";vertical-align:-16px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter::before{display:none}.mdc-text-field__resizer{align-self:stretch;display:inline-flex;flex-direction:column;flex-grow:1;max-height:100%;max-width:100%;min-height:56px;min-width:fit-content;min-width:-moz-available;min-width:-webkit-fill-available;overflow:hidden;resize:both}.mdc-text-field--filled .mdc-text-field__resizer{transform:translateY(-1px)}.mdc-text-field--filled .mdc-text-field__resizer .mdc-text-field__input,.mdc-text-field--filled .mdc-text-field__resizer .mdc-text-field-character-counter{transform:translateY(1px)}.mdc-text-field--outlined .mdc-text-field__resizer{transform:translateX(-1px) translateY(-1px)}[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer,.mdc-text-field--outlined .mdc-text-field__resizer[dir=rtl]{transform:translateX(1px) translateY(-1px)}.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input,.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter{transform:translateX(1px) translateY(1px)}[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input,[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter,.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input[dir=rtl],.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter[dir=rtl]{transform:translateX(-1px) translateY(1px)}.mdc-text-field--with-leading-icon{padding-left:0;padding-right:16px}[dir=rtl] .mdc-text-field--with-leading-icon,.mdc-text-field--with-leading-icon[dir=rtl]{padding-left:16px;padding-right:0}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 48px);left:48px;right:initial}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label,.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label[dir=rtl]{left:initial;right:48px}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label{left:36px;right:initial}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label[dir=rtl]{left:initial;right:36px}.mdc-text-field--with-leading-icon.mdc-text-field--outlined :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-37.25px) translateX(-32px) scale(1)}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-37.25px) translateX(32px) scale(1)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) translateX(-32px) scale(0.75)}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-34.75px) translateX(32px) scale(0.75)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined-leading-icon 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined-leading-icon{0%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--shake,.mdc-text-field--with-leading-icon.mdc-text-field--outlined[dir=rtl] .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined-leading-icon 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined-leading-icon-rtl{0%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - -32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - -32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}}.mdc-text-field--with-trailing-icon{padding-left:16px;padding-right:0}[dir=rtl] .mdc-text-field--with-trailing-icon,.mdc-text-field--with-trailing-icon[dir=rtl]{padding-left:0;padding-right:16px}.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 64px)}.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-text-field--with-trailing-icon.mdc-text-field--outlined :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:0;padding-right:0}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 96px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 96px / 0.75)}.mdc-text-field-helper-line{display:flex;justify-content:space-between;box-sizing:border-box}.mdc-text-field+.mdc-text-field-helper-line{padding-right:16px;padding-left:16px}.mdc-form-field>.mdc-text-field+label{align-self:flex-start}.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label{color:rgba(98, 0, 238, 0.87)}.mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--focused .mdc-notched-outline__trailing{border-width:2px}.mdc-text-field--focused+.mdc-text-field-helper-line .mdc-text-field-helper-text:not(.mdc-text-field-helper-text--validation-msg){opacity:1}.mdc-text-field--focused.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:2px}.mdc-text-field--focused.mdc-text-field--outlined.mdc-text-field--textarea .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0}.mdc-text-field--invalid:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::after{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid .mdc-text-field__input{caret-color:#b00020;caret-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg{opacity:1}.mdc-text-field--disabled{pointer-events:none}.mdc-text-field--disabled .mdc-text-field__input{color:rgba(0, 0, 0, 0.38)}@media all{.mdc-text-field--disabled .mdc-text-field__input::placeholder{color:rgba(0, 0, 0, 0.38)}}@media all{.mdc-text-field--disabled .mdc-text-field__input:-ms-input-placeholder{color:rgba(0, 0, 0, 0.38)}}.mdc-text-field--disabled .mdc-floating-label{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field-character-counter,.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field__icon--leading{color:rgba(0, 0, 0, 0.3)}.mdc-text-field--disabled .mdc-text-field__icon--trailing{color:rgba(0, 0, 0, 0.3)}.mdc-text-field--disabled .mdc-text-field__affix--prefix{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field__affix--suffix{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06)}.mdc-text-field--disabled .mdc-notched-outline__leading,.mdc-text-field--disabled .mdc-notched-outline__notch,.mdc-text-field--disabled .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.06)}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__input::placeholder{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__input:-ms-input-placeholder{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-floating-label{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field-character-counter,.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__icon--leading{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__icon--trailing{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__affix--prefix{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__affix--suffix{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-notched-outline__leading,.mdc-text-field--disabled .mdc-notched-outline__notch,.mdc-text-field--disabled .mdc-notched-outline__trailing{border-color:GrayText}}@media screen and (forced-colors: active){.mdc-text-field--disabled .mdc-text-field__input{background-color:Window}.mdc-text-field--disabled .mdc-floating-label{z-index:1}}.mdc-text-field--disabled .mdc-floating-label{cursor:default}.mdc-text-field--disabled.mdc-text-field--filled{background-color:#fafafa}.mdc-text-field--disabled.mdc-text-field--filled .mdc-text-field__ripple{display:none}.mdc-text-field--disabled .mdc-text-field__input{pointer-events:auto}.mdc-text-field--end-aligned .mdc-text-field__input{text-align:right}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__input,.mdc-text-field--end-aligned .mdc-text-field__input[dir=rtl]{text-align:left}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__input,[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__input,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix{direction:ltr}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--prefix{padding-left:0;padding-right:2px}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--suffix{padding-left:12px;padding-right:0}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__icon--leading,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__icon--leading{order:1}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--suffix{order:2}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__input,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__input{order:3}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--prefix{order:4}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__icon--trailing,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__icon--trailing{order:5}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__input,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__input{text-align:right}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__affix--prefix{padding-right:12px}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__affix--suffix{padding-left:2px}.mdc-text-field-helper-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal;margin:0;opacity:0;will-change:opacity;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-text-field-helper-text::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}.mdc-text-field-helper-text--persistent{transition:none;opacity:1;will-change:initial}.mdc-text-field-character-counter{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal;margin-left:auto;margin-right:0;padding-left:16px;padding-right:0;white-space:nowrap}.mdc-text-field-character-counter::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}[dir=rtl] .mdc-text-field-character-counter,.mdc-text-field-character-counter[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-text-field-character-counter,.mdc-text-field-character-counter[dir=rtl]{padding-left:0;padding-right:16px}.mdc-text-field__icon{align-self:center;cursor:pointer}.mdc-text-field__icon:not([tabindex]),.mdc-text-field__icon[tabindex="-1"]{cursor:default;pointer-events:none}.mdc-text-field__icon svg{display:block}.mdc-text-field__icon--leading{margin-left:16px;margin-right:8px}[dir=rtl] .mdc-text-field__icon--leading,.mdc-text-field__icon--leading[dir=rtl]{margin-left:8px;margin-right:16px}.mdc-text-field__icon--trailing{padding:12px;margin-left:0px;margin-right:0px}[dir=rtl] .mdc-text-field__icon--trailing,.mdc-text-field__icon--trailing[dir=rtl]{margin-left:0px;margin-right:0px}.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}:host{display:inline-flex;flex-direction:column;outline:none}.mdc-text-field{width:100%}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42);border-bottom-color:var(--mdc-text-field-idle-line-color, rgba(0, 0, 0, 0.42))}.mdc-text-field:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87);border-bottom-color:var(--mdc-text-field-hover-line-color, rgba(0, 0, 0, 0.87))}.mdc-text-field.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06);border-bottom-color:var(--mdc-text-field-disabled-line-color, rgba(0, 0, 0, 0.06))}.mdc-text-field.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field__input{direction:inherit}mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-idle-border-color, rgba(0, 0, 0, 0.38) )}:host(:not([disabled]):hover) :not(.mdc-text-field--invalid):not(.mdc-text-field--focused) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-hover-border-color, rgba(0, 0, 0, 0.87) )}:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--outlined){background-color:var(--mdc-text-field-fill-color, whitesmoke)}:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-error-color, var(--mdc-theme-error, #b00020) )}:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-character-counter,:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid .mdc-text-field__icon{color:var(--mdc-text-field-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label,:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label::after{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused mwc-notched-outline{--mdc-notched-outline-stroke-width: 2px}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-focused-label-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)) )}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) .mdc-floating-label{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-text-field .mdc-text-field__input{color:var(--mdc-text-field-ink-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-text-field .mdc-text-field__input::placeholder{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-text-field-helper-line .mdc-text-field-helper-text:not(.mdc-text-field-helper-text--validation-msg),:host(:not([disabled])) .mdc-text-field-helper-line:not(.mdc-text-field--invalid) .mdc-text-field-character-counter{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host([disabled]) .mdc-text-field:not(.mdc-text-field--outlined){background-color:var(--mdc-text-field-disabled-fill-color, #fafafa)}:host([disabled]) .mdc-text-field.mdc-text-field--outlined mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-disabled-border-color, rgba(0, 0, 0, 0.06) )}:host([disabled]) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label,:host([disabled]) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label::after{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-text-field .mdc-text-field__input,:host([disabled]) .mdc-text-field .mdc-text-field__input::placeholder{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-text-field-helper-line .mdc-text-field-helper-text,:host([disabled]) .mdc-text-field-helper-line .mdc-text-field-character-counter{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}`;
+const styles$6 = i$1 `.mdc-floating-label{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);position:absolute;left:0;-webkit-transform-origin:left top;transform-origin:left top;line-height:1.15rem;text-align:left;text-overflow:ellipsis;white-space:nowrap;cursor:text;overflow:hidden;will-change:transform;transition:transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1)}[dir=rtl] .mdc-floating-label,.mdc-floating-label[dir=rtl]{right:0;left:auto;-webkit-transform-origin:right top;transform-origin:right top;text-align:right}.mdc-floating-label--float-above{cursor:auto}.mdc-floating-label--required::after{margin-left:1px;margin-right:0px;content:"*"}[dir=rtl] .mdc-floating-label--required::after,.mdc-floating-label--required[dir=rtl]::after{margin-left:0;margin-right:1px}.mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-standard 250ms 1}@keyframes mdc-floating-label-shake-float-above-standard{0%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-106%) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}}.mdc-line-ripple::before,.mdc-line-ripple::after{position:absolute;bottom:0;left:0;width:100%;border-bottom-style:solid;content:""}.mdc-line-ripple::before{border-bottom-width:1px}.mdc-line-ripple::before{z-index:1}.mdc-line-ripple::after{transform:scaleX(0);border-bottom-width:2px;opacity:0;z-index:2}.mdc-line-ripple::after{transition:transform 180ms cubic-bezier(0.4, 0, 0.2, 1),opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-line-ripple--active::after{transform:scaleX(1);opacity:1}.mdc-line-ripple--deactivating::after{opacity:0}.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}.mdc-text-field--filled{--mdc-ripple-fg-size: 0;--mdc-ripple-left: 0;--mdc-ripple-top: 0;--mdc-ripple-fg-scale: 1;--mdc-ripple-fg-translate-end: 0;--mdc-ripple-fg-translate-start: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-text-field--filled .mdc-text-field__ripple::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1;z-index:var(--mdc-ripple-z-index, 1)}.mdc-text-field--filled .mdc-text-field__ripple::after{z-index:0;z-index:var(--mdc-ripple-z-index, 0)}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-text-field--filled.mdc-ripple-upgraded--unbounded .mdc-text-field__ripple::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-text-field--filled.mdc-ripple-upgraded--foreground-activation .mdc-text-field__ripple::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-text-field--filled.mdc-ripple-upgraded--foreground-deactivation .mdc-text-field__ripple::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-text-field__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-text-field{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:0;border-bottom-left-radius:0;display:inline-flex;align-items:baseline;padding:0 16px;position:relative;box-sizing:border-box;overflow:hidden;will-change:opacity,transform,color}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{color:rgba(0, 0, 0, 0.87)}@media all{.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder{color:rgba(0, 0, 0, 0.54)}}@media all{.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input:-ms-input-placeholder{color:rgba(0, 0, 0, 0.54)}}.mdc-text-field .mdc-text-field__input{caret-color:#6200ee;caret-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field:not(.mdc-text-field--disabled)+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field-character-counter,.mdc-text-field:not(.mdc-text-field--disabled)+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--leading{color:rgba(0, 0, 0, 0.54)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing{color:rgba(0, 0, 0, 0.54)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--prefix{color:rgba(0, 0, 0, 0.6)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--suffix{color:rgba(0, 0, 0, 0.6)}.mdc-text-field .mdc-floating-label{top:50%;transform:translateY(-50%);pointer-events:none}.mdc-text-field__input{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);height:28px;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1);width:100%;min-width:0;border:none;border-radius:0;background:none;appearance:none;padding:0}.mdc-text-field__input::-ms-clear{display:none}.mdc-text-field__input::-webkit-calendar-picker-indicator{display:none}.mdc-text-field__input:focus{outline:none}.mdc-text-field__input:invalid{box-shadow:none}@media all{.mdc-text-field__input::placeholder{transition:opacity 67ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0}}@media all{.mdc-text-field__input:-ms-input-placeholder{transition:opacity 67ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0}}@media all{.mdc-text-field--no-label .mdc-text-field__input::placeholder,.mdc-text-field--focused .mdc-text-field__input::placeholder{transition-delay:40ms;transition-duration:110ms;opacity:1}}@media all{.mdc-text-field--no-label .mdc-text-field__input:-ms-input-placeholder,.mdc-text-field--focused .mdc-text-field__input:-ms-input-placeholder{transition-delay:40ms;transition-duration:110ms;opacity:1}}.mdc-text-field__affix{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);height:28px;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1);opacity:0;white-space:nowrap}.mdc-text-field--label-floating .mdc-text-field__affix,.mdc-text-field--no-label .mdc-text-field__affix{opacity:1}@supports(-webkit-hyphens: none){.mdc-text-field--outlined .mdc-text-field__affix{align-items:center;align-self:center;display:inline-flex;height:100%}}.mdc-text-field__affix--prefix{padding-left:0;padding-right:2px}[dir=rtl] .mdc-text-field__affix--prefix,.mdc-text-field__affix--prefix[dir=rtl]{padding-left:2px;padding-right:0}.mdc-text-field--end-aligned .mdc-text-field__affix--prefix{padding-left:0;padding-right:12px}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__affix--prefix,.mdc-text-field--end-aligned .mdc-text-field__affix--prefix[dir=rtl]{padding-left:12px;padding-right:0}.mdc-text-field__affix--suffix{padding-left:12px;padding-right:0}[dir=rtl] .mdc-text-field__affix--suffix,.mdc-text-field__affix--suffix[dir=rtl]{padding-left:0;padding-right:12px}.mdc-text-field--end-aligned .mdc-text-field__affix--suffix{padding-left:2px;padding-right:0}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__affix--suffix,.mdc-text-field--end-aligned .mdc-text-field__affix--suffix[dir=rtl]{padding-left:0;padding-right:2px}.mdc-text-field--filled{height:56px}.mdc-text-field--filled .mdc-text-field__ripple::before,.mdc-text-field--filled .mdc-text-field__ripple::after{background-color:rgba(0, 0, 0, 0.87);background-color:var(--mdc-ripple-color, rgba(0, 0, 0, 0.87))}.mdc-text-field--filled:hover .mdc-text-field__ripple::before,.mdc-text-field--filled.mdc-ripple-surface--hover .mdc-text-field__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-text-field--filled.mdc-ripple-upgraded--background-focused .mdc-text-field__ripple::before,.mdc-text-field--filled:not(.mdc-ripple-upgraded):focus .mdc-text-field__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-text-field--filled::before{display:inline-block;width:0;height:40px;content:"";vertical-align:0}.mdc-text-field--filled:not(.mdc-text-field--disabled){background-color:whitesmoke}.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42)}.mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87)}.mdc-text-field--filled .mdc-line-ripple::after{border-bottom-color:#6200ee;border-bottom-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field--filled .mdc-floating-label{left:16px;right:initial}[dir=rtl] .mdc-text-field--filled .mdc-floating-label,.mdc-text-field--filled .mdc-floating-label[dir=rtl]{left:initial;right:16px}.mdc-text-field--filled .mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{height:100%}.mdc-text-field--filled.mdc-text-field--no-label .mdc-floating-label{display:none}.mdc-text-field--filled.mdc-text-field--no-label::before{display:none}@supports(-webkit-hyphens: none){.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__affix{align-items:center;align-self:center;display:inline-flex;height:100%}}.mdc-text-field--outlined{height:56px;overflow:visible}.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined{0%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}}.mdc-text-field--outlined .mdc-text-field__input{height:100%}.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.38)}.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.87)}.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing{border-color:#6200ee;border-color:var(--mdc-theme-primary, #6200ee)}.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}@supports(top: max(0%)){.mdc-text-field--outlined{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined{padding-right:max(16px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined+.mdc-text-field-helper-line{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-text-field--outlined+.mdc-text-field-helper-line{padding-right:max(16px, var(--mdc-shape-small, 4px))}}.mdc-text-field--outlined.mdc-text-field--with-leading-icon{padding-left:0}@supports(top: max(0%)){.mdc-text-field--outlined.mdc-text-field--with-leading-icon{padding-right:max(16px, var(--mdc-shape-small, 4px))}}[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-leading-icon,.mdc-text-field--outlined.mdc-text-field--with-leading-icon[dir=rtl]{padding-right:0}@supports(top: max(0%)){[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-leading-icon,.mdc-text-field--outlined.mdc-text-field--with-leading-icon[dir=rtl]{padding-left:max(16px, var(--mdc-shape-small, 4px))}}.mdc-text-field--outlined.mdc-text-field--with-trailing-icon{padding-right:0}@supports(top: max(0%)){.mdc-text-field--outlined.mdc-text-field--with-trailing-icon{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-trailing-icon,.mdc-text-field--outlined.mdc-text-field--with-trailing-icon[dir=rtl]{padding-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-text-field--outlined.mdc-text-field--with-trailing-icon,.mdc-text-field--outlined.mdc-text-field--with-trailing-icon[dir=rtl]{padding-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}.mdc-text-field--outlined.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:0;padding-right:0}.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:1px}.mdc-text-field--outlined .mdc-text-field__ripple::before,.mdc-text-field--outlined .mdc-text-field__ripple::after{background-color:transparent;background-color:var(--mdc-ripple-color, transparent)}.mdc-text-field--outlined .mdc-floating-label{left:4px;right:initial}[dir=rtl] .mdc-text-field--outlined .mdc-floating-label,.mdc-text-field--outlined .mdc-floating-label[dir=rtl]{left:initial;right:4px}.mdc-text-field--outlined .mdc-text-field__input{display:flex;border:none !important;background-color:transparent}.mdc-text-field--outlined .mdc-notched-outline{z-index:1}.mdc-text-field--textarea{flex-direction:column;align-items:center;width:auto;height:auto;padding:0;transition:none}.mdc-text-field--textarea .mdc-floating-label{top:19px}.mdc-text-field--textarea .mdc-floating-label:not(.mdc-floating-label--float-above){transform:none}.mdc-text-field--textarea .mdc-text-field__input{flex-grow:1;height:auto;min-height:1.5rem;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;resize:none;padding:0 16px;line-height:1.5rem}.mdc-text-field--textarea.mdc-text-field--filled::before{display:none}.mdc-text-field--textarea.mdc-text-field--filled .mdc-floating-label--float-above{transform:translateY(-10.25px) scale(0.75)}.mdc-text-field--textarea.mdc-text-field--filled .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-textarea-filled 250ms 1}@keyframes mdc-floating-label-shake-float-above-textarea-filled{0%{transform:translateX(calc(0 - 0%)) translateY(-10.25px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-10.25px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-10.25px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-10.25px) scale(0.75)}}.mdc-text-field--textarea.mdc-text-field--filled .mdc-text-field__input{margin-top:23px;margin-bottom:9px}.mdc-text-field--textarea.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{margin-top:16px;margin-bottom:16px}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-27.25px) scale(1)}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--textarea.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-24.75px) scale(0.75)}.mdc-text-field--textarea.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--textarea.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-textarea-outlined 250ms 1}@keyframes mdc-floating-label-shake-float-above-textarea-outlined{0%{transform:translateX(calc(0 - 0%)) translateY(-24.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-24.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-24.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-24.75px) scale(0.75)}}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-text-field__input{margin-top:16px;margin-bottom:16px}.mdc-text-field--textarea.mdc-text-field--outlined .mdc-floating-label{top:18px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field__input{margin-bottom:2px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter{align-self:flex-end;padding:0 16px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter::after{display:inline-block;width:0;height:16px;content:"";vertical-align:-16px}.mdc-text-field--textarea.mdc-text-field--with-internal-counter .mdc-text-field-character-counter::before{display:none}.mdc-text-field__resizer{align-self:stretch;display:inline-flex;flex-direction:column;flex-grow:1;max-height:100%;max-width:100%;min-height:56px;min-width:fit-content;min-width:-moz-available;min-width:-webkit-fill-available;overflow:hidden;resize:both}.mdc-text-field--filled .mdc-text-field__resizer{transform:translateY(-1px)}.mdc-text-field--filled .mdc-text-field__resizer .mdc-text-field__input,.mdc-text-field--filled .mdc-text-field__resizer .mdc-text-field-character-counter{transform:translateY(1px)}.mdc-text-field--outlined .mdc-text-field__resizer{transform:translateX(-1px) translateY(-1px)}[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer,.mdc-text-field--outlined .mdc-text-field__resizer[dir=rtl]{transform:translateX(1px) translateY(-1px)}.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input,.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter{transform:translateX(1px) translateY(1px)}[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input,[dir=rtl] .mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter,.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field__input[dir=rtl],.mdc-text-field--outlined .mdc-text-field__resizer .mdc-text-field-character-counter[dir=rtl]{transform:translateX(-1px) translateY(1px)}.mdc-text-field--with-leading-icon{padding-left:0;padding-right:16px}[dir=rtl] .mdc-text-field--with-leading-icon,.mdc-text-field--with-leading-icon[dir=rtl]{padding-left:16px;padding-right:0}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 48px);left:48px;right:initial}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label,.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label[dir=rtl]{left:initial;right:48px}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label{left:36px;right:initial}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label[dir=rtl]{left:initial;right:36px}.mdc-text-field--with-leading-icon.mdc-text-field--outlined :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above{transform:translateY(-37.25px) translateX(-32px) scale(1)}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-37.25px) translateX(32px) scale(1)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--float-above{font-size:.75rem}.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) translateX(-32px) scale(0.75)}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-34.75px) translateX(32px) scale(0.75)}.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined-leading-icon 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined-leading-icon{0%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}}[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-floating-label--shake,.mdc-text-field--with-leading-icon.mdc-text-field--outlined[dir=rtl] .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-text-field-outlined-leading-icon 250ms 1}@keyframes mdc-floating-label-shake-float-above-text-field-outlined-leading-icon-rtl{0%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - -32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - -32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}}.mdc-text-field--with-trailing-icon{padding-left:16px;padding-right:0}[dir=rtl] .mdc-text-field--with-trailing-icon,.mdc-text-field--with-trailing-icon[dir=rtl]{padding-left:0;padding-right:16px}.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 64px)}.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-text-field--with-trailing-icon.mdc-text-field--outlined :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:0;padding-right:0}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 96px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon.mdc-text-field--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 96px / 0.75)}.mdc-text-field-helper-line{display:flex;justify-content:space-between;box-sizing:border-box}.mdc-text-field+.mdc-text-field-helper-line{padding-right:16px;padding-left:16px}.mdc-form-field>.mdc-text-field+label{align-self:flex-start}.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label{color:rgba(98, 0, 238, 0.87)}.mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--focused .mdc-notched-outline__trailing{border-width:2px}.mdc-text-field--focused+.mdc-text-field-helper-line .mdc-text-field-helper-text:not(.mdc-text-field-helper-text--validation-msg){opacity:1}.mdc-text-field--focused.mdc-text-field--outlined .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:2px}.mdc-text-field--focused.mdc-text-field--outlined.mdc-text-field--textarea .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:0}.mdc-text-field--invalid:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::after{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid .mdc-text-field__input{caret-color:#b00020;caret-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg{opacity:1}.mdc-text-field--disabled{pointer-events:none}.mdc-text-field--disabled .mdc-text-field__input{color:rgba(0, 0, 0, 0.38)}@media all{.mdc-text-field--disabled .mdc-text-field__input::placeholder{color:rgba(0, 0, 0, 0.38)}}@media all{.mdc-text-field--disabled .mdc-text-field__input:-ms-input-placeholder{color:rgba(0, 0, 0, 0.38)}}.mdc-text-field--disabled .mdc-floating-label{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field-character-counter,.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field__icon--leading{color:rgba(0, 0, 0, 0.3)}.mdc-text-field--disabled .mdc-text-field__icon--trailing{color:rgba(0, 0, 0, 0.3)}.mdc-text-field--disabled .mdc-text-field__affix--prefix{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-text-field__affix--suffix{color:rgba(0, 0, 0, 0.38)}.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06)}.mdc-text-field--disabled .mdc-notched-outline__leading,.mdc-text-field--disabled .mdc-notched-outline__notch,.mdc-text-field--disabled .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.06)}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__input::placeholder{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__input:-ms-input-placeholder{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-floating-label{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-helper-text{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field-character-counter,.mdc-text-field--disabled+.mdc-text-field-helper-line .mdc-text-field-character-counter{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__icon--leading{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__icon--trailing{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__affix--prefix{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-text-field__affix--suffix{color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:GrayText}}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-text-field--disabled .mdc-notched-outline__leading,.mdc-text-field--disabled .mdc-notched-outline__notch,.mdc-text-field--disabled .mdc-notched-outline__trailing{border-color:GrayText}}@media screen and (forced-colors: active){.mdc-text-field--disabled .mdc-text-field__input{background-color:Window}.mdc-text-field--disabled .mdc-floating-label{z-index:1}}.mdc-text-field--disabled .mdc-floating-label{cursor:default}.mdc-text-field--disabled.mdc-text-field--filled{background-color:#fafafa}.mdc-text-field--disabled.mdc-text-field--filled .mdc-text-field__ripple{display:none}.mdc-text-field--disabled .mdc-text-field__input{pointer-events:auto}.mdc-text-field--end-aligned .mdc-text-field__input{text-align:right}[dir=rtl] .mdc-text-field--end-aligned .mdc-text-field__input,.mdc-text-field--end-aligned .mdc-text-field__input[dir=rtl]{text-align:left}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__input,[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__input,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix{direction:ltr}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--prefix{padding-left:0;padding-right:2px}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--suffix{padding-left:12px;padding-right:0}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__icon--leading,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__icon--leading{order:1}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--suffix{order:2}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__input,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__input{order:3}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__affix--prefix{order:4}[dir=rtl] .mdc-text-field--ltr-text .mdc-text-field__icon--trailing,.mdc-text-field--ltr-text[dir=rtl] .mdc-text-field__icon--trailing{order:5}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__input,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__input{text-align:right}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__affix--prefix,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__affix--prefix{padding-right:12px}[dir=rtl] .mdc-text-field--ltr-text.mdc-text-field--end-aligned .mdc-text-field__affix--suffix,.mdc-text-field--ltr-text.mdc-text-field--end-aligned[dir=rtl] .mdc-text-field__affix--suffix{padding-left:2px}.mdc-text-field-helper-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal;margin:0;opacity:0;will-change:opacity;transition:opacity 150ms 0ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-text-field-helper-text::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}.mdc-text-field-helper-text--persistent{transition:none;opacity:1;will-change:initial}.mdc-text-field-character-counter{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal;margin-left:auto;margin-right:0;padding-left:16px;padding-right:0;white-space:nowrap}.mdc-text-field-character-counter::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}[dir=rtl] .mdc-text-field-character-counter,.mdc-text-field-character-counter[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-text-field-character-counter,.mdc-text-field-character-counter[dir=rtl]{padding-left:0;padding-right:16px}.mdc-text-field__icon{align-self:center;cursor:pointer}.mdc-text-field__icon:not([tabindex]),.mdc-text-field__icon[tabindex="-1"]{cursor:default;pointer-events:none}.mdc-text-field__icon svg{display:block}.mdc-text-field__icon--leading{margin-left:16px;margin-right:8px}[dir=rtl] .mdc-text-field__icon--leading,.mdc-text-field__icon--leading[dir=rtl]{margin-left:8px;margin-right:16px}.mdc-text-field__icon--trailing{padding:12px;margin-left:0px;margin-right:0px}[dir=rtl] .mdc-text-field__icon--trailing,.mdc-text-field__icon--trailing[dir=rtl]{margin-left:0px;margin-right:0px}.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}:host{display:inline-flex;flex-direction:column;outline:none}.mdc-text-field{width:100%}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42);border-bottom-color:var(--mdc-text-field-idle-line-color, rgba(0, 0, 0, 0.42))}.mdc-text-field:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87);border-bottom-color:var(--mdc-text-field-hover-line-color, rgba(0, 0, 0, 0.87))}.mdc-text-field.mdc-text-field--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06);border-bottom-color:var(--mdc-text-field-disabled-line-color, rgba(0, 0, 0, 0.06))}.mdc-text-field.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-text-field__input{direction:inherit}mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-idle-border-color, rgba(0, 0, 0, 0.38) )}:host(:not([disabled]):hover) :not(.mdc-text-field--invalid):not(.mdc-text-field--focused) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-hover-border-color, rgba(0, 0, 0, 0.87) )}:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--outlined){background-color:var(--mdc-text-field-fill-color, whitesmoke)}:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-error-color, var(--mdc-theme-error, #b00020) )}:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-character-counter,:host(:not([disabled])) .mdc-text-field.mdc-text-field--invalid .mdc-text-field__icon{color:var(--mdc-text-field-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label,:host(:not([disabled])) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label::after{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused mwc-notched-outline{--mdc-notched-outline-stroke-width: 2px}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-focused-label-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)) )}:host(:not([disabled])) .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) .mdc-floating-label{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-text-field .mdc-text-field__input{color:var(--mdc-text-field-ink-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-text-field .mdc-text-field__input::placeholder{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-text-field-helper-line .mdc-text-field-helper-text:not(.mdc-text-field-helper-text--validation-msg),:host(:not([disabled])) .mdc-text-field-helper-line:not(.mdc-text-field--invalid) .mdc-text-field-character-counter{color:var(--mdc-text-field-label-ink-color, rgba(0, 0, 0, 0.6))}:host([disabled]) .mdc-text-field:not(.mdc-text-field--outlined){background-color:var(--mdc-text-field-disabled-fill-color, #fafafa)}:host([disabled]) .mdc-text-field.mdc-text-field--outlined mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-text-field-outlined-disabled-border-color, rgba(0, 0, 0, 0.06) )}:host([disabled]) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label,:host([disabled]) .mdc-text-field:not(.mdc-text-field--invalid):not(.mdc-text-field--focused) .mdc-floating-label::after{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-text-field .mdc-text-field__input,:host([disabled]) .mdc-text-field .mdc-text-field__input::placeholder{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-text-field-helper-line .mdc-text-field-helper-text,:host([disabled]) .mdc-text-field-helper-line .mdc-text-field-character-counter{color:var(--mdc-text-field-disabled-ink-color, rgba(0, 0, 0, 0.38))}`;
 
 class EwtTextfield extends TextFieldBase {
 }
 EwtTextfield.styles = [
     styles$6,
     // rem -> em conversion
-    i$4 `
+    i$1 `
       .mdc-floating-label {
         line-height: 1.15em;
       }
@@ -6866,7 +3068,7 @@ class ListItemBase extends s$1 {
             multi: this.multipleGraphics,
         };
         return y `
-      <span class="mdc-deprecated-list-item__graphic material-icons ${o(graphicClasses)}">
+      <span class="mdc-deprecated-list-item__graphic material-icons ${o$2(graphicClasses)}">
         <slot name="graphic"></slot>
       </span>`;
     }
@@ -6945,22 +3147,22 @@ class ListItemBase extends s$1 {
     }
 }
 __decorate([
-    i$2('slot')
+    i('slot')
 ], ListItemBase.prototype, "slotElement", void 0);
 __decorate([
-    e$3('mwc-ripple')
+    e$2('mwc-ripple')
 ], ListItemBase.prototype, "ripple", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], ListItemBase.prototype, "value", void 0);
 __decorate([
-    e$5({ type: String, reflect: true })
+    e$1({ type: String, reflect: true })
 ], ListItemBase.prototype, "group", void 0);
 __decorate([
-    e$5({ type: Number, reflect: true })
+    e$1({ type: Number, reflect: true })
 ], ListItemBase.prototype, "tabindex", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true }),
+    e$1({ type: Boolean, reflect: true }),
     observer(function (value) {
         if (value) {
             this.setAttribute('aria-disabled', 'true');
@@ -6971,22 +3173,22 @@ __decorate([
     })
 ], ListItemBase.prototype, "disabled", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], ListItemBase.prototype, "twoline", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], ListItemBase.prototype, "activated", void 0);
 __decorate([
-    e$5({ type: String, reflect: true })
+    e$1({ type: String, reflect: true })
 ], ListItemBase.prototype, "graphic", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], ListItemBase.prototype, "multipleGraphics", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], ListItemBase.prototype, "hasMeta", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true }),
+    e$1({ type: Boolean, reflect: true }),
     observer(function (value) {
         if (value) {
             this.removeAttribute('aria-checked');
@@ -7001,7 +3203,7 @@ __decorate([
     })
 ], ListItemBase.prototype, "noninteractive", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true }),
+    e$1({ type: Boolean, reflect: true }),
     observer(function (value) {
         const role = this.getAttribute('role');
         const isAriaSelectable = role === 'gridcell' || role === 'option' ||
@@ -7023,10 +3225,10 @@ __decorate([
     })
 ], ListItemBase.prototype, "selected", void 0);
 __decorate([
-    t$1()
+    t()
 ], ListItemBase.prototype, "shouldRenderRipple", void 0);
 __decorate([
-    t$1()
+    t()
 ], ListItemBase.prototype, "_managingList", void 0);
 
 /**
@@ -7034,7 +3236,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$5 = i$4 `:host{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;height:48px;display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:var(--mdc-list-side-padding, 16px);padding-right:var(--mdc-list-side-padding, 16px);outline:none;height:48px;color:rgba(0,0,0,.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}:host:focus{outline:none}:host([activated]){color:#6200ee;color:var(--mdc-theme-primary, #6200ee);--mdc-ripple-color: var( --mdc-theme-primary, #6200ee )}:host([activated]) .mdc-deprecated-list-item__graphic{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host([activated]) .fake-activated-ripple::before{position:absolute;display:block;top:0;bottom:0;left:0;right:0;width:100%;height:100%;pointer-events:none;z-index:1;content:"";opacity:0.12;opacity:var(--mdc-ripple-activated-opacity, 0.12);background-color:#6200ee;background-color:var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee))}.mdc-deprecated-list-item__graphic{flex-shrink:0;align-items:center;justify-content:center;fill:currentColor;display:inline-flex}.mdc-deprecated-list-item__graphic ::slotted(*){flex-shrink:0;align-items:center;justify-content:center;fill:currentColor;width:100%;height:100%;text-align:center}.mdc-deprecated-list-item__meta{width:var(--mdc-list-item-meta-size, 24px);height:var(--mdc-list-item-meta-size, 24px);margin-left:auto;margin-right:0;color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38))}.mdc-deprecated-list-item__meta.multi{width:auto}.mdc-deprecated-list-item__meta ::slotted(*){width:var(--mdc-list-item-meta-size, 24px);line-height:var(--mdc-list-item-meta-size, 24px)}.mdc-deprecated-list-item__meta ::slotted(.material-icons),.mdc-deprecated-list-item__meta ::slotted(mwc-icon){line-height:var(--mdc-list-item-meta-size, 24px) !important}.mdc-deprecated-list-item__meta ::slotted(:not(.material-icons):not(mwc-icon)){-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit)}[dir=rtl] .mdc-deprecated-list-item__meta,.mdc-deprecated-list-item__meta[dir=rtl]{margin-left:0;margin-right:auto}.mdc-deprecated-list-item__meta ::slotted(*){width:100%;height:100%}.mdc-deprecated-list-item__text{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.mdc-deprecated-list-item__text ::slotted([for]),.mdc-deprecated-list-item__text[for]{pointer-events:none}.mdc-deprecated-list-item__primary-text{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;margin-top:0;line-height:normal;margin-bottom:-20px;display:block}.mdc-deprecated-list-item__primary-text::before{display:inline-block;width:0;height:32px;content:"";vertical-align:0}.mdc-deprecated-list-item__primary-text::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}.mdc-deprecated-list-item__secondary-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;margin-top:0;line-height:normal;display:block}.mdc-deprecated-list-item__secondary-text::before{display:inline-block;width:0;height:20px;content:"";vertical-align:0}.mdc-deprecated-list--dense .mdc-deprecated-list-item__secondary-text{font-size:inherit}* ::slotted(a),a{color:inherit;text-decoration:none}:host([twoline]){height:72px}:host([twoline]) .mdc-deprecated-list-item__text{align-self:flex-start}:host([disabled]),:host([noninteractive]){cursor:default;pointer-events:none}:host([disabled]) .mdc-deprecated-list-item__text ::slotted(*){opacity:.38}:host([disabled]) .mdc-deprecated-list-item__text ::slotted(*),:host([disabled]) .mdc-deprecated-list-item__primary-text ::slotted(*),:host([disabled]) .mdc-deprecated-list-item__secondary-text ::slotted(*){color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-deprecated-list-item__secondary-text ::slotted(*){color:rgba(0, 0, 0, 0.54);color:var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54))}.mdc-deprecated-list-item__graphic ::slotted(*){background-color:transparent;color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38))}.mdc-deprecated-list-group__subheader ::slotted(*){color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 40px);height:var(--mdc-list-item-graphic-size, 40px)}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 40px);line-height:var(--mdc-list-item-graphic-size, 40px)}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 40px) !important}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(*){border-radius:50%}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic,:host([graphic=medium]) .mdc-deprecated-list-item__graphic,:host([graphic=large]) .mdc-deprecated-list-item__graphic,:host([graphic=control]) .mdc-deprecated-list-item__graphic{margin-left:0;margin-right:var(--mdc-list-item-graphic-margin, 16px)}[dir=rtl] :host([graphic=avatar]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=medium]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=large]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=control]) .mdc-deprecated-list-item__graphic,:host([graphic=avatar]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=medium]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=large]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=control]) .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:var(--mdc-list-item-graphic-margin, 16px);margin-right:0}:host([graphic=icon]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 24px);height:var(--mdc-list-item-graphic-size, 24px);margin-left:0;margin-right:var(--mdc-list-item-graphic-margin, 32px)}:host([graphic=icon]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 24px);line-height:var(--mdc-list-item-graphic-size, 24px)}:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 24px) !important}[dir=rtl] :host([graphic=icon]) .mdc-deprecated-list-item__graphic,:host([graphic=icon]) .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:var(--mdc-list-item-graphic-margin, 32px);margin-right:0}:host([graphic=avatar]:not([twoLine])),:host([graphic=icon]:not([twoLine])){height:56px}:host([graphic=medium]:not([twoLine])),:host([graphic=large]:not([twoLine])){height:72px}:host([graphic=medium]) .mdc-deprecated-list-item__graphic,:host([graphic=large]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 56px);height:var(--mdc-list-item-graphic-size, 56px)}:host([graphic=medium]) .mdc-deprecated-list-item__graphic.multi,:host([graphic=large]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(*),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 56px);line-height:var(--mdc-list-item-graphic-size, 56px)}:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 56px) !important}:host([graphic=large]){padding-left:0px}`;
+const styles$5 = i$1 `:host{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;height:48px;display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:var(--mdc-list-side-padding, 16px);padding-right:var(--mdc-list-side-padding, 16px);outline:none;height:48px;color:rgba(0,0,0,.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}:host:focus{outline:none}:host([activated]){color:#6200ee;color:var(--mdc-theme-primary, #6200ee);--mdc-ripple-color: var( --mdc-theme-primary, #6200ee )}:host([activated]) .mdc-deprecated-list-item__graphic{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host([activated]) .fake-activated-ripple::before{position:absolute;display:block;top:0;bottom:0;left:0;right:0;width:100%;height:100%;pointer-events:none;z-index:1;content:"";opacity:0.12;opacity:var(--mdc-ripple-activated-opacity, 0.12);background-color:#6200ee;background-color:var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee))}.mdc-deprecated-list-item__graphic{flex-shrink:0;align-items:center;justify-content:center;fill:currentColor;display:inline-flex}.mdc-deprecated-list-item__graphic ::slotted(*){flex-shrink:0;align-items:center;justify-content:center;fill:currentColor;width:100%;height:100%;text-align:center}.mdc-deprecated-list-item__meta{width:var(--mdc-list-item-meta-size, 24px);height:var(--mdc-list-item-meta-size, 24px);margin-left:auto;margin-right:0;color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38))}.mdc-deprecated-list-item__meta.multi{width:auto}.mdc-deprecated-list-item__meta ::slotted(*){width:var(--mdc-list-item-meta-size, 24px);line-height:var(--mdc-list-item-meta-size, 24px)}.mdc-deprecated-list-item__meta ::slotted(.material-icons),.mdc-deprecated-list-item__meta ::slotted(mwc-icon){line-height:var(--mdc-list-item-meta-size, 24px) !important}.mdc-deprecated-list-item__meta ::slotted(:not(.material-icons):not(mwc-icon)){-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit)}[dir=rtl] .mdc-deprecated-list-item__meta,.mdc-deprecated-list-item__meta[dir=rtl]{margin-left:0;margin-right:auto}.mdc-deprecated-list-item__meta ::slotted(*){width:100%;height:100%}.mdc-deprecated-list-item__text{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.mdc-deprecated-list-item__text ::slotted([for]),.mdc-deprecated-list-item__text[for]{pointer-events:none}.mdc-deprecated-list-item__primary-text{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;margin-top:0;line-height:normal;margin-bottom:-20px;display:block}.mdc-deprecated-list-item__primary-text::before{display:inline-block;width:0;height:32px;content:"";vertical-align:0}.mdc-deprecated-list-item__primary-text::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}.mdc-deprecated-list-item__secondary-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;margin-top:0;line-height:normal;display:block}.mdc-deprecated-list-item__secondary-text::before{display:inline-block;width:0;height:20px;content:"";vertical-align:0}.mdc-deprecated-list--dense .mdc-deprecated-list-item__secondary-text{font-size:inherit}* ::slotted(a),a{color:inherit;text-decoration:none}:host([twoline]){height:72px}:host([twoline]) .mdc-deprecated-list-item__text{align-self:flex-start}:host([disabled]),:host([noninteractive]){cursor:default;pointer-events:none}:host([disabled]) .mdc-deprecated-list-item__text ::slotted(*){opacity:.38}:host([disabled]) .mdc-deprecated-list-item__text ::slotted(*),:host([disabled]) .mdc-deprecated-list-item__primary-text ::slotted(*),:host([disabled]) .mdc-deprecated-list-item__secondary-text ::slotted(*){color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-deprecated-list-item__secondary-text ::slotted(*){color:rgba(0, 0, 0, 0.54);color:var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54))}.mdc-deprecated-list-item__graphic ::slotted(*){background-color:transparent;color:rgba(0, 0, 0, 0.38);color:var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38))}.mdc-deprecated-list-group__subheader ::slotted(*){color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87))}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 40px);height:var(--mdc-list-item-graphic-size, 40px)}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 40px);line-height:var(--mdc-list-item-graphic-size, 40px)}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 40px) !important}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic ::slotted(*){border-radius:50%}:host([graphic=avatar]) .mdc-deprecated-list-item__graphic,:host([graphic=medium]) .mdc-deprecated-list-item__graphic,:host([graphic=large]) .mdc-deprecated-list-item__graphic,:host([graphic=control]) .mdc-deprecated-list-item__graphic{margin-left:0;margin-right:var(--mdc-list-item-graphic-margin, 16px)}[dir=rtl] :host([graphic=avatar]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=medium]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=large]) .mdc-deprecated-list-item__graphic,[dir=rtl] :host([graphic=control]) .mdc-deprecated-list-item__graphic,:host([graphic=avatar]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=medium]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=large]) .mdc-deprecated-list-item__graphic[dir=rtl],:host([graphic=control]) .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:var(--mdc-list-item-graphic-margin, 16px);margin-right:0}:host([graphic=icon]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 24px);height:var(--mdc-list-item-graphic-size, 24px);margin-left:0;margin-right:var(--mdc-list-item-graphic-margin, 32px)}:host([graphic=icon]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 24px);line-height:var(--mdc-list-item-graphic-size, 24px)}:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=icon]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 24px) !important}[dir=rtl] :host([graphic=icon]) .mdc-deprecated-list-item__graphic,:host([graphic=icon]) .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:var(--mdc-list-item-graphic-margin, 32px);margin-right:0}:host([graphic=avatar]:not([twoLine])),:host([graphic=icon]:not([twoLine])){height:56px}:host([graphic=medium]:not([twoLine])),:host([graphic=large]:not([twoLine])){height:72px}:host([graphic=medium]) .mdc-deprecated-list-item__graphic,:host([graphic=large]) .mdc-deprecated-list-item__graphic{width:var(--mdc-list-item-graphic-size, 56px);height:var(--mdc-list-item-graphic-size, 56px)}:host([graphic=medium]) .mdc-deprecated-list-item__graphic.multi,:host([graphic=large]) .mdc-deprecated-list-item__graphic.multi{width:auto}:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(*),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(*){width:var(--mdc-list-item-graphic-size, 56px);line-height:var(--mdc-list-item-graphic-size, 56px)}:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=medium]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(.material-icons),:host([graphic=large]) .mdc-deprecated-list-item__graphic ::slotted(mwc-icon){line-height:var(--mdc-list-item-graphic-size, 56px) !important}:host([graphic=large]){padding-left:0px}`;
 
 /**
  * @license
@@ -7045,7 +3247,7 @@ let ListItem = class ListItem extends ListItemBase {
 };
 ListItem.styles = [styles$5];
 ListItem = __decorate([
-    e$6('mwc-list-item')
+    e$4('mwc-list-item')
 ], ListItem);
 
 /**
@@ -7860,8 +4062,8 @@ class ListBase extends BaseElement {
       <!-- @ts-ignore -->
       <ul
           tabindex=${tabindex}
-          role="${l$1(role)}"
-          aria-label="${l$1(ariaLabel)}"
+          role="${l$2(role)}"
+          aria-label="${l$2(ariaLabel)}"
           class="mdc-deprecated-list"
           @keydown=${this.onKeydown}
           @focusin=${this.onFocusIn}
@@ -8136,19 +4338,19 @@ class ListBase extends BaseElement {
     }
 }
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], ListBase.prototype, "emptyMessage", void 0);
 __decorate([
-    i$2('.mdc-deprecated-list')
+    i('.mdc-deprecated-list')
 ], ListBase.prototype, "mdcRoot", void 0);
 __decorate([
-    o$1('', true, '*')
+    o('', true, '*')
 ], ListBase.prototype, "assignedElements", void 0);
 __decorate([
-    o$1('', true, '[tabindex="0"]')
+    o('', true, '[tabindex="0"]')
 ], ListBase.prototype, "tabbableElements", void 0);
 __decorate([
-    e$5({ type: Boolean }),
+    e$1({ type: Boolean }),
     observer(function (value) {
         if (this.mdcFoundation) {
             this.mdcFoundation.setUseActivatedClass(value);
@@ -8156,7 +4358,7 @@ __decorate([
     })
 ], ListBase.prototype, "activatable", void 0);
 __decorate([
-    e$5({ type: Boolean }),
+    e$1({ type: Boolean }),
     observer(function (newValue, oldValue) {
         if (this.mdcFoundation) {
             this.mdcFoundation.setMulti(newValue);
@@ -8167,7 +4369,7 @@ __decorate([
     })
 ], ListBase.prototype, "multi", void 0);
 __decorate([
-    e$5({ type: Boolean }),
+    e$1({ type: Boolean }),
     observer(function (value) {
         if (this.mdcFoundation) {
             this.mdcFoundation.setWrapFocus(value);
@@ -8175,7 +4377,7 @@ __decorate([
     })
 ], ListBase.prototype, "wrapFocus", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (_newValue, oldValue) {
         if (oldValue !== undefined) {
             this.updateItems();
@@ -8183,16 +4385,16 @@ __decorate([
     })
 ], ListBase.prototype, "itemRoles", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], ListBase.prototype, "innerRole", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], ListBase.prototype, "innerAriaLabel", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], ListBase.prototype, "rootTabbable", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true }),
+    e$1({ type: Boolean, reflect: true }),
     observer(function (value) {
         var _a, _b;
         if (value) {
@@ -8214,7 +4416,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$4 = i$4 `@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}:host{display:block}.mdc-deprecated-list{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);line-height:1.75rem;line-height:var(--mdc-typography-subtitle1-line-height, 1.75rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);line-height:1.5rem;margin:0;padding:8px 0;list-style-type:none;color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));padding:var(--mdc-list-vertical-padding, 8px) 0}.mdc-deprecated-list:focus{outline:none}.mdc-deprecated-list-item{height:48px}.mdc-deprecated-list--dense{padding-top:4px;padding-bottom:4px;font-size:.812rem}.mdc-deprecated-list ::slotted([divider]){height:0;margin:0;border:none;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(0, 0, 0, 0.12)}.mdc-deprecated-list ::slotted([divider][padded]){margin:0 var(--mdc-list-side-padding, 16px)}.mdc-deprecated-list ::slotted([divider][inset]){margin-left:var(--mdc-list-inset-margin, 72px);margin-right:0;width:calc( 100% - var(--mdc-list-inset-margin, 72px) )}[dir=rtl] .mdc-deprecated-list ::slotted([divider][inset]),.mdc-deprecated-list ::slotted([divider][inset][dir=rtl]){margin-left:0;margin-right:var(--mdc-list-inset-margin, 72px)}.mdc-deprecated-list ::slotted([divider][inset][padded]){width:calc( 100% - var(--mdc-list-inset-margin, 72px) - var(--mdc-list-side-padding, 16px) )}.mdc-deprecated-list--dense ::slotted([mwc-list-item]){height:40px}.mdc-deprecated-list--dense ::slotted([mwc-list]){--mdc-list-item-graphic-size: 20px}.mdc-deprecated-list--two-line.mdc-deprecated-list--dense ::slotted([mwc-list-item]),.mdc-deprecated-list--avatar-list.mdc-deprecated-list--dense ::slotted([mwc-list-item]){height:60px}.mdc-deprecated-list--avatar-list.mdc-deprecated-list--dense ::slotted([mwc-list]){--mdc-list-item-graphic-size: 36px}:host([noninteractive]){pointer-events:none;cursor:default}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text){display:block;margin-top:0;line-height:normal;margin-bottom:-20px}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text)::before{display:inline-block;width:0;height:24px;content:"";vertical-align:0}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text)::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}`;
+const styles$4 = i$1 `@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}:host{display:block}.mdc-deprecated-list{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);line-height:1.75rem;line-height:var(--mdc-typography-subtitle1-line-height, 1.75rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);line-height:1.5rem;margin:0;padding:8px 0;list-style-type:none;color:rgba(0, 0, 0, 0.87);color:var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));padding:var(--mdc-list-vertical-padding, 8px) 0}.mdc-deprecated-list:focus{outline:none}.mdc-deprecated-list-item{height:48px}.mdc-deprecated-list--dense{padding-top:4px;padding-bottom:4px;font-size:.812rem}.mdc-deprecated-list ::slotted([divider]){height:0;margin:0;border:none;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(0, 0, 0, 0.12)}.mdc-deprecated-list ::slotted([divider][padded]){margin:0 var(--mdc-list-side-padding, 16px)}.mdc-deprecated-list ::slotted([divider][inset]){margin-left:var(--mdc-list-inset-margin, 72px);margin-right:0;width:calc( 100% - var(--mdc-list-inset-margin, 72px) )}[dir=rtl] .mdc-deprecated-list ::slotted([divider][inset]),.mdc-deprecated-list ::slotted([divider][inset][dir=rtl]){margin-left:0;margin-right:var(--mdc-list-inset-margin, 72px)}.mdc-deprecated-list ::slotted([divider][inset][padded]){width:calc( 100% - var(--mdc-list-inset-margin, 72px) - var(--mdc-list-side-padding, 16px) )}.mdc-deprecated-list--dense ::slotted([mwc-list-item]){height:40px}.mdc-deprecated-list--dense ::slotted([mwc-list]){--mdc-list-item-graphic-size: 20px}.mdc-deprecated-list--two-line.mdc-deprecated-list--dense ::slotted([mwc-list-item]),.mdc-deprecated-list--avatar-list.mdc-deprecated-list--dense ::slotted([mwc-list-item]){height:60px}.mdc-deprecated-list--avatar-list.mdc-deprecated-list--dense ::slotted([mwc-list]){--mdc-list-item-graphic-size: 36px}:host([noninteractive]){pointer-events:none;cursor:default}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text){display:block;margin-top:0;line-height:normal;margin-bottom:-20px}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text)::before{display:inline-block;width:0;height:24px;content:"";vertical-align:0}.mdc-deprecated-list--dense ::slotted(.mdc-deprecated-list-item__primary-text)::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}`;
 
 /**
  * @license
@@ -8225,7 +4427,7 @@ let List = class List extends ListBase {
 };
 List.styles = [styles$4];
 List = __decorate([
-    e$6('mwc-list')
+    e$4('mwc-list')
 ], List);
 
 /**
@@ -8979,11 +5181,30 @@ class MenuSurfaceBase extends BaseElement {
         this.onBodyClickBound = () => undefined;
     }
     render() {
-        const classes = {
+        return this.renderSurface();
+    }
+    renderSurface() {
+        const classes = this.getRootClasses();
+        const styles = this.getRootStyles();
+        return y `
+      <div
+          class=${o$2(classes)}
+          style="${i$3(styles)}"
+          @keydown=${this.onKeydown}
+          @opened=${this.registerBodyClick}
+          @closed=${this.deregisterBodyClick}>
+        ${this.renderContent()}
+      </div>`;
+    }
+    getRootClasses() {
+        return {
+            'mdc-menu-surface': true,
             'mdc-menu-surface--fixed': this.fixed,
             'mdc-menu-surface--fullwidth': this.fullwidth,
         };
-        const styles = {
+    }
+    getRootStyles() {
+        return {
             'top': this.styleTop,
             'left': this.styleLeft,
             'right': this.styleRight,
@@ -8991,15 +5212,9 @@ class MenuSurfaceBase extends BaseElement {
             'max-height': this.styleMaxHeight,
             'transform-origin': this.styleTransformOrigin,
         };
-        return y `
-      <div
-          class="mdc-menu-surface ${o(classes)}"
-          style="${i(styles)}"
-          @keydown=${this.onKeydown}
-          @opened=${this.registerBodyClick}
-          @closed=${this.deregisterBodyClick}>
-        <slot></slot>
-      </div>`;
+    }
+    renderContent() {
+        return y `<slot></slot>`;
     }
     createAdapter() {
         return Object.assign(Object.assign({}, addHasRemoveClass(this.mdcRoot)), { hasAnchor: () => {
@@ -9115,67 +5330,7 @@ class MenuSurfaceBase extends BaseElement {
     deregisterBodyClick() {
         document.body.removeEventListener('click', this.onBodyClickBound, { capture: true });
     }
-    close() {
-        this.open = false;
-    }
-    show() {
-        this.open = true;
-    }
-}
-__decorate([
-    i$2('.mdc-menu-surface')
-], MenuSurfaceBase.prototype, "mdcRoot", void 0);
-__decorate([
-    i$2('slot')
-], MenuSurfaceBase.prototype, "slotElement", void 0);
-__decorate([
-    e$5({ type: Boolean }),
-    observer(function (isAbsolute) {
-        if (this.mdcFoundation && !this.fixed) {
-            this.mdcFoundation.setIsHoisted(isAbsolute);
-        }
-    })
-], MenuSurfaceBase.prototype, "absolute", void 0);
-__decorate([
-    e$5({ type: Boolean })
-], MenuSurfaceBase.prototype, "fullwidth", void 0);
-__decorate([
-    e$5({ type: Boolean }),
-    observer(function (isFixed) {
-        if (this.mdcFoundation && !this.absolute) {
-            this.mdcFoundation.setFixedPosition(isFixed);
-        }
-    })
-], MenuSurfaceBase.prototype, "fixed", void 0);
-__decorate([
-    e$5({ type: Number }),
-    observer(function (value) {
-        if (this.mdcFoundation && this.y !== null && value !== null) {
-            this.mdcFoundation.setAbsolutePosition(value, this.y);
-            this.mdcFoundation.setAnchorMargin({ left: value, top: this.y, right: -value, bottom: this.y });
-        }
-    })
-], MenuSurfaceBase.prototype, "x", void 0);
-__decorate([
-    e$5({ type: Number }),
-    observer(function (value) {
-        if (this.mdcFoundation && this.x !== null && value !== null) {
-            this.mdcFoundation.setAbsolutePosition(this.x, value);
-            this.mdcFoundation.setAnchorMargin({ left: this.x, top: value, right: -this.x, bottom: value });
-        }
-    })
-], MenuSurfaceBase.prototype, "y", void 0);
-__decorate([
-    e$5({ type: Boolean }),
-    observer(function (value) {
-        if (this.mdcFoundation) {
-            this.mdcFoundation.setQuickOpen(value);
-        }
-    })
-], MenuSurfaceBase.prototype, "quick", void 0);
-__decorate([
-    e$5({ type: Boolean, reflect: true }),
-    observer(function (isOpen, wasOpen) {
+    onOpenChanged(isOpen, wasOpen) {
         if (this.mdcFoundation) {
             if (isOpen) {
                 this.mdcFoundation.open();
@@ -9185,13 +5340,76 @@ __decorate([
                 this.mdcFoundation.close();
             }
         }
+    }
+    close() {
+        this.open = false;
+    }
+    show() {
+        this.open = true;
+    }
+}
+__decorate([
+    i('.mdc-menu-surface')
+], MenuSurfaceBase.prototype, "mdcRoot", void 0);
+__decorate([
+    i('slot')
+], MenuSurfaceBase.prototype, "slotElement", void 0);
+__decorate([
+    e$1({ type: Boolean }),
+    observer(function (isAbsolute) {
+        if (this.mdcFoundation && !this.fixed) {
+            this.mdcFoundation.setIsHoisted(isAbsolute);
+        }
+    })
+], MenuSurfaceBase.prototype, "absolute", void 0);
+__decorate([
+    e$1({ type: Boolean })
+], MenuSurfaceBase.prototype, "fullwidth", void 0);
+__decorate([
+    e$1({ type: Boolean }),
+    observer(function (isFixed) {
+        if (this.mdcFoundation && !this.absolute) {
+            this.mdcFoundation.setFixedPosition(isFixed);
+        }
+    })
+], MenuSurfaceBase.prototype, "fixed", void 0);
+__decorate([
+    e$1({ type: Number }),
+    observer(function (value) {
+        if (this.mdcFoundation && this.y !== null && value !== null) {
+            this.mdcFoundation.setAbsolutePosition(value, this.y);
+            this.mdcFoundation.setAnchorMargin({ left: value, top: this.y, right: -value, bottom: this.y });
+        }
+    })
+], MenuSurfaceBase.prototype, "x", void 0);
+__decorate([
+    e$1({ type: Number }),
+    observer(function (value) {
+        if (this.mdcFoundation && this.x !== null && value !== null) {
+            this.mdcFoundation.setAbsolutePosition(this.x, value);
+            this.mdcFoundation.setAnchorMargin({ left: this.x, top: value, right: -this.x, bottom: value });
+        }
+    })
+], MenuSurfaceBase.prototype, "y", void 0);
+__decorate([
+    e$1({ type: Boolean }),
+    observer(function (value) {
+        if (this.mdcFoundation) {
+            this.mdcFoundation.setQuickOpen(value);
+        }
+    })
+], MenuSurfaceBase.prototype, "quick", void 0);
+__decorate([
+    e$1({ type: Boolean, reflect: true }),
+    observer(function (isOpen, wasOpen) {
+        this.onOpenChanged(isOpen, wasOpen);
     })
 ], MenuSurfaceBase.prototype, "open", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuSurfaceBase.prototype, "stayOpenOnBodyClick", void 0);
 __decorate([
-    t$1(),
+    t(),
     observer(function (value) {
         if (this.mdcFoundation) {
             if (value) {
@@ -9204,7 +5422,7 @@ __decorate([
     })
 ], MenuSurfaceBase.prototype, "bitwiseCorner", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (value) {
         if (this.mdcFoundation) {
             const isValidValue = value === 'START' || value === 'END';
@@ -9220,7 +5438,7 @@ __decorate([
     })
 ], MenuSurfaceBase.prototype, "menuCorner", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (value) {
         if (this.mdcFoundation) {
             if (value) {
@@ -9234,22 +5452,22 @@ __decorate([
     })
 ], MenuSurfaceBase.prototype, "corner", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleTop", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleLeft", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleRight", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleBottom", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleMaxHeight", void 0);
 __decorate([
-    t$1()
+    t()
 ], MenuSurfaceBase.prototype, "styleTransformOrigin", void 0);
 
 /**
@@ -9257,7 +5475,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$3 = i$4 `.mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-width:var(--mdc-menu-max-width, calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:var(--mdc-menu-max-height, calc(100vh - 32px));margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;transition:opacity .03s linear,transform .12s cubic-bezier(0, 0, 0.2, 1),height 250ms cubic-bezier(0, 0, 0.2, 1);box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0,0,0,.12);background-color:#fff;background-color:var(--mdc-theme-surface, #fff);color:#000;color:var(--mdc-theme-on-surface, #000);border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0;transition:opacity .075s linear}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}:host(:not([open])){display:none}.mdc-menu-surface{z-index:8;z-index:var(--mdc-menu-z-index, 8);min-width:112px;min-width:var(--mdc-menu-min-width, 112px)}`;
+const styles$3 = i$1 `.mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-width:var(--mdc-menu-max-width, calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:var(--mdc-menu-max-height, calc(100vh - 32px));margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;transition:opacity .03s linear,transform .12s cubic-bezier(0, 0, 0.2, 1),height 250ms cubic-bezier(0, 0, 0.2, 1);box-shadow:0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0,0,0,.12);background-color:#fff;background-color:var(--mdc-theme-surface, #fff);color:#000;color:var(--mdc-theme-on-surface, #000);border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0;transition:opacity .075s linear}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}:host(:not([open])){display:none}.mdc-menu-surface{z-index:8;z-index:var(--mdc-menu-z-index, 8);min-width:112px;min-width:var(--mdc-menu-min-width, 112px)}`;
 
 /**
  * @license
@@ -9268,7 +5486,7 @@ let MenuSurface = class MenuSurface extends MenuSurfaceBase {
 };
 MenuSurface.styles = [styles$3];
 MenuSurface = __decorate([
-    e$6('mwc-menu-surface')
+    e$4('mwc-menu-surface')
 ], MenuSurface);
 
 /**
@@ -9568,38 +5786,58 @@ class MenuBase extends BaseElement {
         return null;
     }
     render() {
-        const itemRoles = this.innerRole === 'menu' ? 'menuitem' : 'option';
+        return this.renderSurface();
+    }
+    renderSurface() {
+        const classes = this.getSurfaceClasses();
         return y `
       <mwc-menu-surface
-          ?hidden=${!this.open}
-          .anchor=${this.anchor}
-          .open=${this.open}
-          .quick=${this.quick}
-          .corner=${this.corner}
-          .x=${this.x}
-          .y=${this.y}
-          .absolute=${this.absolute}
-          .fixed=${this.fixed}
-          .fullwidth=${this.fullwidth}
-          .menuCorner=${this.menuCorner}
-          ?stayOpenOnBodyClick=${this.stayOpenOnBodyClick}
-          class="mdc-menu mdc-menu-surface"
-          @closed=${this.onClosed}
-          @opened=${this.onOpened}
-          @keydown=${this.onKeydown}>
-        <mwc-list
+        ?hidden=${!this.open}
+        .anchor=${this.anchor}
+        .open=${this.open}
+        .quick=${this.quick}
+        .corner=${this.corner}
+        .x=${this.x}
+        .y=${this.y}
+        .absolute=${this.absolute}
+        .fixed=${this.fixed}
+        .fullwidth=${this.fullwidth}
+        .menuCorner=${this.menuCorner}
+        ?stayOpenOnBodyClick=${this.stayOpenOnBodyClick}
+        class=${o$2(classes)}
+        @closed=${this.onClosed}
+        @opened=${this.onOpened}
+        @keydown=${this.onKeydown}>
+      ${this.renderList()}
+    </mwc-menu-surface>`;
+    }
+    getSurfaceClasses() {
+        return {
+            'mdc-menu': true,
+            'mdc-menu-surface': true,
+        };
+    }
+    renderList() {
+        const itemRoles = this.innerRole === 'menu' ? 'menuitem' : 'option';
+        const classes = this.renderListClasses();
+        return y `
+      <mwc-list
           rootTabbable
           .innerAriaLabel=${this.innerAriaLabel}
           .innerRole=${this.innerRole}
           .multi=${this.multi}
-          class="mdc-deprecated-list"
+          class=${o$2(classes)}
           .itemRoles=${itemRoles}
           .wrapFocus=${this.wrapFocus}
           .activatable=${this.activatable}
           @action=${this.onAction}>
         <slot></slot>
-      </mwc-list>
-    </mwc-menu-surface>`;
+      </mwc-list>`;
+    }
+    renderListClasses() {
+        return {
+            'mdc-deprecated-list': true,
+        };
     }
     createAdapter() {
         return {
@@ -9812,64 +6050,64 @@ class MenuBase extends BaseElement {
     }
 }
 __decorate([
-    i$2('.mdc-menu')
+    i('.mdc-menu')
 ], MenuBase.prototype, "mdcRoot", void 0);
 __decorate([
-    i$2('slot')
+    i('slot')
 ], MenuBase.prototype, "slotElement", void 0);
 __decorate([
-    e$5({ type: Object })
+    e$1({ type: Object })
 ], MenuBase.prototype, "anchor", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], MenuBase.prototype, "open", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "quick", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "wrapFocus", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], MenuBase.prototype, "innerRole", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], MenuBase.prototype, "innerAriaLabel", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], MenuBase.prototype, "corner", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], MenuBase.prototype, "x", void 0);
 __decorate([
-    e$5({ type: Number })
+    e$1({ type: Number })
 ], MenuBase.prototype, "y", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "absolute", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "multi", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "activatable", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "fixed", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "forceGroupSelection", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "fullwidth", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], MenuBase.prototype, "menuCorner", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], MenuBase.prototype, "stayOpenOnBodyClick", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (value) {
         if (this.mdcFoundation) {
             this.mdcFoundation.setDefaultFocusState(DefaultFocusState[value]);
@@ -9882,7 +6120,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$2 = i$4 `mwc-list ::slotted([mwc-list-item]:not([twoline])),mwc-list ::slotted([noninteractive]:not([twoline])){height:var(--mdc-menu-item-height, 48px)}`;
+const styles$2 = i$1 `mwc-list ::slotted([mwc-list-item]:not([twoline])),mwc-list ::slotted([noninteractive]:not([twoline])){height:var(--mdc-menu-item-height, 48px)}`;
 
 /**
  * @license
@@ -9893,7 +6131,7 @@ let Menu = class Menu extends MenuBase {
 };
 Menu.styles = [styles$2];
 Menu = __decorate([
-    e$6('mwc-menu')
+    e$4('mwc-menu')
 ], Menu);
 
 /**
@@ -10822,14 +7060,11 @@ class SelectBase extends FormElement {
             'mdc-select--required': this.required,
             'mdc-select--invalid': !this.isUiValid,
         };
-        const menuClasses = {
-            'mdc-select__menu--invalid': !this.isUiValid,
-        };
         const labelledby = !!this.label ? 'label' : undefined;
         const describedby = this.shouldRenderHelperText ? 'helper-text' : undefined;
         return y `
       <div
-          class="mdc-select ${o(classes)}">
+          class="mdc-select ${o$2(classes)}">
         <input
             class="formElement"
             name="${this.name}"
@@ -10844,9 +7079,9 @@ class SelectBase extends FormElement {
             aria-expanded=${this.menuOpen}
             aria-invalid=${!this.isUiValid}
             aria-haspopup="listbox"
-            aria-labelledby=${l$1(labelledby)}
+            aria-labelledby=${l$2(labelledby)}
             aria-required=${this.required}
-            aria-describedby=${l$1(describedby)}
+            aria-describedby=${l$2(describedby)}
             @click=${this.onClick}
             @focus=${this.onFocus}
             @blur=${this.onBlur}
@@ -10878,24 +7113,40 @@ class SelectBase extends FormElement {
           </span>
           ${this.renderLineRipple()}
         </div>
-        <mwc-menu
-            innerRole="listbox"
-            wrapFocus
-            class="mdc-select__menu mdc-menu mdc-menu-surface ${o(menuClasses)}"
-            activatable
-            .fullwidth=${this.fixedMenuPosition ? false : !this.naturalMenuWidth}
-            .open=${this.menuOpen}
-            .anchor=${this.anchorElement}
-            .fixed=${this.fixedMenuPosition}
-            @selected=${this.onSelected}
-            @opened=${this.onOpened}
-            @closed=${this.onClosed}
-            @items-updated=${this.onItemsUpdated}
-            @keydown=${this.handleTypeahead}>
-          <slot></slot>
-        </mwc-menu>
+        ${this.renderMenu()}
       </div>
       ${this.renderHelperText()}`;
+    }
+    renderMenu() {
+        const classes = this.getMenuClasses();
+        return y `
+      <mwc-menu
+        innerRole="listbox"
+        wrapFocus
+        class=" ${o$2(classes)}"
+        activatable
+        .fullwidth=${this.fixedMenuPosition ? false : !this.naturalMenuWidth}
+        .open=${this.menuOpen}
+        .anchor=${this.anchorElement}
+        .fixed=${this.fixedMenuPosition}
+        @selected=${this.onSelected}
+        @opened=${this.onOpened}
+        @closed=${this.onClosed}
+        @items-updated=${this.onItemsUpdated}
+        @keydown=${this.handleTypeahead}>
+      ${this.renderMenuContent()}
+    </mwc-menu>`;
+    }
+    getMenuClasses() {
+        return {
+            'mdc-select__menu': true,
+            'mdc-menu': true,
+            'mdc-menu-surface': true,
+            'mdc-select__menu--invalid': !this.isUiValid,
+        };
+    }
+    renderMenuContent() {
+        return y `<slot></slot>`;
     }
     renderRipple() {
         if (this.outlined) {
@@ -10951,7 +7202,7 @@ class SelectBase extends FormElement {
         };
         return y `
         <p
-          class="mdc-select-helper-text ${o(classes)}"
+          class="mdc-select-helper-text ${o$2(classes)}"
           id="helper-text">${showValidationMessage ? this.validationMessage : this.helper}</p>`;
     }
     createAdapter() {
@@ -11344,37 +7595,37 @@ class SelectBase extends FormElement {
     }
 }
 __decorate([
-    i$2('.mdc-select')
+    i('.mdc-select')
 ], SelectBase.prototype, "mdcRoot", void 0);
 __decorate([
-    i$2('.formElement')
+    i('.formElement')
 ], SelectBase.prototype, "formElement", void 0);
 __decorate([
-    i$2('slot')
+    i('slot')
 ], SelectBase.prototype, "slotElement", void 0);
 __decorate([
-    i$2('select')
+    i('select')
 ], SelectBase.prototype, "nativeSelectElement", void 0);
 __decorate([
-    i$2('input')
+    i('input')
 ], SelectBase.prototype, "nativeInputElement", void 0);
 __decorate([
-    i$2('.mdc-line-ripple')
+    i('.mdc-line-ripple')
 ], SelectBase.prototype, "lineRippleElement", void 0);
 __decorate([
-    i$2('.mdc-floating-label')
+    i('.mdc-floating-label')
 ], SelectBase.prototype, "labelElement", void 0);
 __decorate([
-    i$2('mwc-notched-outline')
+    i('mwc-notched-outline')
 ], SelectBase.prototype, "outlineElement", void 0);
 __decorate([
-    i$2('.mdc-menu')
+    i('.mdc-menu')
 ], SelectBase.prototype, "menuElement", void 0);
 __decorate([
-    i$2('.mdc-select__anchor')
+    i('.mdc-select__anchor')
 ], SelectBase.prototype, "anchorElement", void 0);
 __decorate([
-    e$5({ type: Boolean, attribute: 'disabled', reflect: true }),
+    e$1({ type: Boolean, attribute: 'disabled', reflect: true }),
     observer(function (value) {
         if (this.mdcFoundation) {
             this.mdcFoundation.setDisabled(value);
@@ -11382,7 +7633,7 @@ __decorate([
     })
 ], SelectBase.prototype, "disabled", void 0);
 __decorate([
-    e$5({ type: Boolean }),
+    e$1({ type: Boolean }),
     observer(function (_newVal, oldVal) {
         if (oldVal !== undefined && this.outlined !== oldVal) {
             this.layout(false);
@@ -11390,7 +7641,7 @@ __decorate([
     })
 ], SelectBase.prototype, "outlined", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (_newVal, oldVal) {
         if (oldVal !== undefined && this.label !== oldVal) {
             this.layout(false);
@@ -11398,13 +7649,13 @@ __decorate([
     })
 ], SelectBase.prototype, "label", void 0);
 __decorate([
-    t$1()
+    t()
 ], SelectBase.prototype, "outlineOpen", void 0);
 __decorate([
-    t$1()
+    t()
 ], SelectBase.prototype, "outlineWidth", void 0);
 __decorate([
-    e$5({ type: String }),
+    e$1({ type: String }),
     observer(function (value) {
         if (this.mdcFoundation) {
             const initialization = this.selected === null && !!value;
@@ -11417,40 +7668,40 @@ __decorate([
     })
 ], SelectBase.prototype, "value", void 0);
 __decorate([
-    e$5()
+    e$1()
 ], SelectBase.prototype, "name", void 0);
 __decorate([
-    t$1()
+    t()
 ], SelectBase.prototype, "selectedText", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], SelectBase.prototype, "icon", void 0);
 __decorate([
-    t$1()
+    t()
 ], SelectBase.prototype, "menuOpen", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], SelectBase.prototype, "helper", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], SelectBase.prototype, "validateOnInitialRender", void 0);
 __decorate([
-    e$5({ type: String })
+    e$1({ type: String })
 ], SelectBase.prototype, "validationMessage", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], SelectBase.prototype, "required", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], SelectBase.prototype, "naturalMenuWidth", void 0);
 __decorate([
-    t$1()
+    t()
 ], SelectBase.prototype, "isUiValid", void 0);
 __decorate([
-    e$5({ type: Boolean })
+    e$1({ type: Boolean })
 ], SelectBase.prototype, "fixedMenuPosition", void 0);
 __decorate([
-    e$4({ capture: true })
+    e$3({ capture: true })
 ], SelectBase.prototype, "handleTypeahead", null);
 
 /**
@@ -11458,14 +7709,14 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles$1 = i$4 `.mdc-floating-label{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);position:absolute;left:0;-webkit-transform-origin:left top;transform-origin:left top;line-height:1.15rem;text-align:left;text-overflow:ellipsis;white-space:nowrap;cursor:text;overflow:hidden;will-change:transform;transition:transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1)}[dir=rtl] .mdc-floating-label,.mdc-floating-label[dir=rtl]{right:0;left:auto;-webkit-transform-origin:right top;transform-origin:right top;text-align:right}.mdc-floating-label--float-above{cursor:auto}.mdc-floating-label--required::after{margin-left:1px;margin-right:0px;content:"*"}[dir=rtl] .mdc-floating-label--required::after,.mdc-floating-label--required[dir=rtl]::after{margin-left:0;margin-right:1px}.mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-standard 250ms 1}@keyframes mdc-floating-label-shake-float-above-standard{0%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-106%) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}}@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}.mdc-line-ripple::before,.mdc-line-ripple::after{position:absolute;bottom:0;left:0;width:100%;border-bottom-style:solid;content:""}.mdc-line-ripple::before{border-bottom-width:1px}.mdc-line-ripple::before{z-index:1}.mdc-line-ripple::after{transform:scaleX(0);border-bottom-width:2px;opacity:0;z-index:2}.mdc-line-ripple::after{transition:transform 180ms cubic-bezier(0.4, 0, 0.2, 1),opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-line-ripple--active::after{transform:scaleX(1);opacity:1}.mdc-line-ripple--deactivating::after{opacity:0}.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}.mdc-select{display:inline-flex;position:relative}.mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.87)}.mdc-select.mdc-select--disabled .mdc-select__selected-text{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-floating-label{color:rgba(0, 0, 0, 0.6)}.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label{color:rgba(98, 0, 238, 0.87)}.mdc-select.mdc-select--disabled .mdc-floating-label{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.54)}.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-select__dropdown-icon{fill:#6200ee;fill:var(--mdc-theme-primary, #6200ee)}.mdc-select.mdc-select--disabled .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled)+.mdc-select-helper-text{color:rgba(0, 0, 0, 0.6)}.mdc-select.mdc-select--disabled+.mdc-select-helper-text{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-select__icon{color:rgba(0, 0, 0, 0.54)}.mdc-select.mdc-select--disabled .mdc-select__icon{color:rgba(0, 0, 0, 0.38)}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-select.mdc-select--disabled .mdc-select__selected-text{color:GrayText}.mdc-select.mdc-select--disabled .mdc-select__dropdown-icon{fill:red}.mdc-select.mdc-select--disabled .mdc-floating-label{color:GrayText}.mdc-select.mdc-select--disabled .mdc-line-ripple::before{border-bottom-color:GrayText}.mdc-select.mdc-select--disabled .mdc-notched-outline__leading,.mdc-select.mdc-select--disabled .mdc-notched-outline__notch,.mdc-select.mdc-select--disabled .mdc-notched-outline__trailing{border-color:GrayText}.mdc-select.mdc-select--disabled .mdc-select__icon{color:GrayText}.mdc-select.mdc-select--disabled+.mdc-select-helper-text{color:GrayText}}.mdc-select .mdc-floating-label{top:50%;transform:translateY(-50%);pointer-events:none}.mdc-select .mdc-select__anchor{padding-left:16px;padding-right:0}[dir=rtl] .mdc-select .mdc-select__anchor,.mdc-select .mdc-select__anchor[dir=rtl]{padding-left:0;padding-right:16px}.mdc-select.mdc-select--with-leading-icon .mdc-select__anchor{padding-left:0;padding-right:0}[dir=rtl] .mdc-select.mdc-select--with-leading-icon .mdc-select__anchor,.mdc-select.mdc-select--with-leading-icon .mdc-select__anchor[dir=rtl]{padding-left:0;padding-right:0}.mdc-select .mdc-select__icon{width:24px;height:24px;font-size:24px}.mdc-select .mdc-select__dropdown-icon{width:24px;height:24px}.mdc-select .mdc-select__menu .mdc-deprecated-list-item{padding-left:16px;padding-right:16px}[dir=rtl] .mdc-select .mdc-select__menu .mdc-deprecated-list-item,.mdc-select .mdc-select__menu .mdc-deprecated-list-item[dir=rtl]{padding-left:16px;padding-right:16px}.mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic{margin-left:0;margin-right:12px}[dir=rtl] .mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic,.mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:12px;margin-right:0}.mdc-select__dropdown-icon{margin-left:12px;margin-right:12px;display:inline-flex;position:relative;align-self:center;align-items:center;justify-content:center;flex-shrink:0;pointer-events:none}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-active,.mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{position:absolute;top:0;left:0}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-graphic{width:41.6666666667%;height:20.8333333333%}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{opacity:1;transition:opacity 75ms linear 75ms}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-active{opacity:0;transition:opacity 75ms linear}[dir=rtl] .mdc-select__dropdown-icon,.mdc-select__dropdown-icon[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select--activated .mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{opacity:0;transition:opacity 49.5ms linear}.mdc-select--activated .mdc-select__dropdown-icon .mdc-select__dropdown-icon-active{opacity:1;transition:opacity 100.5ms linear 49.5ms}.mdc-select__anchor{width:200px;min-width:0;flex:1 1 auto;position:relative;box-sizing:border-box;overflow:hidden;outline:none;cursor:pointer}.mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-select__selected-text-container{display:flex;appearance:none;pointer-events:none;box-sizing:border-box;width:auto;min-width:0;flex-grow:1;height:28px;border:none;outline:none;padding:0;background-color:transparent;color:inherit}.mdc-select__selected-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);line-height:1.75rem;line-height:var(--mdc-typography-subtitle1-line-height, 1.75rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;width:100%;text-align:left}[dir=rtl] .mdc-select__selected-text,.mdc-select__selected-text[dir=rtl]{text-align:right}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--invalid+.mdc-select-helper-text--validation-msg{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-select__dropdown-icon{fill:#b00020;fill:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-select__dropdown-icon{fill:#b00020;fill:var(--mdc-theme-error, #b00020)}.mdc-select--disabled{cursor:default;pointer-events:none}.mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item{padding-left:12px;padding-right:12px}[dir=rtl] .mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item,.mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item[dir=rtl]{padding-left:12px;padding-right:12px}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-select__menu::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid transparent;border-radius:inherit;content:"";pointer-events:none}}@media screen and (forced-colors: active)and (forced-colors: active),screen and (-ms-high-contrast: active)and (forced-colors: active){.mdc-select__menu::before{border-color:CanvasText}}.mdc-select__menu .mdc-deprecated-list .mdc-select__icon,.mdc-select__menu .mdc-list .mdc-select__icon{margin-left:0;margin-right:0}[dir=rtl] .mdc-select__menu .mdc-deprecated-list .mdc-select__icon,[dir=rtl] .mdc-select__menu .mdc-list .mdc-select__icon,.mdc-select__menu .mdc-deprecated-list .mdc-select__icon[dir=rtl],.mdc-select__menu .mdc-list .mdc-select__icon[dir=rtl]{margin-left:0;margin-right:0}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--activated,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--selected,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--activated{color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic{color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-select__menu .mdc-list-item__start{display:inline-flex;align-items:center}.mdc-select__option{padding-left:16px;padding-right:16px}[dir=rtl] .mdc-select__option,.mdc-select__option[dir=rtl]{padding-left:16px;padding-right:16px}.mdc-select__one-line-option.mdc-list-item--with-one-line{height:48px}.mdc-select__two-line-option.mdc-list-item--with-two-lines{height:64px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__start{margin-top:20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text{display:block;margin-top:0;line-height:normal;margin-bottom:-20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text::before{display:inline-block;width:0;height:28px;content:"";vertical-align:0}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines.mdc-list-item--with-trailing-meta .mdc-list-item__end{display:block;margin-top:0;line-height:normal}.mdc-select__two-line-option.mdc-list-item--with-two-lines.mdc-list-item--with-trailing-meta .mdc-list-item__end::before{display:inline-block;width:0;height:36px;content:"";vertical-align:0}.mdc-select__option-with-leading-content{padding-left:0;padding-right:12px}.mdc-select__option-with-leading-content.mdc-list-item{padding-left:0;padding-right:auto}[dir=rtl] .mdc-select__option-with-leading-content.mdc-list-item,.mdc-select__option-with-leading-content.mdc-list-item[dir=rtl]{padding-left:auto;padding-right:0}.mdc-select__option-with-leading-content .mdc-list-item__start{margin-left:12px;margin-right:0}[dir=rtl] .mdc-select__option-with-leading-content .mdc-list-item__start,.mdc-select__option-with-leading-content .mdc-list-item__start[dir=rtl]{margin-left:0;margin-right:12px}.mdc-select__option-with-leading-content .mdc-list-item__start{width:36px;height:24px}[dir=rtl] .mdc-select__option-with-leading-content,.mdc-select__option-with-leading-content[dir=rtl]{padding-left:12px;padding-right:0}.mdc-select__option-with-meta.mdc-list-item{padding-left:auto;padding-right:0}[dir=rtl] .mdc-select__option-with-meta.mdc-list-item,.mdc-select__option-with-meta.mdc-list-item[dir=rtl]{padding-left:0;padding-right:auto}.mdc-select__option-with-meta .mdc-list-item__end{margin-left:12px;margin-right:12px}[dir=rtl] .mdc-select__option-with-meta .mdc-list-item__end,.mdc-select__option-with-meta .mdc-list-item__end[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select--filled .mdc-select__anchor{height:56px;display:flex;align-items:baseline}.mdc-select--filled .mdc-select__anchor::before{display:inline-block;width:0;height:40px;content:"";vertical-align:0}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor .mdc-select__selected-text::before{content:"​"}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor .mdc-select__selected-text-container{height:100%;display:inline-flex;align-items:center}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor::before{display:none}.mdc-select--filled .mdc-select__anchor{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:0;border-bottom-left-radius:0}.mdc-select--filled:not(.mdc-select--disabled) .mdc-select__anchor{background-color:whitesmoke}.mdc-select--filled.mdc-select--disabled .mdc-select__anchor{background-color:#fafafa}.mdc-select--filled:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42)}.mdc-select--filled:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87)}.mdc-select--filled:not(.mdc-select--disabled) .mdc-line-ripple::after{border-bottom-color:#6200ee;border-bottom-color:var(--mdc-theme-primary, #6200ee)}.mdc-select--filled.mdc-select--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06)}.mdc-select--filled .mdc-floating-label{max-width:calc(100% - 64px)}.mdc-select--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-select--filled .mdc-menu-surface--is-open-below{border-top-left-radius:0px;border-top-right-radius:0px}.mdc-select--filled.mdc-select--focused.mdc-line-ripple::after{transform:scale(1, 2);opacity:1}.mdc-select--filled .mdc-floating-label{left:16px;right:initial}[dir=rtl] .mdc-select--filled .mdc-floating-label,.mdc-select--filled .mdc-floating-label[dir=rtl]{left:initial;right:16px}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label{left:48px;right:initial}[dir=rtl] .mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label,.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label[dir=rtl]{left:initial;right:48px}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label{max-width:calc(100% - 96px)}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 96px / 0.75)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-line-ripple::after{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined{border:none}.mdc-select--outlined .mdc-select__anchor{height:56px}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-56px{0%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}}.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}@supports(top: max(0%)){.mdc-select--outlined .mdc-select__anchor{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-select--outlined .mdc-select__anchor,.mdc-select--outlined .mdc-select__anchor[dir=rtl]{padding-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-select--outlined .mdc-select__anchor,.mdc-select--outlined .mdc-select__anchor[dir=rtl]{padding-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-select--outlined+.mdc-select-helper-text{margin-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-select--outlined+.mdc-select-helper-text,.mdc-select--outlined+.mdc-select-helper-text[dir=rtl]{margin-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-select--outlined+.mdc-select-helper-text,.mdc-select--outlined+.mdc-select-helper-text[dir=rtl]{margin-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}.mdc-select--outlined:not(.mdc-select--disabled) .mdc-select__anchor{background-color:transparent}.mdc-select--outlined.mdc-select--disabled .mdc-select__anchor{background-color:transparent}.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.38)}.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.87)}.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-width:2px}.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#6200ee;border-color:var(--mdc-theme-primary, #6200ee)}.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.06)}.mdc-select--outlined .mdc-select__anchor :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-select--outlined .mdc-select__anchor{display:flex;align-items:baseline;overflow:visible}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined 250ms 1}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:1px}.mdc-select--outlined .mdc-select__anchor .mdc-select__selected-text::before{content:"​"}.mdc-select--outlined .mdc-select__anchor .mdc-select__selected-text-container{height:100%;display:inline-flex;align-items:center}.mdc-select--outlined .mdc-select__anchor::before{display:none}.mdc-select--outlined .mdc-select__selected-text-container{display:flex;border:none;z-index:1;background-color:transparent}.mdc-select--outlined .mdc-select__icon{z-index:2}.mdc-select--outlined .mdc-floating-label{line-height:1.15rem;left:4px;right:initial}[dir=rtl] .mdc-select--outlined .mdc-floating-label,.mdc-select--outlined .mdc-floating-label[dir=rtl]{left:initial;right:4px}.mdc-select--outlined.mdc-select--focused .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:2px}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-width:2px}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label{left:36px;right:initial}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label[dir=rtl]{left:initial;right:36px}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above{transform:translateY(-37.25px) translateX(-32px) scale(1)}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-37.25px) translateX(32px) scale(1)}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) translateX(-32px) scale(0.75)}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-34.75px) translateX(32px) scale(0.75)}.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px{0%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--shake,.mdc-select--outlined.mdc-select--with-leading-icon[dir=rtl] .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px-rtl{0%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - -32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - -32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-select__anchor :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 96px)}.mdc-select--outlined .mdc-menu-surface{margin-bottom:8px}.mdc-select--outlined.mdc-select--no-label .mdc-menu-surface,.mdc-select--outlined .mdc-menu-surface--is-open-below{margin-bottom:0}.mdc-select__anchor{--mdc-ripple-fg-size: 0;--mdc-ripple-left: 0;--mdc-ripple-top: 0;--mdc-ripple-fg-scale: 1;--mdc-ripple-fg-translate-end: 0;--mdc-ripple-fg-translate-start: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-select__anchor .mdc-select__ripple::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1;z-index:var(--mdc-ripple-z-index, 1)}.mdc-select__anchor .mdc-select__ripple::after{z-index:0;z-index:var(--mdc-ripple-z-index, 0)}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-select__anchor.mdc-ripple-upgraded--unbounded .mdc-select__ripple::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-select__anchor.mdc-ripple-upgraded--foreground-activation .mdc-select__ripple::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-select__anchor.mdc-ripple-upgraded--foreground-deactivation .mdc-select__ripple::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{background-color:rgba(0, 0, 0, 0.87);background-color:var(--mdc-ripple-color, rgba(0, 0, 0, 0.87))}.mdc-select__anchor:hover .mdc-select__ripple::before,.mdc-select__anchor.mdc-ripple-surface--hover .mdc-select__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__anchor.mdc-ripple-upgraded--background-focused .mdc-select__ripple::before,.mdc-select__anchor:not(.mdc-ripple-upgraded):focus .mdc-select__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__anchor .mdc-select__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, var(--mdc-theme-on-surface, #000))}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:hover .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-surface--hover .mdc-deprecated-list-item__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded--background-focused .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):focus .mdc-deprecated-list-item__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded) .mdc-deprecated-list-item__ripple::after{transition:opacity 150ms linear}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):active .mdc-deprecated-list-item__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-list-item__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, var(--mdc-theme-on-surface, #000))}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:hover .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-surface--hover .mdc-list-item__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded--background-focused .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):focus .mdc-list-item__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded) .mdc-list-item__ripple::after{transition:opacity 150ms linear}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):active .mdc-list-item__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select-helper-text{margin:0;margin-left:16px;margin-right:16px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal}[dir=rtl] .mdc-select-helper-text,.mdc-select-helper-text[dir=rtl]{margin-left:16px;margin-right:16px}.mdc-select-helper-text::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}.mdc-select-helper-text--validation-msg{opacity:0;transition:opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-select--invalid+.mdc-select-helper-text--validation-msg,.mdc-select-helper-text--validation-msg-persistent{opacity:1}.mdc-select--with-leading-icon .mdc-select__icon{display:inline-block;box-sizing:border-box;border:none;text-decoration:none;cursor:pointer;user-select:none;flex-shrink:0;align-self:center;background-color:transparent;fill:currentColor}.mdc-select--with-leading-icon .mdc-select__icon{margin-left:12px;margin-right:12px}[dir=rtl] .mdc-select--with-leading-icon .mdc-select__icon,.mdc-select--with-leading-icon .mdc-select__icon[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select__icon:not([tabindex]),.mdc-select__icon[tabindex="-1"]{cursor:default;pointer-events:none}.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}:host{display:inline-block;vertical-align:top;outline:none}.mdc-select{width:100%}[hidden]{display:none}.mdc-select__icon{z-index:2}.mdc-select--with-leading-icon{--mdc-list-item-graphic-margin: calc( 48px - var(--mdc-list-item-graphic-size, 24px) - var(--mdc-list-side-padding, 16px) )}.mdc-select .mdc-select__anchor .mdc-select__selected-text{overflow:hidden}.mdc-select .mdc-select__anchor *{display:inline-flex}.mdc-select .mdc-select__anchor .mdc-floating-label{display:inline-block}mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-idle-border-color, rgba(0, 0, 0, 0.38) );--mdc-notched-outline-notch-offset: 1px}:host(:not([disabled]):hover) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-hover-border-color, rgba(0, 0, 0, 0.87) )}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.87);color:var(--mdc-select-ink-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42);border-bottom-color:var(--mdc-select-idle-line-color, rgba(0, 0, 0, 0.42))}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87);border-bottom-color:var(--mdc-select-hover-line-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-select:not(.mdc-select--outlined):not(.mdc-select--disabled) .mdc-select__anchor{background-color:whitesmoke;background-color:var(--mdc-select-fill-color, whitesmoke)}:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-select__dropdown-icon{fill:var(--mdc-select-error-dropdown-icon-color, var(--mdc-select-error-color, var(--mdc-theme-error, #b00020)))}:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-floating-label,:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-floating-label::after{color:var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-select.mdc-select--invalid mwc-notched-outline{--mdc-notched-outline-border-color: var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}.mdc-select__menu--invalid{--mdc-theme-primary: var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label,:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label::after{color:rgba(0, 0, 0, 0.6);color:var(--mdc-select-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.54);fill:var(--mdc-select-dropdown-icon-color, rgba(0, 0, 0, 0.54))}:host(:not([disabled])) .mdc-select.mdc-select--focused mwc-notched-outline{--mdc-notched-outline-stroke-width: 2px;--mdc-notched-outline-notch-offset: 2px}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-focused-label-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)) )}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-select__dropdown-icon{fill:rgba(98,0,238,.87);fill:var(--mdc-select-focused-dropdown-icon-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)))}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-floating-label{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-floating-label::after{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-select-helper-text:not(.mdc-select-helper-text--validation-msg){color:var(--mdc-select-label-ink-color, rgba(0, 0, 0, 0.6))}:host([disabled]){pointer-events:none}:host([disabled]) .mdc-select:not(.mdc-select--outlined).mdc-select--disabled .mdc-select__anchor{background-color:#fafafa;background-color:var(--mdc-select-disabled-fill-color, #fafafa)}:host([disabled]) .mdc-select.mdc-select--outlined mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-disabled-border-color, rgba(0, 0, 0, 0.06) )}:host([disabled]) .mdc-select .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.38);fill:var(--mdc-select-disabled-dropdown-icon-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label,:host([disabled]) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label::after{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select-helper-text{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}`;
+const styles$1 = i$1 `.mdc-floating-label{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);position:absolute;left:0;-webkit-transform-origin:left top;transform-origin:left top;line-height:1.15rem;text-align:left;text-overflow:ellipsis;white-space:nowrap;cursor:text;overflow:hidden;will-change:transform;transition:transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1)}[dir=rtl] .mdc-floating-label,.mdc-floating-label[dir=rtl]{right:0;left:auto;-webkit-transform-origin:right top;transform-origin:right top;text-align:right}.mdc-floating-label--float-above{cursor:auto}.mdc-floating-label--required::after{margin-left:1px;margin-right:0px;content:"*"}[dir=rtl] .mdc-floating-label--required::after,.mdc-floating-label--required[dir=rtl]::after{margin-left:0;margin-right:1px}.mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-standard 250ms 1}@keyframes mdc-floating-label-shake-float-above-standard{0%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-106%) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-106%) scale(0.75)}}@keyframes mdc-ripple-fg-radius-in{from{animation-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transform:translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1)}to{transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}}@keyframes mdc-ripple-fg-opacity-in{from{animation-timing-function:linear;opacity:0}to{opacity:var(--mdc-ripple-fg-opacity, 0)}}@keyframes mdc-ripple-fg-opacity-out{from{animation-timing-function:linear;opacity:var(--mdc-ripple-fg-opacity, 0)}to{opacity:0}}.mdc-line-ripple::before,.mdc-line-ripple::after{position:absolute;bottom:0;left:0;width:100%;border-bottom-style:solid;content:""}.mdc-line-ripple::before{border-bottom-width:1px}.mdc-line-ripple::before{z-index:1}.mdc-line-ripple::after{transform:scaleX(0);border-bottom-width:2px;opacity:0;z-index:2}.mdc-line-ripple::after{transition:transform 180ms cubic-bezier(0.4, 0, 0.2, 1),opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-line-ripple--active::after{transform:scaleX(1);opacity:1}.mdc-line-ripple--deactivating::after{opacity:0}.mdc-notched-outline{display:flex;position:absolute;top:0;right:0;left:0;box-sizing:border-box;width:100%;max-width:100%;height:100%;text-align:left;pointer-events:none}[dir=rtl] .mdc-notched-outline,.mdc-notched-outline[dir=rtl]{text-align:right}.mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{box-sizing:border-box;height:100%;border-top:1px solid;border-bottom:1px solid;pointer-events:none}.mdc-notched-outline__leading{border-left:1px solid;border-right:none;width:12px}[dir=rtl] .mdc-notched-outline__leading,.mdc-notched-outline__leading[dir=rtl]{border-left:none;border-right:1px solid}.mdc-notched-outline__trailing{border-left:none;border-right:1px solid;flex-grow:1}[dir=rtl] .mdc-notched-outline__trailing,.mdc-notched-outline__trailing[dir=rtl]{border-left:1px solid;border-right:none}.mdc-notched-outline__notch{flex:0 0 auto;width:auto;max-width:calc(100% - 12px * 2)}.mdc-notched-outline .mdc-floating-label{display:inline-block;position:relative;max-width:100%}.mdc-notched-outline .mdc-floating-label--float-above{text-overflow:clip}.mdc-notched-outline--upgraded .mdc-floating-label--float-above{max-width:calc(100% / 0.75)}.mdc-notched-outline--notched .mdc-notched-outline__notch{padding-left:0;padding-right:8px;border-top:none}[dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch,.mdc-notched-outline--notched .mdc-notched-outline__notch[dir=rtl]{padding-left:8px;padding-right:0}.mdc-notched-outline--no-label .mdc-notched-outline__notch{display:none}.mdc-select{display:inline-flex;position:relative}.mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.87)}.mdc-select.mdc-select--disabled .mdc-select__selected-text{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-floating-label{color:rgba(0, 0, 0, 0.6)}.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label{color:rgba(98, 0, 238, 0.87)}.mdc-select.mdc-select--disabled .mdc-floating-label{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.54)}.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-select__dropdown-icon{fill:#6200ee;fill:var(--mdc-theme-primary, #6200ee)}.mdc-select.mdc-select--disabled .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled)+.mdc-select-helper-text{color:rgba(0, 0, 0, 0.6)}.mdc-select.mdc-select--disabled+.mdc-select-helper-text{color:rgba(0, 0, 0, 0.38)}.mdc-select:not(.mdc-select--disabled) .mdc-select__icon{color:rgba(0, 0, 0, 0.54)}.mdc-select.mdc-select--disabled .mdc-select__icon{color:rgba(0, 0, 0, 0.38)}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-select.mdc-select--disabled .mdc-select__selected-text{color:GrayText}.mdc-select.mdc-select--disabled .mdc-select__dropdown-icon{fill:red}.mdc-select.mdc-select--disabled .mdc-floating-label{color:GrayText}.mdc-select.mdc-select--disabled .mdc-line-ripple::before{border-bottom-color:GrayText}.mdc-select.mdc-select--disabled .mdc-notched-outline__leading,.mdc-select.mdc-select--disabled .mdc-notched-outline__notch,.mdc-select.mdc-select--disabled .mdc-notched-outline__trailing{border-color:GrayText}.mdc-select.mdc-select--disabled .mdc-select__icon{color:GrayText}.mdc-select.mdc-select--disabled+.mdc-select-helper-text{color:GrayText}}.mdc-select .mdc-floating-label{top:50%;transform:translateY(-50%);pointer-events:none}.mdc-select .mdc-select__anchor{padding-left:16px;padding-right:0}[dir=rtl] .mdc-select .mdc-select__anchor,.mdc-select .mdc-select__anchor[dir=rtl]{padding-left:0;padding-right:16px}.mdc-select.mdc-select--with-leading-icon .mdc-select__anchor{padding-left:0;padding-right:0}[dir=rtl] .mdc-select.mdc-select--with-leading-icon .mdc-select__anchor,.mdc-select.mdc-select--with-leading-icon .mdc-select__anchor[dir=rtl]{padding-left:0;padding-right:0}.mdc-select .mdc-select__icon{width:24px;height:24px;font-size:24px}.mdc-select .mdc-select__dropdown-icon{width:24px;height:24px}.mdc-select .mdc-select__menu .mdc-deprecated-list-item{padding-left:16px;padding-right:16px}[dir=rtl] .mdc-select .mdc-select__menu .mdc-deprecated-list-item,.mdc-select .mdc-select__menu .mdc-deprecated-list-item[dir=rtl]{padding-left:16px;padding-right:16px}.mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic{margin-left:0;margin-right:12px}[dir=rtl] .mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic,.mdc-select .mdc-select__menu .mdc-deprecated-list-item__graphic[dir=rtl]{margin-left:12px;margin-right:0}.mdc-select__dropdown-icon{margin-left:12px;margin-right:12px;display:inline-flex;position:relative;align-self:center;align-items:center;justify-content:center;flex-shrink:0;pointer-events:none}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-active,.mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{position:absolute;top:0;left:0}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-graphic{width:41.6666666667%;height:20.8333333333%}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{opacity:1;transition:opacity 75ms linear 75ms}.mdc-select__dropdown-icon .mdc-select__dropdown-icon-active{opacity:0;transition:opacity 75ms linear}[dir=rtl] .mdc-select__dropdown-icon,.mdc-select__dropdown-icon[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select--activated .mdc-select__dropdown-icon .mdc-select__dropdown-icon-inactive{opacity:0;transition:opacity 49.5ms linear}.mdc-select--activated .mdc-select__dropdown-icon .mdc-select__dropdown-icon-active{opacity:1;transition:opacity 100.5ms linear 49.5ms}.mdc-select__anchor{width:200px;min-width:0;flex:1 1 auto;position:relative;box-sizing:border-box;overflow:hidden;outline:none;cursor:pointer}.mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-106%) scale(0.75)}.mdc-select__selected-text-container{display:flex;appearance:none;pointer-events:none;box-sizing:border-box;width:auto;min-width:0;flex-grow:1;height:28px;border:none;outline:none;padding:0;background-color:transparent;color:inherit}.mdc-select__selected-text{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:1rem;font-size:var(--mdc-typography-subtitle1-font-size, 1rem);line-height:1.75rem;line-height:var(--mdc-typography-subtitle1-line-height, 1.75rem);font-weight:400;font-weight:var(--mdc-typography-subtitle1-font-weight, 400);letter-spacing:0.009375em;letter-spacing:var(--mdc-typography-subtitle1-letter-spacing, 0.009375em);text-decoration:inherit;text-decoration:var(--mdc-typography-subtitle1-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-subtitle1-text-transform, inherit);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;width:100%;text-align:left}[dir=rtl] .mdc-select__selected-text,.mdc-select__selected-text[dir=rtl]{text-align:right}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--invalid+.mdc-select-helper-text--validation-msg{color:#b00020;color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-select__dropdown-icon{fill:#b00020;fill:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-select__dropdown-icon{fill:#b00020;fill:var(--mdc-theme-error, #b00020)}.mdc-select--disabled{cursor:default;pointer-events:none}.mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item{padding-left:12px;padding-right:12px}[dir=rtl] .mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item,.mdc-select--with-leading-icon .mdc-select__menu .mdc-deprecated-list-item[dir=rtl]{padding-left:12px;padding-right:12px}@media screen and (forced-colors: active),(-ms-high-contrast: active){.mdc-select__menu::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid transparent;border-radius:inherit;content:"";pointer-events:none}}@media screen and (forced-colors: active)and (forced-colors: active),screen and (-ms-high-contrast: active)and (forced-colors: active){.mdc-select__menu::before{border-color:CanvasText}}.mdc-select__menu .mdc-deprecated-list .mdc-select__icon,.mdc-select__menu .mdc-list .mdc-select__icon{margin-left:0;margin-right:0}[dir=rtl] .mdc-select__menu .mdc-deprecated-list .mdc-select__icon,[dir=rtl] .mdc-select__menu .mdc-list .mdc-select__icon,.mdc-select__menu .mdc-deprecated-list .mdc-select__icon[dir=rtl],.mdc-select__menu .mdc-list .mdc-select__icon[dir=rtl]{margin-left:0;margin-right:0}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--activated,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--selected,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--activated{color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__graphic,.mdc-select__menu .mdc-list .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic{color:#000;color:var(--mdc-theme-on-surface, #000)}.mdc-select__menu .mdc-list-item__start{display:inline-flex;align-items:center}.mdc-select__option{padding-left:16px;padding-right:16px}[dir=rtl] .mdc-select__option,.mdc-select__option[dir=rtl]{padding-left:16px;padding-right:16px}.mdc-select__one-line-option.mdc-list-item--with-one-line{height:48px}.mdc-select__two-line-option.mdc-list-item--with-two-lines{height:64px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__start{margin-top:20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text{display:block;margin-top:0;line-height:normal;margin-bottom:-20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text::before{display:inline-block;width:0;height:28px;content:"";vertical-align:0}.mdc-select__two-line-option.mdc-list-item--with-two-lines .mdc-list-item__primary-text::after{display:inline-block;width:0;height:20px;content:"";vertical-align:-20px}.mdc-select__two-line-option.mdc-list-item--with-two-lines.mdc-list-item--with-trailing-meta .mdc-list-item__end{display:block;margin-top:0;line-height:normal}.mdc-select__two-line-option.mdc-list-item--with-two-lines.mdc-list-item--with-trailing-meta .mdc-list-item__end::before{display:inline-block;width:0;height:36px;content:"";vertical-align:0}.mdc-select__option-with-leading-content{padding-left:0;padding-right:12px}.mdc-select__option-with-leading-content.mdc-list-item{padding-left:0;padding-right:auto}[dir=rtl] .mdc-select__option-with-leading-content.mdc-list-item,.mdc-select__option-with-leading-content.mdc-list-item[dir=rtl]{padding-left:auto;padding-right:0}.mdc-select__option-with-leading-content .mdc-list-item__start{margin-left:12px;margin-right:0}[dir=rtl] .mdc-select__option-with-leading-content .mdc-list-item__start,.mdc-select__option-with-leading-content .mdc-list-item__start[dir=rtl]{margin-left:0;margin-right:12px}.mdc-select__option-with-leading-content .mdc-list-item__start{width:36px;height:24px}[dir=rtl] .mdc-select__option-with-leading-content,.mdc-select__option-with-leading-content[dir=rtl]{padding-left:12px;padding-right:0}.mdc-select__option-with-meta.mdc-list-item{padding-left:auto;padding-right:0}[dir=rtl] .mdc-select__option-with-meta.mdc-list-item,.mdc-select__option-with-meta.mdc-list-item[dir=rtl]{padding-left:0;padding-right:auto}.mdc-select__option-with-meta .mdc-list-item__end{margin-left:12px;margin-right:12px}[dir=rtl] .mdc-select__option-with-meta .mdc-list-item__end,.mdc-select__option-with-meta .mdc-list-item__end[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select--filled .mdc-select__anchor{height:56px;display:flex;align-items:baseline}.mdc-select--filled .mdc-select__anchor::before{display:inline-block;width:0;height:40px;content:"";vertical-align:0}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor .mdc-select__selected-text::before{content:"​"}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor .mdc-select__selected-text-container{height:100%;display:inline-flex;align-items:center}.mdc-select--filled.mdc-select--no-label .mdc-select__anchor::before{display:none}.mdc-select--filled .mdc-select__anchor{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:0;border-bottom-left-radius:0}.mdc-select--filled:not(.mdc-select--disabled) .mdc-select__anchor{background-color:whitesmoke}.mdc-select--filled.mdc-select--disabled .mdc-select__anchor{background-color:#fafafa}.mdc-select--filled:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42)}.mdc-select--filled:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87)}.mdc-select--filled:not(.mdc-select--disabled) .mdc-line-ripple::after{border-bottom-color:#6200ee;border-bottom-color:var(--mdc-theme-primary, #6200ee)}.mdc-select--filled.mdc-select--disabled .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.06)}.mdc-select--filled .mdc-floating-label{max-width:calc(100% - 64px)}.mdc-select--filled .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 64px / 0.75)}.mdc-select--filled .mdc-menu-surface--is-open-below{border-top-left-radius:0px;border-top-right-radius:0px}.mdc-select--filled.mdc-select--focused.mdc-line-ripple::after{transform:scale(1, 2);opacity:1}.mdc-select--filled .mdc-floating-label{left:16px;right:initial}[dir=rtl] .mdc-select--filled .mdc-floating-label,.mdc-select--filled .mdc-floating-label[dir=rtl]{left:initial;right:16px}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label{left:48px;right:initial}[dir=rtl] .mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label,.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label[dir=rtl]{left:initial;right:48px}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label{max-width:calc(100% - 96px)}.mdc-select--filled.mdc-select--with-leading-icon .mdc-floating-label--float-above{max-width:calc(100% / 0.75 - 96px / 0.75)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--invalid:not(.mdc-select--disabled) .mdc-line-ripple::after{border-bottom-color:#b00020;border-bottom-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined{border:none}.mdc-select--outlined .mdc-select__anchor{height:56px}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-56px{0%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 0%)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 0%)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 0%)) translateY(-34.75px) scale(0.75)}}.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}[dir=rtl] .mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading[dir=rtl]{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}@supports(top: max(0%)){.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__leading{width:max(12px, var(--mdc-shape-small, 4px))}}@supports(top: max(0%)){.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__notch{max-width:calc(100% - max(12px, var(--mdc-shape-small, 4px)) * 2)}}.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing{border-top-left-radius:0;border-top-right-radius:4px;border-top-right-radius:var(--mdc-shape-small, 4px);border-bottom-right-radius:4px;border-bottom-right-radius:var(--mdc-shape-small, 4px);border-bottom-left-radius:0}[dir=rtl] .mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing,.mdc-select--outlined .mdc-notched-outline .mdc-notched-outline__trailing[dir=rtl]{border-top-left-radius:4px;border-top-left-radius:var(--mdc-shape-small, 4px);border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:4px;border-bottom-left-radius:var(--mdc-shape-small, 4px)}@supports(top: max(0%)){.mdc-select--outlined .mdc-select__anchor{padding-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-select--outlined .mdc-select__anchor,.mdc-select--outlined .mdc-select__anchor[dir=rtl]{padding-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-select--outlined .mdc-select__anchor,.mdc-select--outlined .mdc-select__anchor[dir=rtl]{padding-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}@supports(top: max(0%)){.mdc-select--outlined+.mdc-select-helper-text{margin-left:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}[dir=rtl] .mdc-select--outlined+.mdc-select-helper-text,.mdc-select--outlined+.mdc-select-helper-text[dir=rtl]{margin-left:0}@supports(top: max(0%)){[dir=rtl] .mdc-select--outlined+.mdc-select-helper-text,.mdc-select--outlined+.mdc-select-helper-text[dir=rtl]{margin-right:max(16px, calc(var(--mdc-shape-small, 4px) + 4px))}}.mdc-select--outlined:not(.mdc-select--disabled) .mdc-select__anchor{background-color:transparent}.mdc-select--outlined.mdc-select--disabled .mdc-select__anchor{background-color:transparent}.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.38)}.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.87)}.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-width:2px}.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#6200ee;border-color:var(--mdc-theme-primary, #6200ee)}.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--disabled .mdc-notched-outline__trailing{border-color:rgba(0, 0, 0, 0.06)}.mdc-select--outlined .mdc-select__anchor :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 60px)}.mdc-select--outlined .mdc-select__anchor{display:flex;align-items:baseline;overflow:visible}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined 250ms 1}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{transform:translateY(-37.25px) scale(1)}.mdc-select--outlined .mdc-select__anchor .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) scale(0.75)}.mdc-select--outlined .mdc-select__anchor.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined .mdc-select__anchor .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:1px}.mdc-select--outlined .mdc-select__anchor .mdc-select__selected-text::before{content:"​"}.mdc-select--outlined .mdc-select__anchor .mdc-select__selected-text-container{height:100%;display:inline-flex;align-items:center}.mdc-select--outlined .mdc-select__anchor::before{display:none}.mdc-select--outlined .mdc-select__selected-text-container{display:flex;border:none;z-index:1;background-color:transparent}.mdc-select--outlined .mdc-select__icon{z-index:2}.mdc-select--outlined .mdc-floating-label{line-height:1.15rem;left:4px;right:initial}[dir=rtl] .mdc-select--outlined .mdc-floating-label,.mdc-select--outlined .mdc-floating-label[dir=rtl]{left:initial;right:4px}.mdc-select--outlined.mdc-select--focused .mdc-notched-outline--notched .mdc-notched-outline__notch{padding-top:2px}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled) .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled):not(.mdc-select--focused) .mdc-select__anchor:hover .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-width:2px}.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__leading,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__notch,.mdc-select--outlined.mdc-select--invalid:not(.mdc-select--disabled).mdc-select--focused .mdc-notched-outline .mdc-notched-outline__trailing{border-color:#b00020;border-color:var(--mdc-theme-error, #b00020)}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label{left:36px;right:initial}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label[dir=rtl]{left:initial;right:36px}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above{transform:translateY(-37.25px) translateX(-32px) scale(1)}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-37.25px) translateX(32px) scale(1)}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--float-above{font-size:.75rem}.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above{transform:translateY(-34.75px) translateX(-32px) scale(0.75)}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl]{transform:translateY(-34.75px) translateX(32px) scale(0.75)}.mdc-select--outlined.mdc-select--with-leading-icon.mdc-notched-outline--upgraded .mdc-floating-label--float-above,.mdc-select--outlined.mdc-select--with-leading-icon .mdc-notched-outline--upgraded .mdc-floating-label--float-above{font-size:1rem}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px{0%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - 32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - 32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - 32px)) translateY(-34.75px) scale(0.75)}}[dir=rtl] .mdc-select--outlined.mdc-select--with-leading-icon .mdc-floating-label--shake,.mdc-select--outlined.mdc-select--with-leading-icon[dir=rtl] .mdc-floating-label--shake{animation:mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px 250ms 1}@keyframes mdc-floating-label-shake-float-above-select-outlined-leading-icon-56px-rtl{0%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}33%{animation-timing-function:cubic-bezier(0.5, 0, 0.701732, 0.495819);transform:translateX(calc(4% - -32px)) translateY(-34.75px) scale(0.75)}66%{animation-timing-function:cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);transform:translateX(calc(-4% - -32px)) translateY(-34.75px) scale(0.75)}100%{transform:translateX(calc(0 - -32px)) translateY(-34.75px) scale(0.75)}}.mdc-select--outlined.mdc-select--with-leading-icon .mdc-select__anchor :not(.mdc-notched-outline--notched) .mdc-notched-outline__notch{max-width:calc(100% - 96px)}.mdc-select--outlined .mdc-menu-surface{margin-bottom:8px}.mdc-select--outlined.mdc-select--no-label .mdc-menu-surface,.mdc-select--outlined .mdc-menu-surface--is-open-below{margin-bottom:0}.mdc-select__anchor{--mdc-ripple-fg-size: 0;--mdc-ripple-left: 0;--mdc-ripple-top: 0;--mdc-ripple-fg-scale: 1;--mdc-ripple-fg-translate-end: 0;--mdc-ripple-fg-translate-start: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-select__anchor .mdc-select__ripple::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1;z-index:var(--mdc-ripple-z-index, 1)}.mdc-select__anchor .mdc-select__ripple::after{z-index:0;z-index:var(--mdc-ripple-z-index, 0)}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-select__anchor.mdc-ripple-upgraded--unbounded .mdc-select__ripple::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-select__anchor.mdc-ripple-upgraded--foreground-activation .mdc-select__ripple::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-select__anchor.mdc-ripple-upgraded--foreground-deactivation .mdc-select__ripple::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-select__anchor.mdc-ripple-upgraded .mdc-select__ripple::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-select__anchor .mdc-select__ripple::before,.mdc-select__anchor .mdc-select__ripple::after{background-color:rgba(0, 0, 0, 0.87);background-color:var(--mdc-ripple-color, rgba(0, 0, 0, 0.87))}.mdc-select__anchor:hover .mdc-select__ripple::before,.mdc-select__anchor.mdc-ripple-surface--hover .mdc-select__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__anchor.mdc-ripple-upgraded--background-focused .mdc-select__ripple::before,.mdc-select__anchor:not(.mdc-ripple-upgraded):focus .mdc-select__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__anchor .mdc-select__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-deprecated-list-item__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, var(--mdc-theme-on-surface, #000))}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:hover .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-surface--hover .mdc-deprecated-list-item__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded--background-focused .mdc-deprecated-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):focus .mdc-deprecated-list-item__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded) .mdc-deprecated-list-item__ripple::after{transition:opacity 150ms linear}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):active .mdc-deprecated-list-item__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected .mdc-list-item__ripple::after{background-color:#000;background-color:var(--mdc-ripple-color, var(--mdc-theme-on-surface, #000))}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:hover .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-surface--hover .mdc-list-item__ripple::before{opacity:0.04;opacity:var(--mdc-ripple-hover-opacity, 0.04)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded--background-focused .mdc-list-item__ripple::before,.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):focus .mdc-list-item__ripple::before{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-focus-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded) .mdc-list-item__ripple::after{transition:opacity 150ms linear}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected:not(.mdc-ripple-upgraded):active .mdc-list-item__ripple::after{transition-duration:75ms;opacity:0.12;opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select__menu .mdc-deprecated-list .mdc-deprecated-list-item--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity:var(--mdc-ripple-press-opacity, 0.12)}.mdc-select-helper-text{margin:0;margin-left:16px;margin-right:16px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.75rem;font-size:var(--mdc-typography-caption-font-size, 0.75rem);line-height:1.25rem;line-height:var(--mdc-typography-caption-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-caption-font-weight, 400);letter-spacing:0.0333333333em;letter-spacing:var(--mdc-typography-caption-letter-spacing, 0.0333333333em);text-decoration:inherit;text-decoration:var(--mdc-typography-caption-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-caption-text-transform, inherit);display:block;margin-top:0;line-height:normal}[dir=rtl] .mdc-select-helper-text,.mdc-select-helper-text[dir=rtl]{margin-left:16px;margin-right:16px}.mdc-select-helper-text::before{display:inline-block;width:0;height:16px;content:"";vertical-align:0}.mdc-select-helper-text--validation-msg{opacity:0;transition:opacity 180ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-select--invalid+.mdc-select-helper-text--validation-msg,.mdc-select-helper-text--validation-msg-persistent{opacity:1}.mdc-select--with-leading-icon .mdc-select__icon{display:inline-block;box-sizing:border-box;border:none;text-decoration:none;cursor:pointer;user-select:none;flex-shrink:0;align-self:center;background-color:transparent;fill:currentColor}.mdc-select--with-leading-icon .mdc-select__icon{margin-left:12px;margin-right:12px}[dir=rtl] .mdc-select--with-leading-icon .mdc-select__icon,.mdc-select--with-leading-icon .mdc-select__icon[dir=rtl]{margin-left:12px;margin-right:12px}.mdc-select__icon:not([tabindex]),.mdc-select__icon[tabindex="-1"]{cursor:default;pointer-events:none}.material-icons{font-family:var(--mdc-icon-font, "Material Icons");font-weight:normal;font-style:normal;font-size:var(--mdc-icon-size, 24px);line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:"liga"}:host{display:inline-block;vertical-align:top;outline:none}.mdc-select{width:100%}[hidden]{display:none}.mdc-select__icon{z-index:2}.mdc-select--with-leading-icon{--mdc-list-item-graphic-margin: calc( 48px - var(--mdc-list-item-graphic-size, 24px) - var(--mdc-list-side-padding, 16px) )}.mdc-select .mdc-select__anchor .mdc-select__selected-text{overflow:hidden}.mdc-select .mdc-select__anchor *{display:inline-flex}.mdc-select .mdc-select__anchor .mdc-floating-label{display:inline-block}mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-idle-border-color, rgba(0, 0, 0, 0.38) );--mdc-notched-outline-notch-offset: 1px}:host(:not([disabled]):hover) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-hover-border-color, rgba(0, 0, 0, 0.87) )}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.87);color:var(--mdc-select-ink-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled) .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.42);border-bottom-color:var(--mdc-select-idle-line-color, rgba(0, 0, 0, 0.42))}:host(:not([disabled])) .mdc-select:not(.mdc-select--disabled):hover .mdc-line-ripple::before{border-bottom-color:rgba(0, 0, 0, 0.87);border-bottom-color:var(--mdc-select-hover-line-color, rgba(0, 0, 0, 0.87))}:host(:not([disabled])) .mdc-select:not(.mdc-select--outlined):not(.mdc-select--disabled) .mdc-select__anchor{background-color:whitesmoke;background-color:var(--mdc-select-fill-color, whitesmoke)}:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-select__dropdown-icon{fill:var(--mdc-select-error-dropdown-icon-color, var(--mdc-select-error-color, var(--mdc-theme-error, #b00020)))}:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-floating-label,:host(:not([disabled])) .mdc-select.mdc-select--invalid .mdc-floating-label::after{color:var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-select.mdc-select--invalid mwc-notched-outline{--mdc-notched-outline-border-color: var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}.mdc-select__menu--invalid{--mdc-theme-primary: var(--mdc-select-error-color, var(--mdc-theme-error, #b00020))}:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label,:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label::after{color:rgba(0, 0, 0, 0.6);color:var(--mdc-select-label-ink-color, rgba(0, 0, 0, 0.6))}:host(:not([disabled])) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.54);fill:var(--mdc-select-dropdown-icon-color, rgba(0, 0, 0, 0.54))}:host(:not([disabled])) .mdc-select.mdc-select--focused mwc-notched-outline{--mdc-notched-outline-stroke-width: 2px;--mdc-notched-outline-notch-offset: 2px}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-focused-label-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)) )}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-select__dropdown-icon{fill:rgba(98,0,238,.87);fill:var(--mdc-select-focused-dropdown-icon-color, var(--mdc-theme-primary, rgba(98, 0, 238, 0.87)))}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-floating-label{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-select.mdc-select--focused:not(.mdc-select--invalid) .mdc-floating-label::after{color:#6200ee;color:var(--mdc-theme-primary, #6200ee)}:host(:not([disabled])) .mdc-select-helper-text:not(.mdc-select-helper-text--validation-msg){color:var(--mdc-select-label-ink-color, rgba(0, 0, 0, 0.6))}:host([disabled]){pointer-events:none}:host([disabled]) .mdc-select:not(.mdc-select--outlined).mdc-select--disabled .mdc-select__anchor{background-color:#fafafa;background-color:var(--mdc-select-disabled-fill-color, #fafafa)}:host([disabled]) .mdc-select.mdc-select--outlined mwc-notched-outline{--mdc-notched-outline-border-color: var( --mdc-select-outlined-disabled-border-color, rgba(0, 0, 0, 0.06) )}:host([disabled]) .mdc-select .mdc-select__dropdown-icon{fill:rgba(0, 0, 0, 0.38);fill:var(--mdc-select-disabled-dropdown-icon-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label,:host([disabled]) .mdc-select:not(.mdc-select--invalid):not(.mdc-select--focused) .mdc-floating-label::after{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select-helper-text{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}:host([disabled]) .mdc-select__selected-text{color:rgba(0, 0, 0, 0.38);color:var(--mdc-select-disabled-ink-color, rgba(0, 0, 0, 0.38))}`;
 
 class EwtSelect extends SelectBase {
 }
 EwtSelect.styles = [
     styles$1,
     // rem -> em conversion
-    i$4 `
+    i$1 `
       .mdc-floating-label {
         line-height: 1.15em;
       }
@@ -11515,13 +7766,13 @@ class CircularProgressBase extends s$1 {
         };
         return y `
       <div
-        class="mdc-circular-progress ${o(classes)}"
-        style="${i(styles)}"
+        class="mdc-circular-progress ${o$2(classes)}"
+        style="${i$3(styles)}"
         role="progressbar"
-        aria-label="${l$1(this.ariaLabel)}"
+        aria-label="${l$2(this.ariaLabel)}"
         aria-valuemin="0"
         aria-valuemax="1"
-        aria-valuenow="${l$1(this.indeterminate ? undefined : this.progress)}">
+        aria-valuenow="${l$2(this.indeterminate ? undefined : this.progress)}">
         ${this.renderDeterminateContainer()}
         ${this.renderIndeterminateContainer()}
       </div>`;
@@ -11619,20 +7870,20 @@ class CircularProgressBase extends s$1 {
     }
 }
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], CircularProgressBase.prototype, "indeterminate", void 0);
 __decorate([
-    e$5({ type: Number, reflect: true })
+    e$1({ type: Number, reflect: true })
 ], CircularProgressBase.prototype, "progress", void 0);
 __decorate([
-    e$5({ type: Number, reflect: true })
+    e$1({ type: Number, reflect: true })
 ], CircularProgressBase.prototype, "density", void 0);
 __decorate([
-    e$5({ type: Boolean, reflect: true })
+    e$1({ type: Boolean, reflect: true })
 ], CircularProgressBase.prototype, "closed", void 0);
 __decorate([
     ariaProperty,
-    e$5({ type: String, attribute: 'aria-label' })
+    e$1({ type: String, attribute: 'aria-label' })
 ], CircularProgressBase.prototype, "ariaLabel", void 0);
 
 /**
@@ -11640,7 +7891,7 @@ __decorate([
  * Copyright 2021 Google LLC
  * SPDX-LIcense-Identifier: Apache-2.0
  */
-const styles = i$4 `.mdc-circular-progress__determinate-circle,.mdc-circular-progress__indeterminate-circle-graphic{stroke:#6200ee;stroke:var(--mdc-theme-primary, #6200ee)}.mdc-circular-progress__determinate-track{stroke:transparent}@keyframes mdc-circular-progress-container-rotate{to{transform:rotate(360deg)}}@keyframes mdc-circular-progress-spinner-layer-rotate{12.5%{transform:rotate(135deg)}25%{transform:rotate(270deg)}37.5%{transform:rotate(405deg)}50%{transform:rotate(540deg)}62.5%{transform:rotate(675deg)}75%{transform:rotate(810deg)}87.5%{transform:rotate(945deg)}100%{transform:rotate(1080deg)}}@keyframes mdc-circular-progress-color-1-fade-in-out{from{opacity:.99}25%{opacity:.99}26%{opacity:0}89%{opacity:0}90%{opacity:.99}to{opacity:.99}}@keyframes mdc-circular-progress-color-2-fade-in-out{from{opacity:0}15%{opacity:0}25%{opacity:.99}50%{opacity:.99}51%{opacity:0}to{opacity:0}}@keyframes mdc-circular-progress-color-3-fade-in-out{from{opacity:0}40%{opacity:0}50%{opacity:.99}75%{opacity:.99}76%{opacity:0}to{opacity:0}}@keyframes mdc-circular-progress-color-4-fade-in-out{from{opacity:0}65%{opacity:0}75%{opacity:.99}90%{opacity:.99}to{opacity:0}}@keyframes mdc-circular-progress-left-spin{from{transform:rotate(265deg)}50%{transform:rotate(130deg)}to{transform:rotate(265deg)}}@keyframes mdc-circular-progress-right-spin{from{transform:rotate(-265deg)}50%{transform:rotate(-130deg)}to{transform:rotate(-265deg)}}.mdc-circular-progress{display:inline-flex;position:relative;direction:ltr;line-height:0;transition:opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-circular-progress__determinate-container,.mdc-circular-progress__indeterminate-circle-graphic,.mdc-circular-progress__indeterminate-container,.mdc-circular-progress__spinner-layer{position:absolute;width:100%;height:100%}.mdc-circular-progress__determinate-container{transform:rotate(-90deg)}.mdc-circular-progress__indeterminate-container{font-size:0;letter-spacing:0;white-space:nowrap;opacity:0}.mdc-circular-progress__determinate-circle-graphic,.mdc-circular-progress__indeterminate-circle-graphic{fill:transparent}.mdc-circular-progress__determinate-circle{transition:stroke-dashoffset 500ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-circular-progress__gap-patch{position:absolute;top:0;left:47.5%;box-sizing:border-box;width:5%;height:100%;overflow:hidden}.mdc-circular-progress__gap-patch .mdc-circular-progress__indeterminate-circle-graphic{left:-900%;width:2000%;transform:rotate(180deg)}.mdc-circular-progress__circle-clipper{display:inline-flex;position:relative;width:50%;height:100%;overflow:hidden}.mdc-circular-progress__circle-clipper .mdc-circular-progress__indeterminate-circle-graphic{width:200%}.mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic{left:-100%}.mdc-circular-progress--indeterminate .mdc-circular-progress__determinate-container{opacity:0}.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container{opacity:1}.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container{animation:mdc-circular-progress-container-rotate 1568.2352941176ms linear infinite}.mdc-circular-progress--indeterminate .mdc-circular-progress__spinner-layer{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-1{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-2{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-3{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-4{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-left .mdc-circular-progress__indeterminate-circle-graphic{animation:mdc-circular-progress-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic{animation:mdc-circular-progress-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--closed{opacity:0}:host{display:inline-flex}.mdc-circular-progress__determinate-track{stroke:transparent;stroke:var(--mdc-circular-progress-track-color, transparent)}`;
+const styles = i$1 `.mdc-circular-progress__determinate-circle,.mdc-circular-progress__indeterminate-circle-graphic{stroke:#6200ee;stroke:var(--mdc-theme-primary, #6200ee)}.mdc-circular-progress__determinate-track{stroke:transparent}@keyframes mdc-circular-progress-container-rotate{to{transform:rotate(360deg)}}@keyframes mdc-circular-progress-spinner-layer-rotate{12.5%{transform:rotate(135deg)}25%{transform:rotate(270deg)}37.5%{transform:rotate(405deg)}50%{transform:rotate(540deg)}62.5%{transform:rotate(675deg)}75%{transform:rotate(810deg)}87.5%{transform:rotate(945deg)}100%{transform:rotate(1080deg)}}@keyframes mdc-circular-progress-color-1-fade-in-out{from{opacity:.99}25%{opacity:.99}26%{opacity:0}89%{opacity:0}90%{opacity:.99}to{opacity:.99}}@keyframes mdc-circular-progress-color-2-fade-in-out{from{opacity:0}15%{opacity:0}25%{opacity:.99}50%{opacity:.99}51%{opacity:0}to{opacity:0}}@keyframes mdc-circular-progress-color-3-fade-in-out{from{opacity:0}40%{opacity:0}50%{opacity:.99}75%{opacity:.99}76%{opacity:0}to{opacity:0}}@keyframes mdc-circular-progress-color-4-fade-in-out{from{opacity:0}65%{opacity:0}75%{opacity:.99}90%{opacity:.99}to{opacity:0}}@keyframes mdc-circular-progress-left-spin{from{transform:rotate(265deg)}50%{transform:rotate(130deg)}to{transform:rotate(265deg)}}@keyframes mdc-circular-progress-right-spin{from{transform:rotate(-265deg)}50%{transform:rotate(-130deg)}to{transform:rotate(-265deg)}}.mdc-circular-progress{display:inline-flex;position:relative;direction:ltr;line-height:0;transition:opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-circular-progress__determinate-container,.mdc-circular-progress__indeterminate-circle-graphic,.mdc-circular-progress__indeterminate-container,.mdc-circular-progress__spinner-layer{position:absolute;width:100%;height:100%}.mdc-circular-progress__determinate-container{transform:rotate(-90deg)}.mdc-circular-progress__indeterminate-container{font-size:0;letter-spacing:0;white-space:nowrap;opacity:0}.mdc-circular-progress__determinate-circle-graphic,.mdc-circular-progress__indeterminate-circle-graphic{fill:transparent}.mdc-circular-progress__determinate-circle{transition:stroke-dashoffset 500ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-circular-progress__gap-patch{position:absolute;top:0;left:47.5%;box-sizing:border-box;width:5%;height:100%;overflow:hidden}.mdc-circular-progress__gap-patch .mdc-circular-progress__indeterminate-circle-graphic{left:-900%;width:2000%;transform:rotate(180deg)}.mdc-circular-progress__circle-clipper{display:inline-flex;position:relative;width:50%;height:100%;overflow:hidden}.mdc-circular-progress__circle-clipper .mdc-circular-progress__indeterminate-circle-graphic{width:200%}.mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic{left:-100%}.mdc-circular-progress--indeterminate .mdc-circular-progress__determinate-container{opacity:0}.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container{opacity:1}.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container{animation:mdc-circular-progress-container-rotate 1568.2352941176ms linear infinite}.mdc-circular-progress--indeterminate .mdc-circular-progress__spinner-layer{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-1{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-2{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-3{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__color-4{animation:mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,mdc-circular-progress-color-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-left .mdc-circular-progress__indeterminate-circle-graphic{animation:mdc-circular-progress-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic{animation:mdc-circular-progress-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both}.mdc-circular-progress--closed{opacity:0}:host{display:inline-flex}.mdc-circular-progress__determinate-track{stroke:transparent;stroke:var(--mdc-circular-progress-track-color, transparent)}`;
 
 class EwtCircularProgress extends CircularProgressBase {
 }
@@ -11665,7 +7916,7 @@ class EwtPageProgress extends s$1 {
     `;
     }
 }
-EwtPageProgress.styles = i$4 `
+EwtPageProgress.styles = i$1 `
     :host {
       display: flex;
       flex-direction: column;
@@ -11676,10 +7927,10 @@ EwtPageProgress.styles = i$4 `
     }
   `;
 __decorate([
-    e$5()
+    e$1()
 ], EwtPageProgress.prototype, "label", void 0);
 __decorate([
-    e$5()
+    e$1()
 ], EwtPageProgress.prototype, "progress", void 0);
 customElements.define("ewt-page-progress", EwtPageProgress);
 
@@ -11691,7 +7942,7 @@ class EwtPageMessage extends s$1 {
     `;
     }
 }
-EwtPageMessage.styles = i$4 `
+EwtPageMessage.styles = i$1 `
     :host {
       display: flex;
       flex-direction: column;
@@ -11707,10 +7958,10 @@ EwtPageMessage.styles = i$4 `
     }
   `;
 __decorate([
-    e$5()
+    e$1()
 ], EwtPageMessage.prototype, "icon", void 0);
 __decorate([
-    e$5()
+    e$1()
 ], EwtPageMessage.prototype, "label", void 0);
 customElements.define("ewt-page-message", EwtPageMessage);
 
@@ -11734,6 +7985,14 @@ const chipIcon = w `
     <path
       fill="currentColor"
       d="M6,4H18V5H21V7H18V9H21V11H18V13H21V15H18V17H21V19H18V20H6V19H3V17H6V15H3V13H6V11H3V9H6V7H3V5H6V4M11,15V18H12V15H11M13,15V18H14V15H13M15,15V18H16V15H15Z"
+    />
+  </svg>
+`;
+const refreshIcon = w `
+  <svg viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"
     />
   </svg>
 `;
@@ -11765,6 +8024,7 @@ const ERROR_MSGS = {
     0x01: "INVALID_RPC_PACKET",
     0x02: "UNKNOWN_RPC_COMMAND",
     0x03: "UNABLE_TO_CONNECT",
+    0xfe: "TIMEOUT",
     0xff: "UNKNOWN_ERROR",
 };
 class PortNotReady extends Error {
@@ -11773,9 +8033,9 @@ class PortNotReady extends Error {
     }
 }
 
-const sleep$1 = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const toHex$1 = (value, size = 2) => {
+const toHex = (value, size = 2) => {
     let hex = value.toString(16).toUpperCase();
     if (hex.startsWith("-")) {
         return "-0x" + hex.substring(1).padStart(size, "0");
@@ -11785,14 +8045,14 @@ const toHex$1 = (value, size = 2) => {
     }
 };
 
-const hexFormatter$1 = (bytes) => "[" + bytes.map((value) => toHex$1(value)).join(", ") + "]";
+const hexFormatter = (bytes) => "[" + bytes.map((value) => toHex(value)).join(", ") + "]";
 
 class ImprovSerial extends EventTarget {
     constructor(port, logger) {
         super();
         this.port = port;
         this.logger = logger;
-        this.error = 0 /* NO_ERROR */;
+        this.error = 0 /* ImprovSerialErrorState.NO_ERROR */;
         if (port.readable === null) {
             throw new Error("Port is not readable");
         }
@@ -11808,7 +8068,7 @@ class ImprovSerial extends EventTarget {
         this.logger.log("Initializing Improv Serial");
         this._processInput();
         // To give the input processing time to start.
-        await sleep$1(1000);
+        await sleep(1000);
         if (this._reader === undefined) {
             throw new PortNotReady();
         }
@@ -11827,10 +8087,10 @@ class ImprovSerial extends EventTarget {
         return this.info;
     }
     async close() {
+        if (!this._reader) {
+            return;
+        }
         await new Promise((resolve) => {
-            if (!this._reader) {
-                resolve(undefined);
-            }
             this._reader.cancel();
             this.addEventListener("disconnect", resolve, { once: true });
         });
@@ -11851,7 +8111,7 @@ class ImprovSerial extends EventTarget {
                     this.removeEventListener("state-changed", resolve);
                     reject(err);
                 };
-                rpcResult = this._sendRPCWithResponse(2 /* REQUEST_CURRENT_STATE */, []);
+                rpcResult = this._sendRPCWithResponse(2 /* ImprovSerialRPCCommand.REQUEST_CURRENT_STATE */, []);
                 rpcResult.catch(cleanupAndReject);
             });
         }
@@ -11867,8 +8127,8 @@ class ImprovSerial extends EventTarget {
         const data = await rpcResult;
         this.nextUrl = data[0];
     }
-    async requestInfo() {
-        const response = await this._sendRPCWithResponse(3 /* REQUEST_INFO */, []);
+    async requestInfo(timeout) {
+        const response = await this._sendRPCWithResponse(3 /* ImprovSerialRPCCommand.REQUEST_INFO */, [], timeout);
         this.info = {
             firmware: response[0],
             version: response[1],
@@ -11876,7 +8136,7 @@ class ImprovSerial extends EventTarget {
             chipFamily: response[2],
         };
     }
-    async provision(ssid, password) {
+    async provision(ssid, password, timeout) {
         const encoder = new TextEncoder();
         const ssidEncoded = encoder.encode(ssid);
         const pwEncoded = encoder.encode(password);
@@ -11886,11 +8146,11 @@ class ImprovSerial extends EventTarget {
             pwEncoded.length,
             ...pwEncoded,
         ];
-        const response = await this._sendRPCWithResponse(1 /* SEND_WIFI_SETTINGS */, data);
+        const response = await this._sendRPCWithResponse(1 /* ImprovSerialRPCCommand.SEND_WIFI_SETTINGS */, data, timeout);
         this.nextUrl = response[0];
     }
     async scan() {
-        const results = await this._sendRPCWithMultipleResponses(4 /* REQUEST_WIFI_NETWORKS */, []);
+        const results = await this._sendRPCWithMultipleResponses(4 /* ImprovSerialRPCCommand.REQUEST_WIFI_NETWORKS */, []);
         const ssids = results.map(([name, rssi, secured]) => ({
             name,
             rssi: parseInt(rssi),
@@ -11906,24 +8166,24 @@ class ImprovSerial extends EventTarget {
             ...data,
         ]);
     }
-    async _sendRPCWithResponse(command, data) {
+    async _sendRPCWithResponse(command, data, timeout) {
         // Commands that receive feedback will finish when either
         // the state changes or the error code becomes not 0.
         if (this._rpcFeedback) {
             throw new Error("Only 1 RPC command that requires feedback can be active");
         }
-        return await new Promise((resolve, reject) => {
+        return await this._awaitRPCResultWithTimeout(new Promise((resolve, reject) => {
             this._rpcFeedback = { command, resolve, reject };
             this._sendRPC(command, data);
-        });
+        }), timeout);
     }
-    async _sendRPCWithMultipleResponses(command, data) {
+    async _sendRPCWithMultipleResponses(command, data, timeout) {
         // Commands that receive multiple feedbacks will finish when either
         // the state changes or the error code becomes not 0.
         if (this._rpcFeedback) {
             throw new Error("Only 1 RPC command that requires feedback can be active");
         }
-        return await new Promise((resolve, reject) => {
+        return await this._awaitRPCResultWithTimeout(new Promise((resolve, reject) => {
             this._rpcFeedback = {
                 command,
                 resolve,
@@ -11931,6 +8191,16 @@ class ImprovSerial extends EventTarget {
                 receivedData: [],
             };
             this._sendRPC(command, data);
+        }), timeout);
+    }
+    async _awaitRPCResultWithTimeout(sendRPCPromise, timeout) {
+        if (!timeout) {
+            return await sendRPCPromise;
+        }
+        return await new Promise((resolve, reject) => {
+            const timeoutRPC = setTimeout(() => this._setError(254 /* ImprovSerialErrorState.TIMEOUT */), timeout);
+            sendRPCPromise.finally(() => clearTimeout(timeoutRPC));
+            sendRPCPromise.then(resolve, reject);
         });
     }
     async _processInput() {
@@ -12012,7 +8282,7 @@ class ImprovSerial extends EventTarget {
             version,
             packetType,
             packetLength,
-            data: hexFormatter$1(data),
+            data: hexFormatter(data),
         });
         if (version !== 1) {
             this.logger.error("Received unsupported version", version);
@@ -12036,14 +8306,7 @@ class ImprovSerial extends EventTarget {
             }));
         }
         else if (packetType === ImprovSerialMessageType.ERROR_STATE) {
-            this.error = data[0];
-            if (data[0] > 0 && this._rpcFeedback) {
-                this._rpcFeedback.reject(ERROR_MSGS[data[0]] || `UNKNOWN_ERROR (${data[0]})`);
-                this._rpcFeedback = undefined;
-            }
-            this.dispatchEvent(new CustomEvent("error-changed", {
-                detail: this.error,
-            }));
+            this._setError(data[0]);
         }
         else if (packetType === ImprovSerialMessageType.RPC_RESULT) {
             if (!this._rpcFeedback) {
@@ -12098,7 +8361,7 @@ class ImprovSerial extends EventTarget {
         payload[payload.length - 2] =
             payload.reduce((sum, cur) => sum + cur, 0) & 0xff;
         payload[payload.length - 1] = 10; // Newline
-        this.logger.debug("Writing to stream:", hexFormatter$1(new Array(...payload)));
+        this.logger.debug("Writing to stream:", hexFormatter(new Array(...payload)));
         const writer = this.port.writable.getWriter();
         await writer.write(payload);
         try {
@@ -12108,304 +8371,23 @@ class ImprovSerial extends EventTarget {
             console.error("Ignoring release lock error", err);
         }
     }
-}
-
-/**
- * @name slipEncode
- * Take an array buffer and return back a new array where
- * 0xdb is replaced with 0xdb 0xdd and 0xc0 is replaced with 0xdb 0xdc
- */
-const slipEncode = (buffer) => {
-    let encoded = [0xc0];
-    for (let byte of buffer) {
-        if (byte == 0xdb) {
-            encoded = encoded.concat([0xdb, 0xdd]);
+    // Error is either received from device or is a timeout
+    _setError(error) {
+        this.error = error;
+        if (error > 0 && this._rpcFeedback) {
+            this._rpcFeedback.reject(ERROR_MSGS[error] || `UNKNOWN_ERROR (${error})`);
+            this._rpcFeedback = undefined;
         }
-        else if (byte == 0xc0) {
-            encoded = encoded.concat([0xdb, 0xdc]);
-        }
-        else {
-            encoded.push(byte);
-        }
-    }
-    encoded.push(0xc0);
-    return encoded;
-};
-/**
- * @name toByteArray
- * Convert a string to a byte array
- */
-const toByteArray = (str) => {
-    let byteArray = [];
-    for (let i = 0; i < str.length; i++) {
-        let charcode = str.charCodeAt(i);
-        if (charcode <= 0xff) {
-            byteArray.push(charcode);
-        }
-    }
-    return byteArray;
-};
-const hexFormatter = (bytes) => "[" + bytes.map((value) => toHex(value)).join(", ") + "]";
-const toHex = (value, size = 2) => {
-    let hex = value.toString(16).toUpperCase();
-    if (hex.startsWith("-")) {
-        return "-0x" + hex.substring(1).padStart(size, "0");
-    }
-    else {
-        return "0x" + hex.padStart(size, "0");
-    }
-};
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const DETECTED_FLASH_SIZES = {
-    0x12: "256KB",
-    0x13: "512KB",
-    0x14: "1MB",
-    0x15: "2MB",
-    0x16: "4MB",
-    0x17: "8MB",
-    0x18: "16MB",
-    0x19: "32MB",
-    0x1a: "64MB",
-};
-const FLASH_WRITE_SIZE = 0x400;
-const STUB_FLASH_WRITE_SIZE = 0x4000;
-const FLASH_SECTOR_SIZE = 0x1000; // Flash sector size, minimum unit of erase.
-const ESP_ROM_BAUD = 115200;
-const ESP8266_SPI_REG_BASE = 0x60000200;
-const ESP8266_BASEFUSEADDR = 0x3ff00050;
-const ESP8266_MACFUSEADDR = 0x3ff00050;
-const ESP8266_SPI_USR_OFFS = 0x1c;
-const ESP8266_SPI_USR1_OFFS = 0x20;
-const ESP8266_SPI_USR2_OFFS = 0x24;
-const ESP8266_SPI_MOSI_DLEN_OFFS = -1;
-const ESP8266_SPI_MISO_DLEN_OFFS = -1;
-const ESP8266_SPI_W0_OFFS = 0x40;
-const ESP8266_UART_DATE_REG_ADDR = 0x60000078;
-const ESP8266_BOOTLOADER_FLASH_OFFSET = 0x0;
-const ESP32_SPI_REG_BASE = 0x3ff42000;
-const ESP32_BASEFUSEADDR = 0x3ff5a000;
-const ESP32_MACFUSEADDR = 0x3ff5a000;
-const ESP32_SPI_USR_OFFS = 0x1c;
-const ESP32_SPI_USR1_OFFS = 0x20;
-const ESP32_SPI_USR2_OFFS = 0x24;
-const ESP32_SPI_MOSI_DLEN_OFFS = 0x28;
-const ESP32_SPI_MISO_DLEN_OFFS = 0x2c;
-const ESP32_SPI_W0_OFFS = 0x80;
-const ESP32_UART_DATE_REG_ADDR = 0x60000078;
-const ESP32_BOOTLOADER_FLASH_OFFSET = 0x1000;
-const ESP32S2_SPI_REG_BASE = 0x3f402000;
-const ESP32S2_BASEFUSEADDR = 0x3f41a000;
-const ESP32S2_MACFUSEADDR = 0x3f41a044;
-const ESP32S2_SPI_USR_OFFS = 0x18;
-const ESP32S2_SPI_USR1_OFFS = 0x1c;
-const ESP32S2_SPI_USR2_OFFS = 0x20;
-const ESP32S2_SPI_MOSI_DLEN_OFFS = 0x24;
-const ESP32S2_SPI_MISO_DLEN_OFFS = 0x28;
-const ESP32S2_SPI_W0_OFFS = 0x58;
-const ESP32S2_UART_DATE_REG_ADDR = 0x60000078;
-const ESP32S2_BOOTLOADER_FLASH_OFFSET = 0x1000;
-const ESP32S3_SPI_REG_BASE = 0x60002000;
-const ESP32S3_BASEFUSEADDR = 0x60007000;
-const ESP32S3_MACFUSEADDR = 0x60007000 + 0x044;
-const ESP32S3_SPI_USR_OFFS = 0x18;
-const ESP32S3_SPI_USR1_OFFS = 0x1c;
-const ESP32S3_SPI_USR2_OFFS = 0x20;
-const ESP32S3_SPI_MOSI_DLEN_OFFS = 0x24;
-const ESP32S3_SPI_MISO_DLEN_OFFS = 0x28;
-const ESP32S3_SPI_W0_OFFS = 0x58;
-const ESP32S3_UART_DATE_REG_ADDR = 0x60000080;
-const ESP32S3_BOOTLOADER_FLASH_OFFSET = 0x0;
-const ESP32C3_SPI_REG_BASE = 0x60002000;
-const ESP32C3_BASEFUSEADDR = 0x60008800;
-const ESP32C3_MACFUSEADDR = 0x60008800 + 0x044;
-const ESP32C3_SPI_USR_OFFS = 0x18;
-const ESP32C3_SPI_USR1_OFFS = 0x1c;
-const ESP32C3_SPI_USR2_OFFS = 0x20;
-const ESP32C3_SPI_MOSI_DLEN_OFFS = 0x24;
-const ESP32C3_SPI_MISO_DLEN_OFFS = 0x28;
-const ESP32C3_SPI_W0_OFFS = 0x58;
-const ESP32C3_UART_DATE_REG_ADDR = 0x6000007c;
-const ESP32C3_BOOTLOADER_FLASH_OFFSET = 0x0;
-const SYNC_PACKET = toByteArray("\x07\x07\x12 UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
-const CHIP_DETECT_MAGIC_REG_ADDR = 0x40001000;
-// These values for the families are made up; nothing that esptool uses.
-const CHIP_FAMILY_ESP8266 = 0x8266;
-const CHIP_FAMILY_ESP32 = 0x32;
-const CHIP_FAMILY_ESP32S2 = 0x3252;
-const CHIP_FAMILY_ESP32S3 = 0x3253;
-const CHIP_FAMILY_ESP32C3 = 0x32c3;
-const CHIP_FAMILY_ESP32C6 = 0x32c6;
-const CHIP_FAMILY_ESP32H2 = 0x3272;
-const CHIP_DETECT_MAGIC_VALUES = {
-    0xfff0c101: { name: "ESP8266", family: CHIP_FAMILY_ESP8266 },
-    0x00f01d83: { name: "ESP32", family: CHIP_FAMILY_ESP32 },
-    0x000007c6: { name: "ESP32-S2", family: CHIP_FAMILY_ESP32S2 },
-    0x9: { name: "ESP32-S3", family: CHIP_FAMILY_ESP32S3 },
-    0xeb004136: { name: "ESP32-S3(beta2)", family: CHIP_FAMILY_ESP32S3 },
-    0x6921506f: { name: "ESP32-C3", family: CHIP_FAMILY_ESP32C3 },
-    0x1b31506f: { name: "ESP32-C3", family: CHIP_FAMILY_ESP32C3 },
-    0xca26cc22: { name: "ESP32-H2", family: CHIP_FAMILY_ESP32H2 },
-    0x0da1806f: { name: "ESP32-C6(beta)", family: CHIP_FAMILY_ESP32C6 },
-};
-// Commands supported by ESP8266 ROM bootloader
-const ESP_FLASH_BEGIN = 0x02;
-const ESP_FLASH_DATA = 0x03;
-const ESP_FLASH_END = 0x04;
-const ESP_MEM_BEGIN = 0x05;
-const ESP_MEM_END = 0x06;
-const ESP_MEM_DATA = 0x07;
-const ESP_SYNC = 0x08;
-const ESP_WRITE_REG = 0x09;
-const ESP_READ_REG = 0x0a;
-const ESP_ERASE_FLASH = 0xd0;
-const ESP_SPI_ATTACH = 0x0d;
-const ESP_CHANGE_BAUDRATE = 0x0f;
-const ESP_CHECKSUM_MAGIC = 0xef;
-const ESP_FLASH_DEFL_BEGIN = 0x10;
-const ESP_FLASH_DEFL_DATA = 0x11;
-const ESP_FLASH_DEFL_END = 0x12;
-const ROM_INVALID_RECV_MSG = 0x05;
-const USB_RAM_BLOCK = 0x800;
-// Timeouts
-const DEFAULT_TIMEOUT = 3000;
-const CHIP_ERASE_TIMEOUT = 600000; // timeout for full chip erase in ms
-const MAX_TIMEOUT = CHIP_ERASE_TIMEOUT * 2; // longest any command can run in ms
-const SYNC_TIMEOUT = 100; // timeout for syncing with bootloader in ms
-const ERASE_REGION_TIMEOUT_PER_MB = 30000; // timeout (per megabyte) for erasing a region in ms
-const MEM_END_ROM_TIMEOUT = 500;
-/**
- * @name timeoutPerMb
- * Scales timeouts which are size-specific
- */
-const timeoutPerMb = (secondsPerMb, sizeBytes) => {
-    let result = Math.floor(secondsPerMb * (sizeBytes / 0x1e6));
-    if (result < DEFAULT_TIMEOUT) {
-        return DEFAULT_TIMEOUT;
-    }
-    return result;
-};
-const getSpiFlashAddresses = (chipFamily) => {
-    switch (chipFamily) {
-        case CHIP_FAMILY_ESP32:
-            return {
-                regBase: ESP32_SPI_REG_BASE,
-                baseFuse: ESP32_BASEFUSEADDR,
-                macFuse: ESP32_MACFUSEADDR,
-                usrOffs: ESP32_SPI_USR_OFFS,
-                usr1Offs: ESP32_SPI_USR1_OFFS,
-                usr2Offs: ESP32_SPI_USR2_OFFS,
-                mosiDlenOffs: ESP32_SPI_MOSI_DLEN_OFFS,
-                misoDlenOffs: ESP32_SPI_MISO_DLEN_OFFS,
-                w0Offs: ESP32_SPI_W0_OFFS,
-                uartDateReg: ESP32_UART_DATE_REG_ADDR,
-                flashOffs: ESP32_BOOTLOADER_FLASH_OFFSET,
-            };
-        case CHIP_FAMILY_ESP32S2:
-            return {
-                regBase: ESP32S2_SPI_REG_BASE,
-                baseFuse: ESP32S2_BASEFUSEADDR,
-                macFuse: ESP32S2_MACFUSEADDR,
-                usrOffs: ESP32S2_SPI_USR_OFFS,
-                usr1Offs: ESP32S2_SPI_USR1_OFFS,
-                usr2Offs: ESP32S2_SPI_USR2_OFFS,
-                mosiDlenOffs: ESP32S2_SPI_MOSI_DLEN_OFFS,
-                misoDlenOffs: ESP32S2_SPI_MISO_DLEN_OFFS,
-                w0Offs: ESP32S2_SPI_W0_OFFS,
-                uartDateReg: ESP32S2_UART_DATE_REG_ADDR,
-                flashOffs: ESP32S2_BOOTLOADER_FLASH_OFFSET,
-            };
-        case CHIP_FAMILY_ESP32S3:
-            return {
-                regBase: ESP32S3_SPI_REG_BASE,
-                usrOffs: ESP32S3_SPI_USR_OFFS,
-                baseFuse: ESP32S3_BASEFUSEADDR,
-                macFuse: ESP32S3_MACFUSEADDR,
-                usr1Offs: ESP32S3_SPI_USR1_OFFS,
-                usr2Offs: ESP32S3_SPI_USR2_OFFS,
-                mosiDlenOffs: ESP32S3_SPI_MOSI_DLEN_OFFS,
-                misoDlenOffs: ESP32S3_SPI_MISO_DLEN_OFFS,
-                w0Offs: ESP32S3_SPI_W0_OFFS,
-                uartDateReg: ESP32S3_UART_DATE_REG_ADDR,
-                flashOffs: ESP32S3_BOOTLOADER_FLASH_OFFSET,
-            };
-        case CHIP_FAMILY_ESP8266:
-            return {
-                regBase: ESP8266_SPI_REG_BASE,
-                usrOffs: ESP8266_SPI_USR_OFFS,
-                baseFuse: ESP8266_BASEFUSEADDR,
-                macFuse: ESP8266_MACFUSEADDR,
-                usr1Offs: ESP8266_SPI_USR1_OFFS,
-                usr2Offs: ESP8266_SPI_USR2_OFFS,
-                mosiDlenOffs: ESP8266_SPI_MOSI_DLEN_OFFS,
-                misoDlenOffs: ESP8266_SPI_MISO_DLEN_OFFS,
-                w0Offs: ESP8266_SPI_W0_OFFS,
-                uartDateReg: ESP8266_UART_DATE_REG_ADDR,
-                flashOffs: ESP8266_BOOTLOADER_FLASH_OFFSET,
-            };
-        case CHIP_FAMILY_ESP32C3:
-            return {
-                regBase: ESP32C3_SPI_REG_BASE,
-                baseFuse: ESP32C3_BASEFUSEADDR,
-                macFuse: ESP32C3_MACFUSEADDR,
-                usrOffs: ESP32C3_SPI_USR_OFFS,
-                usr1Offs: ESP32C3_SPI_USR1_OFFS,
-                usr2Offs: ESP32C3_SPI_USR2_OFFS,
-                mosiDlenOffs: ESP32C3_SPI_MOSI_DLEN_OFFS,
-                misoDlenOffs: ESP32C3_SPI_MISO_DLEN_OFFS,
-                w0Offs: ESP32C3_SPI_W0_OFFS,
-                uartDateReg: ESP32C3_UART_DATE_REG_ADDR,
-                flashOffs: ESP32C3_BOOTLOADER_FLASH_OFFSET,
-            };
-        default:
-            return {
-                regBase: -1,
-                baseFuse: -1,
-                macFuse: -1,
-                usrOffs: -1,
-                usr1Offs: -1,
-                usr2Offs: -1,
-                mosiDlenOffs: -1,
-                misoDlenOffs: -1,
-                w0Offs: -1,
-                uartDateReg: -1,
-                flashOffs: -1,
-            };
-    }
-};
-class SlipReadError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = "SlipReadError";
+        this.dispatchEvent(new CustomEvent("error-changed", {
+            detail: this.error,
+        }));
     }
 }
 
-const getStubCode = async (chipFamily) => {
-    let stubcode;
-    if (chipFamily == CHIP_FAMILY_ESP32) {
-        stubcode = await import('./esp32-500b6cf5.js');
-    }
-    else if (chipFamily == CHIP_FAMILY_ESP32S2) {
-        stubcode = await import('./esp32s2-da30a731.js');
-    }
-    else if (chipFamily == CHIP_FAMILY_ESP32S3) {
-        stubcode = await import('./esp32s3-a8f48be3.js');
-    }
-    else if (chipFamily == CHIP_FAMILY_ESP8266) {
-        stubcode = await import('./esp8266-191f6796.js');
-    }
-    else if (chipFamily == CHIP_FAMILY_ESP32C3) {
-        stubcode = await import('./esp32c3-640e37d6.js');
-    }
-    // Base64 decode the text and data
-    return {
-        ...stubcode,
-        text: toByteArray(atob(stubcode.text)),
-        data: toByteArray(atob(stubcode.data)),
-    };
-};
+class ESPError extends Error {
+}
 
-/*! pako 2.0.4 https://github.com/nodeca/pako @license (MIT AND Zlib) */
+/*! pako 2.1.0 https://github.com/nodeca/pako @license (MIT AND Zlib) */
 // (C) 1995-2013 Jean-loup Gailly and Mark Adler
 // (C) 2014-2017 Vitaly Puzrin and Andrey Tupitsin
 //
@@ -12682,10 +8664,10 @@ const bi_flush = (s) => {
  *     The length opt_len is updated; static_len is also updated if stree is
  *     not null.
  */
-const gen_bitlen = (s, desc) =>
+const gen_bitlen = (s, desc) => {
 //    deflate_state *s;
 //    tree_desc *desc;    /* the tree descriptor */
-{
+
   const tree            = desc.dyn_tree;
   const max_code        = desc.max_code;
   const stree           = desc.stat_desc.static_tree;
@@ -12734,7 +8716,7 @@ const gen_bitlen = (s, desc) =>
   }
   if (overflow === 0) { return; }
 
-  // Trace((stderr,"\nbit length overflow\n"));
+  // Tracev((stderr,"\nbit length overflow\n"));
   /* This happens for example on obj2 and pic of the Calgary corpus */
 
   /* Find the first bit length which could increase: */
@@ -12761,7 +8743,7 @@ const gen_bitlen = (s, desc) =>
       m = s.heap[--h];
       if (m > max_code) { continue; }
       if (tree[m * 2 + 1]/*.Len*/ !== bits) {
-        // Trace((stderr,"code %d bits %d->%d\n", m, tree[m].Len, bits));
+        // Tracev((stderr,"code %d bits %d->%d\n", m, tree[m].Len, bits));
         s.opt_len += (bits - tree[m * 2 + 1]/*.Len*/) * tree[m * 2]/*.Freq*/;
         tree[m * 2 + 1]/*.Len*/ = bits;
       }
@@ -12779,11 +8761,11 @@ const gen_bitlen = (s, desc) =>
  * OUT assertion: the field code is set for all tree elements of non
  *     zero code length.
  */
-const gen_codes = (tree, max_code, bl_count) =>
+const gen_codes = (tree, max_code, bl_count) => {
 //    ct_data *tree;             /* the tree to decorate */
 //    int max_code;              /* largest code with non zero frequency */
 //    ushf *bl_count;            /* number of codes at each bit length */
-{
+
   const next_code = new Array(MAX_BITS$1 + 1); /* next code value for each bit length */
   let code = 0;              /* running code value */
   let bits;                  /* bit index */
@@ -12793,7 +8775,8 @@ const gen_codes = (tree, max_code, bl_count) =>
    * without bit reversal.
    */
   for (bits = 1; bits <= MAX_BITS$1; bits++) {
-    next_code[bits] = code = (code + bl_count[bits - 1]) << 1;
+    code = (code + bl_count[bits - 1]) << 1;
+    next_code[bits] = code;
   }
   /* Check that the bit counts in bl_count are consistent. The last code
    * must be all ones.
@@ -12933,7 +8916,7 @@ const init_block = (s) => {
 
   s.dyn_ltree[END_BLOCK * 2]/*.Freq*/ = 1;
   s.opt_len = s.static_len = 0;
-  s.last_lit = s.matches = 0;
+  s.sym_next = s.matches = 0;
 };
 
 
@@ -12950,29 +8933,6 @@ const bi_windup = (s) =>
   }
   s.bi_buf = 0;
   s.bi_valid = 0;
-};
-
-/* ===========================================================================
- * Copy a stored block, storing first the length and its
- * one's complement if requested.
- */
-const copy_block = (s, buf, len, header) =>
-//DeflateState *s;
-//charf    *buf;    /* the input data */
-//unsigned len;     /* its length */
-//int      header;  /* true if block header must be written */
-{
-  bi_windup(s);        /* align on byte boundary */
-
-  if (header) {
-    put_short(s, len);
-    put_short(s, ~len);
-  }
-//  while (len--) {
-//    put_byte(s, *buf++);
-//  }
-  s.pending_buf.set(s.window.subarray(buf, buf + len), s.pending);
-  s.pending += len;
 };
 
 /* ===========================================================================
@@ -12993,11 +8953,11 @@ const smaller = (tree, n, m, depth) => {
  * when the heap property is re-established (each father smaller than its
  * two sons).
  */
-const pqdownheap = (s, tree, k) =>
+const pqdownheap = (s, tree, k) => {
 //    deflate_state *s;
 //    ct_data *tree;  /* the tree to restore */
 //    int k;               /* node to move down */
-{
+
   const v = s.heap[k];
   let j = k << 1;  /* left son of k */
   while (j <= s.heap_len) {
@@ -13026,23 +8986,22 @@ const pqdownheap = (s, tree, k) =>
 /* ===========================================================================
  * Send the block data compressed using the given Huffman trees
  */
-const compress_block = (s, ltree, dtree) =>
+const compress_block = (s, ltree, dtree) => {
 //    deflate_state *s;
 //    const ct_data *ltree; /* literal tree */
 //    const ct_data *dtree; /* distance tree */
-{
+
   let dist;           /* distance of matched string */
   let lc;             /* match length or unmatched char (if dist == 0) */
-  let lx = 0;         /* running index in l_buf */
+  let sx = 0;         /* running index in sym_buf */
   let code;           /* the code to send */
   let extra;          /* number of extra bits to send */
 
-  if (s.last_lit !== 0) {
+  if (s.sym_next !== 0) {
     do {
-      dist = (s.pending_buf[s.d_buf + lx * 2] << 8) | (s.pending_buf[s.d_buf + lx * 2 + 1]);
-      lc = s.pending_buf[s.l_buf + lx];
-      lx++;
-
+      dist = s.pending_buf[s.sym_buf + sx++] & 0xff;
+      dist += (s.pending_buf[s.sym_buf + sx++] & 0xff) << 8;
+      lc = s.pending_buf[s.sym_buf + sx++];
       if (dist === 0) {
         send_code(s, lc, ltree); /* send a literal byte */
         //Tracecv(isgraph(lc), (stderr," '%c' ", lc));
@@ -13067,11 +9026,10 @@ const compress_block = (s, ltree, dtree) =>
         }
       } /* literal or match pair ? */
 
-      /* Check that the overlay between pending_buf and d_buf+l_buf is ok: */
-      //Assert((uInt)(s->pending) < s->lit_bufsize + 2*lx,
-      //       "pendingBuf overflow");
+      /* Check that the overlay between pending_buf and sym_buf is ok: */
+      //Assert(s->pending < s->lit_bufsize + sx, "pendingBuf overflow");
 
-    } while (lx < s.last_lit);
+    } while (sx < s.sym_next);
   }
 
   send_code(s, END_BLOCK, ltree);
@@ -13086,10 +9044,10 @@ const compress_block = (s, ltree, dtree) =>
  *     and corresponding code. The length opt_len is updated; static_len is
  *     also updated if stree is not null. The field max_code is set.
  */
-const build_tree = (s, desc) =>
+const build_tree = (s, desc) => {
 //    deflate_state *s;
 //    tree_desc *desc; /* the tree descriptor */
-{
+
   const tree     = desc.dyn_tree;
   const stree    = desc.stat_desc.static_tree;
   const has_stree = desc.stat_desc.has_stree;
@@ -13182,11 +9140,11 @@ const build_tree = (s, desc) =>
  * Scan a literal or distance tree to determine the frequencies of the codes
  * in the bit length tree.
  */
-const scan_tree = (s, tree, max_code) =>
+const scan_tree = (s, tree, max_code) => {
 //    deflate_state *s;
 //    ct_data *tree;   /* the tree to be scanned */
 //    int max_code;    /* and its largest code of non zero frequency */
-{
+
   let n;                     /* iterates over all tree elements */
   let prevlen = -1;          /* last emitted length */
   let curlen;                /* length of current code */
@@ -13248,11 +9206,11 @@ const scan_tree = (s, tree, max_code) =>
  * Send a literal or distance tree in compressed form, using the codes in
  * bl_tree.
  */
-const send_tree = (s, tree, max_code) =>
+const send_tree = (s, tree, max_code) => {
 //    deflate_state *s;
 //    ct_data *tree; /* the tree to be scanned */
 //    int max_code;       /* and its largest code of non zero frequency */
-{
+
   let n;                     /* iterates over all tree elements */
   let prevlen = -1;          /* last emitted length */
   let curlen;                /* length of current code */
@@ -13356,10 +9314,10 @@ const build_bl_tree = (s) => {
  * lengths of the bit length codes, the literal tree and the distance tree.
  * IN assertion: lcodes >= 257, dcodes >= 1, blcodes >= 4.
  */
-const send_all_trees = (s, lcodes, dcodes, blcodes) =>
+const send_all_trees = (s, lcodes, dcodes, blcodes) => {
 //    deflate_state *s;
 //    int lcodes, dcodes, blcodes; /* number of codes for each tree */
-{
+
   let rank;                    /* index in bl_order */
 
   //Assert (lcodes >= 257 && dcodes >= 1 && blcodes >= 4, "not enough codes");
@@ -13387,9 +9345,9 @@ const send_all_trees = (s, lcodes, dcodes, blcodes) =>
  * Check if the data type is TEXT or BINARY, using the following algorithm:
  * - TEXT if the two conditions below are satisfied:
  *    a) There are no non-portable control characters belonging to the
- *       "black list" (0..6, 14..25, 28..31).
+ *       "block list" (0..6, 14..25, 28..31).
  *    b) There is at least one printable character belonging to the
- *       "white list" (9 {TAB}, 10 {LF}, 13 {CR}, 32..255).
+ *       "allow list" (9 {TAB}, 10 {LF}, 13 {CR}, 32..255).
  * - BINARY otherwise.
  * - The following partially-portable control characters form a
  *   "gray list" that is ignored in this detection algorithm:
@@ -13397,21 +9355,21 @@ const send_all_trees = (s, lcodes, dcodes, blcodes) =>
  * IN assertion: the fields Freq of dyn_ltree are set.
  */
 const detect_data_type = (s) => {
-  /* black_mask is the bit mask of black-listed bytes
+  /* block_mask is the bit mask of block-listed bytes
    * set bits 0..6, 14..25, and 28..31
    * 0xf3ffc07f = binary 11110011111111111100000001111111
    */
-  let black_mask = 0xf3ffc07f;
+  let block_mask = 0xf3ffc07f;
   let n;
 
-  /* Check for non-textual ("black-listed") bytes. */
-  for (n = 0; n <= 31; n++, black_mask >>>= 1) {
-    if ((black_mask & 1) && (s.dyn_ltree[n * 2]/*.Freq*/ !== 0)) {
+  /* Check for non-textual ("block-listed") bytes. */
+  for (n = 0; n <= 31; n++, block_mask >>>= 1) {
+    if ((block_mask & 1) && (s.dyn_ltree[n * 2]/*.Freq*/ !== 0)) {
       return Z_BINARY;
     }
   }
 
-  /* Check for textual ("white-listed") bytes. */
+  /* Check for textual ("allow-listed") bytes. */
   if (s.dyn_ltree[9 * 2]/*.Freq*/ !== 0 || s.dyn_ltree[10 * 2]/*.Freq*/ !== 0 ||
       s.dyn_ltree[13 * 2]/*.Freq*/ !== 0) {
     return Z_TEXT;
@@ -13422,7 +9380,7 @@ const detect_data_type = (s) => {
     }
   }
 
-  /* There are no "black-listed" or "white-listed" bytes:
+  /* There are no "block-listed" or "allow-listed" bytes:
    * this stream either is empty or has tolerated ("gray-listed") bytes only.
    */
   return Z_BINARY;
@@ -13457,14 +9415,20 @@ const _tr_init$1 = (s) =>
 /* ===========================================================================
  * Send a stored block
  */
-const _tr_stored_block$1 = (s, buf, stored_len, last) =>
+const _tr_stored_block$1 = (s, buf, stored_len, last) => {
 //DeflateState *s;
 //charf *buf;       /* input block */
 //ulg stored_len;   /* length of input block */
 //int last;         /* one if this is the last block for a file */
-{
+
   send_bits(s, (STORED_BLOCK << 1) + (last ? 1 : 0), 3);    /* send block type */
-  copy_block(s, buf, stored_len, true); /* with header */
+  bi_windup(s);        /* align on byte boundary */
+  put_short(s, stored_len);
+  put_short(s, ~stored_len);
+  if (stored_len) {
+    s.pending_buf.set(s.window.subarray(buf, buf + stored_len), s.pending);
+  }
+  s.pending += stored_len;
 };
 
 
@@ -13481,14 +9445,14 @@ const _tr_align$1 = (s) => {
 
 /* ===========================================================================
  * Determine the best encoding for the current block: dynamic trees, static
- * trees or store, and output the encoded block to the zip file.
+ * trees or store, and write out the encoded block.
  */
-const _tr_flush_block$1 = (s, buf, stored_len, last) =>
+const _tr_flush_block$1 = (s, buf, stored_len, last) => {
 //DeflateState *s;
 //charf *buf;       /* input block, or NULL if too old */
 //ulg stored_len;   /* length of input block */
 //int last;         /* one if this is the last block for a file */
-{
+
   let opt_lenb, static_lenb;  /* opt_len and static_len in bytes */
   let max_blindex = 0;        /* index of last bit length code of non zero freq */
 
@@ -13523,7 +9487,7 @@ const _tr_flush_block$1 = (s, buf, stored_len, last) =>
 
     // Tracev((stderr, "\nopt %lu(%lu) stat %lu(%lu) stored %lu lit %u ",
     //        opt_lenb, s->opt_len, static_lenb, s->static_len, stored_len,
-    //        s->last_lit));
+    //        s->sym_next / 3));
 
     if (static_lenb <= opt_lenb) { opt_lenb = static_lenb; }
 
@@ -13570,19 +9534,14 @@ const _tr_flush_block$1 = (s, buf, stored_len, last) =>
  * Save the match info and tally the frequency counts. Return true if
  * the current block must be flushed.
  */
-const _tr_tally$1 = (s, dist, lc) =>
+const _tr_tally$1 = (s, dist, lc) => {
 //    deflate_state *s;
 //    unsigned dist;  /* distance of matched string */
 //    unsigned lc;    /* match length-MIN_MATCH or unmatched char (if dist==0) */
-{
-  //let out_length, in_length, dcode;
 
-  s.pending_buf[s.d_buf + s.last_lit * 2]     = (dist >>> 8) & 0xff;
-  s.pending_buf[s.d_buf + s.last_lit * 2 + 1] = dist & 0xff;
-
-  s.pending_buf[s.l_buf + s.last_lit] = lc & 0xff;
-  s.last_lit++;
-
+  s.pending_buf[s.sym_buf + s.sym_next++] = dist;
+  s.pending_buf[s.sym_buf + s.sym_next++] = dist >> 8;
+  s.pending_buf[s.sym_buf + s.sym_next++] = lc;
   if (dist === 0) {
     /* lc is the unmatched char */
     s.dyn_ltree[lc * 2]/*.Freq*/++;
@@ -13598,34 +9557,7 @@ const _tr_tally$1 = (s, dist, lc) =>
     s.dyn_dtree[d_code(dist) * 2]/*.Freq*/++;
   }
 
-// (!) This block is disabled in zlib defaults,
-// don't enable it for binary compatibility
-
-//#ifdef TRUNCATE_BLOCK
-//  /* Try to guess if it is profitable to stop the current block here */
-//  if ((s.last_lit & 0x1fff) === 0 && s.level > 2) {
-//    /* Compute an upper bound for the compressed length */
-//    out_length = s.last_lit*8;
-//    in_length = s.strstart - s.block_start;
-//
-//    for (dcode = 0; dcode < D_CODES; dcode++) {
-//      out_length += s.dyn_dtree[dcode*2]/*.Freq*/ * (5 + extra_dbits[dcode]);
-//    }
-//    out_length >>>= 3;
-//    //Tracev((stderr,"\nlast_lit %u, in %ld, out ~%ld(%ld%%) ",
-//    //       s->last_lit, in_length, out_length,
-//    //       100L - out_length*100L/in_length));
-//    if (s.matches < (s.last_lit>>1)/*int /2*/ && out_length < (in_length>>1)/*int /2*/) {
-//      return true;
-//    }
-//  }
-//#endif
-
-  return (s.last_lit === s.lit_bufsize - 1);
-  /* We avoid equality with lit_bufsize because of wraparound at 64K
-   * on 16 bit machines and because stored blocks are restricted to
-   * 64K-1 bytes.
-   */
+  return (s.sym_next === s.sym_end);
 };
 
 var _tr_init_1  = _tr_init$1;
@@ -13915,13 +9847,16 @@ const MIN_LOOKAHEAD = (MAX_MATCH + MIN_MATCH + 1);
 
 const PRESET_DICT = 0x20;
 
-const INIT_STATE = 42;
-const EXTRA_STATE = 69;
-const NAME_STATE = 73;
-const COMMENT_STATE = 91;
-const HCRC_STATE = 103;
-const BUSY_STATE = 113;
-const FINISH_STATE = 666;
+const INIT_STATE    =  42;    /* zlib header -> BUSY_STATE */
+//#ifdef GZIP
+const GZIP_STATE    =  57;    /* gzip header -> BUSY_STATE | EXTRA_STATE */
+//#endif
+const EXTRA_STATE   =  69;    /* gzip extra block -> NAME_STATE */
+const NAME_STATE    =  73;    /* gzip file name -> COMMENT_STATE */
+const COMMENT_STATE =  91;    /* gzip comment -> HCRC_STATE */
+const HCRC_STATE    = 103;    /* gzip header CRC -> BUSY_STATE */
+const BUSY_STATE    = 113;    /* deflate -> FINISH_STATE */
+const FINISH_STATE  = 666;    /* stream complete */
 
 const BS_NEED_MORE      = 1; /* block not completed, need more input or more output */
 const BS_BLOCK_DONE     = 2; /* block flush performed */
@@ -13936,13 +9871,41 @@ const err = (strm, errorCode) => {
 };
 
 const rank = (f) => {
-  return ((f) << 1) - ((f) > 4 ? 9 : 0);
+  return ((f) * 2) - ((f) > 4 ? 9 : 0);
 };
 
 const zero = (buf) => {
   let len = buf.length; while (--len >= 0) { buf[len] = 0; }
 };
 
+/* ===========================================================================
+ * Slide the hash table when sliding the window down (could be avoided with 32
+ * bit values at the expense of memory usage). We slide even when level == 0 to
+ * keep the hash table consistent if we switch back to level > 0 later.
+ */
+const slide_hash = (s) => {
+  let n, m;
+  let p;
+  let wsize = s.w_size;
+
+  n = s.hash_size;
+  p = n;
+  do {
+    m = s.head[--p];
+    s.head[p] = (m >= wsize ? m - wsize : 0);
+  } while (--n);
+  n = wsize;
+//#ifndef FASTEST
+  p = n;
+  do {
+    m = s.prev[--p];
+    s.prev[p] = (m >= wsize ? m - wsize : 0);
+    /* If n is not on any hash chain, prev[n] is garbage but
+     * its value will never be used.
+     */
+  } while (--n);
+//#endif
+};
 
 /* eslint-disable new-cap */
 let HASH_ZLIB = (s, prev, data) => ((prev << s.hash_shift) ^ data) & s.hash_mask;
@@ -13951,11 +9914,12 @@ let HASH_ZLIB = (s, prev, data) => ((prev << s.hash_shift) ^ data) & s.hash_mask
 //let HASH_FAST = (s, prev, data) => ((prev << 8) + (prev >> 8) + (data << 4)) & s.hash_mask;
 let HASH = HASH_ZLIB;
 
+
 /* =========================================================================
- * Flush as much pending output as possible. All deflate() output goes
- * through this function so some applications may wish to modify it
- * to avoid allocating a large strm->output buffer and copying into it.
- * (See also read_buf()).
+ * Flush as much pending output as possible. All deflate() output, except for
+ * some deflate_stored() output, goes through this function so some
+ * applications may wish to modify it to avoid allocating a large
+ * strm->next_out buffer and copying into it. (See also read_buf()).
  */
 const flush_pending = (strm) => {
   const s = strm.state;
@@ -13968,11 +9932,11 @@ const flush_pending = (strm) => {
   if (len === 0) { return; }
 
   strm.output.set(s.pending_buf.subarray(s.pending_out, s.pending_out + len), strm.next_out);
-  strm.next_out += len;
-  s.pending_out += len;
+  strm.next_out  += len;
+  s.pending_out  += len;
   strm.total_out += len;
   strm.avail_out -= len;
-  s.pending -= len;
+  s.pending      -= len;
   if (s.pending === 0) {
     s.pending_out = 0;
   }
@@ -14164,7 +10128,7 @@ const longest_match = (s, cur_match) => {
 const fill_window = (s) => {
 
   const _w_size = s.w_size;
-  let p, n, m, more, str;
+  let n, more, str;
 
   //Assert(s->lookahead < MIN_LOOKAHEAD, "already enough lookahead");
 
@@ -14191,38 +10155,15 @@ const fill_window = (s) => {
      */
     if (s.strstart >= _w_size + (_w_size - MIN_LOOKAHEAD)) {
 
-      s.window.set(s.window.subarray(_w_size, _w_size + _w_size), 0);
+      s.window.set(s.window.subarray(_w_size, _w_size + _w_size - more), 0);
       s.match_start -= _w_size;
       s.strstart -= _w_size;
       /* we now have strstart >= MAX_DIST */
       s.block_start -= _w_size;
-
-      /* Slide the hash table (could be avoided with 32 bit values
-       at the expense of memory usage). We slide even when level == 0
-       to keep the hash table consistent if we switch back to level > 0
-       later. (Using level 0 permanently is not an optimal usage of
-       zlib, so we don't care about this pathological case.)
-       */
-
-      n = s.hash_size;
-      p = n;
-
-      do {
-        m = s.head[--p];
-        s.head[p] = (m >= _w_size ? m - _w_size : 0);
-      } while (--n);
-
-      n = _w_size;
-      p = n;
-
-      do {
-        m = s.prev[--p];
-        s.prev[p] = (m >= _w_size ? m - _w_size : 0);
-        /* If n is not on any hash chain, prev[n] is garbage but
-         * its value will never be used.
-         */
-      } while (--n);
-
+      if (s.insert > s.strstart) {
+        s.insert = s.strstart;
+      }
+      slide_hash(s);
       more += _w_size;
     }
     if (s.strm.avail_in === 0) {
@@ -14314,103 +10255,215 @@ const fill_window = (s) => {
 /* ===========================================================================
  * Copy without compression as much as possible from the input stream, return
  * the current block state.
- * This function does not insert new strings in the dictionary since
- * uncompressible data is probably not useful. This function is used
- * only for the level=0 compression option.
- * NOTE: this function should be optimized to avoid extra copying from
- * window to pending_buf.
+ *
+ * In case deflateParams() is used to later switch to a non-zero compression
+ * level, s->matches (otherwise unused when storing) keeps track of the number
+ * of hash table slides to perform. If s->matches is 1, then one hash table
+ * slide will be done when switching. If s->matches is 2, the maximum value
+ * allowed here, then the hash table will be cleared, since two or more slides
+ * is the same as a clear.
+ *
+ * deflate_stored() is written to minimize the number of times an input byte is
+ * copied. It is most efficient with large input and output buffers, which
+ * maximizes the opportunites to have a single copy from next_in to next_out.
  */
 const deflate_stored = (s, flush) => {
 
-  /* Stored blocks are limited to 0xffff bytes, pending_buf is limited
-   * to pending_buf_size, and each stored block has a 5 byte header:
+  /* Smallest worthy block size when not flushing or finishing. By default
+   * this is 32K. This can be as small as 507 bytes for memLevel == 1. For
+   * large input and output buffers, the stored block size will be larger.
    */
-  let max_block_size = 0xffff;
+  let min_block = s.pending_buf_size - 5 > s.w_size ? s.w_size : s.pending_buf_size - 5;
 
-  if (max_block_size > s.pending_buf_size - 5) {
-    max_block_size = s.pending_buf_size - 5;
-  }
-
-  /* Copy as much as possible from input to output: */
-  for (;;) {
-    /* Fill the window as much as possible: */
-    if (s.lookahead <= 1) {
-
-      //Assert(s->strstart < s->w_size+MAX_DIST(s) ||
-      //  s->block_start >= (long)s->w_size, "slide too late");
-//      if (!(s.strstart < s.w_size + (s.w_size - MIN_LOOKAHEAD) ||
-//        s.block_start >= s.w_size)) {
-//        throw  new Error("slide too late");
-//      }
-
-      fill_window(s);
-      if (s.lookahead === 0 && flush === Z_NO_FLUSH$2) {
-        return BS_NEED_MORE;
-      }
-
-      if (s.lookahead === 0) {
-        break;
-      }
-      /* flush the current block */
-    }
-    //Assert(s->block_start >= 0L, "block gone");
-//    if (s.block_start < 0) throw new Error("block gone");
-
-    s.strstart += s.lookahead;
-    s.lookahead = 0;
-
-    /* Emit a stored block if pending_buf will be full: */
-    const max_start = s.block_start + max_block_size;
-
-    if (s.strstart === 0 || s.strstart >= max_start) {
-      /* strstart == 0 is possible when wraparound on 16-bit machine */
-      s.lookahead = s.strstart - max_start;
-      s.strstart = max_start;
-      /*** FLUSH_BLOCK(s, 0); ***/
-      flush_block_only(s, false);
-      if (s.strm.avail_out === 0) {
-        return BS_NEED_MORE;
-      }
-      /***/
-
-
-    }
-    /* Flush if we may have to slide, otherwise block_start may become
-     * negative and the data will be gone:
+  /* Copy as many min_block or larger stored blocks directly to next_out as
+   * possible. If flushing, copy the remaining available input to next_out as
+   * stored blocks, if there is enough space.
+   */
+  let len, left, have, last = 0;
+  let used = s.strm.avail_in;
+  do {
+    /* Set len to the maximum size block that we can copy directly with the
+     * available input data and output space. Set left to how much of that
+     * would be copied from what's left in the window.
      */
-    if (s.strstart - s.block_start >= (s.w_size - MIN_LOOKAHEAD)) {
-      /*** FLUSH_BLOCK(s, 0); ***/
-      flush_block_only(s, false);
-      if (s.strm.avail_out === 0) {
-        return BS_NEED_MORE;
-      }
-      /***/
+    len = 65535/* MAX_STORED */;     /* maximum deflate stored block length */
+    have = (s.bi_valid + 42) >> 3;     /* number of header bytes */
+    if (s.strm.avail_out < have) {         /* need room for header */
+      break;
     }
+      /* maximum stored block length that will fit in avail_out: */
+    have = s.strm.avail_out - have;
+    left = s.strstart - s.block_start;  /* bytes left in window */
+    if (len > left + s.strm.avail_in) {
+      len = left + s.strm.avail_in;   /* limit len to the input */
+    }
+    if (len > have) {
+      len = have;             /* limit len to the output */
+    }
+
+    /* If the stored block would be less than min_block in length, or if
+     * unable to copy all of the available input when flushing, then try
+     * copying to the window and the pending buffer instead. Also don't
+     * write an empty block when flushing -- deflate() does that.
+     */
+    if (len < min_block && ((len === 0 && flush !== Z_FINISH$3) ||
+                        flush === Z_NO_FLUSH$2 ||
+                        len !== left + s.strm.avail_in)) {
+      break;
+    }
+
+    /* Make a dummy stored block in pending to get the header bytes,
+     * including any pending bits. This also updates the debugging counts.
+     */
+    last = flush === Z_FINISH$3 && len === left + s.strm.avail_in ? 1 : 0;
+    _tr_stored_block(s, 0, 0, last);
+
+    /* Replace the lengths in the dummy stored block with len. */
+    s.pending_buf[s.pending - 4] = len;
+    s.pending_buf[s.pending - 3] = len >> 8;
+    s.pending_buf[s.pending - 2] = ~len;
+    s.pending_buf[s.pending - 1] = ~len >> 8;
+
+    /* Write the stored block header bytes. */
+    flush_pending(s.strm);
+
+//#ifdef ZLIB_DEBUG
+//    /* Update debugging counts for the data about to be copied. */
+//    s->compressed_len += len << 3;
+//    s->bits_sent += len << 3;
+//#endif
+
+    /* Copy uncompressed bytes from the window to next_out. */
+    if (left) {
+      if (left > len) {
+        left = len;
+      }
+      //zmemcpy(s->strm->next_out, s->window + s->block_start, left);
+      s.strm.output.set(s.window.subarray(s.block_start, s.block_start + left), s.strm.next_out);
+      s.strm.next_out += left;
+      s.strm.avail_out -= left;
+      s.strm.total_out += left;
+      s.block_start += left;
+      len -= left;
+    }
+
+    /* Copy uncompressed bytes directly from next_in to next_out, updating
+     * the check value.
+     */
+    if (len) {
+      read_buf(s.strm, s.strm.output, s.strm.next_out, len);
+      s.strm.next_out += len;
+      s.strm.avail_out -= len;
+      s.strm.total_out += len;
+    }
+  } while (last === 0);
+
+  /* Update the sliding window with the last s->w_size bytes of the copied
+   * data, or append all of the copied data to the existing window if less
+   * than s->w_size bytes were copied. Also update the number of bytes to
+   * insert in the hash tables, in the event that deflateParams() switches to
+   * a non-zero compression level.
+   */
+  used -= s.strm.avail_in;    /* number of input bytes directly copied */
+  if (used) {
+    /* If any input was used, then no unused input remains in the window,
+     * therefore s->block_start == s->strstart.
+     */
+    if (used >= s.w_size) {  /* supplant the previous history */
+      s.matches = 2;     /* clear hash */
+      //zmemcpy(s->window, s->strm->next_in - s->w_size, s->w_size);
+      s.window.set(s.strm.input.subarray(s.strm.next_in - s.w_size, s.strm.next_in), 0);
+      s.strstart = s.w_size;
+      s.insert = s.strstart;
+    }
+    else {
+      if (s.window_size - s.strstart <= used) {
+        /* Slide the window down. */
+        s.strstart -= s.w_size;
+        //zmemcpy(s->window, s->window + s->w_size, s->strstart);
+        s.window.set(s.window.subarray(s.w_size, s.w_size + s.strstart), 0);
+        if (s.matches < 2) {
+          s.matches++;   /* add a pending slide_hash() */
+        }
+        if (s.insert > s.strstart) {
+          s.insert = s.strstart;
+        }
+      }
+      //zmemcpy(s->window + s->strstart, s->strm->next_in - used, used);
+      s.window.set(s.strm.input.subarray(s.strm.next_in - used, s.strm.next_in), s.strstart);
+      s.strstart += used;
+      s.insert += used > s.w_size - s.insert ? s.w_size - s.insert : used;
+    }
+    s.block_start = s.strstart;
+  }
+  if (s.high_water < s.strstart) {
+    s.high_water = s.strstart;
   }
 
-  s.insert = 0;
-
-  if (flush === Z_FINISH$3) {
-    /*** FLUSH_BLOCK(s, 1); ***/
-    flush_block_only(s, true);
-    if (s.strm.avail_out === 0) {
-      return BS_FINISH_STARTED;
-    }
-    /***/
+  /* If the last block was written to next_out, then done. */
+  if (last) {
     return BS_FINISH_DONE;
   }
 
-  if (s.strstart > s.block_start) {
-    /*** FLUSH_BLOCK(s, 0); ***/
-    flush_block_only(s, false);
-    if (s.strm.avail_out === 0) {
-      return BS_NEED_MORE;
-    }
-    /***/
+  /* If flushing and all input has been consumed, then done. */
+  if (flush !== Z_NO_FLUSH$2 && flush !== Z_FINISH$3 &&
+    s.strm.avail_in === 0 && s.strstart === s.block_start) {
+    return BS_BLOCK_DONE;
   }
 
-  return BS_NEED_MORE;
+  /* Fill the window with any remaining input. */
+  have = s.window_size - s.strstart;
+  if (s.strm.avail_in > have && s.block_start >= s.w_size) {
+    /* Slide the window down. */
+    s.block_start -= s.w_size;
+    s.strstart -= s.w_size;
+    //zmemcpy(s->window, s->window + s->w_size, s->strstart);
+    s.window.set(s.window.subarray(s.w_size, s.w_size + s.strstart), 0);
+    if (s.matches < 2) {
+      s.matches++;       /* add a pending slide_hash() */
+    }
+    have += s.w_size;      /* more space now */
+    if (s.insert > s.strstart) {
+      s.insert = s.strstart;
+    }
+  }
+  if (have > s.strm.avail_in) {
+    have = s.strm.avail_in;
+  }
+  if (have) {
+    read_buf(s.strm, s.window, s.strstart, have);
+    s.strstart += have;
+    s.insert += have > s.w_size - s.insert ? s.w_size - s.insert : have;
+  }
+  if (s.high_water < s.strstart) {
+    s.high_water = s.strstart;
+  }
+
+  /* There was not enough avail_out to write a complete worthy or flushed
+   * stored block to next_out. Write a stored block to pending instead, if we
+   * have enough input for a worthy block, or if flushing and there is enough
+   * room for the remaining input as a stored block in the pending buffer.
+   */
+  have = (s.bi_valid + 42) >> 3;     /* number of header bytes */
+    /* maximum stored block length that will fit in pending: */
+  have = s.pending_buf_size - have > 65535/* MAX_STORED */ ? 65535/* MAX_STORED */ : s.pending_buf_size - have;
+  min_block = have > s.w_size ? s.w_size : have;
+  left = s.strstart - s.block_start;
+  if (left >= min_block ||
+     ((left || flush === Z_FINISH$3) && flush !== Z_NO_FLUSH$2 &&
+     s.strm.avail_in === 0 && left <= have)) {
+    len = left > have ? have : left;
+    last = flush === Z_FINISH$3 && s.strm.avail_in === 0 &&
+         len === left ? 1 : 0;
+    _tr_stored_block(s, s.block_start, len, last);
+    s.block_start += len;
+    flush_pending(s.strm);
+  }
+
+  /* We've done all we can with the available input and output. */
+  return last ? BS_FINISH_STARTED : BS_NEED_MORE;
 };
+
 
 /* ===========================================================================
  * Compress as much as possible from the input stream, return the current
@@ -14532,7 +10585,7 @@ const deflate_fast = (s, flush) => {
     /***/
     return BS_FINISH_DONE;
   }
-  if (s.last_lit) {
+  if (s.sym_next) {
     /*** FLUSH_BLOCK(s, 0); ***/
     flush_block_only(s, false);
     if (s.strm.avail_out === 0) {
@@ -14693,7 +10746,7 @@ const deflate_slow = (s, flush) => {
     /***/
     return BS_FINISH_DONE;
   }
-  if (s.last_lit) {
+  if (s.sym_next) {
     /*** FLUSH_BLOCK(s, 0); ***/
     flush_block_only(s, false);
     if (s.strm.avail_out === 0) {
@@ -14792,7 +10845,7 @@ const deflate_rle = (s, flush) => {
     /***/
     return BS_FINISH_DONE;
   }
-  if (s.last_lit) {
+  if (s.sym_next) {
     /*** FLUSH_BLOCK(s, 0); ***/
     flush_block_only(s, false);
     if (s.strm.avail_out === 0) {
@@ -14849,7 +10902,7 @@ const deflate_huff = (s, flush) => {
     /***/
     return BS_FINISH_DONE;
   }
-  if (s.last_lit) {
+  if (s.sym_next) {
     /*** FLUSH_BLOCK(s, 0); ***/
     flush_block_only(s, false);
     if (s.strm.avail_out === 0) {
@@ -15050,7 +11103,7 @@ function DeflateState() {
   /* Depth of each subtree used as tie breaker for trees of equal frequency
    */
 
-  this.l_buf = 0;          /* buffer index for literals or lengths */
+  this.sym_buf = 0;        /* buffer for distances and literals/lengths */
 
   this.lit_bufsize = 0;
   /* Size of match buffer for literals/lengths.  There are 4 reasons for
@@ -15072,13 +11125,8 @@ function DeflateState() {
    *   - I can't count above 4
    */
 
-  this.last_lit = 0;      /* running index in l_buf */
-
-  this.d_buf = 0;
-  /* Buffer index for distances. To simplify the code, d_buf and l_buf have
-   * the same number of elements. To use different lengths, an extra flag
-   * array would be necessary.
-   */
+  this.sym_next = 0;      /* running index in sym_buf */
+  this.sym_end = 0;       /* symbol table full when sym_next reaches this */
 
   this.opt_len = 0;       /* bit length of current block with optimal trees */
   this.static_len = 0;    /* bit length of current block with static trees */
@@ -15106,9 +11154,34 @@ function DeflateState() {
 }
 
 
+/* =========================================================================
+ * Check for a valid deflate stream state. Return 0 if ok, 1 if not.
+ */
+const deflateStateCheck = (strm) => {
+
+  if (!strm) {
+    return 1;
+  }
+  const s = strm.state;
+  if (!s || s.strm !== strm || (s.status !== INIT_STATE &&
+//#ifdef GZIP
+                                s.status !== GZIP_STATE &&
+//#endif
+                                s.status !== EXTRA_STATE &&
+                                s.status !== NAME_STATE &&
+                                s.status !== COMMENT_STATE &&
+                                s.status !== HCRC_STATE &&
+                                s.status !== BUSY_STATE &&
+                                s.status !== FINISH_STATE)) {
+    return 1;
+  }
+  return 0;
+};
+
+
 const deflateResetKeep = (strm) => {
 
-  if (!strm || !strm.state) {
+  if (deflateStateCheck(strm)) {
     return err(strm, Z_STREAM_ERROR$2);
   }
 
@@ -15123,12 +11196,16 @@ const deflateResetKeep = (strm) => {
     s.wrap = -s.wrap;
     /* was made negative by deflate(..., Z_FINISH); */
   }
-  s.status = (s.wrap ? INIT_STATE : BUSY_STATE);
+  s.status =
+//#ifdef GZIP
+    s.wrap === 2 ? GZIP_STATE :
+//#endif
+    s.wrap ? INIT_STATE : BUSY_STATE;
   strm.adler = (s.wrap === 2) ?
     0  // crc32(0, Z_NULL, 0)
   :
     1; // adler32(0, Z_NULL, 0)
-  s.last_flush = Z_NO_FLUSH$2;
+  s.last_flush = -2;
   _tr_init(s);
   return Z_OK$3;
 };
@@ -15146,8 +11223,9 @@ const deflateReset = (strm) => {
 
 const deflateSetHeader = (strm, head) => {
 
-  if (!strm || !strm.state) { return Z_STREAM_ERROR$2; }
-  if (strm.state.wrap !== 2) { return Z_STREAM_ERROR$2; }
+  if (deflateStateCheck(strm) || strm.state.wrap !== 2) {
+    return Z_STREAM_ERROR$2;
+  }
   strm.state.gzhead = head;
   return Z_OK$3;
 };
@@ -15177,7 +11255,7 @@ const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy) => {
 
   if (memLevel < 1 || memLevel > MAX_MEM_LEVEL || method !== Z_DEFLATED$2 ||
     windowBits < 8 || windowBits > 15 || level < 0 || level > 9 ||
-    strategy < 0 || strategy > Z_FIXED) {
+    strategy < 0 || strategy > Z_FIXED || (windowBits === 8 && wrap !== 1)) {
     return err(strm, Z_STREAM_ERROR$2);
   }
 
@@ -15191,6 +11269,7 @@ const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy) => {
 
   strm.state = s;
   s.strm = strm;
+  s.status = INIT_STATE;     /* to pass state test in deflateReset() */
 
   s.wrap = wrap;
   s.gzhead = null;
@@ -15212,18 +11291,58 @@ const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy) => {
 
   s.lit_bufsize = 1 << (memLevel + 6); /* 16K elements by default */
 
-  s.pending_buf_size = s.lit_bufsize * 4;
+  /* We overlay pending_buf and sym_buf. This works since the average size
+   * for length/distance pairs over any compressed block is assured to be 31
+   * bits or less.
+   *
+   * Analysis: The longest fixed codes are a length code of 8 bits plus 5
+   * extra bits, for lengths 131 to 257. The longest fixed distance codes are
+   * 5 bits plus 13 extra bits, for distances 16385 to 32768. The longest
+   * possible fixed-codes length/distance pair is then 31 bits total.
+   *
+   * sym_buf starts one-fourth of the way into pending_buf. So there are
+   * three bytes in sym_buf for every four bytes in pending_buf. Each symbol
+   * in sym_buf is three bytes -- two for the distance and one for the
+   * literal/length. As each symbol is consumed, the pointer to the next
+   * sym_buf value to read moves forward three bytes. From that symbol, up to
+   * 31 bits are written to pending_buf. The closest the written pending_buf
+   * bits gets to the next sym_buf symbol to read is just before the last
+   * code is written. At that time, 31*(n-2) bits have been written, just
+   * after 24*(n-2) bits have been consumed from sym_buf. sym_buf starts at
+   * 8*n bits into pending_buf. (Note that the symbol buffer fills when n-1
+   * symbols are written.) The closest the writing gets to what is unread is
+   * then n+14 bits. Here n is lit_bufsize, which is 16384 by default, and
+   * can range from 128 to 32768.
+   *
+   * Therefore, at a minimum, there are 142 bits of space between what is
+   * written and what is read in the overlain buffers, so the symbols cannot
+   * be overwritten by the compressed data. That space is actually 139 bits,
+   * due to the three-bit fixed-code block header.
+   *
+   * That covers the case where either Z_FIXED is specified, forcing fixed
+   * codes, or when the use of fixed codes is chosen, because that choice
+   * results in a smaller compressed block than dynamic codes. That latter
+   * condition then assures that the above analysis also covers all dynamic
+   * blocks. A dynamic-code block will only be chosen to be emitted if it has
+   * fewer bits than a fixed-code block would for the same set of symbols.
+   * Therefore its average symbol length is assured to be less than 31. So
+   * the compressed data for a dynamic block also cannot overwrite the
+   * symbols from which it is being constructed.
+   */
 
-  //overlay = (ushf *) ZALLOC(strm, s->lit_bufsize, sizeof(ush)+2);
-  //s->pending_buf = (uchf *) overlay;
+  s.pending_buf_size = s.lit_bufsize * 4;
   s.pending_buf = new Uint8Array(s.pending_buf_size);
 
   // It is offset from `s.pending_buf` (size is `s.lit_bufsize * 2`)
-  //s->d_buf = overlay + s->lit_bufsize/sizeof(ush);
-  s.d_buf = 1 * s.lit_bufsize;
+  //s->sym_buf = s->pending_buf + s->lit_bufsize;
+  s.sym_buf = s.lit_bufsize;
 
-  //s->l_buf = s->pending_buf + (1+sizeof(ush))*s->lit_bufsize;
-  s.l_buf = (1 + 2) * s.lit_bufsize;
+  //s->sym_end = (s->lit_bufsize - 1) * 3;
+  s.sym_end = (s.lit_bufsize - 1) * 3;
+  /* We avoid equality with lit_bufsize*3 because of wraparound at 64K
+   * on 16 bit machines and because stored blocks are restricted to
+   * 64K-1 bytes.
+   */
 
   s.level = level;
   s.strategy = strategy;
@@ -15238,226 +11357,23 @@ const deflateInit = (strm, level) => {
 };
 
 
+/* ========================================================================= */
 const deflate$2 = (strm, flush) => {
 
-  let beg, val; // for gzip header write only
-
-  if (!strm || !strm.state ||
-    flush > Z_BLOCK$1 || flush < 0) {
+  if (deflateStateCheck(strm) || flush > Z_BLOCK$1 || flush < 0) {
     return strm ? err(strm, Z_STREAM_ERROR$2) : Z_STREAM_ERROR$2;
   }
 
   const s = strm.state;
 
   if (!strm.output ||
-      (!strm.input && strm.avail_in !== 0) ||
+      (strm.avail_in !== 0 && !strm.input) ||
       (s.status === FINISH_STATE && flush !== Z_FINISH$3)) {
     return err(strm, (strm.avail_out === 0) ? Z_BUF_ERROR$1 : Z_STREAM_ERROR$2);
   }
 
-  s.strm = strm; /* just in case */
   const old_flush = s.last_flush;
   s.last_flush = flush;
-
-  /* Write the header */
-  if (s.status === INIT_STATE) {
-
-    if (s.wrap === 2) { // GZIP header
-      strm.adler = 0;  //crc32(0L, Z_NULL, 0);
-      put_byte(s, 31);
-      put_byte(s, 139);
-      put_byte(s, 8);
-      if (!s.gzhead) { // s->gzhead == Z_NULL
-        put_byte(s, 0);
-        put_byte(s, 0);
-        put_byte(s, 0);
-        put_byte(s, 0);
-        put_byte(s, 0);
-        put_byte(s, s.level === 9 ? 2 :
-                    (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2 ?
-                     4 : 0));
-        put_byte(s, OS_CODE);
-        s.status = BUSY_STATE;
-      }
-      else {
-        put_byte(s, (s.gzhead.text ? 1 : 0) +
-                    (s.gzhead.hcrc ? 2 : 0) +
-                    (!s.gzhead.extra ? 0 : 4) +
-                    (!s.gzhead.name ? 0 : 8) +
-                    (!s.gzhead.comment ? 0 : 16)
-        );
-        put_byte(s, s.gzhead.time & 0xff);
-        put_byte(s, (s.gzhead.time >> 8) & 0xff);
-        put_byte(s, (s.gzhead.time >> 16) & 0xff);
-        put_byte(s, (s.gzhead.time >> 24) & 0xff);
-        put_byte(s, s.level === 9 ? 2 :
-                    (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2 ?
-                     4 : 0));
-        put_byte(s, s.gzhead.os & 0xff);
-        if (s.gzhead.extra && s.gzhead.extra.length) {
-          put_byte(s, s.gzhead.extra.length & 0xff);
-          put_byte(s, (s.gzhead.extra.length >> 8) & 0xff);
-        }
-        if (s.gzhead.hcrc) {
-          strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending, 0);
-        }
-        s.gzindex = 0;
-        s.status = EXTRA_STATE;
-      }
-    }
-    else // DEFLATE header
-    {
-      let header = (Z_DEFLATED$2 + ((s.w_bits - 8) << 4)) << 8;
-      let level_flags = -1;
-
-      if (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2) {
-        level_flags = 0;
-      } else if (s.level < 6) {
-        level_flags = 1;
-      } else if (s.level === 6) {
-        level_flags = 2;
-      } else {
-        level_flags = 3;
-      }
-      header |= (level_flags << 6);
-      if (s.strstart !== 0) { header |= PRESET_DICT; }
-      header += 31 - (header % 31);
-
-      s.status = BUSY_STATE;
-      putShortMSB(s, header);
-
-      /* Save the adler32 of the preset dictionary: */
-      if (s.strstart !== 0) {
-        putShortMSB(s, strm.adler >>> 16);
-        putShortMSB(s, strm.adler & 0xffff);
-      }
-      strm.adler = 1; // adler32(0L, Z_NULL, 0);
-    }
-  }
-
-//#ifdef GZIP
-  if (s.status === EXTRA_STATE) {
-    if (s.gzhead.extra/* != Z_NULL*/) {
-      beg = s.pending;  /* start of bytes to update crc */
-
-      while (s.gzindex < (s.gzhead.extra.length & 0xffff)) {
-        if (s.pending === s.pending_buf_size) {
-          if (s.gzhead.hcrc && s.pending > beg) {
-            strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-          }
-          flush_pending(strm);
-          beg = s.pending;
-          if (s.pending === s.pending_buf_size) {
-            break;
-          }
-        }
-        put_byte(s, s.gzhead.extra[s.gzindex] & 0xff);
-        s.gzindex++;
-      }
-      if (s.gzhead.hcrc && s.pending > beg) {
-        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-      }
-      if (s.gzindex === s.gzhead.extra.length) {
-        s.gzindex = 0;
-        s.status = NAME_STATE;
-      }
-    }
-    else {
-      s.status = NAME_STATE;
-    }
-  }
-  if (s.status === NAME_STATE) {
-    if (s.gzhead.name/* != Z_NULL*/) {
-      beg = s.pending;  /* start of bytes to update crc */
-      //int val;
-
-      do {
-        if (s.pending === s.pending_buf_size) {
-          if (s.gzhead.hcrc && s.pending > beg) {
-            strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-          }
-          flush_pending(strm);
-          beg = s.pending;
-          if (s.pending === s.pending_buf_size) {
-            val = 1;
-            break;
-          }
-        }
-        // JS specific: little magic to add zero terminator to end of string
-        if (s.gzindex < s.gzhead.name.length) {
-          val = s.gzhead.name.charCodeAt(s.gzindex++) & 0xff;
-        } else {
-          val = 0;
-        }
-        put_byte(s, val);
-      } while (val !== 0);
-
-      if (s.gzhead.hcrc && s.pending > beg) {
-        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-      }
-      if (val === 0) {
-        s.gzindex = 0;
-        s.status = COMMENT_STATE;
-      }
-    }
-    else {
-      s.status = COMMENT_STATE;
-    }
-  }
-  if (s.status === COMMENT_STATE) {
-    if (s.gzhead.comment/* != Z_NULL*/) {
-      beg = s.pending;  /* start of bytes to update crc */
-      //int val;
-
-      do {
-        if (s.pending === s.pending_buf_size) {
-          if (s.gzhead.hcrc && s.pending > beg) {
-            strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-          }
-          flush_pending(strm);
-          beg = s.pending;
-          if (s.pending === s.pending_buf_size) {
-            val = 1;
-            break;
-          }
-        }
-        // JS specific: little magic to add zero terminator to end of string
-        if (s.gzindex < s.gzhead.comment.length) {
-          val = s.gzhead.comment.charCodeAt(s.gzindex++) & 0xff;
-        } else {
-          val = 0;
-        }
-        put_byte(s, val);
-      } while (val !== 0);
-
-      if (s.gzhead.hcrc && s.pending > beg) {
-        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
-      }
-      if (val === 0) {
-        s.status = HCRC_STATE;
-      }
-    }
-    else {
-      s.status = HCRC_STATE;
-    }
-  }
-  if (s.status === HCRC_STATE) {
-    if (s.gzhead.hcrc) {
-      if (s.pending + 2 > s.pending_buf_size) {
-        flush_pending(strm);
-      }
-      if (s.pending + 2 <= s.pending_buf_size) {
-        put_byte(s, strm.adler & 0xff);
-        put_byte(s, (strm.adler >> 8) & 0xff);
-        strm.adler = 0; //crc32(0L, Z_NULL, 0);
-        s.status = BUSY_STATE;
-      }
-    }
-    else {
-      s.status = BUSY_STATE;
-    }
-  }
-//#endif
 
   /* Flush as much pending output as possible */
   if (s.pending !== 0) {
@@ -15487,13 +11403,238 @@ const deflate$2 = (strm, flush) => {
     return err(strm, Z_BUF_ERROR$1);
   }
 
+  /* Write the header */
+  if (s.status === INIT_STATE && s.wrap === 0) {
+    s.status = BUSY_STATE;
+  }
+  if (s.status === INIT_STATE) {
+    /* zlib header */
+    let header = (Z_DEFLATED$2 + ((s.w_bits - 8) << 4)) << 8;
+    let level_flags = -1;
+
+    if (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2) {
+      level_flags = 0;
+    } else if (s.level < 6) {
+      level_flags = 1;
+    } else if (s.level === 6) {
+      level_flags = 2;
+    } else {
+      level_flags = 3;
+    }
+    header |= (level_flags << 6);
+    if (s.strstart !== 0) { header |= PRESET_DICT; }
+    header += 31 - (header % 31);
+
+    putShortMSB(s, header);
+
+    /* Save the adler32 of the preset dictionary: */
+    if (s.strstart !== 0) {
+      putShortMSB(s, strm.adler >>> 16);
+      putShortMSB(s, strm.adler & 0xffff);
+    }
+    strm.adler = 1; // adler32(0L, Z_NULL, 0);
+    s.status = BUSY_STATE;
+
+    /* Compression must start with an empty pending buffer */
+    flush_pending(strm);
+    if (s.pending !== 0) {
+      s.last_flush = -1;
+      return Z_OK$3;
+    }
+  }
+//#ifdef GZIP
+  if (s.status === GZIP_STATE) {
+    /* gzip header */
+    strm.adler = 0;  //crc32(0L, Z_NULL, 0);
+    put_byte(s, 31);
+    put_byte(s, 139);
+    put_byte(s, 8);
+    if (!s.gzhead) { // s->gzhead == Z_NULL
+      put_byte(s, 0);
+      put_byte(s, 0);
+      put_byte(s, 0);
+      put_byte(s, 0);
+      put_byte(s, 0);
+      put_byte(s, s.level === 9 ? 2 :
+                  (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2 ?
+                   4 : 0));
+      put_byte(s, OS_CODE);
+      s.status = BUSY_STATE;
+
+      /* Compression must start with an empty pending buffer */
+      flush_pending(strm);
+      if (s.pending !== 0) {
+        s.last_flush = -1;
+        return Z_OK$3;
+      }
+    }
+    else {
+      put_byte(s, (s.gzhead.text ? 1 : 0) +
+                  (s.gzhead.hcrc ? 2 : 0) +
+                  (!s.gzhead.extra ? 0 : 4) +
+                  (!s.gzhead.name ? 0 : 8) +
+                  (!s.gzhead.comment ? 0 : 16)
+      );
+      put_byte(s, s.gzhead.time & 0xff);
+      put_byte(s, (s.gzhead.time >> 8) & 0xff);
+      put_byte(s, (s.gzhead.time >> 16) & 0xff);
+      put_byte(s, (s.gzhead.time >> 24) & 0xff);
+      put_byte(s, s.level === 9 ? 2 :
+                  (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2 ?
+                   4 : 0));
+      put_byte(s, s.gzhead.os & 0xff);
+      if (s.gzhead.extra && s.gzhead.extra.length) {
+        put_byte(s, s.gzhead.extra.length & 0xff);
+        put_byte(s, (s.gzhead.extra.length >> 8) & 0xff);
+      }
+      if (s.gzhead.hcrc) {
+        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending, 0);
+      }
+      s.gzindex = 0;
+      s.status = EXTRA_STATE;
+    }
+  }
+  if (s.status === EXTRA_STATE) {
+    if (s.gzhead.extra/* != Z_NULL*/) {
+      let beg = s.pending;   /* start of bytes to update crc */
+      let left = (s.gzhead.extra.length & 0xffff) - s.gzindex;
+      while (s.pending + left > s.pending_buf_size) {
+        let copy = s.pending_buf_size - s.pending;
+        // zmemcpy(s.pending_buf + s.pending,
+        //    s.gzhead.extra + s.gzindex, copy);
+        s.pending_buf.set(s.gzhead.extra.subarray(s.gzindex, s.gzindex + copy), s.pending);
+        s.pending = s.pending_buf_size;
+        //--- HCRC_UPDATE(beg) ---//
+        if (s.gzhead.hcrc && s.pending > beg) {
+          strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+        }
+        //---//
+        s.gzindex += copy;
+        flush_pending(strm);
+        if (s.pending !== 0) {
+          s.last_flush = -1;
+          return Z_OK$3;
+        }
+        beg = 0;
+        left -= copy;
+      }
+      // JS specific: s.gzhead.extra may be TypedArray or Array for backward compatibility
+      //              TypedArray.slice and TypedArray.from don't exist in IE10-IE11
+      let gzhead_extra = new Uint8Array(s.gzhead.extra);
+      // zmemcpy(s->pending_buf + s->pending,
+      //     s->gzhead->extra + s->gzindex, left);
+      s.pending_buf.set(gzhead_extra.subarray(s.gzindex, s.gzindex + left), s.pending);
+      s.pending += left;
+      //--- HCRC_UPDATE(beg) ---//
+      if (s.gzhead.hcrc && s.pending > beg) {
+        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+      }
+      //---//
+      s.gzindex = 0;
+    }
+    s.status = NAME_STATE;
+  }
+  if (s.status === NAME_STATE) {
+    if (s.gzhead.name/* != Z_NULL*/) {
+      let beg = s.pending;   /* start of bytes to update crc */
+      let val;
+      do {
+        if (s.pending === s.pending_buf_size) {
+          //--- HCRC_UPDATE(beg) ---//
+          if (s.gzhead.hcrc && s.pending > beg) {
+            strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+          }
+          //---//
+          flush_pending(strm);
+          if (s.pending !== 0) {
+            s.last_flush = -1;
+            return Z_OK$3;
+          }
+          beg = 0;
+        }
+        // JS specific: little magic to add zero terminator to end of string
+        if (s.gzindex < s.gzhead.name.length) {
+          val = s.gzhead.name.charCodeAt(s.gzindex++) & 0xff;
+        } else {
+          val = 0;
+        }
+        put_byte(s, val);
+      } while (val !== 0);
+      //--- HCRC_UPDATE(beg) ---//
+      if (s.gzhead.hcrc && s.pending > beg) {
+        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+      }
+      //---//
+      s.gzindex = 0;
+    }
+    s.status = COMMENT_STATE;
+  }
+  if (s.status === COMMENT_STATE) {
+    if (s.gzhead.comment/* != Z_NULL*/) {
+      let beg = s.pending;   /* start of bytes to update crc */
+      let val;
+      do {
+        if (s.pending === s.pending_buf_size) {
+          //--- HCRC_UPDATE(beg) ---//
+          if (s.gzhead.hcrc && s.pending > beg) {
+            strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+          }
+          //---//
+          flush_pending(strm);
+          if (s.pending !== 0) {
+            s.last_flush = -1;
+            return Z_OK$3;
+          }
+          beg = 0;
+        }
+        // JS specific: little magic to add zero terminator to end of string
+        if (s.gzindex < s.gzhead.comment.length) {
+          val = s.gzhead.comment.charCodeAt(s.gzindex++) & 0xff;
+        } else {
+          val = 0;
+        }
+        put_byte(s, val);
+      } while (val !== 0);
+      //--- HCRC_UPDATE(beg) ---//
+      if (s.gzhead.hcrc && s.pending > beg) {
+        strm.adler = crc32_1(strm.adler, s.pending_buf, s.pending - beg, beg);
+      }
+      //---//
+    }
+    s.status = HCRC_STATE;
+  }
+  if (s.status === HCRC_STATE) {
+    if (s.gzhead.hcrc) {
+      if (s.pending + 2 > s.pending_buf_size) {
+        flush_pending(strm);
+        if (s.pending !== 0) {
+          s.last_flush = -1;
+          return Z_OK$3;
+        }
+      }
+      put_byte(s, strm.adler & 0xff);
+      put_byte(s, (strm.adler >> 8) & 0xff);
+      strm.adler = 0; //crc32(0L, Z_NULL, 0);
+    }
+    s.status = BUSY_STATE;
+
+    /* Compression must start with an empty pending buffer */
+    flush_pending(strm);
+    if (s.pending !== 0) {
+      s.last_flush = -1;
+      return Z_OK$3;
+    }
+  }
+//#endif
+
   /* Start a new block or continue the current one.
    */
   if (strm.avail_in !== 0 || s.lookahead !== 0 ||
     (flush !== Z_NO_FLUSH$2 && s.status !== FINISH_STATE)) {
-    let bstate = (s.strategy === Z_HUFFMAN_ONLY) ? deflate_huff(s, flush) :
-      (s.strategy === Z_RLE ? deflate_rle(s, flush) :
-        configuration_table[s.level].func(s, flush));
+    let bstate = s.level === 0 ? deflate_stored(s, flush) :
+                 s.strategy === Z_HUFFMAN_ONLY ? deflate_huff(s, flush) :
+                 s.strategy === Z_RLE ? deflate_rle(s, flush) :
+                 configuration_table[s.level].func(s, flush);
 
     if (bstate === BS_FINISH_STARTED || bstate === BS_FINISH_DONE) {
       s.status = FINISH_STATE;
@@ -15540,8 +11681,6 @@ const deflate$2 = (strm, flush) => {
       }
     }
   }
-  //Assert(strm->avail_out > 0, "bug2");
-  //if (strm.avail_out <= 0) { throw new Error("bug2");}
 
   if (flush !== Z_FINISH$3) { return Z_OK$3; }
   if (s.wrap <= 0) { return Z_STREAM_END$3; }
@@ -15575,21 +11714,11 @@ const deflate$2 = (strm, flush) => {
 
 const deflateEnd = (strm) => {
 
-  if (!strm/*== Z_NULL*/ || !strm.state/*== Z_NULL*/) {
+  if (deflateStateCheck(strm)) {
     return Z_STREAM_ERROR$2;
   }
 
   const status = strm.state.status;
-  if (status !== INIT_STATE &&
-    status !== EXTRA_STATE &&
-    status !== NAME_STATE &&
-    status !== COMMENT_STATE &&
-    status !== HCRC_STATE &&
-    status !== BUSY_STATE &&
-    status !== FINISH_STATE
-  ) {
-    return err(strm, Z_STREAM_ERROR$2);
-  }
 
   strm.state = null;
 
@@ -15605,7 +11734,7 @@ const deflateSetDictionary = (strm, dictionary) => {
 
   let dictLength = dictionary.length;
 
-  if (!strm/*== Z_NULL*/ || !strm.state/*== Z_NULL*/) {
+  if (deflateStateCheck(strm)) {
     return Z_STREAM_ERROR$2;
   }
 
@@ -15691,6 +11820,7 @@ var deflateInfo = 'pako deflate (from Nodeca project)';
 /* Not implemented
 module.exports.deflateBound = deflateBound;
 module.exports.deflateCopy = deflateCopy;
+module.exports.deflateGetDictionary = deflateGetDictionary;
 module.exports.deflateParams = deflateParams;
 module.exports.deflatePending = deflatePending;
 module.exports.deflatePrime = deflatePrime;
@@ -16280,7 +12410,7 @@ Deflate$1.prototype.onEnd = function (status) {
 
 /**
  * deflate(data[, options]) -> Uint8Array
- * - data (Uint8Array|String): input data to compress.
+ * - data (Uint8Array|ArrayBuffer|String): input data to compress.
  * - options (Object): zlib deflate options.
  *
  * Compress `data` with deflate algorithm and `options`.
@@ -16324,7 +12454,7 @@ function deflate$1(input, options) {
 
 /**
  * deflateRaw(data[, options]) -> Uint8Array
- * - data (Uint8Array|String): input data to compress.
+ * - data (Uint8Array|ArrayBuffer|String): input data to compress.
  * - options (Object): zlib deflate options.
  *
  * The same as [[deflate]], but creates raw data, without wrapper
@@ -16339,7 +12469,7 @@ function deflateRaw$1(input, options) {
 
 /**
  * gzip(data[, options]) -> Uint8Array
- * - data (Uint8Array|String): input data to compress.
+ * - data (Uint8Array|ArrayBuffer|String): input data to compress.
  * - options (Object): zlib deflate options.
  *
  * The same as [[deflate]], but create gzip wrapper instead of
@@ -16386,8 +12516,8 @@ var deflate_1$1 = {
 // 3. This notice may not be removed or altered from any source distribution.
 
 // See state defs from inflate.js
-const BAD$1 = 30;       /* got a data error -- remain here until reset */
-const TYPE$1 = 12;      /* i: waiting for type bits, including last-flag bit */
+const BAD$1 = 16209;       /* got a data error -- remain here until reset */
+const TYPE$1 = 16191;      /* i: waiting for type bits, including last-flag bit */
 
 /*
    Decode literal, length, and distance codes and write out the resulting
@@ -16779,13 +12909,11 @@ const inflate_table = (type, lens, lens_index, codes, table, table_index, work, 
   let mask;              /* mask for low root bits */
   let next;             /* next available space in table */
   let base = null;     /* base value table to use */
-  let base_index = 0;
 //  let shoextra;    /* extra bits table to use */
-  let end;                    /* use base and extra for symbol > end */
+  let match;                  /* use base and extra for symbol >= match */
   const count = new Uint16Array(MAXBITS + 1); //[MAXBITS+1];    /* number of codes of each length */
   const offs = new Uint16Array(MAXBITS + 1); //[MAXBITS+1];     /* offsets in table for each length */
   let extra = null;
-  let extra_index = 0;
 
   let here_bits, here_op, here_val;
 
@@ -16920,19 +13048,17 @@ const inflate_table = (type, lens, lens_index, codes, table, table_index, work, 
   // to avoid deopts in old v8
   if (type === CODES$1) {
     base = extra = work;    /* dummy value--not used */
-    end = 19;
+    match = 20;
 
   } else if (type === LENS$1) {
     base = lbase;
-    base_index -= 257;
     extra = lext;
-    extra_index -= 257;
-    end = 256;
+    match = 257;
 
   } else {                    /* DISTS */
     base = dbase;
     extra = dext;
-    end = -1;
+    match = 0;
   }
 
   /* initialize opts for loop */
@@ -16956,13 +13082,13 @@ const inflate_table = (type, lens, lens_index, codes, table, table_index, work, 
   for (;;) {
     /* create table entry */
     here_bits = len - drop;
-    if (work[sym] < end) {
+    if (work[sym] + 1 < match) {
       here_op = 0;
       here_val = work[sym];
     }
-    else if (work[sym] > end) {
-      here_op = extra[extra_index + work[sym]];
-      here_val = base[base_index + work[sym]];
+    else if (work[sym] >= match) {
+      here_op = extra[work[sym] - match];
+      here_val = base[work[sym] - match];
     }
     else {
       here_op = 32 + 64;         /* end of block */
@@ -17094,38 +13220,38 @@ const {
 /* ===========================================================================*/
 
 
-const    HEAD = 1;       /* i: waiting for magic header */
-const    FLAGS = 2;      /* i: waiting for method and flags (gzip) */
-const    TIME = 3;       /* i: waiting for modification time (gzip) */
-const    OS = 4;         /* i: waiting for extra flags and operating system (gzip) */
-const    EXLEN = 5;      /* i: waiting for extra length (gzip) */
-const    EXTRA = 6;      /* i: waiting for extra bytes (gzip) */
-const    NAME = 7;       /* i: waiting for end of file name (gzip) */
-const    COMMENT = 8;    /* i: waiting for end of comment (gzip) */
-const    HCRC = 9;       /* i: waiting for header crc (gzip) */
-const    DICTID = 10;    /* i: waiting for dictionary check value */
-const    DICT = 11;      /* waiting for inflateSetDictionary() call */
-const        TYPE = 12;      /* i: waiting for type bits, including last-flag bit */
-const        TYPEDO = 13;    /* i: same, but skip check to exit inflate on new block */
-const        STORED = 14;    /* i: waiting for stored size (length and complement) */
-const        COPY_ = 15;     /* i/o: same as COPY below, but only first time in */
-const        COPY = 16;      /* i/o: waiting for input or output to copy stored block */
-const        TABLE = 17;     /* i: waiting for dynamic block table lengths */
-const        LENLENS = 18;   /* i: waiting for code length code lengths */
-const        CODELENS = 19;  /* i: waiting for length/lit and distance code lengths */
-const            LEN_ = 20;      /* i: same as LEN below, but only first time in */
-const            LEN = 21;       /* i: waiting for length/lit/eob code */
-const            LENEXT = 22;    /* i: waiting for length extra bits */
-const            DIST = 23;      /* i: waiting for distance code */
-const            DISTEXT = 24;   /* i: waiting for distance extra bits */
-const            MATCH = 25;     /* o: waiting for output space to copy string */
-const            LIT = 26;       /* o: waiting for output space to write literal */
-const    CHECK = 27;     /* i: waiting for 32-bit check value */
-const    LENGTH = 28;    /* i: waiting for 32-bit length (gzip) */
-const    DONE = 29;      /* finished check, done -- remain here until reset */
-const    BAD = 30;       /* got a data error -- remain here until reset */
-const    MEM = 31;       /* got an inflate() memory error -- remain here until reset */
-const    SYNC = 32;      /* looking for synchronization bytes to restart inflate() */
+const    HEAD = 16180;       /* i: waiting for magic header */
+const    FLAGS = 16181;      /* i: waiting for method and flags (gzip) */
+const    TIME = 16182;       /* i: waiting for modification time (gzip) */
+const    OS = 16183;         /* i: waiting for extra flags and operating system (gzip) */
+const    EXLEN = 16184;      /* i: waiting for extra length (gzip) */
+const    EXTRA = 16185;      /* i: waiting for extra bytes (gzip) */
+const    NAME = 16186;       /* i: waiting for end of file name (gzip) */
+const    COMMENT = 16187;    /* i: waiting for end of comment (gzip) */
+const    HCRC = 16188;       /* i: waiting for header crc (gzip) */
+const    DICTID = 16189;    /* i: waiting for dictionary check value */
+const    DICT = 16190;      /* waiting for inflateSetDictionary() call */
+const        TYPE = 16191;      /* i: waiting for type bits, including last-flag bit */
+const        TYPEDO = 16192;    /* i: same, but skip check to exit inflate on new block */
+const        STORED = 16193;    /* i: waiting for stored size (length and complement) */
+const        COPY_ = 16194;     /* i/o: same as COPY below, but only first time in */
+const        COPY = 16195;      /* i/o: waiting for input or output to copy stored block */
+const        TABLE = 16196;     /* i: waiting for dynamic block table lengths */
+const        LENLENS = 16197;   /* i: waiting for code length code lengths */
+const        CODELENS = 16198;  /* i: waiting for length/lit and distance code lengths */
+const            LEN_ = 16199;      /* i: same as LEN below, but only first time in */
+const            LEN = 16200;       /* i: waiting for length/lit/eob code */
+const            LENEXT = 16201;    /* i: waiting for length extra bits */
+const            DIST = 16202;      /* i: waiting for distance code */
+const            DISTEXT = 16203;   /* i: waiting for distance extra bits */
+const            MATCH = 16204;     /* o: waiting for output space to copy string */
+const            LIT = 16205;       /* o: waiting for output space to write literal */
+const    CHECK = 16206;     /* i: waiting for 32-bit check value */
+const    LENGTH = 16207;    /* i: waiting for 32-bit length (gzip) */
+const    DONE = 16208;      /* finished check, done -- remain here until reset */
+const    BAD = 16209;       /* got a data error -- remain here until reset */
+const    MEM = 16210;       /* got an inflate() memory error -- remain here until reset */
+const    SYNC = 16211;      /* looking for synchronization bytes to restart inflate() */
 
 /* ===========================================================================*/
 
@@ -17150,11 +13276,14 @@ const zswap32 = (q) => {
 
 
 function InflateState() {
-  this.mode = 0;             /* current inflate mode */
+  this.strm = null;           /* pointer back to this zlib stream */
+  this.mode = 0;              /* current inflate mode */
   this.last = false;          /* true if processing last block */
-  this.wrap = 0;              /* bit 0 true for zlib, bit 1 true for gzip */
+  this.wrap = 0;              /* bit 0 true for zlib, bit 1 true for gzip,
+                                 bit 2 true to validate check value */
   this.havedict = false;      /* true if dictionary provided */
-  this.flags = 0;             /* gzip header method and flags (0 if zlib) */
+  this.flags = 0;             /* gzip header method and flags (0 if zlib), or
+                                 -1 if raw or no header yet */
   this.dmax = 0;              /* zlib header max distance (INFLATE_STRICT) */
   this.check = 0;             /* protected copy of check value */
   this.total = 0;             /* protected copy of output count */
@@ -17208,9 +13337,23 @@ function InflateState() {
 }
 
 
+const inflateStateCheck = (strm) => {
+
+  if (!strm) {
+    return 1;
+  }
+  const state = strm.state;
+  if (!state || state.strm !== strm ||
+    state.mode < HEAD || state.mode > SYNC) {
+    return 1;
+  }
+  return 0;
+};
+
+
 const inflateResetKeep = (strm) => {
 
-  if (!strm || !strm.state) { return Z_STREAM_ERROR$1; }
+  if (inflateStateCheck(strm)) { return Z_STREAM_ERROR$1; }
   const state = strm.state;
   strm.total_in = strm.total_out = state.total = 0;
   strm.msg = ''; /*Z_NULL*/
@@ -17220,6 +13363,7 @@ const inflateResetKeep = (strm) => {
   state.mode = HEAD;
   state.last = 0;
   state.havedict = 0;
+  state.flags = -1;
   state.dmax = 32768;
   state.head = null/*Z_NULL*/;
   state.hold = 0;
@@ -17237,7 +13381,7 @@ const inflateResetKeep = (strm) => {
 
 const inflateReset = (strm) => {
 
-  if (!strm || !strm.state) { return Z_STREAM_ERROR$1; }
+  if (inflateStateCheck(strm)) { return Z_STREAM_ERROR$1; }
   const state = strm.state;
   state.wsize = 0;
   state.whave = 0;
@@ -17251,7 +13395,7 @@ const inflateReset2 = (strm, windowBits) => {
   let wrap;
 
   /* get the state */
-  if (!strm || !strm.state) { return Z_STREAM_ERROR$1; }
+  if (inflateStateCheck(strm)) { return Z_STREAM_ERROR$1; }
   const state = strm.state;
 
   /* extract wrap request from windowBits parameter */
@@ -17260,7 +13404,7 @@ const inflateReset2 = (strm, windowBits) => {
     windowBits = -windowBits;
   }
   else {
-    wrap = (windowBits >> 4) + 1;
+    wrap = (windowBits >> 4) + 5;
     if (windowBits < 48) {
       windowBits &= 15;
     }
@@ -17291,7 +13435,9 @@ const inflateInit2 = (strm, windowBits) => {
   //if (state === Z_NULL) return Z_MEM_ERROR;
   //Tracev((stderr, "inflate: allocated\n"));
   strm.state = state;
+  state.strm = strm;
   state.window = null/*Z_NULL*/;
+  state.mode = HEAD;     /* to pass state test in inflateReset2() */
   const ret = inflateReset2(strm, windowBits);
   if (ret !== Z_OK$1) {
     strm.state = null/*Z_NULL*/;
@@ -17440,7 +13586,7 @@ const inflate$2 = (strm, flush) => {
     new Uint8Array([ 16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15 ]);
 
 
-  if (!strm || !strm.state || !strm.output ||
+  if (inflateStateCheck(strm) || !strm.output ||
       (!strm.input && strm.avail_in !== 0)) {
     return Z_STREAM_ERROR$1;
   }
@@ -17481,6 +13627,9 @@ const inflate$2 = (strm, flush) => {
         }
         //===//
         if ((state.wrap & 2) && hold === 0x8b1f) {  /* gzip header */
+          if (state.wbits === 0) {
+            state.wbits = 15;
+          }
           state.check = 0/*crc32(0L, Z_NULL, 0)*/;
           //=== CRC2(state.check, hold);
           hbuf[0] = hold & 0xff;
@@ -17495,7 +13644,6 @@ const inflate$2 = (strm, flush) => {
           state.mode = FLAGS;
           break;
         }
-        state.flags = 0;           /* expect zlib header */
         if (state.head) {
           state.head.done = false;
         }
@@ -17518,7 +13666,7 @@ const inflate$2 = (strm, flush) => {
         if (state.wbits === 0) {
           state.wbits = len;
         }
-        else if (len > state.wbits) {
+        if (len > 15 || len > state.wbits) {
           strm.msg = 'invalid window size';
           state.mode = BAD;
           break;
@@ -17529,6 +13677,7 @@ const inflate$2 = (strm, flush) => {
         state.dmax = 1 << state.wbits;
         //state.dmax = 1 << len;
 
+        state.flags = 0;               /* indicate zlib header */
         //Tracev((stderr, "inflate:   zlib header ok\n"));
         strm.adler = state.check = 1/*adler32(0L, Z_NULL, 0)*/;
         state.mode = hold & 0x200 ? DICTID : TYPE;
@@ -17560,7 +13709,7 @@ const inflate$2 = (strm, flush) => {
         if (state.head) {
           state.head.text = ((hold >> 8) & 1);
         }
-        if (state.flags & 0x0200) {
+        if ((state.flags & 0x0200) && (state.wrap & 4)) {
           //=== CRC2(state.check, hold);
           hbuf[0] = hold & 0xff;
           hbuf[1] = (hold >>> 8) & 0xff;
@@ -17585,7 +13734,7 @@ const inflate$2 = (strm, flush) => {
         if (state.head) {
           state.head.time = hold;
         }
-        if (state.flags & 0x0200) {
+        if ((state.flags & 0x0200) && (state.wrap & 4)) {
           //=== CRC4(state.check, hold)
           hbuf[0] = hold & 0xff;
           hbuf[1] = (hold >>> 8) & 0xff;
@@ -17613,7 +13762,7 @@ const inflate$2 = (strm, flush) => {
           state.head.xflags = (hold & 0xff);
           state.head.os = (hold >> 8);
         }
-        if (state.flags & 0x0200) {
+        if ((state.flags & 0x0200) && (state.wrap & 4)) {
           //=== CRC2(state.check, hold);
           hbuf[0] = hold & 0xff;
           hbuf[1] = (hold >>> 8) & 0xff;
@@ -17640,7 +13789,7 @@ const inflate$2 = (strm, flush) => {
           if (state.head) {
             state.head.extra_len = hold;
           }
-          if (state.flags & 0x0200) {
+          if ((state.flags & 0x0200) && (state.wrap & 4)) {
             //=== CRC2(state.check, hold);
             hbuf[0] = hold & 0xff;
             hbuf[1] = (hold >>> 8) & 0xff;
@@ -17682,7 +13831,7 @@ const inflate$2 = (strm, flush) => {
               //        len + copy > state.head.extra_max ?
               //        state.head.extra_max - len : copy);
             }
-            if (state.flags & 0x0200) {
+            if ((state.flags & 0x0200) && (state.wrap & 4)) {
               state.check = crc32_1(state.check, input, copy, next);
             }
             have -= copy;
@@ -17708,7 +13857,7 @@ const inflate$2 = (strm, flush) => {
             }
           } while (len && copy < have);
 
-          if (state.flags & 0x0200) {
+          if ((state.flags & 0x0200) && (state.wrap & 4)) {
             state.check = crc32_1(state.check, input, copy, next);
           }
           have -= copy;
@@ -17733,7 +13882,7 @@ const inflate$2 = (strm, flush) => {
               state.head.comment += String.fromCharCode(len);
             }
           } while (len && copy < have);
-          if (state.flags & 0x0200) {
+          if ((state.flags & 0x0200) && (state.wrap & 4)) {
             state.check = crc32_1(state.check, input, copy, next);
           }
           have -= copy;
@@ -17755,7 +13904,7 @@ const inflate$2 = (strm, flush) => {
             bits += 8;
           }
           //===//
-          if (hold !== (state.check & 0xffff)) {
+          if ((state.wrap & 4) && hold !== (state.check & 0xffff)) {
             strm.msg = 'header crc mismatch';
             state.mode = BAD;
             break;
@@ -18408,15 +14557,15 @@ const inflate$2 = (strm, flush) => {
           _out -= left;
           strm.total_out += _out;
           state.total += _out;
-          if (_out) {
+          if ((state.wrap & 4) && _out) {
             strm.adler = state.check =
-                /*UPDATE(state.check, put - _out, _out);*/
+                /*UPDATE_CHECK(state.check, put - _out, _out);*/
                 (state.flags ? crc32_1(state.check, output, _out, put - _out) : adler32_1(state.check, output, _out, put - _out));
 
           }
           _out = left;
           // NB: crc32 stored as signed 32-bit int, zswap32 returns signed too
-          if ((state.flags ? hold : zswap32(hold)) !== state.check) {
+          if ((state.wrap & 4) && (state.flags ? hold : zswap32(hold)) !== state.check) {
             strm.msg = 'incorrect data check';
             state.mode = BAD;
             break;
@@ -18439,7 +14588,7 @@ const inflate$2 = (strm, flush) => {
             bits += 8;
           }
           //===//
-          if (hold !== (state.total & 0xffffffff)) {
+          if ((state.wrap & 4) && hold !== (state.total & 0xffffffff)) {
             strm.msg = 'incorrect length check';
             state.mode = BAD;
             break;
@@ -18494,8 +14643,8 @@ const inflate$2 = (strm, flush) => {
   strm.total_in += _in;
   strm.total_out += _out;
   state.total += _out;
-  if (state.wrap && _out) {
-    strm.adler = state.check = /*UPDATE(state.check, strm.next_out - _out, _out);*/
+  if ((state.wrap & 4) && _out) {
+    strm.adler = state.check = /*UPDATE_CHECK(state.check, strm.next_out - _out, _out);*/
       (state.flags ? crc32_1(state.check, output, _out, strm.next_out - _out) : adler32_1(state.check, output, _out, strm.next_out - _out));
   }
   strm.data_type = state.bits + (state.last ? 64 : 0) +
@@ -18510,7 +14659,7 @@ const inflate$2 = (strm, flush) => {
 
 const inflateEnd = (strm) => {
 
-  if (!strm || !strm.state /*|| strm->zfree == (free_func)0*/) {
+  if (inflateStateCheck(strm)) {
     return Z_STREAM_ERROR$1;
   }
 
@@ -18526,7 +14675,7 @@ const inflateEnd = (strm) => {
 const inflateGetHeader = (strm, head) => {
 
   /* check state */
-  if (!strm || !strm.state) { return Z_STREAM_ERROR$1; }
+  if (inflateStateCheck(strm)) { return Z_STREAM_ERROR$1; }
   const state = strm.state;
   if ((state.wrap & 2) === 0) { return Z_STREAM_ERROR$1; }
 
@@ -18545,7 +14694,7 @@ const inflateSetDictionary = (strm, dictionary) => {
   let ret;
 
   /* check state */
-  if (!strm /* == Z_NULL */ || !strm.state /* == Z_NULL */) { return Z_STREAM_ERROR$1; }
+  if (inflateStateCheck(strm)) { return Z_STREAM_ERROR$1; }
   state = strm.state;
 
   if (state.wrap !== 0 && state.mode !== DICT) {
@@ -18586,6 +14735,7 @@ var inflateSetDictionary_1 = inflateSetDictionary;
 var inflateInfo = 'pako inflate (from Nodeca project)';
 
 /* Not implemented
+module.exports.inflateCodesUsed = inflateCodesUsed;
 module.exports.inflateCopy = inflateCopy;
 module.exports.inflateGetDictionary = inflateGetDictionary;
 module.exports.inflateMark = inflateMark;
@@ -18593,6 +14743,7 @@ module.exports.inflatePrime = inflatePrime;
 module.exports.inflateSync = inflateSync;
 module.exports.inflateSyncPoint = inflateSyncPoint;
 module.exports.inflateUndermine = inflateUndermine;
+module.exports.inflateValidate = inflateValidate;
 */
 
 var inflate_1$2 = {
@@ -18992,1014 +15143,1216 @@ Inflate$1.prototype.onEnd = function (status) {
   this.msg = this.strm.msg;
 };
 
+
+/**
+ * inflate(data[, options]) -> Uint8Array|String
+ * - data (Uint8Array|ArrayBuffer): input data to decompress.
+ * - options (Object): zlib inflate options.
+ *
+ * Decompress `data` with inflate/ungzip and `options`. Autodetect
+ * format via wrapper header by default. That's why we don't provide
+ * separate `ungzip` method.
+ *
+ * Supported options are:
+ *
+ * - windowBits
+ *
+ * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
+ * for more information.
+ *
+ * Sugar (options):
+ *
+ * - `raw` (Boolean) - say that we work with raw stream, if you don't wish to specify
+ *   negative windowBits implicitly.
+ * - `to` (String) - if equal to 'string', then result will be converted
+ *   from utf8 to utf16 (javascript) string. When string output requested,
+ *   chunk length can differ from `chunkSize`, depending on content.
+ *
+ *
+ * ##### Example:
+ *
+ * ```javascript
+ * const pako = require('pako');
+ * const input = pako.deflate(new Uint8Array([1,2,3,4,5,6,7,8,9]));
+ * let output;
+ *
+ * try {
+ *   output = pako.inflate(input);
+ * } catch (err) {
+ *   console.log(err);
+ * }
+ * ```
+ **/
+function inflate$1(input, options) {
+  const inflator = new Inflate$1(options);
+
+  inflator.push(input);
+
+  // That will never happens, if you don't cheat with options :)
+  if (inflator.err) throw inflator.msg || messages[inflator.err];
+
+  return inflator.result;
+}
+
+
+/**
+ * inflateRaw(data[, options]) -> Uint8Array|String
+ * - data (Uint8Array|ArrayBuffer): input data to decompress.
+ * - options (Object): zlib inflate options.
+ *
+ * The same as [[inflate]], but creates raw data, without wrapper
+ * (header and adler32 crc).
+ **/
+function inflateRaw$1(input, options) {
+  options = options || {};
+  options.raw = true;
+  return inflate$1(input, options);
+}
+
+
+/**
+ * ungzip(data[, options]) -> Uint8Array|String
+ * - data (Uint8Array|ArrayBuffer): input data to decompress.
+ * - options (Object): zlib inflate options.
+ *
+ * Just shortcut to [[inflate]], because it autodetects format
+ * by header.content. Done for convenience.
+ **/
+
+
+var Inflate_1$1 = Inflate$1;
+var inflate_2 = inflate$1;
+var inflateRaw_1$1 = inflateRaw$1;
+var ungzip$1 = inflate$1;
+var constants = constants$2;
+
+var inflate_1$1 = {
+	Inflate: Inflate_1$1,
+	inflate: inflate_2,
+	inflateRaw: inflateRaw_1$1,
+	ungzip: ungzip$1,
+	constants: constants
+};
+
 const { Deflate, deflate, deflateRaw, gzip } = deflate_1$1;
+
+const { Inflate, inflate, inflateRaw, ungzip } = inflate_1$1;
 var deflate_1 = deflate;
+var Inflate_1 = Inflate;
 
-const lut = {
-    b: { u: DataView.prototype.getInt8, p: DataView.prototype.setInt8, bytes: 1 },
-    B: {
-        u: DataView.prototype.getUint8,
-        p: DataView.prototype.setUint8,
-        bytes: 1,
-    },
-    h: {
-        u: DataView.prototype.getInt16,
-        p: DataView.prototype.setInt16,
-        bytes: 2,
-    },
-    H: {
-        u: DataView.prototype.getUint16,
-        p: DataView.prototype.setUint16,
-        bytes: 2,
-    },
-    i: {
-        u: DataView.prototype.getInt32,
-        p: DataView.prototype.setInt32,
-        bytes: 4,
-    },
-    I: {
-        u: DataView.prototype.getUint32,
-        p: DataView.prototype.setUint32,
-        bytes: 4,
-    },
-    q: {
-        // @ts-ignore
-        u: DataView.prototype.getInt64,
-        // @ts-ignore
-        p: DataView.prototype.setInt64,
-        bytes: 8,
-    },
-    Q: {
-        // @ts-ignore
-        u: DataView.prototype.getUint64,
-        // @ts-ignore
-        p: DataView.prototype.setUint64,
-        bytes: 8,
-    },
-};
-const pack = (format, ...data) => {
-    let pointer = 0;
-    if (format.replace(/[<>]/, "").length != data.length) {
-        throw "Pack format to Argument count mismatch";
+async function magic2Chip(magic) {
+    switch (magic) {
+        case 0x00f01d83: {
+            const { ESP32ROM } = await import('./esp32-83a110cc.js');
+            return new ESP32ROM();
+        }
+        case 0x6921506f:
+        case 0x1b31506f: {
+            const { ESP32C3ROM } = await import('./esp32c3-70d8e39c.js');
+            return new ESP32C3ROM();
+        }
+        case 0x09: {
+            const { ESP32S3ROM } = await import('./esp32s3-97067964.js');
+            return new ESP32S3ROM();
+        }
+        case 0x000007c6: {
+            const { ESP32S2ROM } = await import('./esp32s2-6973e6ae.js');
+            return new ESP32S2ROM();
+        }
+        case 0xfff0c101: {
+            const { ESP8266ROM } = await import('./esp8266-033958ea.js');
+            return new ESP8266ROM();
+        }
+        default:
+            return null;
     }
-    let bytes = [];
-    let littleEndian = true;
-    for (let i = 0; i < format.length; i++) {
-        if (format[i] == "<") {
-            littleEndian = true;
-        }
-        else if (format[i] == ">") {
-            littleEndian = false;
-        }
-        else {
-            pushBytes(format[i], data[pointer]);
-            pointer++;
-        }
-    }
-    function pushBytes(formatChar, value) {
-        if (!(formatChar in lut)) {
-            throw "Unhandled character '" + formatChar + "' in pack format";
-        }
-        let dataSize = lut[formatChar].bytes;
-        let view = new DataView(new ArrayBuffer(dataSize));
-        let dataViewFn = lut[formatChar].p.bind(view);
-        dataViewFn(0, value, littleEndian);
-        for (let i = 0; i < dataSize; i++) {
-            bytes.push(view.getUint8(i));
-        }
-    }
-    return bytes;
-};
-const unpack = (format, bytes) => {
-    let pointer = 0;
-    let data = [];
-    let littleEndian = true;
-    for (let c of format) {
-        if (c == "<") {
-            littleEndian = true;
-        }
-        else if (c == ">") {
-            littleEndian = false;
-        }
-        else {
-            pushData(c);
-        }
-    }
-    function pushData(formatChar) {
-        if (!(formatChar in lut)) {
-            throw "Unhandled character '" + formatChar + "' in unpack format";
-        }
-        let dataSize = lut[formatChar].bytes;
-        let view = new DataView(new ArrayBuffer(dataSize));
-        for (let i = 0; i < dataSize; i++) {
-            view.setUint8(i, bytes[pointer + i] & 0xff);
-        }
-        let dataViewFn = lut[formatChar].u.bind(view);
-        data.push(dataViewFn(0, littleEndian));
-        pointer += dataSize;
-    }
-    return data;
-};
-
-class ESPLoader extends EventTarget {
-    constructor(port, logger, _parent) {
-        super();
-        this.port = port;
-        this.logger = logger;
-        this._parent = _parent;
-        this.chipName = null;
-        this._efuses = new Array(4).fill(0);
-        this._flashsize = 4 * 1024 * 1024;
-        this.debug = false;
+}
+class ESPLoader {
+    constructor(transport, baudrate, terminal, rom_baudrate = 115200, debugLogging = false) {
+        this.transport = transport;
+        this.baudrate = baudrate;
+        this.terminal = terminal;
+        this.rom_baudrate = rom_baudrate;
+        this.debugLogging = debugLogging;
+        this.ESP_RAM_BLOCK = 0x1800;
+        this.ESP_FLASH_BEGIN = 0x02;
+        this.ESP_FLASH_DATA = 0x03;
+        this.ESP_FLASH_END = 0x04;
+        this.ESP_MEM_BEGIN = 0x05;
+        this.ESP_MEM_END = 0x06;
+        this.ESP_MEM_DATA = 0x07;
+        this.ESP_WRITE_REG = 0x09;
+        this.ESP_READ_REG = 0x0a;
+        this.ESP_SPI_ATTACH = 0x0d;
+        this.ESP_CHANGE_BAUDRATE = 0x0f;
+        this.ESP_FLASH_DEFL_BEGIN = 0x10;
+        this.ESP_FLASH_DEFL_DATA = 0x11;
+        this.ESP_FLASH_DEFL_END = 0x12;
+        this.ESP_SPI_FLASH_MD5 = 0x13;
+        // Only Stub supported commands
+        this.ESP_ERASE_FLASH = 0xd0;
+        this.ESP_ERASE_REGION = 0xd1;
+        this.ESP_RUN_USER_CODE = 0xd3;
+        this.ESP_IMAGE_MAGIC = 0xe9;
+        this.ESP_CHECKSUM_MAGIC = 0xef;
+        // Response code(s) sent by ROM
+        this.ROM_INVALID_RECV_MSG = 0x05; // response if an invalid message is received
+        this.ERASE_REGION_TIMEOUT_PER_MB = 30000;
+        this.ERASE_WRITE_TIMEOUT_PER_MB = 40000;
+        this.MD5_TIMEOUT_PER_MB = 8000;
+        this.CHIP_ERASE_TIMEOUT = 120000;
+        this.MAX_TIMEOUT = this.CHIP_ERASE_TIMEOUT * 2;
+        this.CHIP_DETECT_MAGIC_REG_ADDR = 0x40001000;
+        this.DETECTED_FLASH_SIZES = {
+            0x12: "256KB",
+            0x13: "512KB",
+            0x14: "1MB",
+            0x15: "2MB",
+            0x16: "4MB",
+            0x17: "8MB",
+            0x18: "16MB",
+        };
+        this.USB_JTAG_SERIAL_PID = 0x1001;
+        this.checksum = function (data) {
+            let i;
+            let chk = 0xef;
+            for (i = 0; i < data.length; i++) {
+                chk ^= data[i];
+            }
+            return chk;
+        };
+        this.timeout_per_mb = function (seconds_per_mb, size_bytes) {
+            const result = seconds_per_mb * (size_bytes / 1000000);
+            if (result < 3000) {
+                return 3000;
+            }
+            else {
+                return result;
+            }
+        };
+        this.flash_size_bytes = function (flash_size) {
+            let flash_size_b = -1;
+            if (flash_size.indexOf("KB") !== -1) {
+                flash_size_b = parseInt(flash_size.slice(0, flash_size.indexOf("KB"))) * 1024;
+            }
+            else if (flash_size.indexOf("MB") !== -1) {
+                flash_size_b = parseInt(flash_size.slice(0, flash_size.indexOf("MB"))) * 1024 * 1024;
+            }
+            return flash_size_b;
+        };
         this.IS_STUB = false;
-        this.connected = true;
-        this.flashSize = null;
+        this.FLASH_WRITE_SIZE = 0x4000;
+        if (this.terminal) {
+            this.terminal.clean();
+        }
+        this.info("esptool.js");
+        this.info("Serial port " + this.transport.get_info());
     }
-    get _inputBuffer() {
-        return this._parent ? this._parent._inputBuffer : this.__inputBuffer;
+    _sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
     }
-    async initialize() {
-        await this.hardReset(true);
-        if (!this._parent) {
-            this.__inputBuffer = [];
-            // Don't await this promise so it doesn't block rest of method.
-            this.readLoop();
+    write(str, withNewline = true) {
+        if (this.terminal) {
+            if (withNewline) {
+                this.terminal.writeLine(str);
+            }
+            else {
+                this.terminal.write(str);
+            }
         }
-        await this.sync();
-        // Determine chip family and name
-        let chipMagicValue = await this.readRegister(CHIP_DETECT_MAGIC_REG_ADDR);
-        let chip = CHIP_DETECT_MAGIC_VALUES[chipMagicValue >>> 0];
-        if (chip === undefined) {
-            throw new Error(`Unknown Chip: Hex: ${toHex(chipMagicValue >>> 0, 8).toLowerCase()} Number: ${chipMagicValue}`);
+        else {
+            // eslint-disable-next-line no-console
+            console.log(str);
         }
-        this.chipName = chip.name;
-        this.chipFamily = chip.family;
-        // Read the OTP data for this chip and store into this.efuses array
-        let FlAddr = getSpiFlashAddresses(this.getChipFamily());
-        let AddrMAC = FlAddr.macFuse;
-        for (let i = 0; i < 4; i++) {
-            this._efuses[i] = await this.readRegister(AddrMAC + 4 * i);
-        }
-        this.logger.log(`Chip type ${this.chipName}`);
-        //this.logger.log("FLASHID");
     }
-    /**
-     * @name readLoop
-     * Reads data from the input stream and places it in the inputBuffer
-     */
-    async readLoop() {
-        if (this.debug) {
-            this.logger.debug("Starting read loop");
+    error(str, withNewline = true) {
+        this.write(`Error: ${str}`, withNewline);
+    }
+    info(str, withNewline = true) {
+        this.write(str, withNewline);
+    }
+    debug(str, withNewline = true) {
+        if (this.debugLogging) {
+            this.write(`Debug: ${str}`, withNewline);
         }
-        this._reader = this.port.readable.getReader();
+    }
+    _short_to_bytearray(i) {
+        return new Uint8Array([i & 0xff, (i >> 8) & 0xff]);
+    }
+    _int_to_bytearray(i) {
+        return new Uint8Array([i & 0xff, (i >> 8) & 0xff, (i >> 16) & 0xff, (i >> 24) & 0xff]);
+    }
+    _bytearray_to_short(i, j) {
+        return i | (j >> 8);
+    }
+    _bytearray_to_int(i, j, k, l) {
+        return i | (j << 8) | (k << 16) | (l << 24);
+    }
+    _appendBuffer(buffer1, buffer2) {
+        const tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
+        tmp.set(new Uint8Array(buffer1), 0);
+        tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
+        return tmp.buffer;
+    }
+    _appendArray(arr1, arr2) {
+        const c = new Uint8Array(arr1.length + arr2.length);
+        c.set(arr1, 0);
+        c.set(arr2, arr1.length);
+        return c;
+    }
+    ui8ToBstr(u8Array) {
+        let b_str = "";
+        for (let i = 0; i < u8Array.length; i++) {
+            b_str += String.fromCharCode(u8Array[i]);
+        }
+        return b_str;
+    }
+    bstrToUi8(bStr) {
+        const u8_array = new Uint8Array(bStr.length);
+        for (let i = 0; i < bStr.length; i++) {
+            u8_array[i] = bStr.charCodeAt(i);
+        }
+        return u8_array;
+    }
+    async flush_input() {
         try {
-            while (true) {
-                const { value, done } = await this._reader.read();
-                if (done) {
-                    this._reader.releaseLock();
-                    break;
-                }
-                if (!value || value.length === 0) {
-                    continue;
-                }
-                this._inputBuffer.push(...Array.from(value));
-            }
+            await this.transport.rawRead(200);
         }
-        catch (err) {
-            console.error("Read loop got disconnected");
+        catch (e) {
+            this.error(e.message);
         }
-        // Disconnected!
-        this.connected = false;
-        this.dispatchEvent(new Event("disconnect"));
-        this.logger.debug("Finished read loop");
     }
-    async hardReset(bootloader = false) {
-        this.logger.log("Try hard reset.");
-        await this.port.setSignals({
-            dataTerminalReady: false,
-            requestToSend: true,
-        });
-        await this.port.setSignals({
-            dataTerminalReady: bootloader,
-            requestToSend: false,
-        });
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
-    /**
-     * @name macAddr
-     * The MAC address burned into the OTP memory of the ESP chip
-     */
-    macAddr() {
-        let macAddr = new Array(6).fill(0);
-        let mac0 = this._efuses[0];
-        let mac1 = this._efuses[1];
-        let mac2 = this._efuses[2];
-        let mac3 = this._efuses[3];
-        let oui;
-        if (this.chipFamily == CHIP_FAMILY_ESP8266) {
-            if (mac3 != 0) {
-                oui = [(mac3 >> 16) & 0xff, (mac3 >> 8) & 0xff, mac3 & 0xff];
+    async command(op = null, data = new Uint8Array(0), chk = 0, waitResponse = true, timeout = 3000) {
+        if (op != null) {
+            const pkt = new Uint8Array(8 + data.length);
+            pkt[0] = 0x00;
+            pkt[1] = op;
+            pkt[2] = this._short_to_bytearray(data.length)[0];
+            pkt[3] = this._short_to_bytearray(data.length)[1];
+            pkt[4] = this._int_to_bytearray(chk)[0];
+            pkt[5] = this._int_to_bytearray(chk)[1];
+            pkt[6] = this._int_to_bytearray(chk)[2];
+            pkt[7] = this._int_to_bytearray(chk)[3];
+            let i;
+            for (i = 0; i < data.length; i++) {
+                pkt[8 + i] = data[i];
             }
-            else if (((mac1 >> 16) & 0xff) == 0) {
-                oui = [0x18, 0xfe, 0x34];
-            }
-            else if (((mac1 >> 16) & 0xff) == 1) {
-                oui = [0xac, 0xd0, 0x74];
-            }
-            else {
-                throw new Error("Couldnt determine OUI");
-            }
-            macAddr[0] = oui[0];
-            macAddr[1] = oui[1];
-            macAddr[2] = oui[2];
-            macAddr[3] = (mac1 >> 8) & 0xff;
-            macAddr[4] = mac1 & 0xff;
-            macAddr[5] = (mac0 >> 24) & 0xff;
+            await this.transport.write(pkt);
         }
-        else if (this.chipFamily == CHIP_FAMILY_ESP32) {
-            macAddr[0] = (mac2 >> 8) & 0xff;
-            macAddr[1] = mac2 & 0xff;
-            macAddr[2] = (mac1 >> 24) & 0xff;
-            macAddr[3] = (mac1 >> 16) & 0xff;
-            macAddr[4] = (mac1 >> 8) & 0xff;
-            macAddr[5] = mac1 & 0xff;
+        if (!waitResponse) {
+            return [0, new Uint8Array(0)];
         }
-        else if (this.chipFamily == CHIP_FAMILY_ESP32S2 ||
-            this.chipFamily == CHIP_FAMILY_ESP32S3 ||
-            this.chipFamily == CHIP_FAMILY_ESP32C3) {
-            macAddr[0] = (mac1 >> 8) & 0xff;
-            macAddr[1] = mac1 & 0xff;
-            macAddr[2] = (mac0 >> 24) & 0xff;
-            macAddr[3] = (mac0 >> 16) & 0xff;
-            macAddr[4] = (mac0 >> 8) & 0xff;
-            macAddr[5] = mac0 & 0xff;
-        }
-        else {
-            throw new Error("Unknown chip family");
-        }
-        return macAddr;
-    }
-    async readRegister(reg) {
-        if (this.debug) {
-            this.logger.debug("Reading from Register " + toHex(reg, 8));
-        }
-        let packet = pack("<I", reg);
-        await this.sendCommand(ESP_READ_REG, packet);
-        let [val, _data] = await this.getResponse(ESP_READ_REG);
-        return val;
-    }
-    /**
-     * @name checkCommand
-     * Send a command packet, check that the command succeeded and
-     * return a tuple with the value and data.
-     * See the ESP Serial Protocol for more details on what value/data are
-     */
-    async checkCommand(opcode, buffer, checksum = 0, timeout = DEFAULT_TIMEOUT) {
-        timeout = Math.min(timeout, MAX_TIMEOUT);
-        await this.sendCommand(opcode, buffer, checksum);
-        let [value, data] = await this.getResponse(opcode, timeout);
-        if (data === null) {
-            throw new Error("Didn't get enough status bytes");
-        }
-        let statusLen = 0;
-        if (this.IS_STUB || this.chipFamily == CHIP_FAMILY_ESP8266) {
-            statusLen = 2;
-        }
-        else if ([
-            CHIP_FAMILY_ESP32,
-            CHIP_FAMILY_ESP32S2,
-            CHIP_FAMILY_ESP32S3,
-            CHIP_FAMILY_ESP32C3,
-        ].includes(this.chipFamily)) {
-            statusLen = 4;
-        }
-        else {
-            if ([2, 4].includes(data.length)) {
-                statusLen = data.length;
-            }
-        }
-        if (data.length < statusLen) {
-            throw new Error("Didn't get enough status bytes");
-        }
-        let status = data.slice(-statusLen, data.length);
-        data = data.slice(0, -statusLen);
-        if (this.debug) {
-            this.logger.debug("status", status);
-            this.logger.debug("value", value);
-            this.logger.debug("data", data);
-        }
-        if (status[0] == 1) {
-            if (status[1] == ROM_INVALID_RECV_MSG) {
-                throw new Error("Invalid (unsupported) command " + toHex(opcode));
-            }
-            else {
-                throw new Error("Command failure error code " + toHex(status[1]));
-            }
-        }
-        return [value, data];
-    }
-    /**
-     * @name sendCommand
-     * Send a slip-encoded, checksummed command over the UART,
-     * does not check response
-     */
-    async sendCommand(opcode, buffer, checksum = 0) {
-        let packet = slipEncode([
-            ...pack("<BBHI", 0x00, opcode, buffer.length, checksum),
-            ...buffer,
-        ]);
-        if (this.debug) {
-            this.logger.debug(`Writing ${packet.length} byte${packet.length == 1 ? "" : "s"}:`, packet);
-        }
-        await this.writeToStream(packet);
-    }
-    /**
-     * @name readPacket
-     * Generator to read SLIP packets from a serial port.
-     * Yields one full SLIP packet at a time, raises exception on timeout or invalid data.
-     * Designed to avoid too many calls to serial.read(1), which can bog
-     * down on slow systems.
-     */
-    async readPacket(timeout) {
-        let partialPacket = null;
-        let inEscape = false;
-        let readBytes = [];
-        while (true) {
-            let stamp = Date.now();
-            readBytes = [];
-            while (Date.now() - stamp < timeout) {
-                if (this._inputBuffer.length > 0) {
-                    readBytes.push(this._inputBuffer.shift());
-                    break;
-                }
-                else {
-                    await sleep(10);
-                }
-            }
-            if (readBytes.length == 0) {
-                let waitingFor = partialPacket === null ? "header" : "content";
-                throw new SlipReadError("Timed out waiting for packet " + waitingFor);
-            }
-            if (this.debug)
-                this.logger.debug("Read " + readBytes.length + " bytes: " + hexFormatter(readBytes));
-            for (let b of readBytes) {
-                if (partialPacket === null) {
-                    // waiting for packet header
-                    if (b == 0xc0) {
-                        partialPacket = [];
-                    }
-                    else {
-                        if (this.debug) {
-                            this.logger.debug("Read invalid data: " + hexFormatter(readBytes));
-                            this.logger.debug("Remaining data in serial buffer: " +
-                                hexFormatter(this._inputBuffer));
-                        }
-                        throw new SlipReadError("Invalid head of packet (" + toHex(b) + ")");
-                    }
-                }
-                else if (inEscape) {
-                    // part-way through escape sequence
-                    inEscape = false;
-                    if (b == 0xdc) {
-                        partialPacket.push(0xc0);
-                    }
-                    else if (b == 0xdd) {
-                        partialPacket.push(0xdb);
-                    }
-                    else {
-                        if (this.debug) {
-                            this.logger.debug("Read invalid data: " + hexFormatter(readBytes));
-                            this.logger.debug("Remaining data in serial buffer: " +
-                                hexFormatter(this._inputBuffer));
-                        }
-                        throw new SlipReadError("Invalid SLIP escape (0xdb, " + toHex(b) + ")");
-                    }
-                }
-                else if (b == 0xdb) {
-                    // start of escape sequence
-                    inEscape = true;
-                }
-                else if (b == 0xc0) {
-                    // end of packet
-                    if (this.debug)
-                        this.logger.debug("Received full packet: " + hexFormatter(partialPacket));
-                    return partialPacket;
-                }
-                else {
-                    // normal byte in packet
-                    partialPacket.push(b);
-                }
-            }
-        }
-        throw new SlipReadError("Invalid state");
-    }
-    /**
-     * @name getResponse
-     * Read response data and decodes the slip packet, then parses
-     * out the value/data and returns as a tuple of (value, data) where
-     * each is a list of bytes
-     */
-    async getResponse(opcode, timeout = DEFAULT_TIMEOUT) {
+        // Check up-to next 100 packets for valid response packet
         for (let i = 0; i < 100; i++) {
-            const packet = await this.readPacket(timeout);
-            if (packet.length < 8) {
-                continue;
-            }
-            const [resp, opRet, _lenRet, val] = unpack("<BBHI", packet.slice(0, 8));
-            if (resp != 1) {
-                continue;
-            }
-            const data = packet.slice(8);
-            if (opcode == null || opRet == opcode) {
-                return [val, data];
-            }
-            if (data[0] != 0 && data[1] == ROM_INVALID_RECV_MSG) {
-                this._inputBuffer.length = 0;
-                throw new Error(`Invalid (unsupported) command ${toHex(opcode)}`);
+            const p = await this.transport.read(timeout);
+            const resp = p[0];
+            const op_ret = p[1];
+            const val = this._bytearray_to_int(p[4], p[5], p[6], p[7]);
+            const data = p.slice(8);
+            if (resp == 1) {
+                if (op == null || op_ret == op) {
+                    return [val, data];
+                }
+                else if (data[0] != 0 && data[1] == this.ROM_INVALID_RECV_MSG) {
+                    await this.flush_input();
+                    throw new ESPError("unsupported command error");
+                }
             }
         }
-        throw "Response doesn't match request";
+        throw new ESPError("invalid response");
     }
-    /**
-     * @name checksum
-     * Calculate checksum of a blob, as it is defined by the ROM
-     */
-    checksum(data, state = ESP_CHECKSUM_MAGIC) {
-        for (let b of data) {
-            state ^= b;
-        }
-        return state;
+    async read_reg(addr, timeout = 3000) {
+        const pkt = this._int_to_bytearray(addr);
+        const val = await this.command(this.ESP_READ_REG, pkt, undefined, undefined, timeout);
+        return val[0];
     }
-    async setBaudrate(baud) {
-        if (this.chipFamily == CHIP_FAMILY_ESP8266) {
-            throw new Error("Changing baud rate is not supported on the ESP8266");
+    async write_reg(addr, value, mask = 0xffffffff, delay_us = 0, delay_after_us = 0) {
+        let pkt = this._appendArray(this._int_to_bytearray(addr), this._int_to_bytearray(value));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(mask));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(delay_us));
+        if (delay_after_us > 0) {
+            pkt = this._appendArray(pkt, this._int_to_bytearray(this.chip.UART_DATE_REG_ADDR));
+            pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+            pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+            pkt = this._appendArray(pkt, this._int_to_bytearray(delay_after_us));
         }
-        this.logger.log("Attempting to change baud rate to " + baud + "...");
-        try {
-            // Send ESP_ROM_BAUD(115200) as the old one if running STUB otherwise 0
-            let buffer = pack("<II", baud, this.IS_STUB ? ESP_ROM_BAUD : 0);
-            await this.checkCommand(ESP_CHANGE_BAUDRATE, buffer);
-        }
-        catch (e) {
-            console.error(e);
-            throw new Error(`Unable to change the baud rate to ${baud}: No response from set baud rate command.`);
-        }
-        if (this._parent) {
-            await this._parent.reconfigurePort(baud);
-        }
-        else {
-            await this.reconfigurePort(baud);
-        }
+        await this.check_command("write target memory", this.ESP_WRITE_REG, pkt);
     }
-    async reconfigurePort(baud) {
-        var _a;
-        try {
-            // SerialPort does not allow to be reconfigured while open so we close and re-open
-            // reader.cancel() causes the Promise returned by the read() operation running on
-            // the readLoop to return immediately with { value: undefined, done: true } and thus
-            // breaking the loop and exiting readLoop();
-            await ((_a = this._reader) === null || _a === void 0 ? void 0 : _a.cancel());
-            await this.port.close();
-            // Reopen Port
-            await this.port.open({ baudRate: baud });
-            // Restart Readloop
-            this.readLoop();
-            this.logger.log(`Changed baud rate to ${baud}`);
-        }
-        catch (e) {
-            console.error(e);
-            throw new Error(`Unable to change the baud rate to ${baud}: ${e}`);
-        }
-    }
-    /**
-     * @name sync
-     * Put into ROM bootload mode & attempt to synchronize with the
-     * ESP ROM bootloader, we will retry a few times
-     */
     async sync() {
-        for (let i = 0; i < 5; i++) {
-            this._inputBuffer.length = 0;
-            let response = await this._sync();
-            if (response) {
-                await sleep(100);
-                return true;
-            }
-            await sleep(100);
+        this.debug("Sync");
+        const cmd = new Uint8Array(36);
+        let i;
+        cmd[0] = 0x07;
+        cmd[1] = 0x07;
+        cmd[2] = 0x12;
+        cmd[3] = 0x20;
+        for (i = 0; i < 32; i++) {
+            cmd[4 + i] = 0x55;
         }
-        throw new Error("Couldn't sync to ESP. Try resetting.");
+        try {
+            const resp = await this.command(0x08, cmd, undefined, undefined, 100);
+            return resp;
+        }
+        catch (e) {
+            this.debug("Sync err " + e);
+            throw e;
+        }
     }
-    /**
-     * @name _sync
-     * Perform a soft-sync using AT sync packets, does not perform
-     * any hardware resetting
-     */
-    async _sync() {
-        await this.sendCommand(ESP_SYNC, SYNC_PACKET);
-        for (let i = 0; i < 8; i++) {
+    async _connect_attempt(mode = "default_reset", esp32r0_delay = false) {
+        this.debug("_connect_attempt " + mode + " " + esp32r0_delay);
+        if (mode !== "no_reset") {
+            if (this.transport.get_pid() === this.USB_JTAG_SERIAL_PID) {
+                // Custom reset sequence, which is required when the device
+                // is connecting via its USB-JTAG-Serial peripheral
+                await this.transport.setRTS(false);
+                await this.transport.setDTR(false);
+                await this._sleep(100);
+                await this.transport.setDTR(true);
+                await this.transport.setRTS(false);
+                await this._sleep(100);
+                await this.transport.setRTS(true);
+                await this.transport.setDTR(false);
+                await this.transport.setRTS(true);
+                await this._sleep(100);
+                await this.transport.setRTS(false);
+                await this.transport.setDTR(false);
+            }
+            else {
+                await this.transport.setDTR(false);
+                await this.transport.setRTS(true);
+                await this._sleep(100);
+                if (esp32r0_delay) {
+                    //await this._sleep(1200);
+                    await this._sleep(2000);
+                }
+                await this.transport.setDTR(true);
+                await this.transport.setRTS(false);
+                await this._sleep(50);
+                await this.transport.setDTR(false);
+            }
+        }
+        let i = 0;
+        let keepReading = true;
+        while (keepReading) {
             try {
-                let [_reply, data] = await this.getResponse(ESP_SYNC, SYNC_TIMEOUT);
-                if (data.length > 1 && data[0] == 0 && data[1] == 0) {
-                    return true;
+                const res = await this.transport.read(1000);
+                i += res.length;
+            }
+            catch (e) {
+                this.debug(e.message);
+                if (e instanceof Error) {
+                    keepReading = false;
+                    break;
                 }
             }
-            catch (err) {
-                // If read packet fails.
+            await this._sleep(50);
+        }
+        this.transport.slip_reader_enabled = true;
+        i = 7;
+        while (i--) {
+            try {
+                const resp = await this.sync();
+                this.debug(resp[0].toString());
+                return "success";
             }
-        }
-        return false;
-    }
-    /**
-     * @name getFlashWriteSize
-     * Get the Flash write size based on the chip
-     */
-    getFlashWriteSize() {
-        if (this.IS_STUB) {
-            return STUB_FLASH_WRITE_SIZE;
-        }
-        return FLASH_WRITE_SIZE;
-    }
-    /**
-     * @name flashData
-     * Program a full, uncompressed binary file into SPI Flash at
-     *   a given offset. If an ESP32 and md5 string is passed in, will also
-     *   verify memory. ESP8266 does not have checksum memory verification in
-     *   ROM
-     */
-    async flashData(binaryData, updateProgress, offset = 0, compress = false) {
-        if (binaryData.byteLength >= 8) {
-            // unpack the (potential) image header
-            var header = Array.from(new Uint8Array(binaryData, 0, 4));
-            let headerMagic = header[0];
-            let headerFlashMode = header[2];
-            let headerFlashSizeFreq = header[3];
-            this.logger.log(`Image header, Magic=${toHex(headerMagic)}, FlashMode=${toHex(headerFlashMode)}, FlashSizeFreq=${toHex(headerFlashSizeFreq)}`);
-        }
-        let uncompressedFilesize = binaryData.byteLength;
-        let compressedFilesize = 0;
-        let dataToFlash;
-        let timeout = DEFAULT_TIMEOUT;
-        if (compress) {
-            dataToFlash = deflate_1(new Uint8Array(binaryData), {
-                level: 9,
-            }).buffer;
-            compressedFilesize = dataToFlash.byteLength;
-            this.logger.log(`Writing data with filesize: ${uncompressedFilesize}. Compressed Size: ${compressedFilesize}`);
-            timeout = await this.flashDeflBegin(uncompressedFilesize, compressedFilesize, offset);
-        }
-        else {
-            this.logger.log(`Writing data with filesize: ${uncompressedFilesize}`);
-            dataToFlash = binaryData;
-            await this.flashBegin(uncompressedFilesize, offset);
-        }
-        let block = [];
-        let seq = 0;
-        let written = 0;
-        let position = 0;
-        let stamp = Date.now();
-        let flashWriteSize = this.getFlashWriteSize();
-        let filesize = compress ? compressedFilesize : uncompressedFilesize;
-        while (filesize - position > 0) {
-            if (this.debug) {
-                this.logger.log(`Writing at ${toHex(offset + seq * flashWriteSize, 8)} `);
-            }
-            if (filesize - position >= flashWriteSize) {
-                block = Array.from(new Uint8Array(dataToFlash, position, flashWriteSize));
-            }
-            else {
-                // Pad the last block only if we are sending uncompressed data.
-                block = Array.from(new Uint8Array(dataToFlash, position, filesize - position));
-                if (!compress) {
-                    block = block.concat(new Array(flashWriteSize - block.length).fill(0xff));
+            catch (error) {
+                if (error instanceof Error) {
+                    if (esp32r0_delay) {
+                        this.info("_", false);
+                    }
+                    else {
+                        this.info(".", false);
+                    }
                 }
             }
-            if (compress) {
-                await this.flashDeflBlock(block, seq, timeout);
+            await this._sleep(50);
+        }
+        return "error";
+    }
+    async connect(mode = "default_reset", attempts = 7, detecting = false) {
+        let i;
+        let resp;
+        this.info("Connecting...", false);
+        await this.transport.connect(this.rom_baudrate);
+        for (i = 0; i < attempts; i++) {
+            resp = await this._connect_attempt(mode, false);
+            if (resp === "success") {
+                break;
+            }
+            resp = await this._connect_attempt(mode, true);
+            if (resp === "success") {
+                break;
+            }
+        }
+        if (resp !== "success") {
+            throw new ESPError("Failed to connect with the device");
+        }
+        this.info("\n\r", false);
+        if (!detecting) {
+            const chip_magic_value = (await this.read_reg(0x40001000)) >>> 0;
+            this.debug("Chip Magic " + chip_magic_value.toString(16));
+            const chip = await magic2Chip(chip_magic_value);
+            if (this.chip === null) {
+                throw new ESPError(`Unexpected CHIP magic value ${chip_magic_value}. Failed to autodetect chip type.`);
             }
             else {
-                await this.flashBlock(block, seq);
+                this.chip = chip;
             }
-            seq += 1;
-            // If using compression we update the progress with the proportional size of the block taking into account the compression ratio.
-            // This way we report progress on the uncompressed size
-            written += compress
-                ? Math.round((block.length * uncompressedFilesize) / compressedFilesize)
-                : block.length;
-            position += flashWriteSize;
-            updateProgress(Math.min(written, uncompressedFilesize), uncompressedFilesize);
         }
-        this.logger.log("Took " + (Date.now() - stamp) + "ms to write " + filesize + " bytes");
-        // Only send flashF finish if running the stub because ir causes the ROM to exit and run user code
+    }
+    async detect_chip(mode = "default_reset") {
+        await this.connect(mode);
+        this.info("Detecting chip type... ", false);
+        if (this.chip != null) {
+            this.info(this.chip.CHIP_NAME);
+        }
+        else {
+            this.info("unknown!");
+        }
+    }
+    async check_command(op_description = "", op = null, data = new Uint8Array(0), chk = 0, timeout = 3000) {
+        this.debug("check_command " + op_description);
+        const resp = await this.command(op, data, chk, undefined, timeout);
+        if (resp[1].length > 4) {
+            return resp[1];
+        }
+        else {
+            return resp[0];
+        }
+    }
+    async mem_begin(size, blocks, blocksize, offset) {
+        /* XXX: Add check to ensure that STUB is not getting overwritten */
+        this.debug("mem_begin " + size + " " + blocks + " " + blocksize + " " + offset.toString(16));
+        let pkt = this._appendArray(this._int_to_bytearray(size), this._int_to_bytearray(blocks));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(blocksize));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(offset));
+        await this.check_command("enter RAM download mode", this.ESP_MEM_BEGIN, pkt);
+    }
+    async mem_block(buffer, seq) {
+        let pkt = this._appendArray(this._int_to_bytearray(buffer.length), this._int_to_bytearray(seq));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, buffer);
+        const checksum = this.checksum(buffer);
+        await this.check_command("write to target RAM", this.ESP_MEM_DATA, pkt, checksum);
+    }
+    async mem_finish(entrypoint) {
+        const is_entry = entrypoint === 0 ? 1 : 0;
+        const pkt = this._appendArray(this._int_to_bytearray(is_entry), this._int_to_bytearray(entrypoint));
+        await this.check_command("leave RAM download mode", this.ESP_MEM_END, pkt, undefined, 50); // XXX: handle non-stub with diff timeout
+    }
+    async flash_spi_attach(hspi_arg) {
+        const pkt = this._int_to_bytearray(hspi_arg);
+        await this.check_command("configure SPI flash pins", this.ESP_SPI_ATTACH, pkt);
+    }
+    async flash_begin(size, offset) {
+        const num_blocks = Math.floor((size + this.FLASH_WRITE_SIZE - 1) / this.FLASH_WRITE_SIZE);
+        const erase_size = this.chip.get_erase_size(offset, size);
+        const d = new Date();
+        const t1 = d.getTime();
+        let timeout = 3000;
+        if (this.IS_STUB == false) {
+            timeout = this.timeout_per_mb(this.ERASE_REGION_TIMEOUT_PER_MB, size);
+        }
+        this.debug("flash begin " + erase_size + " " + num_blocks + " " + this.FLASH_WRITE_SIZE + " " + offset + " " + size);
+        let pkt = this._appendArray(this._int_to_bytearray(erase_size), this._int_to_bytearray(num_blocks));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(this.FLASH_WRITE_SIZE));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(offset));
+        if (this.IS_STUB == false) {
+            pkt = this._appendArray(pkt, this._int_to_bytearray(0)); // XXX: Support encrypted
+        }
+        await this.check_command("enter Flash download mode", this.ESP_FLASH_BEGIN, pkt, undefined, timeout);
+        const t2 = d.getTime();
+        if (size != 0 && this.IS_STUB == false) {
+            this.info("Took " + (t2 - t1) / 1000 + "." + ((t2 - t1) % 1000) + "s to erase flash block");
+        }
+        return num_blocks;
+    }
+    async flash_defl_begin(size, compsize, offset) {
+        const num_blocks = Math.floor((compsize + this.FLASH_WRITE_SIZE - 1) / this.FLASH_WRITE_SIZE);
+        const erase_blocks = Math.floor((size + this.FLASH_WRITE_SIZE - 1) / this.FLASH_WRITE_SIZE);
+        const d = new Date();
+        const t1 = d.getTime();
+        let write_size, timeout;
         if (this.IS_STUB) {
-            await this.flashBegin(0, 0);
-            if (compress) {
-                await this.flashDeflFinish();
-            }
-            else {
-                await this.flashFinish();
-            }
-        }
-    }
-    /**
-     * @name flashBlock
-     * Send one block of data to program into SPI Flash memory
-     */
-    async flashBlock(data, seq, timeout = DEFAULT_TIMEOUT) {
-        await this.checkCommand(ESP_FLASH_DATA, pack("<IIII", data.length, seq, 0, 0).concat(data), this.checksum(data), timeout);
-    }
-    async flashDeflBlock(data, seq, timeout = DEFAULT_TIMEOUT) {
-        await this.checkCommand(ESP_FLASH_DEFL_DATA, pack("<IIII", data.length, seq, 0, 0).concat(data), this.checksum(data), timeout);
-    }
-    /**
-     * @name flashBegin
-     * Prepare for flashing by attaching SPI chip and erasing the
-     *   number of blocks requred.
-     */
-    async flashBegin(size = 0, offset = 0, encrypted = false) {
-        let eraseSize;
-        let buffer;
-        let flashWriteSize = this.getFlashWriteSize();
-        if (!this.IS_STUB &&
-            [
-                CHIP_FAMILY_ESP32,
-                CHIP_FAMILY_ESP32S2,
-                CHIP_FAMILY_ESP32S3,
-                CHIP_FAMILY_ESP32C3,
-            ].includes(this.chipFamily)) {
-            await this.checkCommand(ESP_SPI_ATTACH, new Array(8).fill(0));
-        }
-        let numBlocks = Math.floor((size + flashWriteSize - 1) / flashWriteSize);
-        if (this.chipFamily == CHIP_FAMILY_ESP8266) {
-            eraseSize = this.getEraseSize(offset, size);
+            write_size = size;
+            timeout = 3000;
         }
         else {
-            eraseSize = size;
+            write_size = erase_blocks * this.FLASH_WRITE_SIZE;
+            timeout = this.timeout_per_mb(this.ERASE_REGION_TIMEOUT_PER_MB, write_size);
         }
-        let timeout;
-        if (this.IS_STUB) {
-            timeout = DEFAULT_TIMEOUT;
+        this.info("Compressed " + size + " bytes to " + compsize + "...");
+        let pkt = this._appendArray(this._int_to_bytearray(write_size), this._int_to_bytearray(num_blocks));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(this.FLASH_WRITE_SIZE));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(offset));
+        if ((this.chip.CHIP_NAME === "ESP32-S2" ||
+            this.chip.CHIP_NAME === "ESP32-S3" ||
+            this.chip.CHIP_NAME === "ESP32-C3") &&
+            this.IS_STUB === false) {
+            pkt = this._appendArray(pkt, this._int_to_bytearray(0));
         }
-        else {
-            timeout = timeoutPerMb(ERASE_REGION_TIMEOUT_PER_MB, size);
+        await this.check_command("enter compressed flash mode", this.ESP_FLASH_DEFL_BEGIN, pkt, undefined, timeout);
+        const t2 = d.getTime();
+        if (size != 0 && this.IS_STUB === false) {
+            this.info("Took " + (t2 - t1) / 1000 + "." + ((t2 - t1) % 1000) + "s to erase flash block");
         }
-        let stamp = Date.now();
-        buffer = pack("<IIII", eraseSize, numBlocks, flashWriteSize, offset);
-        if (this.chipFamily == CHIP_FAMILY_ESP32 ||
-            this.chipFamily == CHIP_FAMILY_ESP32S2 ||
-            this.chipFamily == CHIP_FAMILY_ESP32S3 ||
-            this.chipFamily == CHIP_FAMILY_ESP32C3) {
-            buffer = buffer.concat(pack("<I", encrypted ? 1 : 0));
-        }
-        this.logger.log("Erase size " +
-            eraseSize +
-            ", blocks " +
-            numBlocks +
-            ", block size " +
-            toHex(flashWriteSize, 4) +
-            ", offset " +
-            toHex(offset, 4) +
-            ", encrypted " +
-            (encrypted ? "yes" : "no"));
-        await this.checkCommand(ESP_FLASH_BEGIN, buffer, 0, timeout);
-        if (size != 0 && !this.IS_STUB) {
-            this.logger.log("Took " + (Date.now() - stamp) + "ms to erase " + numBlocks + " bytes");
-        }
-        return numBlocks;
+        return num_blocks;
     }
-    /**
-     * @name flashDeflBegin
-     *
-     */
-    async flashDeflBegin(size = 0, compressedSize = 0, offset = 0, encrypted = false) {
-        // Start downloading compressed data to Flash (performs an erase)
-        // Returns number of blocks to write.
-        let flashWriteSize = this.getFlashWriteSize();
-        let numBlocks = Math.floor((compressedSize + flashWriteSize - 1) / flashWriteSize);
-        let eraseBlocks = Math.floor((size + flashWriteSize - 1) / flashWriteSize);
-        let writeSize = 0;
-        let timeout = 0;
-        let buffer;
-        if (this.IS_STUB) {
-            writeSize = size; // stub expects number of bytes here, manages erasing internally
-            timeout = timeoutPerMb(ERASE_REGION_TIMEOUT_PER_MB, writeSize); // ROM performs the erase up front
-        }
-        else {
-            writeSize = eraseBlocks * flashWriteSize; // ROM expects rounded up to erase block size
-            timeout = DEFAULT_TIMEOUT;
-        }
-        buffer = pack("<IIII", writeSize, numBlocks, flashWriteSize, offset);
-        await this.checkCommand(ESP_FLASH_DEFL_BEGIN, buffer, 0, timeout);
-        return timeout;
+    async flash_block(data, seq, timeout) {
+        let pkt = this._appendArray(this._int_to_bytearray(data.length), this._int_to_bytearray(seq));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, data);
+        const checksum = this.checksum(data);
+        await this.check_command("write to target Flash after seq " + seq, this.ESP_FLASH_DATA, pkt, checksum, timeout);
     }
-    async flashFinish() {
-        let buffer = pack("<I", 1);
-        await this.checkCommand(ESP_FLASH_END, buffer);
+    async flash_defl_block(data, seq, timeout) {
+        let pkt = this._appendArray(this._int_to_bytearray(data.length), this._int_to_bytearray(seq));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, data);
+        const checksum = this.checksum(data);
+        this.debug("flash_defl_block " + data[0].toString(16) + " " + data[1].toString(16));
+        await this.check_command("write compressed data to flash after seq " + seq, this.ESP_FLASH_DEFL_DATA, pkt, checksum, timeout);
     }
-    async flashDeflFinish() {
-        let buffer = pack("<I", 1);
-        await this.checkCommand(ESP_FLASH_DEFL_END, buffer);
+    async flash_finish(reboot = false) {
+        const val = reboot ? 0 : 1;
+        const pkt = this._int_to_bytearray(val);
+        await this.check_command("leave Flash mode", this.ESP_FLASH_END, pkt);
     }
-    getBootloaderOffset() {
-        let bootFlashOffs = getSpiFlashAddresses(this.getChipFamily());
-        let BootldrFlashOffs = bootFlashOffs.flashOffs;
-        return BootldrFlashOffs;
+    async flash_defl_finish(reboot = false) {
+        const val = reboot ? 0 : 1;
+        const pkt = this._int_to_bytearray(val);
+        await this.check_command("leave compressed flash mode", this.ESP_FLASH_DEFL_END, pkt);
     }
-    async flashId() {
-        let SPIFLASH_RDID = 0x9f;
-        let result = await this.runSpiFlashCommand(SPIFLASH_RDID, [], 24);
-        return result;
-    }
-    getChipFamily() {
-        return this._parent ? this._parent.chipFamily : this.chipFamily;
-    }
-    async writeRegister(address, value, mask = 0xffffffff, delayUs = 0, delayAfterUs = 0) {
-        let buffer = pack("<IIII", address, value, mask, delayUs);
-        if (delayAfterUs > 0) {
-            // add a dummy write to a date register as an excuse to have a delay
-            buffer.concat(pack("<IIII", getSpiFlashAddresses(this.getChipFamily()).uartDateReg, 0, 0, delayAfterUs));
-        }
-        await this.checkCommand(ESP_WRITE_REG, buffer);
-    }
-    async setDataLengths(spiAddresses, mosiBits, misoBits) {
-        if (spiAddresses.mosiDlenOffs != -1) {
-            // ESP32/32S2/32S3/32C3 has a more sophisticated way to set up "user" commands
-            let SPI_MOSI_DLEN_REG = spiAddresses.regBase + spiAddresses.mosiDlenOffs;
-            let SPI_MISO_DLEN_REG = spiAddresses.regBase + spiAddresses.misoDlenOffs;
-            if (mosiBits > 0) {
-                await this.writeRegister(SPI_MOSI_DLEN_REG, mosiBits - 1);
-            }
-            if (misoBits > 0) {
-                await this.writeRegister(SPI_MISO_DLEN_REG, misoBits - 1);
-            }
-        }
-        else {
-            let SPI_DATA_LEN_REG = spiAddresses.regBase + spiAddresses.usr1Offs;
-            let SPI_MOSI_BITLEN_S = 17;
-            let SPI_MISO_BITLEN_S = 8;
-            let mosiMask = mosiBits == 0 ? 0 : mosiBits - 1;
-            let misoMask = misoBits == 0 ? 0 : misoBits - 1;
-            let value = (misoMask << SPI_MISO_BITLEN_S) | (mosiMask << SPI_MOSI_BITLEN_S);
-            await this.writeRegister(SPI_DATA_LEN_REG, value);
-        }
-    }
-    async waitDone(spiCmdReg, spiCmdUsr) {
-        for (let i = 0; i < 10; i++) {
-            let cmdValue = await this.readRegister(spiCmdReg);
-            if ((cmdValue & spiCmdUsr) == 0) {
-                return;
-            }
-        }
-        throw Error("SPI command did not complete in time");
-    }
-    async runSpiFlashCommand(spiflashCommand, data, readBits = 0) {
-        // Run an arbitrary SPI flash command.
-        // This function uses the "USR_COMMAND" functionality in the ESP
-        // SPI hardware, rather than the precanned commands supported by
-        // hardware. So the value of spiflash_command is an actual command
-        // byte, sent over the wire.
-        // After writing command byte, writes 'data' to MOSI and then
-        // reads back 'read_bits' of reply on MISO. Result is a number.
+    async run_spiflash_command(spiflash_command, data, read_bits) {
         // SPI_USR register flags
-        let SPI_USR_COMMAND = 1 << 31;
-        let SPI_USR_MISO = 1 << 28;
-        let SPI_USR_MOSI = 1 << 27;
+        const SPI_USR_COMMAND = 1 << 31;
+        const SPI_USR_MISO = 1 << 28;
+        const SPI_USR_MOSI = 1 << 27;
         // SPI registers, base address differs ESP32* vs 8266
-        let spiAddresses = getSpiFlashAddresses(this.getChipFamily());
-        let base = spiAddresses.regBase;
-        let SPI_CMD_REG = base;
-        let SPI_USR_REG = base + spiAddresses.usrOffs;
-        let SPI_USR2_REG = base + spiAddresses.usr2Offs;
-        let SPI_W0_REG = base + spiAddresses.w0Offs;
-        // SPI peripheral "command" bitmasks for SPI_CMD_REG
-        let SPI_CMD_USR = 1 << 18;
-        // shift values
-        let SPI_USR2_COMMAND_LEN_SHIFT = 28;
-        if (readBits > 32) {
-            throw new Error("Reading more than 32 bits back from a SPI flash operation is unsupported");
+        const base = this.chip.SPI_REG_BASE;
+        const SPI_CMD_REG = base + 0x00;
+        const SPI_USR_REG = base + this.chip.SPI_USR_OFFS;
+        const SPI_USR1_REG = base + this.chip.SPI_USR1_OFFS;
+        const SPI_USR2_REG = base + this.chip.SPI_USR2_OFFS;
+        const SPI_W0_REG = base + this.chip.SPI_W0_OFFS;
+        let set_data_lengths;
+        if (this.chip.SPI_MOSI_DLEN_OFFS != null) {
+            set_data_lengths = async (mosi_bits, miso_bits) => {
+                const SPI_MOSI_DLEN_REG = base + this.chip.SPI_MOSI_DLEN_OFFS;
+                const SPI_MISO_DLEN_REG = base + this.chip.SPI_MISO_DLEN_OFFS;
+                if (mosi_bits > 0) {
+                    await this.write_reg(SPI_MOSI_DLEN_REG, mosi_bits - 1);
+                }
+                if (miso_bits > 0) {
+                    await this.write_reg(SPI_MISO_DLEN_REG, miso_bits - 1);
+                }
+            };
+        }
+        else {
+            set_data_lengths = async (mosi_bits, miso_bits) => {
+                const SPI_DATA_LEN_REG = SPI_USR1_REG;
+                const SPI_MOSI_BITLEN_S = 17;
+                const SPI_MISO_BITLEN_S = 8;
+                const mosi_mask = mosi_bits === 0 ? 0 : mosi_bits - 1;
+                const miso_mask = miso_bits === 0 ? 0 : miso_bits - 1;
+                const val = (miso_mask << SPI_MISO_BITLEN_S) | (mosi_mask << SPI_MOSI_BITLEN_S);
+                await this.write_reg(SPI_DATA_LEN_REG, val);
+            };
+        }
+        const SPI_CMD_USR = 1 << 18;
+        const SPI_USR2_COMMAND_LEN_SHIFT = 28;
+        if (read_bits > 32) {
+            throw new ESPError("Reading more than 32 bits back from a SPI flash operation is unsupported");
         }
         if (data.length > 64) {
-            throw new Error("Writing more than 64 bytes of data with one SPI command is unsupported");
+            throw new ESPError("Writing more than 64 bytes of data with one SPI command is unsupported");
         }
-        let dataBits = data.length * 8;
-        let oldSpiUsr = await this.readRegister(SPI_USR_REG);
-        let oldSpiUsr2 = await this.readRegister(SPI_USR2_REG);
+        const data_bits = data.length * 8;
+        const old_spi_usr = await this.read_reg(SPI_USR_REG);
+        const old_spi_usr2 = await this.read_reg(SPI_USR2_REG);
         let flags = SPI_USR_COMMAND;
-        if (readBits > 0) {
+        let i;
+        if (read_bits > 0) {
             flags |= SPI_USR_MISO;
         }
-        if (dataBits > 0) {
+        if (data_bits > 0) {
             flags |= SPI_USR_MOSI;
         }
-        await this.setDataLengths(spiAddresses, dataBits, readBits);
-        await this.writeRegister(SPI_USR_REG, flags);
-        await this.writeRegister(SPI_USR2_REG, (7 << SPI_USR2_COMMAND_LEN_SHIFT) | spiflashCommand);
-        if (dataBits == 0) {
-            await this.writeRegister(SPI_W0_REG, 0); // clear data register before we read it
+        await set_data_lengths(data_bits, read_bits);
+        await this.write_reg(SPI_USR_REG, flags);
+        let val = (7 << SPI_USR2_COMMAND_LEN_SHIFT) | spiflash_command;
+        await this.write_reg(SPI_USR2_REG, val);
+        if (data_bits == 0) {
+            await this.write_reg(SPI_W0_REG, 0);
         }
         else {
-            data.concat(new Array(data.length % 4).fill(0x00)); // pad to 32-bit multiple
-            let words = unpack("I".repeat(Math.floor(data.length / 4)), data);
-            let nextReg = SPI_W0_REG;
-            this.logger.debug(`Words Length: ${words.length}`);
-            for (const word of words) {
-                this.logger.debug(`Writing word ${toHex(word)} to register offset ${toHex(nextReg)}`);
-                await this.writeRegister(nextReg, word);
-                nextReg += 4;
+            if (data.length % 4 != 0) {
+                const padding = new Uint8Array(data.length % 4);
+                data = this._appendArray(data, padding);
+            }
+            let next_reg = SPI_W0_REG;
+            for (i = 0; i < data.length - 4; i += 4) {
+                val = this._bytearray_to_int(data[i], data[i + 1], data[i + 2], data[i + 3]);
+                await this.write_reg(next_reg, val);
+                next_reg += 4;
             }
         }
-        await this.writeRegister(SPI_CMD_REG, SPI_CMD_USR);
-        await this.waitDone(SPI_CMD_REG, SPI_CMD_USR);
-        let status = await this.readRegister(SPI_W0_REG);
-        // restore some SPI controller registers
-        await this.writeRegister(SPI_USR_REG, oldSpiUsr);
-        await this.writeRegister(SPI_USR2_REG, oldSpiUsr2);
-        return status;
-    }
-    async detectFlashSize() {
-        this.logger.log("Detecting Flash Size");
-        let flashId = await this.flashId();
-        let manufacturer = flashId & 0xff;
-        let flashIdLowbyte = (flashId >> 16) & 0xff;
-        this.logger.log(`FlashId: ${toHex(flashId)}`);
-        this.logger.log(`Flash Manufacturer: ${manufacturer.toString(16)}`);
-        this.logger.log(`Flash Device: ${((flashId >> 8) & 0xff).toString(16)}${flashIdLowbyte.toString(16)}`);
-        this.flashSize = DETECTED_FLASH_SIZES[flashIdLowbyte];
-        this.logger.log(`Auto-detected Flash size: ${this.flashSize}`);
-    }
-    /**
-     * @name getEraseSize
-     * Calculate an erase size given a specific size in bytes.
-     *   Provides a workaround for the bootloader erase bug on ESP8266.
-     */
-    getEraseSize(offset, size) {
-        let sectorsPerBlock = 16;
-        let sectorSize = FLASH_SECTOR_SIZE;
-        let numSectors = Math.floor((size + sectorSize - 1) / sectorSize);
-        let startSector = Math.floor(offset / sectorSize);
-        let headSectors = sectorsPerBlock - (startSector % sectorsPerBlock);
-        if (numSectors < headSectors) {
-            headSectors = numSectors;
+        await this.write_reg(SPI_CMD_REG, SPI_CMD_USR);
+        for (i = 0; i < 10; i++) {
+            val = (await this.read_reg(SPI_CMD_REG)) & SPI_CMD_USR;
+            if (val == 0) {
+                break;
+            }
         }
-        if (numSectors < 2 * headSectors) {
-            return Math.floor(((numSectors + 1) / 2) * sectorSize);
+        if (i === 10) {
+            throw new ESPError("SPI command did not complete in time");
         }
-        return (numSectors - headSectors) * sectorSize;
+        const stat = await this.read_reg(SPI_W0_REG);
+        await this.write_reg(SPI_USR_REG, old_spi_usr);
+        await this.write_reg(SPI_USR2_REG, old_spi_usr2);
+        return stat;
     }
-    /**
-     * @name memBegin (592)
-     * Start downloading an application image to RAM
-     */
-    async memBegin(size, blocks, blocksize, offset) {
-        return await this.checkCommand(ESP_MEM_BEGIN, pack("<IIII", size, blocks, blocksize, offset));
+    async read_flash_id() {
+        const SPIFLASH_RDID = 0x9f;
+        const pkt = new Uint8Array(0);
+        return await this.run_spiflash_command(SPIFLASH_RDID, pkt, 24);
     }
-    /**
-     * @name memBlock (609)
-     * Send a block of an image to RAM
-     */
-    async memBlock(data, seq) {
-        return await this.checkCommand(ESP_MEM_DATA, pack("<IIII", data.length, seq, 0, 0).concat(data), this.checksum(data));
+    async erase_flash() {
+        this.info("Erasing flash (this may take a while)...");
+        let d = new Date();
+        const t1 = d.getTime();
+        const ret = await this.check_command("erase flash", this.ESP_ERASE_FLASH, undefined, undefined, this.CHIP_ERASE_TIMEOUT);
+        d = new Date();
+        const t2 = d.getTime();
+        this.info("Chip erase completed successfully in " + (t2 - t1) / 1000 + "s");
+        return ret;
     }
-    /**
-     * @name memFinish (615)
-     * Leave download mode and run the application
-     *
-     * Sending ESP_MEM_END usually sends a correct response back, however sometimes
-     * (with ROM loader) the executed code may reset the UART or change the baud rate
-     * before the transmit FIFO is empty. So in these cases we set a short timeout and
-     * ignore errors.
-     */
-    async memFinish(entrypoint = 0) {
-        let timeout = this.IS_STUB ? DEFAULT_TIMEOUT : MEM_END_ROM_TIMEOUT;
-        let data = pack("<II", entrypoint == 0 ? 1 : 0, entrypoint);
-        return await this.checkCommand(ESP_MEM_END, data, 0, timeout);
+    toHex(buffer) {
+        return Array.prototype.map.call(buffer, (x) => ("00" + x.toString(16)).slice(-2)).join("");
     }
-    async runStub() {
-        const stub = await getStubCode(this.chipFamily);
-        // We're transferring over USB, right?
-        let ramBlock = USB_RAM_BLOCK;
-        // Upload
-        this.logger.log("Uploading stub...");
-        for (let field of ["text", "data"]) {
-            if (Object.keys(stub).includes(field)) {
-                let offset = stub[field + "_start"];
-                let length = stub[field].length;
-                let blocks = Math.floor((length + ramBlock - 1) / ramBlock);
-                await this.memBegin(length, blocks, ramBlock, offset);
-                for (let seq of Array(blocks).keys()) {
-                    let fromOffs = seq * ramBlock;
-                    let toOffs = fromOffs + ramBlock;
-                    if (toOffs > length) {
-                        toOffs = length;
-                    }
-                    await this.memBlock(stub[field].slice(fromOffs, toOffs), seq);
+    async flash_md5sum(addr, size) {
+        const timeout = this.timeout_per_mb(this.MD5_TIMEOUT_PER_MB, size);
+        let pkt = this._appendArray(this._int_to_bytearray(addr), this._int_to_bytearray(size));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        pkt = this._appendArray(pkt, this._int_to_bytearray(0));
+        let res = await this.check_command("calculate md5sum", this.ESP_SPI_FLASH_MD5, pkt, undefined, timeout);
+        if (res instanceof Uint8Array && res.length > 16) {
+            res = res.slice(0, 16);
+        }
+        const strmd5 = this.toHex(res);
+        return strmd5;
+    }
+    async run_stub() {
+        this.info("Uploading stub...");
+        let decoded = atob(this.chip.ROM_TEXT);
+        let chardata = decoded.split("").map(function (x) {
+            return x.charCodeAt(0);
+        });
+        const text = new Uint8Array(chardata);
+        decoded = atob(this.chip.ROM_DATA);
+        chardata = decoded.split("").map(function (x) {
+            return x.charCodeAt(0);
+        });
+        const data = new Uint8Array(chardata);
+        let blocks = Math.floor((text.length + this.ESP_RAM_BLOCK - 1) / this.ESP_RAM_BLOCK);
+        let i;
+        await this.mem_begin(text.length, blocks, this.ESP_RAM_BLOCK, this.chip.TEXT_START);
+        for (i = 0; i < blocks; i++) {
+            const from_offs = i * this.ESP_RAM_BLOCK;
+            const to_offs = from_offs + this.ESP_RAM_BLOCK;
+            await this.mem_block(text.slice(from_offs, to_offs), i);
+        }
+        blocks = Math.floor((data.length + this.ESP_RAM_BLOCK - 1) / this.ESP_RAM_BLOCK);
+        await this.mem_begin(data.length, blocks, this.ESP_RAM_BLOCK, this.chip.DATA_START);
+        for (i = 0; i < blocks; i++) {
+            const from_offs = i * this.ESP_RAM_BLOCK;
+            const to_offs = from_offs + this.ESP_RAM_BLOCK;
+            await this.mem_block(data.slice(from_offs, to_offs), i);
+        }
+        this.info("Running stub...");
+        await this.mem_finish(this.chip.ENTRY);
+        // Check up-to next 100 packets to see if stub is running
+        for (let i = 0; i < 100; i++) {
+            const res = await this.transport.read(1000, 6);
+            if (res[0] === 79 && res[1] === 72 && res[2] === 65 && res[3] === 73) {
+                this.info("Stub running...");
+                this.IS_STUB = true;
+                this.FLASH_WRITE_SIZE = 0x4000;
+                return this.chip;
+            }
+        }
+        throw new ESPError("Failed to start stub. Unexpected response");
+    }
+    async change_baud() {
+        this.info("Changing baudrate to " + this.baudrate);
+        const second_arg = this.IS_STUB ? this.transport.baudrate : 0;
+        const pkt = this._appendArray(this._int_to_bytearray(this.baudrate), this._int_to_bytearray(second_arg));
+        const resp = await this.command(this.ESP_CHANGE_BAUDRATE, pkt);
+        this.debug(resp[0].toString());
+        this.info("Changed");
+        await this.transport.disconnect();
+        await this._sleep(50);
+        await this.transport.connect(this.baudrate);
+        try {
+            await this.transport.rawRead(500);
+        }
+        catch (e) {
+            this.debug(e.message);
+        }
+    }
+    async main_fn(mode = "default_reset") {
+        await this.detect_chip(mode);
+        const chip = await this.chip.get_chip_description(this);
+        this.info("Chip is " + chip);
+        this.info("Features: " + (await this.chip.get_chip_features(this)));
+        this.info("Crystal is " + (await this.chip.get_crystal_freq(this)) + "MHz");
+        this.info("MAC: " + (await this.chip.read_mac(this)));
+        await this.chip.read_mac(this);
+        if (typeof this.chip._post_connect != "undefined") {
+            await this.chip._post_connect(this);
+        }
+        await this.run_stub();
+        if (this.rom_baudrate !== this.baudrate) {
+            await this.change_baud();
+        }
+        return chip;
+    }
+    parse_flash_size_arg(flsz) {
+        if (typeof this.chip.FLASH_SIZES[flsz] === "undefined") {
+            throw new ESPError("Flash size " + flsz + " is not supported by this chip type. Supported sizes: " + this.chip.FLASH_SIZES);
+        }
+        return this.chip.FLASH_SIZES[flsz];
+    }
+    _update_image_flash_params(image, address, flash_size, flash_mode, flash_freq) {
+        this.debug("_update_image_flash_params " + flash_size + " " + flash_mode + " " + flash_freq);
+        if (image.length < 8) {
+            return image;
+        }
+        if (address != this.chip.BOOTLOADER_FLASH_OFFSET) {
+            return image;
+        }
+        if (flash_size === "keep" && flash_mode === "keep" && flash_freq === "keep") {
+            this.info("Not changing the image");
+            return image;
+        }
+        const magic = parseInt(image[0]);
+        let a_flash_mode = parseInt(image[2]);
+        const flash_size_freq = parseInt(image[3]);
+        if (magic !== this.ESP_IMAGE_MAGIC) {
+            this.info("Warning: Image file at 0x" +
+                address.toString(16) +
+                " doesn't look like an image file, so not changing any flash settings.");
+            return image;
+        }
+        /* XXX: Yet to implement actual image verification */
+        if (flash_mode !== "keep") {
+            const flash_modes = { qio: 0, qout: 1, dio: 2, dout: 3 };
+            a_flash_mode = flash_modes[flash_mode];
+        }
+        let a_flash_freq = flash_size_freq & 0x0f;
+        if (flash_freq !== "keep") {
+            const flash_freqs = { "40m": 0, "26m": 1, "20m": 2, "80m": 0xf };
+            a_flash_freq = flash_freqs[flash_freq];
+        }
+        let a_flash_size = flash_size_freq & 0xf0;
+        if (flash_size !== "keep") {
+            a_flash_size = this.parse_flash_size_arg(flash_size);
+        }
+        const flash_params = (a_flash_mode << 8) | (a_flash_freq + a_flash_size);
+        this.info("Flash params set to " + flash_params.toString(16));
+        if (parseInt(image[2]) !== a_flash_mode << 8) {
+            image = image.substring(0, 2) + (a_flash_mode << 8).toString() + image.substring(2 + 1);
+        }
+        if (parseInt(image[3]) !== a_flash_freq + a_flash_size) {
+            image = image.substring(0, 3) + (a_flash_freq + a_flash_size).toString() + image.substring(3 + 1);
+        }
+        return image;
+    }
+    async write_flash(fileArray, flash_size = "keep", flash_mode = "keep", flash_freq = "keep", erase_all = false, compress = true, 
+    /* function(fileIndex, written, total) */
+    reportProgress, 
+    /* function(image: string) => string */
+    calculateMD5Hash) {
+        this.debug("EspLoader program");
+        if (flash_size !== "keep") {
+            const flash_end = this.flash_size_bytes(flash_size);
+            for (let i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].data.length + fileArray[i].address > flash_end) {
+                    throw new ESPError(`File ${i + 1} doesn't fit in the available flash`);
                 }
             }
         }
-        this.logger.log("Running stub...");
-        await this.memFinish(stub["entry"]);
-        let pChar;
-        const p = await this.readPacket(500);
-        pChar = String.fromCharCode(...p);
-        if (pChar != "OHAI") {
-            throw new Error("Failed to start stub. Unexpected response: " + pChar);
+        if (this.IS_STUB === true && erase_all === true) {
+            await this.erase_flash();
         }
-        this.logger.log("Stub is now running...");
-        const espStubLoader = new EspStubLoader(this.port, this.logger, this);
-        // Try to autodetect the flash size as soon as the stub is running.
-        await espStubLoader.detectFlashSize();
-        return espStubLoader;
+        let image, address;
+        for (let i = 0; i < fileArray.length; i++) {
+            this.debug("Data Length " + fileArray[i].data.length);
+            image = fileArray[i].data;
+            const reminder = fileArray[i].data.length % 4;
+            if (reminder > 0)
+                image += "\xff\xff\xff\xff".substring(4 - reminder);
+            address = fileArray[i].address;
+            this.debug("Image Length " + image.length);
+            if (image.length === 0) {
+                this.debug("Warning: File is empty");
+                continue;
+            }
+            image = this._update_image_flash_params(image, address, flash_size, flash_mode, flash_freq);
+            let calcmd5 = null;
+            if (calculateMD5Hash) {
+                calcmd5 = calculateMD5Hash(image);
+                this.debug("Image MD5 " + calcmd5);
+            }
+            const uncsize = image.length;
+            let blocks;
+            if (compress) {
+                const uncimage = this.bstrToUi8(image);
+                image = this.ui8ToBstr(deflate_1(uncimage, { level: 9 }));
+                blocks = await this.flash_defl_begin(uncsize, image.length, address);
+            }
+            else {
+                blocks = await this.flash_begin(uncsize, address);
+            }
+            let seq = 0;
+            let bytes_sent = 0;
+            const totalBytes = image.length;
+            if (reportProgress)
+                reportProgress(i, 0, totalBytes);
+            let d = new Date();
+            const t1 = d.getTime();
+            let timeout = 5000;
+            // Create a decompressor to keep track of the size of uncompressed data
+            // to be written in each chunk.
+            const inflate = new Inflate_1({ chunkSize: 1 });
+            let total_len_uncompressed = 0;
+            inflate.onData = function (chunk) {
+                total_len_uncompressed += chunk.byteLength;
+            };
+            while (image.length > 0) {
+                this.debug("Write loop " + address + " " + seq + " " + blocks);
+                this.info("Writing at 0x" +
+                    (address + total_len_uncompressed).toString(16) +
+                    "... (" +
+                    Math.floor((100 * (seq + 1)) / blocks) +
+                    "%)");
+                const block = this.bstrToUi8(image.slice(0, this.FLASH_WRITE_SIZE));
+                if (compress) {
+                    const len_uncompressed_previous = total_len_uncompressed;
+                    inflate.push(block, false);
+                    const block_uncompressed = total_len_uncompressed - len_uncompressed_previous;
+                    let block_timeout = 3000;
+                    if (this.timeout_per_mb(this.ERASE_WRITE_TIMEOUT_PER_MB, block_uncompressed) > 3000) {
+                        block_timeout = this.timeout_per_mb(this.ERASE_WRITE_TIMEOUT_PER_MB, block_uncompressed);
+                    }
+                    if (this.IS_STUB === false) {
+                        // ROM code writes block to flash before ACKing
+                        timeout = block_timeout;
+                    }
+                    await this.flash_defl_block(block, seq, timeout);
+                    if (this.IS_STUB) {
+                        // Stub ACKs when block is received, then writes to flash while receiving the block after it
+                        timeout = block_timeout;
+                    }
+                }
+                else {
+                    throw new ESPError("Yet to handle Non Compressed writes");
+                }
+                bytes_sent += block.length;
+                image = image.slice(this.FLASH_WRITE_SIZE, image.length);
+                seq++;
+                if (reportProgress)
+                    reportProgress(i, bytes_sent, totalBytes);
+            }
+            if (this.IS_STUB) {
+                await this.read_reg(this.CHIP_DETECT_MAGIC_REG_ADDR, timeout);
+            }
+            d = new Date();
+            const t = d.getTime() - t1;
+            if (compress) {
+                this.info("Wrote " +
+                    uncsize +
+                    " bytes (" +
+                    bytes_sent +
+                    " compressed) at 0x" +
+                    address.toString(16) +
+                    " in " +
+                    t / 1000 +
+                    " seconds.");
+            }
+            if (calcmd5) {
+                const res = await this.flash_md5sum(address, uncsize);
+                if (new String(res).valueOf() != new String(calcmd5).valueOf()) {
+                    this.info("File  md5: " + calcmd5);
+                    this.info("Flash md5: " + res);
+                    throw new ESPError("MD5 of file does not match data in flash!");
+                }
+                else {
+                    this.info("Hash of data verified.");
+                }
+            }
+        }
+        this.info("Leaving...");
+        if (this.IS_STUB) {
+            await this.flash_begin(0, 0);
+            if (compress) {
+                await this.flash_defl_finish();
+            }
+            else {
+                await this.flash_finish();
+            }
+        }
     }
-    async writeToStream(data) {
-        const writer = this.port.writable.getWriter();
-        await writer.write(new Uint8Array(data));
-        try {
+    async flash_id() {
+        this.debug("flash_id");
+        const flashid = await this.read_flash_id();
+        this.info("Manufacturer: " + (flashid & 0xff).toString(16));
+        const flid_lowbyte = (flashid >> 16) & 0xff;
+        this.info("Device: " + ((flashid >> 8) & 0xff).toString(16) + flid_lowbyte.toString(16));
+        this.info("Detected flash size: " + this.DETECTED_FLASH_SIZES[flid_lowbyte]);
+    }
+    async hard_reset() {
+        await this.transport.setRTS(true); // EN->LOW
+        await this._sleep(100);
+        await this.transport.setRTS(false);
+    }
+    async soft_reset() {
+        if (!this.IS_STUB) {
+            // "run user code" is as close to a soft reset as we can do
+            await this.flash_begin(0, 0);
+            await this.flash_finish(false);
+        }
+        else if (this.chip.CHIP_NAME != "ESP8266") {
+            throw new ESPError("Soft resetting is currently only supported on ESP8266");
+        }
+        else {
+            // running user code from stub loader requires some hacks
+            // in the stub loader
+            await this.command(this.ESP_RUN_USER_CODE, undefined, undefined, false);
+        }
+    }
+}
+
+class Transport {
+    constructor(device) {
+        this.device = device;
+        this.slip_reader_enabled = false;
+        this.left_over = new Uint8Array(0);
+        this.baudrate = 0;
+        this._DTR_state = false;
+    }
+    get_info() {
+        const info = this.device.getInfo();
+        return info.usbVendorId && info.usbProductId
+            ? `WebSerial VendorID 0x${info.usbVendorId.toString(16)} ProductID 0x${info.usbProductId.toString(16)}`
+            : "";
+    }
+    get_pid() {
+        return this.device.getInfo().usbProductId;
+    }
+    slip_writer(data) {
+        let count_esc = 0;
+        let i = 0, j = 0;
+        for (i = 0; i < data.length; i++) {
+            if (data[i] === 0xc0 || data[i] === 0xdb) {
+                count_esc++;
+            }
+        }
+        const out_data = new Uint8Array(2 + count_esc + data.length);
+        out_data[0] = 0xc0;
+        j = 1;
+        for (i = 0; i < data.length; i++, j++) {
+            if (data[i] === 0xc0) {
+                out_data[j++] = 0xdb;
+                out_data[j] = 0xdc;
+                continue;
+            }
+            if (data[i] === 0xdb) {
+                out_data[j++] = 0xdb;
+                out_data[j] = 0xdd;
+                continue;
+            }
+            out_data[j] = data[i];
+        }
+        out_data[j] = 0xc0;
+        return out_data;
+    }
+    async write(data) {
+        const out_data = this.slip_writer(data);
+        if (this.device.writable) {
+            const writer = this.device.writable.getWriter();
+            await writer.write(out_data);
             writer.releaseLock();
         }
-        catch (err) {
-            console.error("Ignoring release lock error", err);
+    }
+    _appendBuffer(buffer1, buffer2) {
+        const tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
+        tmp.set(new Uint8Array(buffer1), 0);
+        tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
+        return tmp.buffer;
+    }
+    /* this function expects complete packet (hence reader reads for atleast 8 bytes. This function is
+     * stateless and returns the first wellformed packet only after replacing escape sequence */
+    slip_reader(data) {
+        let i = 0;
+        let data_start = 0, data_end = 0;
+        let state = "init";
+        while (i < data.length) {
+            if (state === "init" && data[i] == 0xc0) {
+                data_start = i + 1;
+                state = "valid_data";
+                i++;
+                continue;
+            }
+            if (state === "valid_data" && data[i] == 0xc0) {
+                data_end = i - 1;
+                state = "packet_complete";
+                break;
+            }
+            i++;
+        }
+        if (state !== "packet_complete") {
+            this.left_over = data;
+            return new Uint8Array(0);
+        }
+        this.left_over = data.slice(data_end + 2);
+        const temp_pkt = new Uint8Array(data_end - data_start + 1);
+        let j = 0;
+        for (i = data_start; i <= data_end; i++, j++) {
+            if (data[i] === 0xdb && data[i + 1] === 0xdc) {
+                temp_pkt[j] = 0xc0;
+                i++;
+                continue;
+            }
+            if (data[i] === 0xdb && data[i + 1] === 0xdd) {
+                temp_pkt[j] = 0xdb;
+                i++;
+                continue;
+            }
+            temp_pkt[j] = data[i];
+        }
+        const packet = temp_pkt.slice(0, j); /* Remove unused bytes due to escape seq */
+        return packet;
+    }
+    async read(timeout = 0, min_data = 12) {
+        let t;
+        let packet = this.left_over;
+        this.left_over = new Uint8Array(0);
+        if (this.slip_reader_enabled) {
+            const val_final = this.slip_reader(packet);
+            if (val_final.length > 0) {
+                return val_final;
+            }
+            packet = this.left_over;
+            this.left_over = new Uint8Array(0);
+        }
+        if (this.device.readable == null) {
+            return this.left_over;
+        }
+        const reader = this.device.readable.getReader();
+        try {
+            if (timeout > 0) {
+                t = setTimeout(function () {
+                    reader.cancel();
+                }, timeout);
+            }
+            do {
+                const { value, done } = await reader.read();
+                if (done) {
+                    this.left_over = packet;
+                    throw new Error("Timeout");
+                }
+                const p = new Uint8Array(this._appendBuffer(packet.buffer, value.buffer));
+                packet = p;
+            } while (packet.length < min_data);
+        }
+        finally {
+            if (timeout > 0) {
+                clearTimeout(t);
+            }
+            reader.releaseLock();
+        }
+        if (this.slip_reader_enabled) {
+            return this.slip_reader(packet);
+        }
+        return packet;
+    }
+    async rawRead(timeout = 0) {
+        if (this.left_over.length != 0) {
+            const p = this.left_over;
+            this.left_over = new Uint8Array(0);
+            return p;
+        }
+        if (!this.device.readable) {
+            return this.left_over;
+        }
+        const reader = this.device.readable.getReader();
+        let t;
+        try {
+            if (timeout > 0) {
+                t = setTimeout(function () {
+                    reader.cancel();
+                }, timeout);
+            }
+            const { value, done } = await reader.read();
+            if (done) {
+                throw new Error("Timeout");
+            }
+            return value;
+        }
+        finally {
+            if (timeout > 0) {
+                clearTimeout(t);
+            }
+            reader.releaseLock();
+        }
+    }
+    async setRTS(state) {
+        await this.device.setSignals({ requestToSend: state });
+        // # Work-around for adapters on Windows using the usbser.sys driver:
+        // # generate a dummy change to DTR so that the set-control-line-state
+        // # request is sent with the updated RTS state and the same DTR state
+        // Referenced to esptool.py
+        await this.setDTR(this._DTR_state);
+    }
+    async setDTR(state) {
+        this._DTR_state = state;
+        await this.device.setSignals({ dataTerminalReady: state });
+    }
+    async connect(baud = 115200) {
+        await this.device.open({ baudRate: baud });
+        this.baudrate = baud;
+        this.left_over = new Uint8Array(0);
+    }
+    async sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    async waitForUnlock(timeout) {
+        while ((this.device.readable && this.device.readable.locked) ||
+            (this.device.writable && this.device.writable.locked)) {
+            await this.sleep(timeout);
         }
     }
     async disconnect() {
-        if (this._parent) {
-            await this._parent.disconnect();
-            return;
-        }
-        await this.port.writable.getWriter().close();
-        await new Promise((resolve) => {
-            if (!this._reader) {
-                resolve(undefined);
-            }
-            this.addEventListener("disconnect", resolve, { once: true });
-            this._reader.cancel();
-        });
-        this.connected = false;
-    }
-}
-class EspStubLoader extends ESPLoader {
-    constructor() {
-        super(...arguments);
-        /*
-          The Stubloader has commands that run on the uploaded Stub Code in RAM
-          rather than built in commands.
-        */
-        this.IS_STUB = true;
-    }
-    /**
-     * @name memBegin (592)
-     * Start downloading an application image to RAM
-     */
-    async memBegin(size, blocks, blocksize, offset) {
-        let stub = await getStubCode(this.chipFamily);
-        let load_start = offset;
-        let load_end = offset + size;
-        console.log(load_start, load_end);
-        console.log(stub.data_start, stub.data.length, stub.text_start, stub.text.length);
-        for (let [start, end] of [
-            [stub.data_start, stub.data_start + stub.data.length],
-            [stub.text_start, stub.text_start + stub.text.length],
-        ]) {
-            if (load_start < end && load_end > start) {
-                throw new Error("Software loader is resident at " +
-                    toHex(start, 8) +
-                    "-" +
-                    toHex(end, 8) +
-                    ". " +
-                    "Can't load binary at overlapping address range " +
-                    toHex(load_start, 8) +
-                    "-" +
-                    toHex(load_end, 8) +
-                    ". " +
-                    "Try changing the binary loading address.");
-            }
-        }
-    }
-    /**
-     * @name getEraseSize
-     * depending on flash chip model the erase may take this long (maybe longer!)
-     */
-    async eraseFlash() {
-        await this.checkCommand(ESP_ERASE_FLASH, [], 0, CHIP_ERASE_TIMEOUT);
+        await this.waitForUnlock(400);
+        await this.device.close();
     }
 }
 
-const getChipFamilyName = (esploader) => {
-    switch (esploader.chipFamily) {
-        case CHIP_FAMILY_ESP32:
-            return "ESP32";
-        case CHIP_FAMILY_ESP8266:
-            return "ESP8266";
-        case CHIP_FAMILY_ESP32S2:
-            return "ESP32-S2";
-        case CHIP_FAMILY_ESP32S3:
-            return "ESP32-S3";
-        case CHIP_FAMILY_ESP32C3:
-            return "ESP32-C3";
-        default:
-            return "Unknown Chip";
-    }
+const resetTransport = async (transport) => {
+    await transport.device.setSignals({
+        dataTerminalReady: false,
+        requestToSend: true,
+    });
+    await transport.device.setSignals({
+        dataTerminalReady: false,
+        requestToSend: false,
+    });
 };
-
-const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
-    let manifest;
+const flash = async (onEvent, port, manifestPath, manifest, eraseFirst) => {
     let build;
     let chipFamily;
     const fireStateEvent = (stateUpdate) => onEvent({
@@ -20008,9 +16361,8 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
         build,
         chipFamily,
     });
-    const manifestURL = new URL(manifestPath, location.toString()).toString();
-    const manifestProm = fetch(manifestURL).then((resp) => resp.json());
-    const esploader = new ESPLoader(port, logger);
+    const transport = new Transport(port);
+    const esploader = new ESPLoader(transport, 115200, undefined);
     // For debugging
     window.esploader = esploader;
     fireStateEvent({
@@ -20019,56 +16371,48 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
         details: { done: false },
     });
     try {
-        await esploader.initialize();
+        await esploader.main_fn();
+        await esploader.flash_id();
     }
     catch (err) {
-        logger.error(err);
+        console.error(err);
         fireStateEvent({
             state: "error" /* FlashStateType.ERROR */,
             message: "Failed to initialize. Try resetting your device or holding the BOOT button while clicking INSTALL.",
             details: { error: "failed_initialize" /* FlashError.FAILED_INITIALIZING */, details: err },
         });
-        if (esploader.connected) {
-            await esploader.disconnect();
-        }
+        await resetTransport(transport);
+        await transport.disconnect();
         return;
     }
-    chipFamily = getChipFamilyName(esploader);
+    chipFamily = esploader.chip.CHIP_NAME;
+    if (!esploader.chip.ROM_TEXT) {
+        fireStateEvent({
+            state: "error" /* FlashStateType.ERROR */,
+            message: `Chip ${chipFamily} is not supported`,
+            details: {
+                error: "not_supported" /* FlashError.NOT_SUPPORTED */,
+                details: `Chip ${chipFamily} is not supported`,
+            },
+        });
+        await resetTransport(transport);
+        await transport.disconnect();
+        return;
+    }
     fireStateEvent({
         state: "initializing" /* FlashStateType.INITIALIZING */,
         message: `Initialized. Found ${chipFamily}`,
         details: { done: true },
     });
-    fireStateEvent({
-        state: "manifest" /* FlashStateType.MANIFEST */,
-        message: "Fetching manifest...",
-        details: { done: false },
-    });
-    try {
-        manifest = await manifestProm;
-    }
-    catch (err) {
-        fireStateEvent({
-            state: "error" /* FlashStateType.ERROR */,
-            message: `Unable to fetch manifest: ${err}`,
-            details: { error: "fetch_manifest_failed" /* FlashError.FAILED_MANIFEST_FETCH */, details: err },
-        });
-        await esploader.disconnect();
-        return;
-    }
     build = manifest.builds.find((b) => b.chipFamily === chipFamily);
-    fireStateEvent({
-        state: "manifest" /* FlashStateType.MANIFEST */,
-        message: `Found manifest for ${manifest.name}`,
-        details: { done: true },
-    });
     if (!build) {
         fireStateEvent({
             state: "error" /* FlashStateType.ERROR */,
             message: `Your ${chipFamily} board is not supported.`,
             details: { error: "not_supported" /* FlashError.NOT_SUPPORTED */, details: chipFamily },
         });
-        await esploader.disconnect();
+        await resetTransport(transport);
+        await transport.disconnect();
         return;
     }
     fireStateEvent({
@@ -20076,23 +16420,27 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
         message: "Preparing installation...",
         details: { done: false },
     });
+    const manifestURL = new URL(manifestPath, location.toString()).toString();
     const filePromises = build.parts.map(async (part) => {
         const url = new URL(part.path, manifestURL).toString();
         const resp = await fetch(url);
         if (!resp.ok) {
             throw new Error(`Downlading firmware ${part.path} failed: ${resp.status}`);
         }
-        return resp.arrayBuffer();
+        const reader = new FileReader();
+        const blob = await resp.blob();
+        return new Promise((resolve) => {
+            reader.addEventListener("load", () => resolve(reader.result));
+            reader.readAsBinaryString(blob);
+        });
     });
-    // Run the stub while we wait for files to download
-    const espStub = await esploader.runStub();
-    const files = [];
+    const fileArray = [];
     let totalSize = 0;
-    for (const prom of filePromises) {
+    for (let part = 0; part < filePromises.length; part++) {
         try {
-            const data = await prom;
-            files.push(data);
-            totalSize += data.byteLength;
+            const data = await filePromises[part];
+            fileArray.push({ data, address: build.parts[part].offset });
+            totalSize += data.length;
         }
         catch (err) {
             fireStateEvent({
@@ -20103,7 +16451,8 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
                     details: err.message,
                 },
             });
-            await esploader.disconnect();
+            await resetTransport(transport);
+            await transport.disconnect();
             return;
         }
     }
@@ -20118,54 +16467,54 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
             message: "Erasing device...",
             details: { done: false },
         });
-        await espStub.eraseFlash();
+        await esploader.erase_flash();
         fireStateEvent({
             state: "erasing" /* FlashStateType.ERASING */,
             message: "Device erased",
             details: { done: true },
         });
     }
-    let lastPct = 0;
     fireStateEvent({
         state: "writing" /* FlashStateType.WRITING */,
-        message: `Writing progress: ${lastPct}%`,
+        message: `Writing progress: 0%`,
         details: {
             bytesTotal: totalSize,
             bytesWritten: 0,
-            percentage: lastPct,
+            percentage: 0,
         },
     });
     let totalWritten = 0;
-    for (const part of build.parts) {
-        const file = files.shift();
-        try {
-            await espStub.flashData(file, (bytesWritten) => {
-                const newPct = Math.floor(((totalWritten + bytesWritten) / totalSize) * 100);
-                if (newPct === lastPct) {
-                    return;
-                }
-                lastPct = newPct;
-                fireStateEvent({
-                    state: "writing" /* FlashStateType.WRITING */,
-                    message: `Writing progress: ${newPct}%`,
-                    details: {
-                        bytesTotal: totalSize,
-                        bytesWritten: totalWritten + bytesWritten,
-                        percentage: newPct,
-                    },
-                });
-            }, part.offset, true);
-        }
-        catch (err) {
+    try {
+        await esploader.write_flash(fileArray, "keep", "keep", "keep", false, true, 
+        // report progress
+        (fileIndex, written, total) => {
+            const uncompressedWritten = (written / total) * fileArray[fileIndex].data.length;
+            const newPct = Math.floor(((totalWritten + uncompressedWritten) / totalSize) * 100);
+            // we're done with this file
+            if (written === total) {
+                totalWritten += uncompressedWritten;
+                return;
+            }
             fireStateEvent({
-                state: "error" /* FlashStateType.ERROR */,
-                message: err.message,
-                details: { error: "write_failed" /* FlashError.WRITE_FAILED */, details: err },
+                state: "writing" /* FlashStateType.WRITING */,
+                message: `Writing progress: ${newPct}%`,
+                details: {
+                    bytesTotal: totalSize,
+                    bytesWritten: totalWritten + written,
+                    percentage: newPct,
+                },
             });
-            await esploader.disconnect();
-            return;
-        }
-        totalWritten += file.byteLength;
+        });
+    }
+    catch (err) {
+        fireStateEvent({
+            state: "error" /* FlashStateType.ERROR */,
+            message: err.message,
+            details: { error: "write_failed" /* FlashError.WRITE_FAILED */, details: err },
+        });
+        await resetTransport(transport);
+        await transport.disconnect();
+        return;
     }
     fireStateEvent({
         state: "writing" /* FlashStateType.WRITING */,
@@ -20176,11 +16525,11 @@ const flash = async (onEvent, port, logger, manifestPath, eraseFirst) => {
             percentage: 100,
         },
     });
-    await sleep$2(100);
-    console.log("DISCONNECT");
-    await esploader.disconnect();
+    await sleep$1(100);
     console.log("HARD RESET");
-    await esploader.hardReset();
+    await resetTransport(transport);
+    console.log("DISCONNECT");
+    await transport.disconnect();
     fireStateEvent({
         state: "finished" /* FlashStateType.FINISHED */,
         message: "All done!",
@@ -20203,7 +16552,7 @@ const textDownload = (text, filename = "") => {
     setTimeout(() => URL.revokeObjectURL(url), 0);
 };
 
-const fireEvent = (eventTarget, type,
+const fireEvent = (eventTarget, type, 
 // @ts-ignore
 detail, options) => {
     options = options || {};
@@ -20229,38 +16578,9 @@ const downloadManifest = async (manifestPath) => {
     return manifest;
 };
 
-// We set font-size to 16px and all the mdc typography styles
-// because it defaults to rem, which means that the font-size
-// of the host website would influence the ESP Web Tools dialog.
-const dialogStyles = i$4 `
-  :host {
-    --mdc-theme-primary: var(--improv-primary-color, #03a9f4);
-    --mdc-theme-on-primary: var(--improv-on-primary-color, #fff);
-    --improv-danger-color: #db4437;
-    --improv-text-color: rgba(0, 0, 0, 0.6);
-    --mdc-theme-text-primary-on-background: var(--improv-text-color);
-    --mdc-dialog-content-ink-color: var(--improv-text-color);
-    text-align: left;
-    font-size: 16px;
-    --mdc-typography-headline6-font-size: 1.25em;
-    --mdc-typography-headline6-line-height: 2em;
-    --mdc-typography-body1-font-size: 1em;
-    --mdc-typography-body1-line-height: 1.5em;
-    --mdc-typography-button-font-size: 0.875em;
-    --mdc-typography-button-line-height: 2.25em;
-    --mdc-typography-subtitle1-font-size: 1em;
-    --mdc-typography-subtitle1-line-height: 1.75em;
-  }
+const version = "9.2.1";
 
-  a {
-    color: var(--improv-primary-color, #03a9f4);
-  }
-
-  a.button {
-    text-decoration: none;
-  }
-`;
-
+console.log(`ESP Web Tools ${version} by Nabu Casa; https://esphome.github.io/esp-web-tools/`);
 const ERROR_ICON = "⚠️";
 const OK_ICON = "🎉";
 class EwtInstallDialog extends s$1 {
@@ -20273,8 +16593,8 @@ class EwtInstallDialog extends s$1 {
         this._provisionForce = false;
         this._wasProvisioned = false;
         this._busy = false;
-        // -1 = custom
-        this._selectedSsid = -1;
+        // Name of Ssid. Null = other
+        this._selectedSsid = null;
         this._handleDisconnect = () => {
             this._state = "ERROR";
             this._error = "Disconnected";
@@ -20445,7 +16765,7 @@ class EwtInstallDialog extends s$1 {
             const client = this._client;
             if (client) {
                 await this._closeClientWithoutEvents(client);
-                await sleep$2(100);
+                await sleep$1(100);
             }
             // Also set `null` back to undefined.
             this._client = undefined;
@@ -20519,6 +16839,7 @@ class EwtInstallDialog extends s$1 {
         return [heading, content, hideActions, allowClosing];
     }
     _renderProvision() {
+        var _a;
         let heading = "Configure Wi-Fi";
         let content;
         let hideActions = false;
@@ -20607,6 +16928,9 @@ class EwtInstallDialog extends s$1 {
                 case 3 /* ImprovSerialErrorState.UNABLE_TO_CONNECT */:
                     error = "Unable to connect";
                     break;
+                case 254 /* ImprovSerialErrorState.TIMEOUT */:
+                    error = "Timeout";
+                    break;
                 case 0 /* ImprovSerialErrorState.NO_ERROR */:
                 // Happens when list SSIDs not supported.
                 case 2 /* ImprovSerialErrorState.UNKNOWN_RPC_COMMAND */:
@@ -20614,6 +16938,7 @@ class EwtInstallDialog extends s$1 {
                 default:
                     error = `Unknown error (${this._client.error})`;
             }
+            const selectedSsid = (_a = this._ssids) === null || _a === void 0 ? void 0 : _a.find((info) => info.name === this._selectedSsid);
             content = y `
         <div>
           Enter the credentials of the Wi-Fi network that you want your device
@@ -20629,39 +16954,45 @@ class EwtInstallDialog extends s$1 {
                     const index = ev.detail.index;
                     // The "Join Other" item is always the last item.
                     this._selectedSsid =
-                        index === this._ssids.length ? -1 : index;
+                        index === this._ssids.length
+                            ? null
+                            : this._ssids[index].name;
                 }}
                 @closed=${(ev) => ev.stopPropagation()}
               >
-                ${this._ssids.map((info, idx) => y `
+                ${this._ssids.map((info) => y `
                     <ewt-list-item
-                      .selected=${this._selectedSsid === idx}
-                      value=${idx}
+                      .selected=${selectedSsid === info}
+                      .value=${info.name}
                     >
                       ${info.name}
                     </ewt-list-item>
                   `)}
-                <ewt-list-item
-                  .selected=${this._selectedSsid === -1}
-                  value="-1"
-                >
+                <ewt-list-item .selected=${!selectedSsid} value="-1">
                   Join other…
                 </ewt-list-item>
               </ewt-select>
+              <ewt-icon-button @click=${this._updateSsids}>
+                ${refreshIcon}
+              </ewt-icon-button>
             `
                 : ""}
         ${
             // Show input box if command not supported or "Join Other" selected
-            this._selectedSsid === -1
+            !selectedSsid
                 ? y `
                 <ewt-textfield label="Network Name" name="ssid"></ewt-textfield>
               `
                 : ""}
-        <ewt-textfield
-          label="Password"
-          name="password"
-          type="password"
-        ></ewt-textfield>
+        ${!selectedSsid || selectedSsid.secured
+                ? y `
+              <ewt-textfield
+                label="Password"
+                name="password"
+                type="password"
+              ></ewt-textfield>
+            `
+                : ""}
         <ewt-button
           slot="primaryAction"
           label="Connect"
@@ -20754,7 +17085,6 @@ class EwtInstallDialog extends s$1 {
         }
         else if (!this._installState ||
             this._installState.state === "initializing" /* FlashStateType.INITIALIZING */ ||
-            this._installState.state === "manifest" /* FlashStateType.MANIFEST */ ||
             this._installState.state === "preparing" /* FlashStateType.PREPARING */) {
             heading = "Installing";
             content = this._renderProgress("Preparing installation");
@@ -20877,17 +17207,7 @@ class EwtInstallDialog extends s$1 {
         }
         // Scan for SSIDs on provision
         if (this._state === "PROVISION") {
-            this._ssids = undefined;
-            this._busy = true;
-            this._client.scan().then((ssids) => {
-                this._busy = false;
-                this._ssids = ssids;
-                this._selectedSsid = ssids.length ? 0 : -1;
-            }, () => {
-                this._busy = false;
-                this._ssids = null;
-                this._selectedSsid = -1;
-            });
+            this._updateSsids();
         }
         else {
             // Reset this value if we leave provisioning.
@@ -20897,6 +17217,36 @@ class EwtInstallDialog extends s$1 {
             this._installConfirmed = false;
             this._installState = undefined;
         }
+    }
+    async _updateSsids() {
+        const oldSsids = this._ssids;
+        this._ssids = undefined;
+        this._busy = true;
+        let ssids;
+        try {
+            ssids = await this._client.scan();
+        }
+        catch (err) {
+            // When we fail on first load, pick "Join other"
+            if (this._ssids === undefined) {
+                this._ssids = null;
+                this._selectedSsid = null;
+            }
+            this._busy = false;
+            return;
+        }
+        if (oldSsids) {
+            // If we had a previous list, ensure the selection is still valid
+            if (this._selectedSsid &&
+                !ssids.find((s) => s.name === this._selectedSsid)) {
+                this._selectedSsid = ssids[0].name;
+            }
+        }
+        else {
+            this._selectedSsid = ssids.length ? ssids[0].name : null;
+        }
+        this._ssids = ssids;
+        this._busy = false;
     }
     firstUpdated(changedProps) {
         super.firstUpdated(changedProps);
@@ -20910,7 +17260,7 @@ class EwtInstallDialog extends s$1 {
         if (this._state !== "PROVISION") {
             return;
         }
-        if (changedProps.has("_selectedSsid") && this._selectedSsid === -1) {
+        if (changedProps.has("_selectedSsid") && this._selectedSsid === null) {
             // If we pick "Join other", select SSID input.
             this._focusFormElement("ewt-textfield[name=ssid]");
         }
@@ -20987,25 +17337,35 @@ class EwtInstallDialog extends s$1 {
             await this._closeClientWithoutEvents(this._client);
         }
         this._client = undefined;
+        // Close port. ESPLoader likes opening it.
+        await this.port.close();
         flash((state) => {
             this._installState = state;
             if (state.state === "finished" /* FlashStateType.FINISHED */) {
-                sleep$2(100)
+                sleep$1(100)
+                    // Flashing closes the port
+                    .then(() => this.port.open({ baudRate: 115200 }))
                     .then(() => this._initialize(true))
                     .then(() => this.requestUpdate());
             }
-        }, this.port, this.logger, this.manifestPath, this._installErase);
+            else if (state.state === "error" /* FlashStateType.ERROR */) {
+                sleep$1(100)
+                    // Flashing closes the port
+                    .then(() => this.port.open({ baudRate: 115200 }));
+            }
+        }, this.port, this.manifestPath, this._manifest, this._installErase);
     }
     async _doProvision() {
+        var _a;
         this._busy = true;
         this._wasProvisioned =
             this._client.state === ImprovSerialCurrentState.PROVISIONED;
-        const ssid = this._selectedSsid === -1
+        const ssid = this._selectedSsid === null
             ? this.shadowRoot.querySelector("ewt-textfield[name=ssid]").value
-            : this._ssids[this._selectedSsid].name;
-        const password = this.shadowRoot.querySelector("ewt-textfield[name=password]").value;
+            : this._selectedSsid;
+        const password = ((_a = this.shadowRoot.querySelector("ewt-textfield[name=password]")) === null || _a === void 0 ? void 0 : _a.value) || "";
         try {
-            await this._client.provision(ssid, password);
+            await this._client.provision(ssid, password, 30000);
         }
         catch (err) {
             return;
@@ -21046,7 +17406,7 @@ class EwtInstallDialog extends s$1 {
 }
 EwtInstallDialog.styles = [
     dialogStyles,
-    i$4 `
+    i$1 `
       :host {
         --mdc-dialog-max-width: 390px;
       }
@@ -21104,76 +17464,41 @@ EwtInstallDialog.styles = [
         width: calc(80vw - 48px);
         height: 80vh;
       }
+      ewt-list-item[value="-1"] {
+        border-top: 1px solid #ccc;
+      }
     `,
 ];
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_client", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_state", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_installErase", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_installConfirmed", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_installState", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_provisionForce", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_error", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_busy", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_ssids", void 0);
 __decorate([
-    t$1()
+    t()
 ], EwtInstallDialog.prototype, "_selectedSsid", void 0);
 customElements.define("ewt-install-dialog", EwtInstallDialog);
 
-const connect = async (button) => {
-    let port;
-    try {
-        port = await navigator.serial.requestPort();
-    }
-    catch (err) {
-        if (err.name === "NotFoundError") {
-            import('./index-4cf9acf7.js').then((mod) => mod.openNoPortPickedDialog(() => connect(button)));
-            return;
-        }
-        alert(`Error: ${err.message}`);
-        return;
-    }
-    if (!port) {
-        return;
-    }
-    try {
-        await port.open({ baudRate: 115200 });
-    }
-    catch (err) {
-        alert(err.message);
-        return;
-    }
-    const el = document.createElement("ewt-install-dialog");
-    el.port = port;
-    el.manifestPath = button.manifest || button.getAttribute("manifest");
-    el.overrides = button.overrides;
-    el.addEventListener("closed", () => {
-        port.close();
-    }, { once: true });
-    document.body.appendChild(el);
-};
-
-var connect$1 = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    connect: connect
-});
-
-export { __decorate as _, connect$1 as c, dialogStyles as d, e$6 as e };
+export { EwtInstallDialog };
