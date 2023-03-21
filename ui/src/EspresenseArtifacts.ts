@@ -1,19 +1,18 @@
 import { html, css, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
 import "esp-web-tools"
 
-export class EspresenseReleases extends LitElement {
+export class EspresenseArtifacts extends LitElement {
   response: Map<string, any>;
   href: string;
-  version: string;
   flavor: string;
+  run_id: number;
 
   static get properties() {
     return {
       href: { type: String },
       manifest: { type: String },
       response: { type: Map<string, any> },
-      version: { type: String },
+      run_id: { type: Number },
       flavor: { type: String }
     };
   }
@@ -22,7 +21,7 @@ export class EspresenseReleases extends LitElement {
     const params = new URLSearchParams({
       flavor: this.flavor,
     });
-    return this.href + this.version + ".json?" + params.toString();
+    return this.href + this.run_id + ".json?" + params.toString();
   }
 
   static styles = css`
@@ -68,17 +67,19 @@ export class EspresenseReleases extends LitElement {
     super();
     this.response = new Map();
     this.href = "";
-    this.version = "";
+    this.run_id = -1;
     this.flavor = "";
   }
 
+
   firstUpdated() {
-    fetch("https://api.github.com/repos/ESPresense/ESPresense/releases", { credentials: "same-origin" })
+    fetch("https://api.github.com/repos/ESPresense/ESPresense/actions/workflows/build.yml/runs?status=success&per_page=100", { credentials: "same-origin" })
       .then((r) => r.json())
       .then((r) => {
-        this.response = r.filter((item) => item.assets.length > 5).reduce((p, c) => (p[c.prerelease ? "Beta" : "Release"] ? p[c.prerelease ? "Beta" : "Release"].push(c) : p[c.prerelease ? "Beta" : "Release"] = [c], p), new Map());
+        var wf = r.workflow_runs.filter(i => i.pull_requests.length > 0 || i.head_branch == "master" && i.head_repository.full_name == "ESPresense/ESPresense");
+        this.response = wf.reduce((p, c) => (p[c.head_branch] ? p[c.head_branch].push(c) : p[c.head_branch] = [c], p), new Map());
         console.log(this.response);
-        this.version = this.response["Release"][0].tag_name;
+        this.run_id = wf[0].id;
       });
   }
 
@@ -88,15 +89,15 @@ export class EspresenseReleases extends LitElement {
   }
 
   versionChanged(e) {
-    this.version = e.target.value;
-    console.log(this.version);
+    this.run_id = e.target.value;
+    console.log(this.run_id);
   }
 
   render() {
     const { response } = this;
     return html`
-    <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
-      <div><label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => html` <optgroup label="${key}">${response[key].map((i) => html` <option value=${i.tag_name} ?selected=${i.tag_name == this.version}>${i.name}</option> `)}</optgroup>`)}</select></div>
+      <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
+      <div><label for="version">Artifact:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(response).reverse().map((key) => html` <optgroup label="${key}">${response[key].map((i) => html` <option value=${i.id}>${i.head_sha.substring(0,7)}: ${i.head_commit.message.split("\n")[0]}</option> `)}</optgroup>`)}</select></div>
       <div class="but"><esp-web-install-button manifest=${this.manifest}></esp-web-install-button></div>
       <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>
     `;

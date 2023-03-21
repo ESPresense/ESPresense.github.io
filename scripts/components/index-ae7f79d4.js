@@ -1,7 +1,6 @@
-import { x as dialogStyles, _ as __decorate, k as e } from './styles-e7438540.js';
-import { i, s, y, w } from './espresense-releases.js';
-
-const cloudDownload = w `
+import { x as n, _ as a, k as r } from "./styles-64300280.js";
+import { i as s, s as c, y as e, w as d } from "./index-b1fe8a33.js";
+const i = d`
   <svg
     version="1.1"
     id="Capa_1"
@@ -21,9 +20,9 @@ const cloudDownload = w `
     </g>
   </svg>
 `;
-let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
-    render() {
-        return y `
+let t = class extends c {
+  render() {
+    return e`
       <ewt-dialog
         open
         heading="No port selected"
@@ -75,7 +74,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
                   >Mac</a
                 >
                 <br />
-                (download via blue button with ${cloudDownload} icon)
+                (download via blue button with ${i} icon)
               </li>
               <li>
                 CH340, CH341 drivers:
@@ -92,13 +91,12 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
                   >Mac</a
                 >
                 <br />
-                (download via blue button with ${cloudDownload} icon)
+                (download via blue button with ${i} icon)
               </li>
             </ul>
           </li>
         </ol>
-        ${this.doTryAgain
-            ? y `
+        ${this.doTryAgain ? e`
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
@@ -112,8 +110,7 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
                 dialogAction="close"
                 label="Cancel"
               ></ewt-button>
-            `
-            : y `
+            ` : e`
               <ewt-button
                 slot="primaryAction"
                 dialogAction="close"
@@ -122,14 +119,14 @@ let EwtNoPortPickedDialog = class EwtNoPortPickedDialog extends s {
             `}
       </ewt-dialog>
     `;
-    }
-    async _handleClose() {
-        this.parentNode.removeChild(this);
-    }
+  }
+  async _handleClose() {
+    this.parentNode.removeChild(this);
+  }
 };
-EwtNoPortPickedDialog.styles = [
-    dialogStyles,
-    i `
+t.styles = [
+  n,
+  s`
       li + li,
       li > ul {
         margin-top: 8px;
@@ -139,17 +136,15 @@ EwtNoPortPickedDialog.styles = [
         margin-bottom: 0;
         padding-left: 1.5em;
       }
-    `,
+    `
 ];
-EwtNoPortPickedDialog = __decorate([
-    e("ewt-no-port-picked-dialog")
-], EwtNoPortPickedDialog);
-
-const openNoPortPickedDialog = async (doTryAgain) => {
-    const dialog = document.createElement("ewt-no-port-picked-dialog");
-    dialog.doTryAgain = doTryAgain;
-    document.body.append(dialog);
-    return true;
+t = a([
+  r("ewt-no-port-picked-dialog")
+], t);
+const u = async (o) => {
+  const l = document.createElement("ewt-no-port-picked-dialog");
+  return l.doTryAgain = o, document.body.append(l), !0;
 };
-
-export { openNoPortPickedDialog };
+export {
+  u as openNoPortPickedDialog
+};
