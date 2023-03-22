@@ -23,7 +23,7 @@ has_children: true
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
-| Amazfit GTS 4 Mini   |                                             | Make sure discoverable is turned on
+| Amazfit GTS 4 Mini   | [amazon](https://amzn.to/3nc8CrI)           | Make sure discoverable is turned on
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
 
