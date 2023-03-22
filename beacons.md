@@ -17,10 +17,11 @@ has_children: true
 | Apple Watches        |                                             | [Use iCloud keychain to get IRK](/beacons/apple)
 | Tiles                | [amazon](https://amzn.to/3h77T5f)           | These work great, but update somewhat slow
 | Blue Charm Beacons   | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
-| Puck-JS              | [espruino](https://www.espruino.com/Puck.js)| If programmed to [broadcast beacon packets](https://gist.github.com/jptrsn/d6cb9b9cdbcd41f3500708f8b694cad2)
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
 | musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2) | Must be connected once with the associated app.
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
+| Whoop strap 4.0      |                                             | Id format: name:whoop-xxxxxxx
+| Amazfit Band         | [amazon](https://amzn.to/3lArIr0)           | Make sure discoverable is turned on
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
@@ -38,6 +39,7 @@ has_children: true
 | HUAWEI Watch GT2     | Only works when not connected to a phone
 | Fi Smart Dog Collar  | Smart Base needs to be powered off or Collars will not beacon
 | Gigaset G-Tag        | Only works when not connected to a phone
+| Garmin Instinct Solar| [amazon](https://amzn.to/3JF7IeI)           | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
 
 ## Known to not work
 
