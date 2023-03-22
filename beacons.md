@@ -26,6 +26,7 @@ has_children: true
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
+| Garmin Instinct Solar| [amazon](https://a.co/d/3uwqkP5)            | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
 
 
 ## Works with caveats
