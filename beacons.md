@@ -24,6 +24,7 @@ has_children: true
 | Amazfit Band         | [amazon](https://amzn.to/3lArIr0)           | Make sure discoverable is turned on
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
+| Amazfit GTS 4 Mini   | [amazon](https://amzn.to/3nc8CrI)           | Make sure discoverable is turned on
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
 | Innway Wallet Card   | [amazon](https://amzn.to/3Z8Govf)           | Rechargeable iBeacon - no need to use app or activate
