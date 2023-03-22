@@ -25,7 +25,7 @@ has_children: true
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
-| Innway Wallet Card   | [amazon](http://amzn.com/B07MYZWM3B)        | Rechargeable iBeacon - no need to use app or activate
+| Innway Wallet Card   | [amazon](https://amzn.to/3Z8Govf)           | Rechargeable iBeacon - no need to use app or activate
 
 ## Works with caveats
 
