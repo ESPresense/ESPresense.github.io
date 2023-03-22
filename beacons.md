@@ -21,12 +21,13 @@ has_children: true
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
 | musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2) | Must be connected once with the associated app.
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
+| Whoop strap 4.0      |                                             | Id format: name:whoop-xxxxxxx
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
 | Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
-| Amazfit Band         | [amazon](link here)           | Make sure discoverable is turned on
-
+| Amazfit Band         | [amazon](https://amzn.to/3lArIr0)           | Make sure discoverable is turned on
+| Garmin Instinct Solar| [amazon](https://a.co/d/3uwqkP5)            | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
 
 ## Works with caveats
 
