@@ -23,6 +23,7 @@ has_children: true
 | Whoop strap 4.0      |                                             | Id format: name:whoop-xxxxxxx
 | Amazfit Band         | [amazon](https://amzn.to/3lArIr0)           | Make sure discoverable is turned on
 | Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
+| Amazfit Bip 3 Pro    | [amazon](https://amzn.asia/d/98vWhnk)       | Use the Zepp app on your paired phone to set the watch to be discoverable
 | Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
 | Amazfit GTS 4 Mini   | [amazon](https://amzn.to/3nc8CrI)           | Make sure discoverable is turned on
 | Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
