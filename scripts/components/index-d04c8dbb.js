@@ -558,13 +558,13 @@ const se = globalThis.litElementPolyfillSupport;
 se == null || se({ LitElement: y });
 ((B = globalThis.litElementVersions) !== null && B !== void 0 ? B : globalThis.litElementVersions = []).push("3.2.2");
 const de = async (o) => {
-  import("./install-dialog-084ba2fb.js");
+  import("./install-dialog-8712f1fb.js");
   let e;
   try {
     e = await navigator.serial.requestPort();
   } catch (s) {
     if (s.name === "NotFoundError") {
-      import("./index-ae7f79d4.js").then((i) => i.openNoPortPickedDialog(() => de(o)));
+      import("./index-937b6fc1.js").then((i) => i.openNoPortPickedDialog(() => de(o)));
       return;
     }
     alert(`Error: ${s.message}`);
@@ -694,7 +694,7 @@ class ce extends y {
   render() {
     const { response: e } = this;
     return _`
-    <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
+    <div><label for="flavor">Flavor:</label><select id="flavor" @change=${this.flavorChanged}><option value="">Standard</option><option value="cdc">Cdc</option><option value="verbose">Verbose</option><option value="m5atom">M5Atom</option><option value="m5stickc">M5StickC</option><option value="m5stickc-plus">M5StickC-plus</option><option value="macchina-a0">Macchina A0</option></select></div>
       <div><label for="version">Version:</label><select id="version" @change=${this.versionChanged}>>${Object.keys(e).reverse().map((t) => _` <optgroup label="${t}">${e[t].map((s) => _` <option value=${s.tag_name} ?selected=${s.tag_name == this.version}>${s.name}</option> `)}</optgroup>`)}</select></div>
       <div class="but"><esp-web-install-button manifest=${this.manifest}></esp-web-install-button></div>
       <div class="powered"><label>Powered by</label><a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a></div>
