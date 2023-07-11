@@ -7,7 +7,6 @@ nav_order: 99
 
 # Companion
 
-## Help write this documentation!  Click the edit this page below.
 # ESPresense Companion
 ## How to use
 ESPresense Companion is meant to be a visual representation of where your device is within your house and 
@@ -71,6 +70,9 @@ Note: you can map multiple base stations to a room, but each station must have a
 For devices: Add specific devices using the format 
 - id: darrels-watch
   name: darrell's watch
+
+## Help write this documentation!  Click the edit this page below.
+
 
 Use the variable * to include multiple devices such as 
   - id: "tile:*" # Track all tiles
