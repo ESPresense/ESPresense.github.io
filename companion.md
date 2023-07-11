@@ -71,12 +71,11 @@ For devices: Add specific devices using the format
 - id: darrels-watch
   name: darrell's watch
 
-## Help write this documentation!  Click the edit this page below.
-
-
 Use the variable * to include multiple devices such as 
   - id: "tile:*" # Track all tiles
   - id: "irk:*" # Track all IRKs
   - id: "apple:*" # Track all apple devices
   - id: "ibeacon:*" # Track all iBeacon devices
   - name: "*" # Track all named devices
+
+## Help write this documentation!  Click the edit this page below.
