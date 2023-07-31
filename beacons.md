@@ -15,6 +15,7 @@ has_children: true
 | Android Phones       |                                             | [Must install an app](/beacons/android)
 | iPhones              |                                             | [Pair to retrieve IRK](/beacons/apple)
 | Apple Watches        |                                             | [Use iCloud keychain to get IRK](/beacons/apple)
+| Wear OS Smartwatches |                                             | [Must use HA companion app](/beacons/android)
 | Tiles                | [amazon](https://amzn.to/3h77T5f)           | These work great, but update somewhat slow
 | Blue Charm Beacons   | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
@@ -48,7 +49,6 @@ has_children: true
 
 | Name                | Notes                                                                |
 |:--------------------|:---------------------------------------------------------------------|
-| Wear OS Smartwatches| Not tested
 | Apple AirTags       | We can only count how many are currently not connected to a phone
 | Samsung SmartTags   | Randomized mac addresses
 
