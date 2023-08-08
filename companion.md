@@ -7,9 +7,11 @@ nav_order: 99
 
 # Companion
 
-# ESPresense Companion
+The ESPresense-companion attempts to locate your Bluetooth Low Energy (BLE) items in the floorplan of your house. It also allows you to manage ESPresense nodes as well.
+
 ## How to use
-ESPresense Companion is meant to be a visual representation of where your device is within your house and 
+
+ESPresense Companion is meant to be a visual representation of where your devicea is within your house and 
 as a way to troubleshoot Espresense settings so that automation triggers are more accurate.
 
 The more accurate your house plan and the more base stations you include, the higher the accuracy of ESPresense Companion
@@ -17,8 +19,6 @@ The more accurate your house plan and the more base stations you include, the hi
 ### Find your home's GPS coordinates
 The easiest way to do this is using google maps or google earth.  Search for your home's address, and click on the street in front of it to get your latitude and longitude. 
 On google earth, search for your home's address, place your mouse over your home and it will show you latitude, longitude and elevation in the bottom right.  
-
-
 
 ### Draw out your house
 You will need the dimensions of the interior of your house to get the best results.  There are multiple ways to do this, one option is to create a free home plan using magicplan (https://www.magicplan.app/)
