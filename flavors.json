@@ -1,9 +1,0 @@
-[
-  { "suffix": "", "name": "Standard"},
-  { "suffix": "cdc", "name": "Cdc" },
-  { "suffix": "verbose", "name": "Verbose" },
-  { "suffix": "m5atom", "name": "M5Atom" },
-  { "suffix": "m5stickc", "name": "M5StickC" },
-  { "suffix": "m5stickc-plus", "name": "M5StickC-plus" },
-  { "suffix": "macchina-a0", "name": "Macchina A0" }
-]

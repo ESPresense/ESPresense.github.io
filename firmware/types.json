@@ -1,0 +1,31 @@
+{
+  "firmware": [
+    { "name": "esp32.bin", "cpu": "esp32", "flavor": "" },
+    { "name": "esp32-cdc.bin", "cpu": "esp32", "flavor": "cdc" },
+    { "name": "esp32-verbose.bin", "cpu": "esp32", "flavor": "verbose" },
+    { "name": "esp32c3.bin", "cpu": "esp32c3", "flavor": "" },
+    { "name": "esp32c3-cdc.bin", "cpu": "esp32c3", "flavor": "cdc" },
+    { "name": "esp32c3-verbose.bin", "cpu": "esp32c3", "flavor": "verbose" },
+    { "name": "esp32s3.bin", "cpu": "esp32s3", "flavor": "" },
+    { "name": "esp32s3-cdc.bin", "cpu": "esp32s3", "flavor": "cdc" },
+    { "name": "esp32s3-verbose.bin", "cpu": "esp32s3", "flavor": "verbose" },
+    { "name": "m5atom.bin", "cpu": "esp32", "flavor": "m5atom" },
+    { "name": "m5stickc.bin", "cpu": "esp32", "flavor": "m5stickc" },
+    { "name": "m5stickc-plus.bin", "cpu": "esp32", "flavor": "m5stickc-plus" },
+    { "name": "macchina-a0.bin", "cpu": "esp32", "flavor": "macchina-a0" }
+  ],
+  "flavors": [
+    { "name": "Standard", "value": "", "cpus": ["esp32","esp32s3","esp32c3"] },
+    { "name": "Cdc", "value": "cdc", "cpus": ["esp32s3","esp32c3"] },
+    { "name": "Verbose", "value": "verbose", "cpus": ["esp32","esp32s3","esp32c3"] },
+    { "name": "M5Atom", "value": "m5atom", "cpus": ["esp32"] },
+    { "name": "M5StickC", "value": "m5stickc", "cpus": ["esp32"] },
+    { "name": "M5StickC-plus", "value": "m5stickc-plus", "cpus": ["esp32"] },
+    { "name": "Macchina A0", "value": "macchina-a0", "cpus": ["esp32"] }
+  ],
+  "cpus": [
+    { "name": "ESP32", "value": "esp32" },
+    { "name": "ESP32-S3", "value": "esp32s3" },
+    { "name": "ESP32-C3", "value": "esp32c3" }
+  ]
+}
