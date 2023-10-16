@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "esp-web-tools": "^9.4.0",
-    "lit": "^2.7.6"
+    "lit": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "^5.1.6",
