@@ -31,7 +31,7 @@ To automatically get the IRK for your iOS device you can pair it with an ESPrese
 
 An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You have to extract the IRK from iCloud with the Apple Keychain application on MacOS.
 
-> Tip: To ensure you have the right IRK, you need to know your Apple Watch's GUID. To easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **Info** and look under **Bluetooth** for the MAC address. 
+> Tip: To ensure you have the right IRK, you need to know your Apple Watch's GUID. To easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **About** and look under **Bluetooth** for the MAC address. 
 
 1. **On MacOS**, make sure you are **logged in** with the **iCloud ID** with which the Apple Watch is configured.
 2. **Start** the **Keychain access** application.
@@ -114,4 +114,6 @@ An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You h
     ![ble-irk](../images/known_ble_irk.png)
     
 7. Add the same string to your HASS configuration with 'irk:' added in front e.g. "irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  
+9. Click 'Save' in the ESPresense UI, then 'Restart Device'.
 
