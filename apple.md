@@ -7,113 +7,52 @@ parent: Beacons
 
 # Apple Devices
 
-Apples devices emit various [btle continuity](https://github.com/furiousMAC/continuity) messages and the fingerprint `apple:100?:*-*` is often the one seen. Unfortunately if your household has many iPhones, eventually the nearby info will start to collide and lead to duplicate fingerprints.
+Apple devices emit various [BTLE continuity](https://github.com/furiousMAC/continuity) messages, often identified by the fingerprint `apple:100?:*-*`. In households with multiple iPhones, the nearby info may collide, leading to duplicate fingerprints. To resolve this, you can obtain the remote IRK (Identity Resolving Key) from your iOS (iPhone, iPad) or Watch OS (Apple Watch) device. While adding the IRK to the `Known BLE identity resolving keys` section of the ESPresense configuration is an option, using the `Enroll` feature is recommended as it's easier and syncs automatically to all ESPresense nodes. Note: ESPresense version 3.0 or higher is required!**
 
-To work around this you can get the remote IRK (identity resolving key) from your iOS (iPhone) or Watch OS (Apple Watch) device and add this to the `Known BLE identity resolving keys` section of the ESPresense configuration.
+## iOS/iPadOS Enrollment
 
-> **Note: ESPresense version 3.0 or higher is required!**
+Enrolling your iPhone or iPad is straightforward:
 
+1. Navigate to the ESPresense devices page in your browser: `http://<ip>/ui`.
+2. Enter a name for your device in the name field and click the `Enroll` button.
+3. On your iPhone or iPad, go to `Settings` -> `Bluetooth`. You'll see a new `ESPresense` device.
+4. Pair the device. The key will be automatically obtained and added to the MQTT topic `espresense/settings`.
 
-## iOS (manual setup)
+## Watch OS Enrollment
 
-To automatically get the IRK for your iOS device you can pair it with an ESPresense instance and the key will be visible in the `espresense/settings` topic. You can either manually add it to your configuration or let HASS configure it for you.
+### Using Bluetooth Terminal App
 
-1. Go in your browser to the ESPresense devices page: `http://espresense-office/ui`
-2. **Fill in** a name for your device in the **name field** and **click** the **Enroll** button.
-3. **On your iPhone** to to **Settings** -> **Bluetooth** and you'll see a new **ESPresense** device.
-4. **Pair** the device and the key becomes visible in the MQTT topic `espresense/settings`
+1. Hit `Enroll` on the ESPresense web interface.
+2. Download and install the [Bluetooth Terminal app](https://apps.apple.com/app/id1058693037) from the Apple App Store on an iOS device.
+3. Launch the app on your Apple Watch and scan for nearby Bluetooth devices.
+4. Click on "ESPresense" and accept the request to pair securely.
+5. The Enroll prompt should stop automatically, indicating the key has been obtained.
 
-> Tip: use MQTT explorer to view the RAW messages.
-> **Note: With the automatic procedure you DON'T need to add the 32-bit key to the `Known BLE identity resolving keys`. It's automatically done via mqtt!**
+## Lookup Method (Requires a Mac)
 
+This method can be used for any iOS/iPadOS/Watch OS device:
 
-## Watch OS
-
-An Apple Watch cannot be paired with Bluetooth to the ESPresense instance. You have to extract the IRK from iCloud with the Apple Keychain application on MacOS.
-
-> Tip: To ensure you have the right IRK, you need to know your Apple Watch's GUID. To easily find your Apple Watch GUID go **on your Apple Watch** to the **Settings** app -> **General** -> **About** and look under **Bluetooth** for the MAC address. 
-
-1. **On MacOS**, make sure you are **logged in** with the **iCloud ID** with which the Apple Watch is configured.
-2. **Start** the **Keychain access** application.
-3. In the left **sidebar** click on **iCloud**
-4. In the upper right **search bar** type `bluetooth`
-5. A series of GUIDs are shown with the *application password* type.
+1. **On MacOS**, ensure you are **logged in** with the **iCloud ID** associated with your device.
+2. **Launch** the **Keychain Access** application.
+3. In the left **sidebar**, click on **iCloud**.
+4. In the upper right **search bar**, type `bluetooth`.
+5. A series of GUIDs will appear with the *application password* type.
 
     ![keychain-icloud](../images/keychain_icloud.png)
 
-1. **Open** each **GUID** to find the one associated with your apple watch. You should see your watches GUID as part of the **Account** field in the format: `Public: XX:XX:XX:XX:XX:XX`
-3. **Click** on **Show password**
-4. **Type** your MacOS password **twice** and **copy** the contents.
+6. **Open** each **GUID** to find the one associated with your Apple Watch. The **Account** field should display your watch's GUID in the format: `Public: XX:XX:XX:XX:XX:XX`.
+7. **Click** on **Show password**.
+8. **Type** your MacOS password **twice** and **copy** the contents.
 
     ![keychain-password](../images/keychain_password.png)
 
-5. Paste the contents in the form below and click 'Decode' to convert this into an IRK. Under the hood, this is extracting Base64 data and converting it to a hex string and then reversing the order of the bytes.
+9. Paste the contents in the form below and click 'Decode' to convert this into an IRK.
 
-<center>
-  <div>
-    <script>
-      /* Regex to validate base64 strings */
-      var b64_regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+{% include irk_decode.html %}
 
-      /* Attempt to decode this as if it was an XML document straight from keychain.
-         Return null if this cannot be done. */
-      function tryDecodeXML(str) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(str, "text/xml");
-        var res = doc.evaluate('//key[text()="Remote IRK"]//following-sibling::data/text()', doc, null, XPathResult.STRING_TYPE, null);
-        if (res && res.stringValue) {
-          return tryDecodeBase64(res.stringValue.trim());
-        }
-        return null;
-      }
+10. Add the output (which should be 32 characters) to the 'Known BLE identity resolving keys' section of the ESPresence configuration.
 
-      function isBase64(str) {
-        return !!b64_regex.exec(str);
-      }
-
-      function tryDecodeBase64(str) {
-        if (!isBase64(str)) {
-          return null;
-        }
-
-        for (var i = 0, bin = atob(str.replace(/[ \r\n]+$/, "")), hex = []; i < bin.length; ++i) {
-          var tmp = bin.charCodeAt(i).toString(16);
-          if (tmp.length === 1) tmp = "0" + tmp;
-          hex[hex.length] = tmp;
-        }
-        return hex;
-      }
-
-      function decode(e) {
-        var input = document.getElementById('base64_input');
-        var output = document.getElementById('base64_output');
-        var data = input.value;
-
-        var decoded = tryDecodeXML(data) || tryDecodeBase64(data);
-        if (!decoded) {
-          output.innerText = "Please paste the XML from iCloud or a Base64 encoded string";
-          output.style = 'color: red;';
-          return;
-        }
-
-        output.innerText = decoded.reverse().join('');
-      }
-
-    </script>
-    <textarea type="text" id="base64_input" cols="32" rows="12"></textarea><br><br>
-    <button type="button" onclick="decode()">Convert</button>
-    <br><br>
-    <b>Output</b>
-    <div id="base64_output" style="font-family: monospace;"><span style="color: gray">Enter base64 above...</span></div>
-    <br><br>
-  </div>
-</center>
-
-6. Add the output (which should be 32 characters) to the 'Known BLE identity resolving keys' section of the ESPresence configuration.
-    
     ![ble-irk](../images/known_ble_irk.png)
-    
-7. Add the same string to your HASS configuration with 'irk:' added in front e.g. "irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  
-9. Click 'Save' in the ESPresense UI, then 'Restart Device'.
 
+11. In your HASS configuration, add the same string with 'irk:' prefixed, e.g., "irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx".
+12. Click 'Save' in the ESPresense UI, then 'Restart Device'.
