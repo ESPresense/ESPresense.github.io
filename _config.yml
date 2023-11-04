@@ -87,7 +87,7 @@ back_to_top_text: "Back to top"
 # Includes an icon in the footer for each username you enter
 footer-links:
   email:
-  facebook:
+  facebook: ESPresense
   flickr:
   github: ESPresense/ESPresense
   instagram:
