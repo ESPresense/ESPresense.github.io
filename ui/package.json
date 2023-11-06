@@ -17,7 +17,7 @@
     "build": "tsc && vite build && rm ../scripts/components/* && cp -r dist/* ../scripts/components/"
   },
   "dependencies": {
-    "esp-web-tools": "^9.4.0",
+    "esp-web-tools": "^9.4.1",
     "lit": "^2.7.6"
   },
   "devDependencies": {
