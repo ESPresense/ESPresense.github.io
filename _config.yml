@@ -71,7 +71,7 @@ aux_links:
     - "//github.com/ESPresense/ESPresense"
 
 # Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+aux_links_new_tab: true
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
@@ -116,7 +116,7 @@ color_scheme: nil
 
 # Google Analytics Tracking (optional)
 # e.g, UA-1234567-89
-ga_tracking: UA-295030-1
+ga_tracking: G-5RPPLMZ514
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
 
 plugins:
