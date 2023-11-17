@@ -9,7 +9,7 @@ has_children: true
 # Base Stations
 
 The firmware is currently compatible with the ESP32 WROOM and WROVER dual core (most common) OR the ESP32C3 (beta).  4MB of flash is required (most common).
-We do not currently support single core S2 or S3 variants.  Make sure you do *NOT* buy a ESP8266, those do not have bluetooth at all.
+We support the original ESP32, ESP32-C3, and the ESP32-S3 (S2 doesn't have bluetooth).  Make sure you do *NOT* buy a ESP8266, those do not have bluetooth at all.
 
 ## ESP32
 
