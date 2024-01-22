@@ -40,7 +40,7 @@ Be sure that MQTT has Discovery enabled ("auto-discovered")- otherwise you will 
 
 
 
-###install the espresense companion app
+### Install the espresense companion app
 Go to your home assistant add-on store and add the following repository: https://github.com/ESPresense/hassio-addons
 
 Reload the add-on store and click on the ESPresense Companion.  No need to change anything - just click install.  
