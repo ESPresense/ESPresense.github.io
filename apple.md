@@ -32,6 +32,14 @@ Note: Some iOS devices do not emit a beacon while the phone screen is off if the
 
 If you're having trouble, please note: you will see ESPresense in the native settings, but it will refuse to securely pair. It's imperative to follow the steps under the 'Apple Watch (using Bluetooth Terminal App)' section above to ensure a successful pairing via the app.  Secure pairing is the key to us getting an IRK!
 
+If you're using the `BluetoothLE` App on your Apple Watch, you can see the bluetooth device `ESPresense` but pairing fails to intiate, you may need to force a refresh of the devices in the app. This typically applies when you have had a previously unsucesful pairing attempt or re-flashed the ESP basestation. Simply forcing the app to close and re-launch doesn't force a refresh of devices.
+On your Apple Watch:
+- Force the `BluetoothLE` App to close (Typically by clicking the watch button, swiping the `BluetoothLE` App card left and then the red X button).
+- Turn off Bluetooth via Settings > Bluetooth > Bluetooth Switch (at bottom of screen).
+- Launch `BluetoothLE` App on your Apple Watch. This will ask you to Turn on Bluetooth to allow the app to detect devices. Do so by clicking the Settings button etc.
+- **Important** when Bluetooth is enabled, you will be in the Apple Watch Bluetooth devices discovery mode. **DO NOT** try to connect to ESPresense here!
+- Open the `BluetoothLE` App once again and you will see the discovered BLE deviced being refreshed. Now follow the steps under the 'Apple Watch (using Bluetooth Terminal App)' section above to ensure a successful pairing via the app.
+
 ## Lookup Method (requires a Mac)
 
 This method can be used for any iOS/iPadOS/Watch OS device:
