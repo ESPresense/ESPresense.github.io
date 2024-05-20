@@ -11,7 +11,7 @@ The ESPresense-companion attempts to locate your Bluetooth Low Energy (BLE) item
 
 ## How to use
 
-ESPresense Companion is meant to be a visual representation of where your devicea is within your house and 
+ESPresense Companion is meant to be a visual representation of where your device is within your house and 
 as a way to troubleshoot Espresense settings so that automation triggers are more accurate.
 
 The more accurate your house plan and the more base stations you include, the higher the accuracy of ESPresense Companion
