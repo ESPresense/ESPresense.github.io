@@ -54,7 +54,7 @@ This method can be used for any iOS/iPadOS/Watch OS device:
 - On your **Apple Watch** device, go to **Settings > About**, scroll down to find the Bluetooth address, in the format: `XX:XX:XX:XX:XX:XX`
 - **Open** each entry to find the one associated with your Apple Watch. The **Account** field should match the Bluetooth address of your watch, in the format: `Public: XX:XX:XX:XX:XX:XX`.
 - **Click** on **Show password**.
-- **Type** your MacOS password **twice** and **copy** the contents.
+**Type** your macOS password **twice** and **copy** the contents.
 
     ![keychain-password](../images/keychain_password.png)
 
