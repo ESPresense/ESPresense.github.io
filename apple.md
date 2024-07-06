@@ -48,11 +48,11 @@ This method can be used for any iOS/iPadOS/Watch OS device:
 - **Launch** the **Keychain Access** application.
 - In the left **sidebar**, click on **iCloud**.
 - In the upper right **search bar**, type `bluetooth`.
-- A series of GUIDs will appear with the *application password* type.
+- A series of entries will appear with the *application password* type.
 
     ![keychain-icloud](../images/keychain_icloud.png)
-
-- **Open** each **GUID** to find the one associated with your Apple Watch. The **Account** field should display your watch's GUID in the format: `Public: XX:XX:XX:XX:XX:XX`.
+- On your **Apple Watch** device, go to **Settings > About**, scroll down to find the Bluetooth address, in the format: `XX:XX:XX:XX:XX:XX`
+- **Open** each entry to find the one associated with your Apple Watch. The **Account** field should match the Bluetooth address of your watch, in the format: `Public: XX:XX:XX:XX:XX:XX`.
 - **Click** on **Show password**.
 - **Type** your MacOS password **twice** and **copy** the contents.
 
