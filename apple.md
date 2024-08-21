@@ -73,7 +73,7 @@ This method can be used for any iOS/iPadOS/Watch OS device:
 
 ### Option 2
 
-- Alternatively you can publish an MQTT message to the settings topic to simulate what would happen were you to pair from the UI. To do this you can publish to the topic: `espresense/settings/irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` with a payload `{"id":"device_id", "name":"Device Name"}`. _Make sure there are no spaces in the `id` value._
+- Alternatively you can publish an MQTT message to the settings topic to simulate what would happen were you to pair from the UI. To do this you can publish to the topic: `espresense/settings/irk:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/config` with a payload `{"id":"device_id", "name":"Device Name"}`. _Make sure there are no spaces in the `id` value._
 
 
 
