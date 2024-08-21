@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Base Stations
+title: Base Stations (Nodes)
 permalink: /base-stations
 nav_order: 2
 has_children: true
@@ -15,7 +15,7 @@ We support the original ESP32, ESP32-C3, and the ESP32-S3 (S2 doesn't have bluet
 
 | Name               | Stores         | Notes |
 |:-------------------|:--------------:|-------|
-| ESP32 dev board    | [amz/us](https://amzn.to/3xCAw1F) [amz/uk](https://amzn.to/3QyiBlp)
+| ESP32 dev board    | [amz/us](https://amzn.to/3xCAw1F) [amz/uk](https://amzn.to/3QyiBlp) [ali](https://s.click.aliexpress.com/e/_EJMZsJ7)
 | M5Atom (all kinds) | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit) [digi](https://www.digikey.com/en/products/detail/m5stack-technology-co-ltd/C008/12088545)
 | M5Stamp Pico       | [m5stack](https://shop.m5stack.com/collections/m5-controllers/products/m5stamp-pico-diy-kit)
 | M5Stamp C3 Mate    | [m5stack](https://shop.m5stack.com/products/m5stamp-c3-mate-with-pin-headers)
