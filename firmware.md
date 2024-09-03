@@ -2,7 +2,7 @@
 layout: page
 title: Install Firmware
 permalink: /firmware
-parent: "Base Stations"
+parent: "Base Stations (Nodes)"
 nav_order: 2
 ---
 
