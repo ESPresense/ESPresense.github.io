@@ -33,6 +33,7 @@ has_children: true
 | Ultrahuman Ring      | [ultrahuman](https://www.ultrahuman.com/ring/) |
 | OpenHaystack-Beacons | [openhaystack-firmware](https://github.com/acalatrava/openhaystack-firmware/tree/main/apps/openhaystack-alternative) | Work outdoors with Apple's FindMy Network and are easily indoor-trackable
 | Xiaomi Mi Tags| [Ali Express](https://a.aliexpress.com/_msMm7sS)| If you pair them to the app, simply turn off Bluetooth long enough for it to start beeping, leave it disconnected after.
+
 ## Works with caveats
 
 | Name                 | Notes                                                                                                         |
