@@ -3,7 +3,6 @@ layout: page
 title: Base Stations (Nodes)
 permalink: /base-stations
 nav_order: 2
-has_children: true
 ---
 
 # Base Stations

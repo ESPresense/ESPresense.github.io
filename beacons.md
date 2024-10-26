@@ -3,7 +3,6 @@ layout: page
 title: Beacons
 permalink: /beacons
 nav_order: 2
-has_children: true
 ---
 
 # Beacons

@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Optimization and Calibration
-permalink: /optimization
-nav_order: 99
+title: Optimization
+permalink: /companion/optimization
+parent: Companion
 ---
 
 # Optimization
