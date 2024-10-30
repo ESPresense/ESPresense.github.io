@@ -7,75 +7,78 @@ nav_order: 99
 
 # Companion
 
-The ESPresense-companion attempts to locate your Bluetooth Low Energy (BLE) items in the floorplan of your house. It also allows you to manage ESPresense nodes as well.
+ESPresense Companion attempts to locate your Bluetooth Low Energy (BLE) items in the floorplan of your house. It also allows you to manage ESPresense nodes and settings.
 
-## How to use
+## How to Use
 
-ESPresense Companion is meant to be a visual representation of where your device is within your house and
-as a way to troubleshoot Espresense settings so that automation triggers are more accurate.
+ESPresense Companion provides a visual representation of your devices' locations within your house and helps troubleshoot ESPresense settings to improve automation trigger accuracy.
 
-The more accurate your house plan and the more base stations you include, the higher the accuracy of ESPresense Companion
+The more accurate your house plan and the more base stations you include, the higher the location accuracy will be.
 
-### Find your home's GPS coordinates
-The easiest way to do this is using google maps or google earth.  Search for your home's address, and click on the street in front of it to get your latitude and longitude.
-On google earth, search for your home's address, place your mouse over your home and it will show you latitude, longitude and elevation in the bottom right.
+### Find Your Home's GPS Coordinates
+You can easily find coordinates using Google Maps or Google Earth:
+- Google Maps: Search for your address and click on the street in front of your house to get latitude and longitude
+- Google Earth: Search for your address and hover your mouse over your house - coordinates and elevation will display in the bottom right
 
-### Draw out your house
-You will need the dimensions of the interior of your house to get the best results.  There are multiple ways to do this, one option is to create a free home plan using magicplan (https://www.magicplan.app/)
+### Draw Out Your House
+You'll need accurate interior dimensions for best results. There are several options:
+1. Create a free home plan using [MagicPlan](https://www.magicplan.app/)
+2. Use the [ESPresense Floorplan Creator](https://espresense.com/Floorplan-Creator/) to convert your measurements into YAML format
+3. Directly edit the YAML coordinates in the config file - the website will update in real-time thanks to hot reloading, allowing you to fine-tune your floorplan live
 
-However you get those measurements, you will need to convert that plan into something YAML can use.  For this, we have the ESPresense Floorplan Creator (https://espresense.com/Floorplan-Creator/)
+After using any of these methods, you'll want to save your YAML configuration. If using the Floorplan Creator, click "Convert to YAML Code" and save the generated code.
 
-Once you have drawn out your rooms, click "convert to YAML Code" and copy/paste what is generated onto Notepad.
+### Setup MQTT
+ESPresense and ESPresense Companion require MQTT to function. If you haven't set up MQTT yet:
+1. Install and configure [Mosquitto](https://mosquitto.org/)
+2. Note your MQTT host, port (default 1883), username, and password
+3. If using Home Assistant's MQTT addon, Companion will use those settings automatically
+4. Ensure MQTT Discovery is enabled ("auto-discovered") or you'll need to manually configure MQTT settings
 
+### Install ESPresense Companion
+1. Add this repository to your Home Assistant add-on store: `https://github.com/ESPresense/hassio-addons`
+2. Reload the add-on store
+3. Find and install ESPresense Companion
+4. Don't start the add-on yet - configure it first
 
+### Edit Config File
+Navigate to `/config/espresense/config.yaml` and configure:
 
-### Setup Mqtt
-Espresense and Espresense Companion rely on MQTT to function - this guide to the companion assumes you have an MQTT connection and it is set up for Espresense already.
-If you have not - go here to set that up: https://mosquitto.org/.  Then
+MQTT Connection:
+- For Home Assistant's MQTT addon: Only username and password needed
+- For external MQTT: Include host and port
+- Set SSL to false
 
-Once that is set up, go to your MQTT addon and write down the host, port (default is 1883), username and password.
-If your MQTT connection is through HASSIO, Companion will use that addon.  If you use another method, you'll add that information to the config file described later.
+GPS Settings:
+- Enter latitude and longitude in decimal format
+- Enter elevation in meters
 
-Be sure that MQTT has Discovery enabled ("auto-discovered")- otherwise you will need to add your mqtt configuration to the MQTT tab.
+Floor Configuration:
+- Set ID and name as desired
+- Bounds: First three numbers are left/bottom starting points, second three are top/right endpoints
+- These bounds center your diagram
 
+Rooms:
+- Paste the YAML from the floorplan creator
 
+Nodes:
+- List each base station's approximate location
+- Each node needs a unique name
+- Multiple nodes can be mapped to one room
 
-### Install the espresense companion app
-Go to your home assistant add-on store and add the following repository: https://github.com/ESPresense/hassio-addons
-
-Reload the add-on store and click on the ESPresense Companion.  No need to change anything - just click install.
-
-Don't click start yet - if you do a generic home plan will be displayed.  Go to file explorer or Studio Code Server and look for the espresense folder with the config.yaml
-
-
-
-### Edit Config file
-Once ESPresense Companion is installed, go to /config/espresense/config.yaml.
-
-For MQTT Connection, you only need to add the username and password you wrote down earlier if you use the HASSIO MQTT addon.  If you use another MQTT method, list the host and port as well.
-SSL must be false
-
-For GPS, put in the coordinates you determined earlier.  Latitude and longitude are in decimal format.  Elevation is in meters
-
-For floors -
-ID and name can be anything.
-bounds: the first 3 numbers are the left and bottom starting points, and the 2nd 3 numbers are the top and right end points.  You will use this to center the diagram
-
-For rooms: Copy and paste the results of the floorplan creator.
-
-For nodes: list out and locate the approximate location of each nodes
-Note: you can map multiple base stations to a room, but each station must have a unique name
-
-
-For devices: Add specific devices using the format
+Devices:
+```yaml
 - id: darrels-watch
-  name: darrell's watch
+  name: "Darrell's Watch"
+```
 
-Use the variable * to include multiple devices such as
-  - id: "tile:*" # Track all tiles
-  - id: "irk:*" # Track all IRKs
-  - id: "apple:*" # Track all apple devices
-  - id: "ibeacon:*" # Track all iBeacon devices
-  - name: "*" # Track all named devices
+Use wildcards to include multiple devices:
+```yaml
+- id: "tile:*"    # Track all tiles
+- id: "irk:*"     # Track all IRKs
+- id: "apple:*"   # Track all Apple devices
+- id: "ibeacon:*" # Track all iBeacon devices
+- name: "*"       # Track all named devices
+```
 
 ## Help write this documentation!  Click the edit this page below.

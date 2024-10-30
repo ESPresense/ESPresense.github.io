@@ -52,5 +52,4 @@ optimization:
 
 The limits section will clamp the adjustment values the optimizer can set.
 
-
 ## Help write this documentation!  Click the edit this page below.
