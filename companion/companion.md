@@ -4,7 +4,7 @@ title: Companion
 permalink: /companion
 ---
 # Companion
-# ESPresense-companion
+
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ESPresense/ESPresense-companion)
 ![Docker Pulls](https://badgen.net/docker/pulls/espresense/espresense-companion)
 
