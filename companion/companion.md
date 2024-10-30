@@ -3,13 +3,19 @@ layout: page
 title: Companion
 permalink: /companion
 ---
-
 # Companion
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ESPresense/ESPresense-companion)
 ![Docker Pulls](https://badgen.net/docker/pulls/espresense/espresense-companion)
 
-The ESPresense-companion attempts to locate your Bluetooth Low Energy (BLE) items in the floorplan of your house. It also allows you to manage ESPresense nodes.
+The ESPresense Companion is the central brain of your ESPresense system. It:
+- Processes distance readings from all nodes using trilateration to determine device locations
+- Reports device room presence to Home Assistant via MQTT
+- Visualizes BLE device locations on your floorplan
+- Manages and configures ESPresense nodes
+- Updates node firmware
+- Adjusts device-specific settings
+- Monitors and controls automatic node optimization
 
 ![image](https://user-images.githubusercontent.com/1491145/208942192-d8716e50-c822-48a7-a6d3-46b53ab9373e.png)
 
