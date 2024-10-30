@@ -8,11 +8,28 @@ nav_order: 3
 
 # Optimization
 
-## Automatic Node Optimization
+## Node Settings
+
+### Maximum Distance
+By default, nodes have a maximum distance of 16m. This means they will only report devices within this range. This default balances:
+- Getting enough fixes for accurate positioning
+- Avoiding less reliable long-distance measurements
+
+You can adjust this setting if needed:
+- Increase/remove limit to get more fixes (may reduce accuracy)
+- Decrease limit to only use closer, potentially more reliable fixes
+
+To modify the maximum distance, send an MQTT message:
+```markdown
+key: espresense/rooms/*/max_distance/set
+value: 0  # 0 for no limit, or your desired maximum in meters
+```
+
+### Automatic Node Optimization
 
 ESPresense Companion automatically optimizes node settings by sending out iBeacons that are received by other nodes. By comparing measured distances versus calculated distances (based on the floorplan), it adjusts node settings to minimize errors.
 
-### How it Works
+#### How it Works
 
 1. When optimization is enabled, the system:
    - Takes 3 optimization snapshots at configured intervals
@@ -26,7 +43,7 @@ ESPresense Companion automatically optimizes node settings by sending out iBeaco
    - If new settings result in less error, they are applied to the nodes
    - If settings result in worse error, they are discarded
 
-### Current Optimizers
+#### Optimizers
 The system uses three optimizers:
 - RxAdjRssi Optimizer
 - Absorption Avg Optimizer
@@ -38,7 +55,7 @@ These algorithms can adjust these node settings:
 
 Each optimizer runs independently and can update node settings if it finds improvements.
 
-### Default Configuration
+#### Default Configuration
 
 ```yaml
 optimization:
@@ -57,11 +74,13 @@ The limits section prevents the optimizers from setting values outside these ran
 
 Results can be viewed in the grid on the Calibration page, where they can also be reset across all nodes if required.
 
-## Device RSSI Calibration
+## Device Settings
+
+### RSSI@1m Calibration
 
 Each type of Bluetooth Low Energy (BLE) device transmits at different power levels. The RSSI@1m value tells the system what signal strength to expect when a device is exactly 1 meter from a node. This value is crucial for accurate distance calculations.
 
-### Default RSSI@1m Values
+#### Default Values
 ESPresense starts with these default values (base of -65 plus device-specific adjustment):
 
 | Device Type | Adjustment | Final RSSI@1m |
@@ -74,7 +93,7 @@ ESPresense starts with these default values (base of -65 plus device-specific ad
 | Nut Tags | -12 | -77 |
 | Mi Flora Monitor | -10 | -75 |
 
-### Manual Device Calibration
+#### Manual Calibration
 If the default values aren't providing accurate distances:
 
 1. **Initial Setup:**
@@ -93,17 +112,10 @@ If the default values aren't providing accurate distances:
    - Verify distance circles match actual positions
    - Check accuracy at various distances from nodes
 
-### Tips for Better Calibration
+#### Tips for Better Calibration
 - Start with the default value for your device type
 - Keep the device in the same orientation during testing
 - Metal objects, walls, and furniture can affect readings
 - Note successful RSSI@1m values for your specific devices for future reference
 
-### Troubleshooting Device Readings
-If you're getting inconsistent results:
-1. Check node coverage - are enough nodes seeing the device?
-2. Look for interference sources near nodes or the device
-3. Verify the device is broadcasting consistently
-4. Consider environmental factors like walls and metal objects
-
-### Help write this documentation! Click the edit this page below.
+## Help write this documentation! Click the edit this page below.

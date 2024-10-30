@@ -16,13 +16,10 @@ The ESPresense-companion attempts to locate your Bluetooth Low Energy (BLE) item
 ## Quick Start
 1. [Install ESPresense Companion](/companion/installation)
 2. [Configure your floorplan](/companion/configuration)
-3. Place nodes at room corners plus one nearby (1-3m)
-4. Set node maximum distance to zero using:
-   ```markdown
-   key: espresense/rooms/*/max_distance/set
-   value: 0
-   ```
-5. Fine tune by hovering over devices and adjusting RSS@1m values
+3. [Set up your nodes](/companion/configuration#node-placement)
+4. [Optimize for accuracy](/companion/optimization)
 
 ## Need Help?
-Check our [Troubleshooting Guide](/companion/troubleshooting) or contribute to this documentation by clicking "Edit this page" below.
+- Join our [Discord Community](https://discord.gg/jbqmn7V6n6)
+- Check the [Troubleshooting Guide](/companion/troubleshooting)
+- Contribute to this documentation by clicking "Edit this page" below
