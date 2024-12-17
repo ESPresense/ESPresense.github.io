@@ -106,7 +106,7 @@ Note: you can define 4 or more points depending on the shape of the room. Use cl
 nodes:
   - name: Master
     point: [3.25, 11, 3.2]
-    floors: ["first"]
+    floors: ["ground"]
 ```
 Note: Multiple nodes can be mapped to one room, but each needs a unique name.
 
