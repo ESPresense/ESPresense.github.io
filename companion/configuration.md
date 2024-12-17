@@ -7,6 +7,9 @@ nav_order: 2
 
 # Configuration
 
+## Example Configuration
+You can find a working configuration file here: https://github.com/ESPresense/ESPresense-companion/blob/main/src/config.example.yaml
+
 ## GPS Coordinates
 Find your home's coordinates:
 - **Google Maps**: Search your address and click the street in front of your house
@@ -75,26 +78,32 @@ gps:
 floors:
   - id: ground
     name: Ground Floor
-    bounds: [left, bottom, z, right, top, z]  # Centers your diagram
+    bounds: [[0, 0, 0], [17.2, 18.5, 2.6]]  # Centers your diagram. [[left, bottom, z], [right, top, z]]
 ```
 
 ### Rooms
 ```yaml
 # Paste output from floorplan creator or measure manually
-rooms:
-  - id: living-room
-    name: Living Room
-    floor: ground
-    points: [[0,0], [3,0], [3,4], [0,4]]
+# Rooms are members of one floor, so they go aligned to the bounds of their floor
+- name: Livingroom
+ points:
+  - [6, 12]
+  - [8.6, 12]
+  - [8.6, 10]
+  - [8, 9]
+  - [6, 9]
+  - [6, 12]
+
 ```
+Note: you can define 4 or more points depending on the shape of the room. Use clockwise or counter-clockwise order consistently.
 
 ### Nodes
 ```yaml
+# Nodes belong to one or more floors, so they are defined as separate yaml node
 nodes:
-  - id: esp32-1
-    name: Living Room Node
-    room: living-room
-    coords: [2,2,1]  # x,y,z coordinates within room
+  - name: Master
+    point: [3.25, 11, 3.2]
+    floors: ["first"]
 ```
 Note: Multiple nodes can be mapped to one room, but each needs a unique name.
 
