@@ -8,7 +8,7 @@ nav_order: 2
 # Configuration
 
 ## Example Configuration
-You can find a working configuration file here: https://github.com/ESPresense/ESPresense-companion/blob/main/src/config.example.yaml
+You can find a working configuration file [here](https://github.com/ESPresense/ESPresense-companion/blob/main/src/config.example.yaml)
 
 ## GPS Coordinates
 Find your home's coordinates:
@@ -75,6 +75,7 @@ gps:
 
 ### Floor Configuration
 ```yaml
+# Units are always meters
 floors:
   - id: ground
     name: Ground Floor
@@ -85,6 +86,7 @@ floors:
 ```yaml
 # Paste output from floorplan creator or measure manually
 # Rooms are members of one floor, so they go aligned to the bounds of their floor
+# Units are always meters
 - name: Livingroom
  points:
   - [6, 12]
@@ -100,6 +102,7 @@ Note: you can define 4 or more points depending on the shape of the room. Use cl
 ### Nodes
 ```yaml
 # Nodes belong to one or more floors, so they are defined as separate yaml node
+# Units are always meters
 nodes:
   - name: Master
     point: [3.25, 11, 3.2]
