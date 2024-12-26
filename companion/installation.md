@@ -62,7 +62,7 @@ ESPresense and ESPresense Companion require MQTT to function. Here's how to set 
 - If disabled, you'll need to manually configure MQTT settings in the Companion's MQTT tab
 
 ### Node Configuration
-After installation, configure your ESPresense nodes by setting maximum distance to zero:
+After installation, configure your ESPresense nodes by setting maximum distance to zero. To modify the maximum distance, send an MQTT message (in Home Assistant, Settings->MQtt->Configure, "Publish a packet"?) :
 ```markdown
 key: espresense/rooms/*/max_distance/set
 value: 0
