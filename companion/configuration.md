@@ -14,7 +14,7 @@ Find your home's coordinates:
 
 ## Room Measurement Guide
 
-Start at the **bottom left corner** of your building/area - this serves as the **origin (0,0)**. All measurements are taken from this corner. When plotting, use either clockwise or counter-clockwise direction consistently. If you prefer you can start from any corner of your building but you will need to remember to set the correcponding option in the map settings.
+Start at the **bottom-left corner** of your building/area - this serves as the **origin (0,0)**. All measurements are taken from this corner. When plotting, use either clockwise or counter-clockwise direction consistently. If you prefer you can start from any corner of your building, but you will need to remember to set the correcponding option in the map settings.
 
 ### Example measurements (clockwise, using north as an example orientation, 2 rooms in a 3m * 8m house):
 
@@ -128,7 +128,7 @@ locators:
     enabled: true
     max_distance: 10
 ```
-Note: Locators section, and most of optimization section, can be left out if optimisation is not wanted, as long as enabled is set to false
+Note: The locators section and most of the optimization section can be left out if optimization is not wanted, as long as enabled is set to false
 
 ### Other Settings
 ```yaml
