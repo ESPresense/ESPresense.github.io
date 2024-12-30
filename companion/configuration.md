@@ -7,6 +7,9 @@ nav_order: 2
 
 # Configuration
 
+## Example Configuration
+You can find an example configuration file [here](https://github.com/ESPresense/ESPresense-companion/blob/main/src/config.example.yaml)
+
 ## GPS Coordinates
 Find your home's coordinates:
 - **Google Maps**: Search your address and click the street in front of your house
@@ -14,9 +17,10 @@ Find your home's coordinates:
 
 ## Room Measurement Guide
 
-Start at the **bottom-left corner** of your building/area - this serves as the **origin (0,0)**. All measurements are taken from this corner. When plotting, use either clockwise or counter-clockwise direction consistently. If you prefer you can start from any corner of your building, but you will need to remember to set the correcponding option in the map settings.
+Start at the **bottom-left corner** of your building/area - this serves as the **origin (0,0)**. All measurements are taken from this corner. When plotting, use either clockwise or counter-clockwise direction consistently. If you prefer, you can start from any corner of your building, but you will need to remember to set the correcponding option in the map settings.
 
 ### Example measurements (clockwise, using north as an example orientation, 2 rooms in a 3m * 8m house):
+Note: All measurements are required to be in meters
 
 #### Room 1
 1. Start point(North East Corner): `(0,0)`                 
@@ -32,7 +36,7 @@ Start at the **bottom-left corner** of your building/area - this serves as the *
 4. South wall (South East Corner): `(0,8)`
 5. West wall is automatically connected between last and first corner
 
-### Example with a fireplace on 2nd wall and 2 alcoves:
+### Example with a fireplace on the 2nd wall and 2 alcoves:
 
 #### Room
 1. Start point: `(0,0)`
@@ -126,7 +130,7 @@ locators:
 
   nearest_node:
     enabled: true
-    max_distance: 10
+    max_distance: 10 # in meters
 ```
 Note: The locators section and most of the optimization section can be left out if optimization is not wanted, as long as enabled is set to false
 
@@ -142,17 +146,20 @@ history:
 ```
 
 ### Floor Configuration
+Units are always meters.
 ```yaml
 floors:
   - id: ground
     name: Ground Floor
-    bounds: [[left, bottom, z], [right, top, z]]  # Bounds (x,y,z) of map in meters, Centers your diagram 
+    bounds: [[0, 0, 0], [10, 8, 3]]  # Bounds (x,y,z) of map in meters, in this example: 10m wide, 8m deep, 3m high ([[left, bottom, z], [right, top, z]]).
     rooms: # See Rooms Section
 ```
 
 ### Rooms
+
+Rooms are all measured from the initial starting point, regardless of floor. Paste output from floorplan creator or measure manually. Units are always meters.
+
 ```yaml
-# Paste output from floorplan creator or measure manually
 rooms:
   - id: living-room
     name: Living Room
@@ -163,15 +170,17 @@ rooms:
       - [3,4]
       - [0,4]
 ```
+Note: you can define 4 or more points depending on the shape of the room. Use clockwise or counter-clockwise order consistently across all rooms. 
 
 ### Nodes
+Create 1 node entry for each node. Units are always meters.
 ```yaml
 nodes:
-  - id: esp32-1
+  - id: esp32-1 # optional
     name: Living Room Node
     room: living-room # room id, see rooms section
     point: [2,2,1]  # x,y,z coordinates within room
-    floors: ["ground", "outside"] # floor id, see floor configuration section
+    floors: ["ground", "outside"] # floor id, see floor configuration section, optional
 ```
 Note: Multiple nodes can be mapped to one room, but each needs a unique name.
 
@@ -203,4 +212,4 @@ The configuration file supports hot reloading, which means:
 - Fine-tune node positions while watching the effects live
 - No need to restart the companion after changes
 
-## Help write this documentation! Click the edit this page below.
+### Help write this documentation! Click 'Edit this page on GitHub' below.
