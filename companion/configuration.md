@@ -55,6 +55,7 @@ There are three ways to create your floorplan:
 1. Use [MagicPlan](https://www.magicplan.app/) to create a free home plan
 2. Use the [ESPresense Floorplan Creator](https://espresense.com/Floorplan-Creator/) to convert measurements to YAML
 3. Directly edit the YAML coordinates in the config file - changes update live thanks to hot reloading
+   - The Map has a nice feature where you can hover over a spot on the map, hit Cntrl-C at the points you want, then you can paste those points into the yaml
 
 ## Node Placement
 
