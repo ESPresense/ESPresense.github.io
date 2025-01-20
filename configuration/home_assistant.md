@@ -3,7 +3,7 @@ layout: page
 title: Home Assistant
 permalink: /home_assistant
 parent: Configuration
-nav_order: 2
+nav_order: 3
 ---
 
 # Home Assistant

@@ -1,43 +1,24 @@
 ---
 layout: page
-title: ESPresense
+title: Settings
 permalink: /configuration/settings
 parent: "Configuration"
-nav_order: 1
+nav_order: 2
 ---
 
-# ESPresense Settings
+# Settings
 
-The ESP32 will launch a captive browser (under it's own SSID) on first normal boot after flashing that will allow you to configure:
+These settings are accessible by clicking "Click here to edit other settings!" at the bottom of the initial configuration page.
 
 <div class="clearfix" markdown=1>
 
-<img src="/images/settings_screenshot.png" style="float:right;margin-left:20px;width:200px">
-
-* WiFi settings (only when accessed initially)
-* Room name - This is the name that will identify this sensor in Home Assistant, as well as the state of mqtt_room sensor. Use a upper/lower word and we'll slugify it for the places that need that
-
-## MQTT
-
-* Server / Port - non encrypted mqtt server (SSL is *NOT* supported)
-* Username / Password - optional, passwords are kinda pointless when you're using them plaintext
-* Send to:
-  * Discovery topic - enables home assistant mqtt topic (/homeassistant))
-  * Telemetry topic - enables stats about availability also used by counting
-  * Rooms topic - traditional mqtt_room topic
-  * Devices topic - instead of all mashed together topic, this adds a device to the path (much easier to understand in mqtt explorer)
-
-## Updating
-
-* Automatically update - If enabled we'll ask github for the latest version and if it's not the same version as current update to it
-* Include pre-released - Modifies the above check to include pre-releases
-* Arduino OTA Update - If enabled you can remotely flash this device using the standard (espota/ardunio) protocol. Keep disabled for less memory usage, and security.
+<img src="/images/full_settings.png" style="float:right;margin-left:20px;width:300px">
 
 ## Scanning
 
 * Request scan results (this makes the ESP actively ask every advertisement for an additional SCAN RESULT). *Experimental* you should leave off unless you really want all the extra traffic
 * Known BLE mac addresses - If you have a device that uses a random ble mac BUT it doesn't actually change the mac periodically you can just put it here and we'll use the id `known:{mac}`
-* Query - we use the best id we can figure out based on passively listening to device advertisements, but sometimes you want an even better id. Query enables the ESP to connect to the device and ask it questions. Currently we ask for the room asssistant id, model, and name. If we get useful answers back we will upgrade the id to the most selective one.
+* Query - we use the best id we can figure out based on passively listening to device advertisements, but sometimes you want an even better id. Query enables the ESP to connect to the device and ask it questions. Currently we ask for the room assistant id, model, and name. If we get useful answers back we will upgrade the id to the most selective one.
 
 ## Counting
 
@@ -57,14 +38,12 @@ This is a beta feature, it is for the usecase where a device fingerprint doesn't
 ## Calibration
 
 * Rssi expected from a 0dBm transmitter at 1 meter - This is an average value for your particular base station. In order to figure it out you need a beacon transmitting at exactly 0dBm and your ESP exactly 1 meter away. This value is the base value we use to calculate rss@1m for every beacon that doesn't broadcast a calibrated rssi@1m. (Basically Alt/iBeacons and Eddystones all broadcast a calibrated rssi, everything else uses this w/ a correction factor)
-
 * Factor used to account for absorption, reflection, or diffraction - An average value that accounts for the amount of "stuff" in between rooms in your house. Use a higher number for dense materials, lower for assuming no walls.
-
-* Forget beacon if not seen for (in milliseconds) - We keep a big linked list of all the macs broadcasting to do all the magic.  This is the value we use to delete if not seen for this amount of time.  If too low we'll delete and re-add too often.  Not sure why this is even configurable.
+* Forget beacon if not seen for (in milliseconds) - We keep a big linked list of all the macs broadcasting to do all the magic. This is the value we use to delete if not seen for this amount of time. If too low we'll delete and re-add too often. Not sure why this is even configurable.
 
 ## Misc
 
-* Status LED - Blink the LED to the BLE advertisements.  A constant slow blink means no mqtt connection.
+* Status LED - Blink the LED to the BLE advertisements. A constant slow blink means no mqtt connection.
 * PIR motion pin (0 for disable) - GPIO pin to detect pir motion on
 * Radar motion pin (0 for disable): - GPIO pin to detect radar motion on
 
