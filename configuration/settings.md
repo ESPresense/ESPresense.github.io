@@ -12,7 +12,7 @@ These settings are accessible by clicking "Click here to edit other settings!" a
 
 <div class="clearfix" markdown=1>
 
-<img src="/images/full_settings.png" style="float:right;margin-left:20px;width:300px">
+<img src="/images/full_settings.png" alt="Screenshot of ESP32 full settings interface" style="float:right;margin-left:20px;width:300px">
 
 ## Scanning
 
