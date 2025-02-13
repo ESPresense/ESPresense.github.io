@@ -12,10 +12,10 @@ parent: "Troubleshooting"
 - <https://github.com/furiousMAC/continuity>
 - <https://i.blackhat.com/eu-19/Thursday/eu-19-Yen-Trust-In-Apples-Secret-Garden-Exploring-Reversing-Apples-Continuity-Protocol-3.pdf>
 - <https://petsymposium.org/2020/files/papers/issue1/popets-2020-0003.pdf>
-- <https://arxiv.org/pdf/1703.02874.pdf>
-- <https://arxiv.org/pdf/1904.10600.pdf>
-- <https://arxiv.org/pdf/2005.07255.pdf>
-- <https://arxiv.org/pdf/2101.11728.pdf>
+- <https://arxiv.org/pdf/1703.02874>
+- <https://arxiv.org/pdf/1904.10600>
+- <https://arxiv.org/pdf/2005.07255>
+- <https://arxiv.org/pdf/2101.11728>
 - <https://samteplov.com/uploads/shmoocon20/slides.pdf>
 - <https://hal.inria.fr/hal-02359914/document>
 - <https://tel.archives-ouvertes.fr/tel-02974989v2/document>
@@ -27,7 +27,7 @@ parent: "Troubleshooting"
 - <https://eprint.iacr.org/2021/1597.pdf>
 - <https://github.com/fryefryefrye/Decoding-Random-Bluetooth-Address>
 - <https://www.usenix.org/system/files/sec21-stute.pdf>
-- <https://arxiv.org/pdf/2009.11776.pdf>
+- <https://arxiv.org/pdf/2009.11776>
 
 ### Indoor positioning
 
