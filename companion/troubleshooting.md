@@ -67,6 +67,7 @@ nav_order: 4
 - Check for interference sources
 - Review node optimization status
 - Verify RSSI@1m calibration
+- Ensure list of floors for nodes begins with the floor it is located on followed by the adjacent floors. 
 
 ## Log Files
 Check these logs for troubleshooting:
