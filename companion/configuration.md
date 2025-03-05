@@ -181,7 +181,7 @@ nodes:
     name: Living Room Node
     room: living-room # room id, see rooms section
     point: [2,2,1]  # x,y,z coordinates within room
-    floors: ["ground", "outside"] # floor id, see floor configuration section, optional
+    floors: ["ground", "outside"] # floor id, LIST THE FLOOR THE NODE IS ON FIRST, followed by the next closest location.
 ```
 Note: Multiple nodes can be mapped to one room, but each needs a unique name.
 
@@ -212,5 +212,6 @@ The configuration file supports hot reloading, which means:
 - You can adjust room coordinates and see immediate results
 - Fine-tune node positions while watching the effects live
 - No need to restart the companion after changes
+- If there is unexpected behavior give the companion add-on a moment to implement the configuration, if unresolved or unresponsive a reboot (not restart of home assistant, a full reboot) of the host device can resolve the issue. 
 
 ### Help write this documentation! Click 'Edit this page on GitHub' below.
