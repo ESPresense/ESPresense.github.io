@@ -69,6 +69,8 @@ heading_anchors: true
 aux_links:
   "ESPresense on GitHub":
     - "//github.com/ESPresense/ESPresense"
+  "Suggest Features":
+    - "https://espresense.featurebase.app/"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
