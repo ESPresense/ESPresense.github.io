@@ -67,7 +67,7 @@ nav_order: 4
 - Check for interference sources
 - Review node optimization status
 - Verify RSSI@1m calibration
-- Ensure list of floors for nodes begins with the floor it is located on followed by the adjacent floors. 
+- Ensure list of floors for nodes begins with the floor it is located on followed by the adjacent floors.
 
 ## Log Files
 Check these logs for troubleshooting:
@@ -85,6 +85,11 @@ espresense/rooms/+/telemetry     # Node status
 ```
 
 ## Quick Fixes
+
+### No Position Found
+- Ensure you have at least 3 nodes for basic positioning
+- Check that node maximum distance is set to 0
+- Ensure each node has a unique name
 
 ### Poor Accuracy
 1. Check Node Coverage:
