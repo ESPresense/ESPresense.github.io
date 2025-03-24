@@ -16,23 +16,24 @@ nav_order: 3
 | iPhones              |                                             | [Pair to retrieve IRK](/devices/apple)
 | Apple Watches        |                                             | [Use iCloud keychain to get IRK](/devices/apple)
 | Wear OS Smartwatches |                                             | [Must use HA companion app](/devices/android)
-| Tiles                | [amazon](https://amzn.to/3h77T5f)           | These work great, but update somewhat slow
-| Blue Charm Beacons   | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
+| Tiles                | [amz/us](https://amzn.to/3h77T5f){:target="_blank"}           | These work great, but update somewhat slow
+| Blue Charm Beacons   | [amz/us](https://amzn.to/2YGdA3w){:target="_blank"}           | These work great [^beaconconfig]
+| Blue Charm Beacons (BC021-MultiBeacon) | [amz/us](https://amzn.to/4ceo8Jb){:target="_blank"}           | Bluetooth BLE 5.0 with Movement Sensor [^beaconconfig]
+| Blue Charm Beacons (BC05-MultiBeacon) | [amz/us](https://amzn.to/4iWu0Ja){:target="_blank"}           | Long Range Water-Resistant BLE iBeacon with Adjustable Movement - Ideal for mail detection [^beaconconfig]
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
-| musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2) | Must be connected once with the associated app.
+| musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2){:target="_blank"} | Must be connected once with the associated app.
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
 | Whoop strap 4.0      |                                             | Id format: name:whoop-xxxxxxx
-| Amazfit Band         | [amazon](https://amzn.to/3lArIr0)           | Make sure discoverable is turned on
-| Amazfit Bip S        | [amazon](https://amzn.to/3C4DyMK)           |
-| Amazfit Bip 3 Pro    | [amazon](https://amzn.asia/d/98vWhnk)       | Use the Zepp app on your paired phone to set the watch to be discoverable
-| Amazfit GTS 2 Mini   | [amazon](https://amzn.to/3e6JQom)           |
-| Amazfit GTS 4 Mini   | [amazon](https://amzn.to/3nc8CrI)           | Make sure discoverable is turned on
-| Amazfit GTR 2e       | [amazon](https://amzn.to/3Awz16C)           |
-| Xiaomi Mi Band       | [amazon](https://amzn.to/3E8AJMh)           | Make sure discoverable is turned on
-| Innway Wallet Card   | [amazon](https://amzn.to/3Z8Govf)           | Rechargeable iBeacon - no need to use app or activate
-| Ultrahuman Ring      | [ultrahuman](https://www.ultrahuman.com/ring/) |
-| OpenHaystack-Beacons | [openhaystack-firmware](https://github.com/acalatrava/openhaystack-firmware/tree/main/apps/openhaystack-alternative) | Work outdoors with Apple's FindMy Network and are easily indoor-trackable
-| Xiaomi Mi Tags| [Ali Express](https://a.aliexpress.com/_msMm7sS)| If you pair them to the app, simply turn off Bluetooth long enough for it to start beeping, leave it disconnected after.
+| Amazfit Band         | [amz/us](https://amzn.to/3lArIr0){:target="_blank"}           | Make sure discoverable is turned on
+| Amazfit Bip S        | [amz/us](https://amzn.to/3C4DyMK){:target="_blank"}           |
+| Amazfit Bip 3 Pro    | [amz/us](https://amzn.asia/d/98vWhnk){:target="_blank"}       | Use the Zepp app on your paired phone to set the watch to be discoverable
+| Amazfit GTS 2 Mini   | [amz/us](https://amzn.to/3e6JQom){:target="_blank"}           |
+| Amazfit GTS 4 Mini   | [amz/us](https://amzn.to/3nc8CrI){:target="_blank"}           | Make sure discoverable is turned on
+| Amazfit GTR 2e       | [amz/us](https://amzn.to/3Awz16C){:target="_blank"}           |
+| Xiaomi Mi Band       | [amz/us](https://amzn.to/3E8AJMh){:target="_blank"}           | Make sure discoverable is turned on
+| Innway Wallet Card   | [amz/us](https://amzn.to/3Z8Govf){:target="_blank"}           | Rechargeable iBeacon - no need to use app or activate
+| OpenHaystack-Beacons | [openhaystack-firmware](https://github.com/acalatrava/openhaystack-firmware/tree/main/apps/openhaystack-alternative){:target="_blank"} | Work outdoors with Apple's FindMy Network and are easily indoor-trackable
+| Xiaomi Mi Tags| [ali](https://s.click.aliexpress.com/e/_ookE8F9){:target="_blank"}| If you pair them to the app, simply turn off Bluetooth long enough for it to start beeping, leave it disconnected after.
 
 ## Works with caveats
 
@@ -45,7 +46,7 @@ nav_order: 3
 | HUAWEI Watch GT2     | Only works when not connected to a phone
 | Fi Smart Dog Collar  | Smart Base needs to be powered off or Collars will not beacon
 | Gigaset G-Tag        | Only works when not connected to a phone
-| Garmin Instinct Solar| [amazon](https://amzn.to/3JF7IeI)           | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
+| Garmin Instinct Solar| [amz/us](https://amzn.to/3JF7IeI){:target="_blank"}           | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
 
 ## Known to not work
 
@@ -57,3 +58,7 @@ nav_order: 3
 ### Add to the list
 
 If you have a different BLE-enabled piece of hardware that you have gotten to work with this project, please let us know about it! You can click the edit this page in the footer.
+
+## Footnotes
+
+[^beaconconfig]: These can do eddystone and iBeacon at the same time, just pick iBeacon
