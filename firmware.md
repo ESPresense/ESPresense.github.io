@@ -2,6 +2,7 @@
 layout: page
 title: Install Firmware
 permalink: /firmware
+redirect_from: /install
 parent: "Nodes"
 nav_order: 2
 ---

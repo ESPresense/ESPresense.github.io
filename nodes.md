@@ -2,7 +2,9 @@
 layout: page
 title: Nodes
 permalink: /nodes
-redirect_from: /base-stations
+redirect_from:
+  - /base-stations
+  - /hardware
 nav_order: 2
 ---
 
