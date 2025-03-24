@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Other
-permalink: /beacons/other
-parent: "Beacons"
+permalink: /devices/other
+redirect_from: /beacons/other
+parent: "Devices"
 ---
 # Other
 

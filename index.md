@@ -7,29 +7,43 @@ nav_order: 0
 
 # Home
 
-An ESP32 based presence detection node for use with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/) for localized device presence detection. This is a fork/rewrite of [ESP32-mqtt-room](https://jptrsn.github.io/ESP32-mqtt-room).
+An ESP32-based presence detection node designed for localized device tracking.
 
-* ESP32 base stations are cheaper and easier to use than Rasberry Pis
-* Extensive fingerprint based ids instead of mac addresses so we can track or count things others can't
-* IRK based enrollment of Apple devices to passively uniquely locate even with private random addresses
+Reasons to use this over other solutions:
+
+* ESP32 nodes are cheaper and easier to use than Raspberry Pis
+* Extensive fingerprint-based IDs instead of MAC addresses for tracking or counting devices others can’t
+* IRK-based enrollment of Apple devices to passively locate them uniquely, even with private random addresses
 * Home Assistant MQTT Discovery for easy HA configuration
-* Auto-updates by downloading github released bin (with a preference if you don't want this)
-* Filters measured distance with both a median prefilter and a 1Euro filter (reduces jitter for more accuracy)
+* Auto-updates by downloading GitHub-released binaries (optional, with a preference to disable if desired)
+* Filters measured distance with both a median pre-filter and a 1Euro filter (reduces jitter for greater accuracy)
+* Companion allows for full [multilateration](https://en.wikipedia.org/wiki/Trilateration)
+
+For the best experience, we recommend pairing ESPresense nodes with the ESPresense Companion Docker container/HA Add-on. ESPresense nodes provide distance measurements to nearby devices, and ESPresense Companion aggregates those distances from multiple nodes, using an accurate floor plan to determine each device's location within your space ([multilateration](https://en.wikipedia.org/wiki/Trilateration)).
+
+While this setup allows for more precise presence detection and triangulation, it requires an accurate floor plan and at least 3 nodes covering each room to work effectively.
+
+If you prefer to stick with the [Home Assistant](https://www.home-assistant.io/) [`mqtt_room` component](https://www.home-assistant.io/components/sensor.mqtt_room/), it remains supported—though it is less capable and manually configured.
+
 
 ## Required
 
-* [Base Stations](./base-stations)
-* [Beacons/Phones/Watches](./beacons)
+* [Nodes](./nodes)
+* [Beacons/Phones/Watches](./devices)
 * [MQTT Server](https://mosquitto.org/)
 
 ## Optional
 
 * [Sensors](./sensors)
 
+## Using ESPresense
+
+For the best experience, we recommend pairing these nodes with [ESPresense](https://espresense.com/) and the ESPresense Companion. This setup provides enhanced presence detection capabilities and simplifies integration with Home Assistant, making `mqtt_room` unneeded for most users. However, if you prefer to stick with `mqtt_room`, it remains supported. But it does have some caveats like twichy updates and way to simple state management.
+
 ## Troubleshooting
 
-If you're having difficulty getting things set up and work properly, check out the [troubleshooting page](/troubleshooting) before you open an issue. It will help you determine what information you need to provide to identify and fix what's gone wrong.
+If you’re having trouble getting things set up or working properly, visit the [troubleshooting page](./troubleshooting) before opening an issue. It will guide you on what information to provide to identify and resolve your problem.
 
 ## Credits
 
-This depends heavily on the hard work done by a [number of people](/credits)
+This project builds on the hard work of a [number of people](./credits).

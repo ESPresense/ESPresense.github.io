@@ -23,14 +23,14 @@ Start at the **bottom-left corner** of your building/area - this serves as the *
 Note: All measurements are required to be in meters
 
 #### Room 1
-1. Start point(North East Corner): `(0,0)`                 
+1. Start point(North East Corner): `(0,0)`
 2. North wall (North West Corner): `(3,0)` (3 meters (9 feet))
 3. East wall (South West Corner):  `(3,4)` (4 meters (12 feet))
 4. South wall (South East Corner): `(0,4)`
 5. West wall is automatically connected between last and first corner
 
 #### Room 2
-1. Start point(North East Corner): `(0,4)`                 
+1. Start point(North East Corner): `(0,4)`
 2. North wall (North West Corner): `(3,4)` (3 meters (9 feet))
 3. East wall (South West Corner):  `(3,8)` (4 meters (12 feet))
 4. South wall (South East Corner): `(0,8)`
@@ -51,7 +51,7 @@ Note: All measurements are required to be in meters
 
 ## Creating Your Floorplan
 
-There are three ways to create your floorplan:
+There are three ways to create your floor plan:
 1. Use [MagicPlan](https://www.magicplan.app/) to create a free home plan
 2. Use the [ESPresense Floorplan Creator](https://espresense.com/Floorplan-Creator/) to convert measurements to YAML
 3. Directly edit the YAML coordinates in the config file - changes update live thanks to hot reloading
@@ -60,7 +60,7 @@ There are three ways to create your floorplan:
 ## Node Placement
 
 For optimal device location accuracy:
-- Place base station nodes at the corners of your floorplan
+- Place base station nodes at the corners of your floor plan
 - Add an additional node within 1-3 meters
 - Aim for 5 fixes minimum - more fixes improve accuracy
 - The algorithm prioritizes closest distances (40% weight using gaussian distribution)
@@ -158,7 +158,7 @@ floors:
 
 ### Rooms
 
-Rooms are all measured from the initial starting point, regardless of floor. Paste output from floorplan creator or measure manually. Units are always meters.
+Rooms are all measured from the initial starting point, regardless of floor. Paste output from floor plan creator or measure manually. Units are always meters.
 
 ```yaml
 rooms:
@@ -171,7 +171,7 @@ rooms:
       - [3,4]
       - [0,4]
 ```
-Note: you can define 4 or more points depending on the shape of the room. Use clockwise or counter-clockwise order consistently across all rooms. 
+Note: you can define 4 or more points depending on the shape of the room. Use clockwise or counter-clockwise order consistently across all rooms.
 
 ### Nodes
 Create 1 node entry for each node. Units are always meters.
@@ -212,6 +212,6 @@ The configuration file supports hot reloading, which means:
 - You can adjust room coordinates and see immediate results
 - Fine-tune node positions while watching the effects live
 - No need to restart the companion after changes
-- If there is unexpected behavior give the companion add-on a moment to implement the configuration, if unresolved or unresponsive a reboot (not restart of home assistant, a full reboot) of the host device can resolve the issue. 
+- If there is unexpected behavior give the companion add-on a moment to implement the configuration, if unresolved or unresponsive a reboot (not restart of home assistant, a full reboot) of the host device can resolve the issue.
 
 ### Help write this documentation! Click 'Edit this page on GitHub' below.

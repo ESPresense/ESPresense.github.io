@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Android
-permalink: /beacons/android
-parent: Beacons
+permalink: /devices/android
+redirect_from: /beacons/android
+parent: Devices
 ---
 
 # Android Devices

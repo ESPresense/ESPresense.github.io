@@ -27,7 +27,7 @@ value: 0  # 0 for no limit, or your desired maximum in meters
 
 ### Automatic Node Optimization
 
-ESPresense Companion automatically optimizes node settings by sending out iBeacons that are received by other nodes. By comparing measured distances versus calculated distances (based on the floorplan), it adjusts node settings to minimize errors.
+ESPresense Companion automatically optimizes node settings by sending out iBeacons that are received by other nodes. By comparing measured distances versus calculated distances (based on the floor plan), it adjusts node settings to minimize errors.
 
 #### How it Works
 
@@ -97,7 +97,7 @@ ESPresense starts with these default values (base of -65 plus device-specific ad
 If the default values aren't providing accurate distances:
 
 1. **Initial Setup:**
-   - Place your device in a known location on your floorplan
+   - Place your device in a known location on your floor plan
    - Ensure multiple nodes can see the device (aim for 5+ fixes)
    - Hover over the device on the map to see the distance circles
 

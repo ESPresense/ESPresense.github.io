@@ -2,7 +2,7 @@
 layout: page
 title: Enclosures
 permalink: /enclosures
-parent: "Base Stations (Nodes)"
+parent: "Nodes"
 nav_order: 7
 ---
 

@@ -32,4 +32,4 @@ You can update the configuration for any of the above topics by publishing to th
 mosquitto_pub -h homeassistant.local -u <username> -P <password> -i presensce-information -t "espresense/rooms/kitchen/auto_update/set" -m "ON" -d
 ```
 
-You can use a room of `*` to update all ESPresense base stations at the same time.  If you retain that setting even NEW nodes will upon startup get that configuration set.
+You can use a room of `*` to update all ESPresense nodes at the same time.  If you retain that setting even NEW nodes will upon startup get that configuration set.

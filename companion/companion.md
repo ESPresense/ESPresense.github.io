@@ -2,6 +2,7 @@
 layout: page
 title: Companion
 permalink: /companion
+nav_order: 90
 ---
 # Companion
 
@@ -11,7 +12,7 @@ permalink: /companion
 A Home Assistant Add-on / Docker container that solves indoor positions using MQTT data received from multiple ESPresense nodes. The companion is the central brain of your ESPresense system. It:
 - Processes distance readings from all nodes using trilateration to determine device locations
 - Reports device room presence to Home Assistant via MQTT
-- Visualizes BLE device locations on your floorplan
+- Visualizes BLE device locations on your floor plan
 - Manages and configures ESPresense nodes
 - Updates node firmware
 - Adjusts device-specific settings
@@ -21,7 +22,7 @@ A Home Assistant Add-on / Docker container that solves indoor positions using MQ
 
 ## Quick Start
 1. [Install ESPresense Companion](/companion/installation)
-2. [Configure your floorplan](/companion/configuration)
+2. [Configure your floor plan](/companion/configuration)
 3. [Set up your nodes](/companion/configuration#node-placement)
 4. [Optimize for accuracy](/companion/optimization)
 

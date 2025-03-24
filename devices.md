@@ -1,20 +1,21 @@
 ---
 layout: page
-title: Beacons
-permalink: /beacons
-nav_order: 2
+title: Devices
+permalink: /devices
+redirect_from: /beacons
+nav_order: 3
 ---
 
-# Beacons
+# Devices
 
 ## Known working
 
 | Name                 | Links                                       | Notes                                                                |
 |:---------------------|:--------------------------------------------|:---------------------------------------------------------------------|
-| Android Phones       |                                             | [Must install an app](/beacons/android)
-| iPhones              |                                             | [Pair to retrieve IRK](/beacons/apple)
-| Apple Watches        |                                             | [Use iCloud keychain to get IRK](/beacons/apple)
-| Wear OS Smartwatches |                                             | [Must use HA companion app](/beacons/android)
+| Android Phones       |                                             | [Must install an app](/devices/android)
+| iPhones              |                                             | [Pair to retrieve IRK](/devices/apple)
+| Apple Watches        |                                             | [Use iCloud keychain to get IRK](/devices/apple)
+| Wear OS Smartwatches |                                             | [Must use HA companion app](/devices/android)
 | Tiles                | [amazon](https://amzn.to/3h77T5f)           | These work great, but update somewhat slow
 | Blue Charm Beacons   | [amazon](https://amzn.to/2YGdA3w)           | Configure as iBeacon or eddystone, don't enable both at the same time
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
