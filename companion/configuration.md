@@ -88,7 +88,12 @@ gps:
   latitude: your_decimal_latitude
   longitude: your_decimal_longitude
   elevation: your_elevation_in_meters
+  rotation: your_rotation_in_degrees # Rotation in degrees from north (0 degrees)
 ```
+
+*   `rotation`: Specifies the orientation of your map relative to North (0 degrees). This helps align the map correctly if your floorplan's 'up' direction isn't true North.
+*   Use the **Geolocation** view in the UI to verify your GPS coordinates and rotation are set correctly.
+*   Remember, the `config.yaml` file live reloads, so you can adjust these settings and see the changes on the map immediately without needing to restart.
 
 ### Map Settings
 ```yaml
