@@ -25,7 +25,29 @@ nav_order: 1
     <span>Click <code>Install</code>, <code>Start</code>, then <code>Show in Sidebar</code></span>
 </div>
 
-## Home Assistant Container
+### Manual Add-on Installation (Alternative)
+
+If the buttons above don't work for you, follow these steps to add the repository and install the add-on manually within Home Assistant:
+
+1.  **Navigate to Add-ons:** Go to `Settings` > `Add-ons` in your Home Assistant UI.
+2.  **Add Repository:**
+    *   Click the `Add-on Store` button (usually bottom right).
+    *   Click the three dots (⋮) menu in the top right corner and select `Repositories`.
+    *   Paste the following URL into the "Add repository" field:
+        ```
+        https://github.com/ESPresense/hassio-addons
+        ```
+    *   Click `Add`.
+    *   Close the repository management dialog.
+3.  **Install ESPresense Companion:**
+    *   Refresh the Add-on Store page (you might need to wait a moment or refresh your browser).
+    *   Search for `ESPresense Companion`.
+    *   Click on the `ESPresense Companion` add-on.
+    *   Click `Install`.
+    *   Once installed, click `Start`.
+    *   Optionally, enable `Show in sidebar` for easy access.
+
+## DIY Docker Container
 
 Example docker-compose configuration:
 ```yaml
