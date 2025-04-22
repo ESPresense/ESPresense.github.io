@@ -35,6 +35,9 @@ Instead of reading our documentation check out these great videos/links to get y
 
 ## Video Tutorials
 
+### Send ESPresense Data to AWS IoT Core using Mosquitto Bridge (April 2025)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sH3TUEDEZZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Room Presence with ESPHome vs ESPresense (August 2024)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BUVu6KCkp-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
