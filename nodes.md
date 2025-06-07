@@ -29,7 +29,7 @@ It is not compatible with the ESP32-S2 (doesn't have bluetooth), ESP32-C6 (too n
 | M5 Atom S3 Lite    | [ali](https://s.click.aliexpress.com/e/_oFSxCND){:target="_blank"} | 8MB flash memory, built-in 3D antenna, IR emitter,  RGB LED, Button and GROVE interface [^cdc] |
 | M5 Atom S3U        | [ali](https://s.click.aliexpress.com/e/_opyVX2n){:target="_blank"} | USB-A w/ 8MB flash memory, built-in 3D antenna, IR emitter, PDM mic, RGB LED, Button and GROVE interface [^cdc] |
 | M5 Stamp S3        | [ali](https://s.click.aliexpress.com/e/_oB3a0Dv){:target="_blank"} | Stamp form factor w/ 8MB flash memory, built-in 3D antenna, and RGB LED [^cdc] |
-| Teyleten Robot ESP32-S3 DevKitC-1 N8R2 (3 pcs) | [amz/us](https://amzn.to/4jXMRUl){:target="_blank"} | 8MB flash and 2MB PSRAM dev board, sold as a 3-pack |
+| Teyleten Robot | [amz/us](https://amzn.to/4jXMRUl){:target="_blank"} | 8MB flash and 2MB PSRAM dev board, sold as a 3-pack |
 
 ## ESP32
 
