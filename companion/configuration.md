@@ -58,7 +58,7 @@ There are three ways to create your floor plan:
    - The Map has a nice feature where you can hover over a spot on the map, hit Cntrl-C at the points you want, then you can paste those points into the yaml
 
 ## Node Placement
-
+The performance of your entire ESPresense system hinges almost entirely on the quality and placement of your ESPresense devices. Getting this right is the difference between a magical, seamless experience and a frustrating, unreliable one. The system works by trilateration, not just proximity. This means it calculates your position based on the relative signal strength (RSSI) from multiple ESPresense devices.
 For optimal device location accuracy:
 - Place base station nodes at the corners of your floor plan
 - Add an additional node within 1-3 meters
@@ -126,8 +126,8 @@ locators:
     bandwidth: 0.5
     kernel: gaussian
 
-  nealder_mead:
-    enabled: false
+  nelder_mead:
+    enabled: true
     floors: ["ground", "outside"]  # floor id, see floor configuration section
     weighting:
       algorithm: gaussian
