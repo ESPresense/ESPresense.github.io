@@ -10,9 +10,9 @@ parent: Devices
 
 | App Name         | Supported       | Links                                                                                                                                                                                                       | Notes |
 |:-----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
-| HA Companion App | Yes/Recommended | [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant |
-| Beacon Scope     | Yes             | [Playstore](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner)                                                                                                                | Standalone App |
-| Beacon Simulator | Yes             | [Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)                                                                                                                         | Standalone App |
+| HA Companion App   | Yes/Recommended | [Playstore](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&hl=en_GB&gl=US) / [HA Documentation](https://companion.home-assistant.io/docs/core/sensors/#bluetooth-sensors) | Requires Home Assistant |
+| Beacon Scope       | Yes             | [Playstore](https://play.google.com/store/apps/details?id=com.davidgyoungtech.beaconscanner)                                                                                                                | Standalone App |
+|~~Beacon Simulator~~| ~~Yes~~         | ~~[Playstore](https://play.google.com/store/apps/details?id=net.alea.beaconsimulator)~~                                                                                                                     | ~~Standalone App~~ |
 
 ### Why an App?
 
