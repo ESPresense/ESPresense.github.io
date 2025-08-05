@@ -37,16 +37,17 @@ nav_order: 3
 
 ## Works with caveats
 
-| Name                 | Notes                                                                                                         |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------|
-| MiFlora plant sensor | Location only
-| FitBits              | Only works when not connected to a phone
-| Xiaomi Watch         | Only works when not connected to a phone
-| HUAWEI Band 6        | Only works when not connected to a phone
-| HUAWEI Watch GT2     | Only works when not connected to a phone
-| Fi Smart Dog Collar  | Smart Base needs to be powered off or Collars will not beacon
-| Gigaset G-Tag        | Only works when not connected to a phone
+| Name                 | Links                                       | Notes                                                                |
+|:---------------------|:--------------------------------------------|:---------------------------------------------------------------------|
+| MiFlora plant sensor |                                             | Location only
+| FitBits              |                                             | Only works when not connected to a phone
+| Xiaomi Watch         |                                             | Only works when not connected to a phone
+| HUAWEI Band 6        |                                             | Only works when not connected to a phone
+| HUAWEI Watch GT2     |                                             | Only works when not connected to a phone
+| Fi Smart Dog Collar  |                                             | Smart Base needs to be powered off or Collars will not beacon
+| Gigaset G-Tag        |                                             | Only works when not connected to a phone
 | Garmin Instinct Solar| [amz/us](https://amzn.to/3JF7IeI){:target="_blank"}           | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work.
+| Whoop strap 5.0      | [whoop](https://join.whoop.com/B3BD19){:target="_blank"}      | Id format: name:whoop-xxxxxxx - Seems to only work with the Broadcast Heart Rate setting enabled
 
 ## Known to not work
 
