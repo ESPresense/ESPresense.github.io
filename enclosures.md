@@ -21,3 +21,6 @@ nav_order: 7
 
 ## ESP-32 38 Pin
 * [esp32-wroom Case with 230VAC-->5V DC converter](https://www.thingiverse.com/thing:6127566)
+
+## M5 Atom Lite / M5 Atom S3 Lite
+* [Bluetooth House for EU Plugs](https://makerworld.com/en/models/1739733-bluetooth-house)
