@@ -7,7 +7,7 @@ nav_order: 90
 # Companion
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ESPresense/ESPresense-companion)
-![Docker Pulls](https://badgen.net/docker/pulls/espresense/espresense-companion)
+![Docker Pulls](https://img.shields.io/docker/pulls/espresense/espresense-companion)
 
 A Home Assistant Add-on / Docker container that solves indoor positions using MQTT data received from multiple ESPresense nodes. The companion is the central brain of your ESPresense system. It:
 - Processes distance readings from all nodes using trilateration to determine device locations
