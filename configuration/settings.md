@@ -37,9 +37,12 @@ This is a beta feature, it is for the usecase where a device fingerprint doesn't
 
 ## Calibration
 
-* Rssi expected from a 0dBm transmitter at 1 meter - This is an average value for your particular base station. In order to figure it out you need a beacon transmitting at exactly 0dBm and your ESP exactly 1 meter away. This value is the base value we use to calculate rss@1m for every beacon that doesn't broadcast a calibrated rssi@1m. (Basically Alt/iBeacons and Eddystones all broadcast a calibrated rssi, everything else uses this w/ a correction factor)
-* Factor used to account for absorption, reflection, or diffraction - An average value that accounts for the amount of "stuff" in between rooms in your house. Use a higher number for dense materials, lower for assuming no walls.
-* Forget beacon if not seen for (in milliseconds) - Specifies how long to retain MAC addresses in the internal tracking list. If a device is not seen within this timeframe, it will be removed from tracking. Setting this value too low may cause unnecessary removal and re-addition of devices. Default: 300000 (5 minutes)
+These settings control how ESPresense interprets signal strength. See the full [Calibration](calibration) guide for detailed steps and examples, including how to use the RSSI adjustment for receiver to balance different antennas or dev boards.
+
+* RSSI expected from a 0dBm transmitter at 1 meter - Reference RSSI for non-calibrated devices.
+* Factor used to account for absorption, reflection, or diffraction - Adjusts for walls and other obstacles.
+* RSSI adjustment for receiver - Per-node offset to align RSSI across different antennas or hardware.
+* Forget beacon if not seen for (in milliseconds) - How long to keep idle devices before removing them.
 
 ## Misc
 
