@@ -19,7 +19,7 @@ Reasons to use this over other solutions:
 * Filters measured distance with both a median pre-filter and a 1Euro filter (reduces jitter for greater accuracy)
 * Companion allows for full [multilateration](https://en.wikipedia.org/wiki/Trilateration)
 
-For the best experience, we recommend pairing ESPresense nodes with the [ESPresense Companion](./companion/) Docker container/HA Add-on. ESPresense nodes provide distance measurements to nearby devices, and ESPresense Companion aggregates those distances from multiple nodes, using an accurate floor plan to determine each device's location within your space ([multilateration](https://en.wikipedia.org/wiki/Trilateration)).
+For the best experience, we recommend pairing ESPresense nodes with the [ESPresense Companion](./companion) Docker container/HA Add-on. ESPresense nodes provide distance measurements to nearby devices, and ESPresense Companion aggregates those distances from multiple nodes, using an accurate floor plan to determine each device's location within your space ([multilateration](https://en.wikipedia.org/wiki/Trilateration)).
 
 While this setup allows for more precise presence detection and triangulation, it requires an accurate floor plan and at least 3 nodes covering each room to work effectively.
 
