@@ -21,7 +21,8 @@ nav_order: 3
 | Blue Charm Beacons (BC021-MultiBeacon) | [amz/us](https://amzn.to/4ceo8Jb){:target="_blank"}           | Bluetooth BLE 5.0 with Movement Sensor [^beaconconfig]
 | Blue Charm Beacons (BC05-MultiBeacon) | [amz/us](https://amzn.to/4iWu0Ja){:target="_blank"}           | Long Range Water-Resistant BLE iBeacon with Adjustable Movement - Ideal for mail detection [^beaconconfig]
 | Generic BTLE Beacons |                                             | Anything that follows the iBeacon or Eddystone standards
-| musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2){:target="_blank"} | Must be connected once with the associated app.
+| musegear finder 2    | [musegear](https://shop.musegear-finder.net/collections/finder-2){:target="_blank"} | Must be connected once with the associated app. Id format: iTrack:...
+| musegear finder mini | [musegear](https://shop.musegear-finder.net/collections/finder-mini){:target="_blank"} | Must be connected once with the associated app. Id format: iTrack:...
 | Whoop strap 3.0      |                                             | Id format: name:whoop-xxxxxxx
 | Whoop strap 4.0      |                                             | Id format: name:whoop-xxxxxxx
 | Amazfit Band         | [amz/us](https://amzn.to/3lArIr0){:target="_blank"}           | Make sure discoverable is turned on
