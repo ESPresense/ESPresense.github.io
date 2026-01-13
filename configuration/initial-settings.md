@@ -12,7 +12,7 @@ The ESP32 will launch a captive browser (under its own SSID) on first normal boo
 
 <div class="clearfix" markdown=1>
 
-<img src="/images/settings_screenshot.png" alt="Screenshot of ESP32 initial settings interface" style="float:right;margin-left:20px;width:200px">
+<img src="/images/network_screen.png" alt="Screenshot of ESP32 initial settings interface" style="float:right;margin-left:20px;width:200px">
 
 ## Main Configuration
 
