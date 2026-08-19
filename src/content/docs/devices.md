@@ -50,6 +50,7 @@ Some store links on this page (Amazon, AliExpress) are affiliate links. As an Am
 | Gigaset G-Tag        |                                             | Only works when not connected to a phone |
 | Garmin Instinct Solar| [amz/us](https://amzn.to/3JF7IeI)           | This only work while using the Broadcast Heart Rate function. It seems to be somewhat slow but usable. I do think that maybe all garmin device with this function will work. |
 | Whoop strap 5.0      | [whoop](https://join.whoop.com/B3BD19)      | Id format: name:whoop-xxxxxxx - Seems to only work with the Broadcast Heart Rate setting enabled |
+| Xiaomi LYWSDCGQ/01ZM | [pvvx ATC firmware](https://github.com/pvvx/ATC_MiThermometer) | Temp/humidity/battery only after flashing pvvx/ATC firmware — stock Xiaomi 0xFE95 adverts are encrypted and not parsed. Flash with the [TelinkMiFlasher](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html) web tool; the resulting 0x181A frames (pvvx or ATC1441 format) show up as `miTherm:` devices. |
 
 ## Known to not work
 
